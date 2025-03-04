@@ -31,23 +31,23 @@
   ); /* original: #49A2D5 */
   --status-bar-accent-color: #49a2d5;
   --main-font-family:
-    "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", sans-serif;
+    'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', sans-serif;
   --alt-font-family:
-    "SF Pro Rounded", "Noto Sans Rounded", "Roboto Rounded",
-    "Hiragino Maru Gothic ProN", Quicksand, Comfortaa, Manjari,
-    "Arial Rounded MT Bold", "Arial Rounded MT", Calibri, "Source Sans Pro",
+    'SF Pro Rounded', 'Noto Sans Rounded', 'Roboto Rounded',
+    'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari,
+    'Arial Rounded MT Bold', 'Arial Rounded MT', Calibri, 'Source Sans Pro',
     sans-serif;
   --ios-font-family:
-    "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+    'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
   --monospace-font-family:
-    "JetBrainsMono Nerd Font Mono", "JetBrains Mono", "Fira Code", "Menlo",
-    "Consolas", "Monaco", monospace;
+    'JetBrainsMono Nerd Font Mono', 'JetBrains Mono', 'Fira Code', 'Menlo',
+    'Consolas', 'Monaco', monospace;
   --mac-font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", system-iui, Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  --android-font-family: "Noto Sans JP", "Noto", "Roboto", sans-serif;
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-iui, Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --android-font-family: 'Noto Sans JP', 'Noto', 'Roboto', sans-serif;
   --label-font-color: #8e8e93; /* replace with JS depending on subject category */
   --label-background-color: rgba(
     44,
@@ -137,8 +137,8 @@
   --android-line-height-furigana: 0.8125rem; /* ~13px */
   /* macOS Code Typography Scale */
   --mac-code-font-family:
-    ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
-    "DejaVu Sans Mono", monospace;
+    ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+    'DejaVu Sans Mono', monospace;
   --mac-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
   --mac-code-line-height-large: 1.5rem; /* ~24px / 16 */
   --mac-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
@@ -147,7 +147,7 @@
   --mac-code-line-height-small: 1rem; /* ~16px / 16 */
   /* iOS Code Typography Scale */
   --ios-code-font-family:
-    "SF Mono", ui-monospace, Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    'SF Mono', ui-monospace, Menlo, Consolas, 'DejaVu Sans Mono', monospace;
   --ios-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
   --ios-code-line-height-large: 1.5rem; /* ~24px / 16 */
   --ios-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
@@ -156,7 +156,7 @@
   --ios-code-line-height-small: 1rem; /* ~16px / 16 */
   /* Android Code Typography Scale */
   --android-code-font-family:
-    "Roboto Mono", "Cascadia Code", "Source Code Pro", "DejaVu Sans Mono",
+    'Roboto Mono', 'Cascadia Code', 'Source Code Pro', 'DejaVu Sans Mono',
     monospace;
   --android-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
   --android-code-line-height-large: 1.5rem; /* ~24px / 16 */
@@ -792,7 +792,7 @@ pre code.hljs {
 }
 
 #source-text:empty::before {
-  content: "n/a";
+  content: 'n/a';
 }
 
 #source-text {
@@ -874,21 +874,62 @@ pre code.hljs {
   justify-content: center;
 }
 
-.night-mode #undo-button path,
-.night-mode #flag-button path {
+.night-mode #undo-button path {
   fill: var(--dark-mode-status-bar-color);
 }
 
-#undo-button path,
-#flag-button path {
+#undo-button path {
   fill: var(--light-mode-status-bar-color);
 }
 
-/*
+/* 
 #flag-button path {
   fill: var(--flag-color);
 }
 */
+/* General Flag Button Styling */
+#flag-button {
+  cursor: pointer;
+}
+
+/* Default (Unflagged) State */
+.night-mode #flag-button:not(.flagged) #flag-icon path {
+  fill: var(--dark-mode-status-bar-color);
+}
+
+#flag-button:not(.flagged) #flag-icon path {
+  fill: var(--light-mode-status-bar-color);
+}
+
+/* Flagged States */
+#flag-button.flag-red #flag-icon path {
+  fill: rgb(248, 77, 67);
+}
+
+#flag-button.flag-orange #flag-icon path {
+  fill: rgb(255, 165, 0);
+}
+
+#flag-button.flag-green #flag-icon path {
+  fill: rgb(50, 215, 75);
+}
+
+#flag-button.flag-blue #flag-icon path {
+  fill: rgb(11, 132, 255);
+}
+
+#flag-button.flag-pink #flag-icon path {
+  fill: rgb(255, 90, 200);
+}
+
+#flag-button.flag-turquoise #flag-icon path {
+  fill: rgb(103, 211, 207);
+}
+
+#flag-button.flag-purple #flag-icon path {
+  fill: rgb(191, 90, 242);
+}
+
 /* button hover styling */
 #flag-button:hover,
 #undo-button:hover {

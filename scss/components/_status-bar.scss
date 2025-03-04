@@ -53,22 +53,65 @@
 }
 
 .night-mode {
-  #undo-button path,
-  #flag-button path {
+  #undo-button path {
     fill: var(--dark-mode-status-bar-color);
   }
 }
 
-#undo-button path,
-#flag-button path {
+#undo-button path {
   fill: var(--light-mode-status-bar-color);
 }
 
-/*
+/* 
 #flag-button path {
   fill: var(--flag-color);
 }
 */
+
+/* General Flag Button Styling */
+#flag-button {
+  cursor: pointer;
+}
+
+/* Default (Unflagged) State */
+.night-mode {
+  #flag-button:not(.flagged) #flag-icon path {
+    fill: var(--dark-mode-status-bar-color);
+  }
+}
+
+#flag-button:not(.flagged) #flag-icon path {
+  fill: var(--light-mode-status-bar-color);
+}
+
+/* Flagged States */
+#flag-button.flag-red #flag-icon path {
+  fill: rgba(248, 77, 67, 1);
+}
+
+#flag-button.flag-orange #flag-icon path {
+  fill: rgba(255, 165, 0, 1);
+}
+
+#flag-button.flag-green #flag-icon path {
+  fill: rgba(50, 215, 75, 1);
+}
+
+#flag-button.flag-blue #flag-icon path {
+  fill: rgba(11, 132, 255, 1);
+}
+
+#flag-button.flag-pink #flag-icon path {
+  fill: rgba(255, 90, 200, 1);
+}
+
+#flag-button.flag-turquoise #flag-icon path {
+  fill: rgba(103, 211, 207, 1);
+}
+
+#flag-button.flag-purple #flag-icon path {
+  fill: rgba(191, 90, 242, 1);
+}
 
 /* button hover styling */
 #flag-button:hover,
