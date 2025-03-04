@@ -1,0 +1,82 @@
+{
+  "yellow": {
+    "dark": {
+      "fontColor": "#ffc533",
+      "backgroundColor": "rgba(255,197,51,0.15)"
+    },
+    "light": {
+      "fontColor": "#b28b20",
+      "backgroundColor": "rgba(255,221,112,0.2)"
+    }
+  },
+  "red": {
+    "dark": {
+      "fontColor": "#ff6161",
+      "backgroundColor": "rgba(255,97,97,0.15)"
+    },
+    "light": {
+      "fontColor": "#b24c4c",
+      "backgroundColor": "rgba(255,153,153,0.2)"
+    }
+  },
+  "blue": {
+    "dark": {
+      "fontColor": "#57c1ff",
+      "backgroundColor": "rgba(87,193,255,0.15)"
+    },
+    "light": {
+      "fontColor": "#2d72d9",
+      "backgroundColor": "rgba(173,216,230,0.2)"
+    }
+  },
+  "green": {
+    "dark": {
+      "fontColor": "#59d499",
+      "backgroundColor": "rgba(89,212,153,0.15)"
+    },
+    "light": {
+      "fontColor": "#3a805a",
+      "backgroundColor": "rgba(144,238,144,0.2)"
+    }
+  },
+  "orange": {
+    "dark": {
+      "fontColor": "#ff9f0b",
+      "backgroundColor": "rgba(255,159,11,0.15)"
+    },
+    "light": {
+      "fontColor": "#b25f1e",
+      "backgroundColor": "rgba(255,200,130,0.2)"
+    }
+  },
+  "pink": {
+    "dark": {
+      "fontColor": "#ff86b5",
+      "backgroundColor": "rgba(255,134,181,0.15)"
+    },
+    "light": {
+      "fontColor": "#b24863",
+      "backgroundColor": "rgba(255,182,193,0.2)"
+    }
+  },
+  "turquoise": {
+    "dark": {
+      "fontColor": "#40e0d0",
+      "backgroundColor": "rgba(64,224,208,0.15)"
+    },
+    "light": {
+      "fontColor": "#2a716b",
+      "backgroundColor": "rgba(176,224,230,0.2)"
+    }
+  },
+  "purple": {
+    "dark": {
+      "fontColor": "#b19cd9",
+      "backgroundColor": "rgba(177,156,217,0.15)"
+    },
+    "light": {
+      "fontColor": "#6b42c7",
+      "backgroundColor": "rgba(216,191,216,0.2)"
+    }
+  }
+}
