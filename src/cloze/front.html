@@ -330,6 +330,8 @@
   // DOM Cache (initialize as null, will be assigned after the DOM is loaded)
   var subjectElement = null;
   var subjectCategory = null;
+  var deckMeta = null;
+  var subdeckMeta = null;
   var deckName = null;
   var subDeckName = null;
   var matchedCategoryColor;
@@ -546,8 +548,8 @@
   }
 
   function fetchDeckNames() {
-    const deckMeta = document.querySelector('meta[name="deck-name"]');
-    const subdeckMeta = document.querySelector('meta[name="subdeck-name"]');
+    deckMeta = document.querySelector('meta[name="deck-name"]');
+    subdeckMeta = document.querySelector('meta[name="subdeck-name"]');
 
     deckName = deckMeta?.getAttribute('content')?.trim() || '';
     subdeckName = subdeckMeta?.getAttribute('content')?.trim() || '';

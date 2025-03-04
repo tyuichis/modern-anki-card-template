@@ -331,9 +331,10 @@
   // DOM Cache (initialize as null, will be assigned after the DOM is loaded)
   var subjectElement = null;
   var subjectCategory = null;
-  var flashcardContent = null;
   var detailsText = null;
   var detailsBlock = null;
+  var deckMeta = null;
+  var subdeckMeta = null;
   var deckName = null;
   var subDeckName = null;
   var matchedCategoryColor = null;
@@ -550,8 +551,8 @@
   }
 
   function fetchDeckNames() {
-    const deckMeta = document.querySelector('meta[name="deck-name"]');
-    const subdeckMeta = document.querySelector('meta[name="subdeck-name"]');
+    deckMeta = document.querySelector('meta[name="deck-name"]');
+    subdeckMeta = document.querySelector('meta[name="subdeck-name"]');
 
     deckName = deckMeta?.getAttribute('content')?.trim() || '';
     subdeckName = subdeckMeta?.getAttribute('content')?.trim() || '';
@@ -772,10 +773,9 @@
 
   /* details text */
 
-  detailsText = document.querySelector('#details-text');
-  detailsBlock = document.querySelector('#flashcard-details-info');
-
   function showDetails() {
+    detailsText = document.querySelector('#details-text');
+    detailsBlock = document.querySelector('#flashcard-details-info');
     if (!detailsText) {
       return;
     }
@@ -790,7 +790,6 @@
   /* status buttons */
 
   undoButton = document.querySelector('#undo-button');
-  flashcardContent = document.querySelector('#flashcard-content');
 
   undoButton.addEventListener('click', () => {
     console.log('undo_card called');
