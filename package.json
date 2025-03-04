@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ext .ts --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "build:css": "npx sass scss/main.scss css/main.css"
   },
   "keywords": [],
   "author": "",
