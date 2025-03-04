@@ -139,3 +139,10 @@
   margin: 0;
   padding: 0;
 }
+
+/* not supported for mobile */
+.android #status-bar-buttons,
+.iphone #status-bar-buttons,
+.ipad #status-bar-buttons {
+  display: none;
+}

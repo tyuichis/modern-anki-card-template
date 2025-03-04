@@ -1,15 +1,3 @@
-/* mobile layout / fixes */
-
-/* not supported for mobile */
-.android #status-bar-buttons,
-.android #misc-info,
-.iphone #status-bar-buttons,
-.iphone #misc-info,
-.ipad #status-bar-buttons,
-.ipad #misc-info {
-  display: none;
-}
-
 /* fix ios text alignment */
 .iphone #flashcard-title,
 .iphone #flashcard-subject,
