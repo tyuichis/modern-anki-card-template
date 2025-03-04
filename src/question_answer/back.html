@@ -665,9 +665,9 @@
             </svg>
           </span>
           <p id="answer-text">{{Answer}}</p>
-          <div id="details">
-            <span id="details-marker" class="hidden">NB: </span>
-            <p id="details-text" class="hidden">{{Details}}</p>
+          <div id="details" class="hidden">
+            <span id="details-marker">NB: </span>
+            <p id="details-text">{{Details}}</p>
           </div>
         </div>
       </div>
@@ -741,19 +741,6 @@
     hljs.highlightElement(block);
   });
 
-  detailsText = document.querySelector('#details-text');
-  detailsMarker = document.querySelector('#details-marker');
-
-  function showDetails() {
-    if (!detailsText || !detailsMarker) {
-      return;
-    }
-    if (detailsText.textContent.trim()) {
-      detailsText.classList.remove('hidden');
-      detailsMarker.classList.remove('hidden');
-    }
-  }
-
   showDetails();
 
   fetchDeckNames();
@@ -784,10 +771,11 @@
 
   /* details text */
 
-  detailsText = document.querySelector('#details-text');
-  detailsBlock = document.querySelector('#flashcard-details-info');
-
   function showDetails() {
+
+    detailsText = document.querySelector('#details-text');
+    detailsBlock = document.querySelector('#details');
+
     if (!detailsText) {
       return;
     }
