@@ -1,3 +1,572 @@
+<!-- 
+    Highlight.js v11.9.0 (git: b7ec4bfafc)
+    (c) 2006-2023 undefined and other contributors
+    License: BSD-3-Clause
+-->
+
+<link rel="stylesheet" href="_github-dark.min.css" />
+
+<script src="_highlight.min.js"></script>
+
+<script>
+  var labelColors = {
+    yellow: {
+      dark: {
+        fontColor: '#ffc533',
+        backgroundColor: 'rgba(255,197,51,0.15)',
+      },
+      light: {
+        fontColor: '#b28b20',
+        backgroundColor: 'rgba(255,221,112,0.2)',
+      },
+    },
+    red: {
+      dark: {
+        fontColor: '#ff6161',
+        backgroundColor: 'rgba(255,97,97,0.15)',
+      },
+      light: {
+        fontColor: '#b24c4c',
+        backgroundColor: 'rgba(255,153,153,0.2)',
+      },
+    },
+    blue: {
+      dark: {
+        fontColor: '#57c1ff',
+        backgroundColor: 'rgba(87,193,255,0.15)',
+      },
+      light: {
+        fontColor: '#2d72d9',
+        backgroundColor: 'rgba(173,216,230,0.2)',
+      },
+    },
+    green: {
+      dark: {
+        fontColor: '#59d499',
+        backgroundColor: 'rgba(89,212,153,0.15)',
+      },
+      light: {
+        fontColor: '#3a805a',
+        backgroundColor: 'rgba(144,238,144,0.2)',
+      },
+    },
+    orange: {
+      dark: {
+        fontColor: '#ff9f0b',
+        backgroundColor: 'rgba(255,159,11,0.15)',
+      },
+      light: {
+        fontColor: '#b25f1e',
+        backgroundColor: 'rgba(255,200,130,0.2)',
+      },
+    },
+    pink: {
+      dark: {
+        fontColor: '#ff86b5',
+        backgroundColor: 'rgba(255,134,181,0.15)',
+      },
+      light: {
+        fontColor: '#b24863',
+        backgroundColor: 'rgba(255,182,193,0.2)',
+      },
+    },
+    turquoise: {
+      dark: {
+        fontColor: '#40e0d0',
+        backgroundColor: 'rgba(64,224,208,0.15)',
+      },
+      light: {
+        fontColor: '#2a716b',
+        backgroundColor: 'rgba(176,224,230,0.2)',
+      },
+    },
+    purple: {
+      dark: {
+        fontColor: '#b19cd9',
+        backgroundColor: 'rgba(177,156,217,0.15)',
+      },
+      light: {
+        fontColor: '#6b42c7',
+        backgroundColor: 'rgba(216,191,216,0.2)',
+      },
+    },
+  };
+
+  var subjects = {
+    algorithms: 'purple',
+    'data structures': 'purple',
+    sorting: 'purple',
+    searching: 'purple',
+    graphs: 'purple',
+    compression: 'purple',
+    'dynamic programming': 'purple',
+    greedy: 'purple',
+    'divide and conquer': 'purple',
+    backtracking: 'purple',
+    randomization: 'purple',
+    'graph algorithms': 'purple',
+    lists: 'purple',
+    strings: 'purple',
+    arrays: 'purple',
+    objects: 'purple',
+    'linked lists': 'purple',
+    'doubly linked lists': 'purple',
+    'circular linked lists': 'purple',
+    stacks: 'purple',
+    queues: 'purple',
+    trees: 'purple',
+    'binary search trees': 'purple',
+    'balanced trees': 'purple',
+    'tree traversals': 'purple',
+    heaps: 'purple',
+    'hash tables': 'purple',
+    tries: 'purple',
+    'priority queues': 'purple',
+    sets: 'purple',
+    maps: 'purple',
+    'red-black trees': 'purple',
+    'b-trees': 'purple',
+    'suffix trees': 'purple',
+    'avl trees': 'purple',
+    '2-3 trees': 'purple',
+    'segment trees': 'purple',
+    'fenwick trees': 'purple',
+    'sparse tables': 'purple',
+    'merge find sets': 'purple',
+    'bloom filters': 'purple',
+    'skip lists': 'purple',
+    recursion: 'purple',
+    'time complexity': 'purple',
+    'space complexity': 'purple',
+    'amortized analysis': 'purple',
+    python: 'turquoise',
+    javascript: 'turquoise',
+    typescript: 'turquoise',
+    ruby: 'turquoise',
+    php: 'turquoise',
+    swift: 'turquoise',
+    go: 'turquoise',
+    bash: 'turquoise',
+    'node.js': 'turquoise',
+    react: 'pink',
+    angular: 'pink',
+    'vue.js': 'pink',
+    'express.js': 'turquoise',
+    npm: 'turquoise',
+    yarn: 'turquoise',
+    docker: 'turquoise',
+    kubernetes: 'green',
+    tailwind: 'turquoise',
+    css: 'turquoise',
+    html: 'turquoise',
+    'web programming': 'turquoise',
+    'mobile programming': 'turquoise',
+    'api development': 'turquoise',
+    databases: 'green',
+    mysql: 'green',
+    postgresql: 'green',
+    mongodb: 'green',
+    sql: 'green',
+    'database management': 'green',
+    'in-memory databases': 'green',
+    'caching mechanisms': 'green',
+    'cloud computing': 'green',
+    'cloud architecture': 'green',
+    'internet of things': 'green',
+    'api design': 'green',
+    'server architecture': 'green',
+    'serverless computing': 'green',
+    containers: 'green',
+    orchestration: 'green',
+    microservices: 'green',
+    'service discovery': 'green',
+    'load balancing': 'green',
+    'message queues': 'green',
+    authentication: 'green',
+    authorization: 'green',
+    'session management': 'green',
+    'api gateways': 'green',
+    networking: 'green',
+    'computer networks': 'green',
+    'network security': 'green',
+    security: 'green',
+    cybersecurity: 'green',
+    'data mining': 'green',
+    'data warehousing': 'green',
+    'big data': 'green',
+    'distributed systems': 'green',
+    'data systems': 'green',
+    circuits: 'green',
+    gates: 'green',
+    'digital logic': 'green',
+    'secondary storage devices': 'green',
+    caches: 'green',
+    rust: 'blue',
+    c: 'blue',
+    'c++': 'blue',
+    'c#': 'blue',
+    kotlin: 'blue',
+    java: 'blue',
+    bitwise: 'blue',
+    data: 'blue',
+    syntax: 'blue',
+    semantics: 'blue',
+    'system programming': 'blue',
+    'assembly language': 'blue',
+    'machine language': 'blue',
+    'object-oriented programming': 'blue',
+    'functional programming': 'blue',
+    'declarative programming': 'blue',
+    'imperative programming': 'blue',
+    'procedural programming': 'blue',
+    pseudocode: 'blue',
+    concurrency: 'blue',
+    multithreading: 'blue',
+    'parallel computing': 'blue',
+    'operating systems': 'blue',
+    'process management': 'blue',
+    threads: 'blue',
+    'virtual memory': 'blue',
+    scheduling: 'blue',
+    'von neumann architecture': 'blue',
+    'memory management': 'blue',
+    'memory allocation': 'blue',
+    memory: 'blue',
+    pointers: 'blue',
+    'garbage collection': 'blue',
+    'file systems': 'blue',
+    virtualization: 'blue',
+    'cloud services': 'blue',
+    'runtime environments': 'blue',
+    'embedded systems': 'blue',
+    'real-time systems': 'blue',
+    hardware: 'blue',
+    'hardware and network troubleshooting': 'blue',
+    compilers: 'blue',
+    interpreters: 'blue',
+    debuggers: 'blue',
+    'software testing': 'red',
+    'unit testing': 'red',
+    'integration testing': 'red',
+    'system testing': 'red',
+    'test-driven development': 'red',
+    'software engineering': 'red',
+    'agile development': 'red',
+    'waterfall model': 'red',
+    devops: 'red',
+    'ci/cd': 'red',
+    'version control': 'red',
+    'software troubleshooting': 'red',
+    debugging: 'red',
+    cargo: 'red',
+    git: 'red',
+    'computer architecture': 'red',
+    datapath: 'red',
+    'cpu design': 'red',
+    'programming languages': 'red',
+    'web development': 'pink',
+    'front-end development': 'pink',
+    'back-end development': 'pink',
+    browsers: 'pink',
+    'browser rendering': 'pink',
+    'web performance': 'pink',
+    swiftui: 'pink',
+    'android development': 'pink',
+    'ios development': 'pink',
+    'cross-platform development': 'pink',
+    calculus: 'orange',
+    algebra: 'orange',
+    'logic design': 'orange',
+    'graph theory': 'orange',
+    'number theory': 'orange',
+    'set theory': 'orange',
+    combinatorics: 'orange',
+    'discrete probability': 'orange',
+    'probability theory': 'orange',
+    statistics: 'orange',
+    'recurrence relations': 'orange',
+    functions: 'orange',
+    scopes: 'orange',
+    closures: 'orange',
+    'higher-order functions': 'orange',
+    'data types': 'orange',
+    'error handling': 'orange',
+    'event handling': 'orange',
+    'asynchronous programming': 'orange',
+    promises: 'orange',
+    'async/await': 'orange',
+    'file handling': 'orange',
+    'input/output': 'orange',
+    modules: 'orange',
+    patterns: 'orange',
+    'object-oriented design': 'orange',
+    'theory of computation': 'orange',
+    'finite state machines': 'orange',
+    'formal languages': 'orange',
+    'compiler design': 'orange',
+    'complexity theory': 'orange',
+    logic: 'orange',
+    'proof techniques': 'orange',
+    computation: 'orange',
+    'number systems': 'orange',
+    'boolean algebra': 'orange',
+    arithmetic: 'orange',
+    'mathematical foundations': 'orange',
+    grammar: 'green',
+    vocabulary: 'blue',
+    reading: 'purple',
+    listening: 'orange',
+    'idioms and proverbs': 'pink',
+    kanji: 'red',
+    'useful expressions': 'pink',
+  };
+
+  /* only for desktop. screw mobile */
+
+  var isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
+    );
+
+  // DOM Cache (initialize as null, will be assigned after the DOM is loaded)
+  var subjectElement = null;
+  var subjectCategory = null;
+  var flashcardContent = null;
+  var detailsText = null;
+  var detailsBlock = null;
+  var deckName = null;
+  var subDeckName = null;
+  var matchedCategoryColor = null;
+
+  /* cache JS api items */
+  var remainingCards = null;
+
+  /* cache status bar items (undo, flag buttons) */
+
+  var undoButton = null;
+  var flagButton = null;
+  var flag = null;
+  var flagId = null;
+
+  /* flag logic */
+
+  var FLAG_COLORS = {
+    // colorName: flagId
+    red: 1,
+    orange: 2,
+    green: 3,
+    blue: 4,
+    pink: 5,
+    turquoise: 6,
+    purple: 7,
+  };
+
+  function getFlagId(subjectColor) {
+    try {
+      const flagId = FLAG_COLORS?.[subjectColor] ?? 0; // i.e. FLAG_COLORS["red"] => 1
+      return flagId;
+    } catch (error) {
+      console.error('Error retrieving flag ID:', error); // More specific message
+      return 0; // Return default value on error.  0 makes more sense than null here.
+    }
+  }
+
+  // Function to update CSS classes on the flag button
+  function setFlagDisplay(flagId) {
+    const flagButton = document.getElementById('flag-button'); // caching
+
+    if (!flagButton) {
+      console.warn('Flag button element not found.');
+      return;
+    }
+
+    const flagColor =
+      Object.entries(FLAG_COLORS).find(([color, id]) => id === flagId)?.[0] ||
+      null;
+
+    // Reset: Remove all flag color classes
+    for (const color of [
+      'red',
+      'orange',
+      'green',
+      'blue',
+      'pink',
+      'turquoise',
+      'purple',
+    ]) {
+      flagButton.classList.remove(`flag-${color}`);
+    }
+
+    // Add the appropriate flag color class
+    if (flagColor) {
+      // Check that flagColor isn't null
+      flagButton.classList.add(`flag-${flagColor}`);
+    }
+
+    // Toggle the "flagged" class based on whether it's flagged or not
+    if (flagId === 0) {
+      flagButton.classList.remove('flagged');
+    } else {
+      flagButton.classList.add('flagged');
+    }
+  }
+
+  // Update the flag color on page load, depending on its status.
+  async function updateFlag() {
+    try {
+      const flagNumber = await new Promise((resolve) =>
+        pycmd('get_flag_status', resolve),
+      );
+
+      // Validate the flagNumber
+      if (
+        typeof flagNumber === 'number' &&
+        flagNumber >= 0 &&
+        flagNumber <= 7
+      ) {
+        setFlagDisplay(flagNumber);
+      } else {
+        console.error(`Invalid flag number received: ${flagNumber}`);
+        setFlagDisplay(0); // Set to the default unflagged state
+      }
+    } catch (e) {
+      console.error('Error getting flag status:', e);
+      setFlagDisplay(0); // Default to unflagged on error
+    }
+  }
+
+  // Function to update CSS variables based on subject category
+  function updateLabelColors(subjectCategory) {
+    let theme = document.body.classList.contains('nightMode')
+      ? 'dark'
+      : 'light';
+
+    let colorDetails = labelColors[subjectCategory]?.[theme];
+
+    if (colorDetails) {
+      document.documentElement.style.setProperty(
+        '--label-font-color',
+        colorDetails.fontColor,
+      );
+      document.documentElement.style.setProperty(
+        '--label-background-color',
+        colorDetails.backgroundColor,
+      );
+    } else {
+      // Set defaults
+      document.documentElement.style.setProperty(
+        '--label-font-color',
+        theme === 'dark' ? '#8E8E93' : '#555',
+      );
+      document.documentElement.style.setProperty(
+        '--label-background-color',
+        theme === 'dark' ? 'rgba(44, 44, 46, 0.9)' : 'rgba(200, 200, 200, 0.2)',
+      );
+      console.error(
+        `Color details not found for the subject category: ${subjectCategory}`,
+      );
+    }
+  }
+
+  // Function to get the subject category from the DOM
+  function getSubjectFromDOM() {
+    subjectElement = document.getElementById('subject');
+    if (subjectElement) {
+      return subjectElement.textContent.trim().toLowerCase(); // Get subject and make it lowercase to match the subjects object
+    } else {
+      console.error('Subject element not found.');
+      return null;
+    }
+  }
+
+  // API Setup
+
+  var api;
+  if (isMobile) {
+    var jsApiContract = {
+      version: '0.0.3',
+      developer: 'your-email@example.com' /* your email here */,
+    };
+    api = new AnkiDroidJS(jsApiContract);
+  }
+
+  async function ankiCall(method, apiFallback = false) {
+    if (isMobile && !apiFallback) {
+      const response = await api[method]();
+      if (response && response.success) {
+        return response.value;
+      } else {
+        if (response && response.error) {
+          throw new Error(
+            `AnkiDroid API call ${method} failed. Error: ${response.error}`,
+          );
+        } else {
+          throw new Error(`AnkiDroid API call ${method} failed.`);
+        }
+      }
+    } else {
+      const response = await new Promise((resolve) =>
+        pycmd(`AnkiJS.${method}()`, resolve),
+      );
+
+      // Handle NaN and other cases if needed
+      const number = isNaN(Number(response)) ? 0 : Number(response);
+      return number;
+    }
+  }
+
+  async function fetchCardCount() {
+    var newCards = 0;
+    var learningCards = 0;
+    var reviewCards = 0;
+
+    try {
+      newCards = await ankiCall('ankiGetNewCardCount');
+      learningCards = await ankiCall('ankiGetLrnCardCount');
+      reviewCards = await ankiCall('ankiGetRevCardCount');
+
+      console.log(
+        'API Results - New:',
+        newCards,
+        ' Learning:',
+        learningCards,
+        ' Review:',
+        reviewCards,
+      );
+    } catch (e) {
+      console.error('Error fetching card counts:', e);
+    }
+
+    return { new: newCards, learn: learningCards, review: reviewCards };
+  }
+
+  function updateRemainingCards(remainingCardCount) {
+    remainingCards = document.querySelector('#remainingCards');
+    if (remainingCards) {
+      remainingCards.textContent = remainingCardCount;
+    } else {
+      console.warn('Element #remainingCards not found in the DOM.');
+    }
+  }
+
+  function fetchDeckNames() {
+    const deckMeta = document.querySelector('meta[name="deck-name"]');
+    const subdeckMeta = document.querySelector('meta[name="subdeck-name"]');
+
+    deckName = deckMeta?.getAttribute('content')?.trim() || '';
+    subdeckName = subdeckMeta?.getAttribute('content')?.trim() || '';
+
+    console.log(`deckName: ${deckName}, subdeckName: ${subdeckName}`);
+  }
+
+  function updateDeckNames() {
+    const deckNameTag = document.querySelector('#deck-name');
+    if (!subdeckName) {
+      deckNameTag.textContent = deckName;
+    } else deckNameTag.textContent = subdeckName;
+  }
+</script>
+
 <!-- Back Side -->
 
 <meta name="deck-name" content="{{Deck}}" />
@@ -165,3 +734,98 @@
     </ul>
   </div>
 </section>
+
+<script>
+  // Highlight all block-level code
+  hljs.highlightAll();
+
+  // Highlight inline code
+  document.querySelectorAll('code:not(pre code)').forEach((block) => {
+    hljs.highlightElement(block);
+  });
+
+  fetchDeckNames();
+  updateDeckNames();
+
+  // Fetch and update card counts
+  fetchCardCount().then((cardCounts) => {
+    var totalRemaining = cardCounts.new + cardCounts.learn + cardCounts.review;
+    updateRemainingCards(totalRemaining);
+  });
+
+  // Get the subject category from the DOM and update the label colors
+  subjectCategory = getSubjectFromDOM();
+
+  if (subjectCategory) {
+    matchedCategoryColor = subjects[subjectCategory] || null; //  this returns a color
+    if (matchedCategoryColor) {
+      updateLabelColors(matchedCategoryColor);
+      flagId = getFlagId(matchedCategoryColor);
+    } else {
+      console.error(
+        `Subject category "${subjectCategory}" not found in subjects.`,
+      );
+    }
+  } else {
+    console.error('No subject category found.');
+  }
+
+  /* details text */
+
+  detailsText = document.querySelector('#details-text');
+  detailsBlock = document.querySelector('#flashcard-details-info');
+
+  function showDetails() {
+    if (!detailsText) {
+      return;
+    }
+
+    if (detailsText.textContent.trim()) {
+      detailsBlock.classList.remove('hidden');
+    }
+  }
+
+  showDetails();
+
+  /* status buttons */
+
+  undoButton = document.querySelector('#undo-button');
+  flashcardContent = document.querySelector('#flashcard-content');
+
+  undoButton.addEventListener('click', () => {
+    console.log('undo_card called');
+    pycmd('undo_card');
+  });
+
+  if (!isMobile) {
+    // custom flag button only exists on desktop
+    updateFlag(); // update on page reload. updates the visual state of the flag.
+
+    // setup event listener
+    flagButton = document.getElementById('flag-button');
+    flagButton.addEventListener('click', async () => {
+      console.log('set_flag_[flagId] called');
+      try {
+        const flagStatus = await new Promise((resolve) =>
+          pycmd(`set_flag_${flagId}`, resolve),
+        );
+
+        updateFlag();
+      } catch (e) {
+        console.log('Error getting flag status:', e);
+      }
+    });
+  }
+
+  document.addEventListener('keydown', function (event) {
+    // Check for right arrow key (ArrowRight or ->)
+    if (event.key === 'ArrowRight') {
+      pycmd('ease3');
+    }
+
+    // Check for left arrow key (ArrowLeft or <-)
+    if (event.key === 'ArrowLeft') {
+      pycmd('ease1');
+    }
+  });
+</script>
