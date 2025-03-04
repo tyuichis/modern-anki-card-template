@@ -8,8 +8,35 @@
 }
 
 :root {
-  --main-bg-color: white;
-  --main-text-color: #d4d4d4; /* original: #ececec */
+  --light-mode-main-bg-color: #f3f3f3;
+  --dark-mode-main-bg-color: #272626;
+  --light-mode-main-text-color: #333333;
+  --dark-mode-main-text-color: #d4d4d4; /* original: #ececec */
+  --light-mode-footnote-text-color: #666666;
+  --dark-mode-footnote-text-color: darkgrey;
+
+  --light-mode-empty-text-color: rgba(0, 0, 0, 0.25);
+  --dark-mode-empty-text-color: rgba(255, 255, 255, 0.25);
+
+  --light-mode-details-text-color: #666;
+  --dark-mode-details-text-color: darkgrey;
+
+  --light-mode-icon-color: #333333;
+  --light-mode-status-bar-color: rgba(0, 0, 0, 0.8);
+
+  /* bookmark / source icon color accent; none on dark mode */
+  --source-icon-accent-color: #b55a5a;
+
+  --light-mode-link-accent-color: #d91e50;
+  --dark-mode-link-accent-color: darkgrey;
+
+  --dark-mode-status-bar-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* original: #49A2D5 */
+  --status-bar-accent-color: #49a2d5;
 
   --main-font-family:
     'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -34,8 +61,8 @@
 
   --android-font-family: 'Noto Sans JP', 'Noto', 'Roboto', sans-serif;
 
-  --dark-mode-label-font-color: #8e8e93; /* replace with JS depending on subject category */
-  --dark-mode-label-background-color: rgba(
+  --label-font-color: #8e8e93; /* replace with JS depending on subject category */
+  --label-background-color: rgba(
     44,
     44,
     46,
@@ -208,7 +235,4 @@
   /* take into account button padding, left and right sides */
   --status-bar-width: calc(478.47px + (0.25em * 2));
   --status-bar-mobile-width: calc(90vw + (0.25em * 2));
-
-  --status-bar-color: rgba(255, 255, 255, 0.8); /* original: #49A2D5 */
-  --status-bar-accent-color: #49a2d5;
 }

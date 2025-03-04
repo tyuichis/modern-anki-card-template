@@ -7,28 +7,49 @@
 }
 
 :root {
-  --main-bg-color: white;
-  --main-text-color: #d4d4d4; /* original: #ececec */
+  --light-mode-main-bg-color: #f3f3f3;
+  --dark-mode-main-bg-color: #272626;
+  --light-mode-main-text-color: #333333;
+  --dark-mode-main-text-color: #d4d4d4; /* original: #ececec */
+  --light-mode-footnote-text-color: #666666;
+  --dark-mode-footnote-text-color: darkgrey;
+  --light-mode-empty-text-color: rgba(0, 0, 0, 0.25);
+  --dark-mode-empty-text-color: rgba(255, 255, 255, 0.25);
+  --light-mode-details-text-color: #666;
+  --dark-mode-details-text-color: darkgrey;
+  --light-mode-icon-color: #333333;
+  --light-mode-status-bar-color: rgba(0, 0, 0, 0.8);
+  /* bookmark / source icon color accent; none on dark mode */
+  --source-icon-accent-color: #b55a5a;
+  --light-mode-link-accent-color: #d91e50;
+  --dark-mode-link-accent-color: darkgrey;
+  --dark-mode-status-bar-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* original: #49A2D5 */
+  --status-bar-accent-color: #49a2d5;
   --main-font-family:
-    'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', sans-serif;
+    "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", sans-serif;
   --alt-font-family:
-    'SF Pro Rounded', 'Noto Sans Rounded', 'Roboto Rounded',
-    'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari,
-    'Arial Rounded MT Bold', 'Arial Rounded MT', Calibri, 'Source Sans Pro',
+    "SF Pro Rounded", "Noto Sans Rounded", "Roboto Rounded",
+    "Hiragino Maru Gothic ProN", Quicksand, Comfortaa, Manjari,
+    "Arial Rounded MT Bold", "Arial Rounded MT", Calibri, "Source Sans Pro",
     sans-serif;
   --ios-font-family:
-    'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
+    "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   --monospace-font-family:
-    'JetBrainsMono Nerd Font Mono', 'JetBrains Mono', 'Fira Code', 'Menlo',
-    'Consolas', 'Monaco', monospace;
+    "JetBrainsMono Nerd Font Mono", "JetBrains Mono", "Fira Code", "Menlo",
+    "Consolas", "Monaco", monospace;
   --mac-font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-iui, Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  --android-font-family: 'Noto Sans JP', 'Noto', 'Roboto', sans-serif;
-  --dark-mode-label-font-color: #8e8e93; /* replace with JS depending on subject category */
-  --dark-mode-label-background-color: rgba(
+    -apple-system, BlinkMacSystemFont, "Segoe UI", system-iui, Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --android-font-family: "Noto Sans JP", "Noto", "Roboto", sans-serif;
+  --label-font-color: #8e8e93; /* replace with JS depending on subject category */
+  --label-background-color: rgba(
     44,
     44,
     46,
@@ -116,8 +137,8 @@
   --android-line-height-furigana: 0.8125rem; /* ~13px */
   /* macOS Code Typography Scale */
   --mac-code-font-family:
-    ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
-    'DejaVu Sans Mono', monospace;
+    ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+    "DejaVu Sans Mono", monospace;
   --mac-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
   --mac-code-line-height-large: 1.5rem; /* ~24px / 16 */
   --mac-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
@@ -126,7 +147,7 @@
   --mac-code-line-height-small: 1rem; /* ~16px / 16 */
   /* iOS Code Typography Scale */
   --ios-code-font-family:
-    'SF Mono', ui-monospace, Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    "SF Mono", ui-monospace, Menlo, Consolas, "DejaVu Sans Mono", monospace;
   --ios-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
   --ios-code-line-height-large: 1.5rem; /* ~24px / 16 */
   --ios-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
@@ -135,7 +156,7 @@
   --ios-code-line-height-small: 1rem; /* ~16px / 16 */
   /* Android Code Typography Scale */
   --android-code-font-family:
-    'Roboto Mono', 'Cascadia Code', 'Source Code Pro', 'DejaVu Sans Mono',
+    "Roboto Mono", "Cascadia Code", "Source Code Pro", "DejaVu Sans Mono",
     monospace;
   --android-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
   --android-code-line-height-large: 1.5rem; /* ~24px / 16 */
@@ -147,8 +168,6 @@
   /* take into account button padding, left and right sides */
   --status-bar-width: calc(478.47px + (0.25em * 2));
   --status-bar-mobile-width: calc(90vw + (0.25em * 2));
-  --status-bar-color: rgba(255, 255, 255, 0.8); /* original: #49A2D5 */
-  --status-bar-accent-color: #49a2d5;
 }
 
 /* ===========================
@@ -160,17 +179,21 @@ html {
 }
 
 /* Apply background color to body before content */
+.night-mode body::before,
+.night-mode body {
+  background: var(--dark-mode-main-bg-color) !important;
+  color: var(---dark-mode-main-text-color); /* base text color */
+}
+
 body::before,
 body {
-  background: #272626 !important;
+  background: var(--light-mode-main-bg-color) !important;
+  color: var(--light-mode-main-text-color);
 }
 
 body {
   width: 100%;
   height: 100%;
-}
-.night-mode body {
-  color: var(--main-text-color); /* base text color */
 }
 
 * {
@@ -220,7 +243,7 @@ body {
 #flashcard-question:not(.seen) b,
 #flashcard-answer b,
 .cloze {
-  color: var(--dark-mode-label-font-color);
+  color: var(--label-font-color);
 }
 
 b,
@@ -233,9 +256,13 @@ b,
   color: darkgray;
 }
 
-a {
-  color: darkgray;
+.night-mode a {
+  color: var(--dark-mode-link-accent-color);
   text-decoration: underline;
+}
+
+a {
+  color: var(--light-mode-link-accent-color);
 }
 
 .pass,
@@ -252,7 +279,7 @@ a {
 }
 
 #controls-title {
-  color: var(--status-bar-color);
+  color: var(--dark-mode-status-bar-color);
   font-weight: 400;
 }
 
@@ -263,7 +290,7 @@ a {
 
 #controls-options {
   font-family: var(--monospace-font-family);
-  color: var(--status-bar-color);
+  color: var(--dark-mode-status-bar-color);
   font-size: var(--ios-font-size-footnote); /* Default */
 }
 
@@ -271,9 +298,14 @@ a {
   margin: 0;
 }
 
+.night-mode #details-marker,
+.night-mode #details-text {
+  color: var(--dark-mode-details-text-color);
+}
+
 #details-marker,
 #details-text {
-  color: darkgray;
+  color: var(--light-mode-details-text-color);
 }
 
 #details-text {
@@ -572,8 +604,8 @@ pre code.hljs {
 
 /* label */
 .subject-label {
-  color: var(--dark-mode-label-font-color);
-  background: var(--dark-mode-label-background-color);
+  color: var(--label-font-color);
+  background: var(--label-background-color);
   padding: 0.3em 0.5em;
   padding: var(--pill-button-padding);
   border-radius: 6px;
@@ -592,6 +624,15 @@ pre code.hljs {
   display: flex;
   flex-flow: column;
   gap: 1.1875rem;
+}
+
+/* focus on answer on question-answer cards */
+.night-mode #flashcard-question:not(:only-child):not(:has(.cloze-answer)) {
+  opacity: 1;
+}
+
+#flashcard-question:not(:only-child):not(:has(.cloze-answer)) {
+  opacity: 0.7;
 }
 
 /* animations */
@@ -658,18 +699,27 @@ pre code.hljs {
   width: 1.75em;
 }
 
+.night-mode #sentence-icon svg,
+.night-mode #pitch-icon svg,
+.night-mode .deck-icon svg,
+.night-mode #source-icon svg {
+  fill: darkgray;
+}
+
 #sentence-icon svg,
 #pitch-icon svg,
 .deck-icon svg,
 #source-icon svg {
-  fill: darkgray;
-}
-
-#flashcard-source-info:has(#source-text:empty) path {
-  fill: rgba(255, 255, 255, 0.25);
+  fill: var(--light-mode-icon-color);
 }
 
 .deck-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#details-icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -681,8 +731,14 @@ pre code.hljs {
   height: 1.25em;
 }
 
-#answer-marker svg path {
-  fill: var(--main-text-color);
+.night-mode #answer-marker path,
+.night-mode #details-icon path {
+  fill: var(--dark-mode-main-text-color);
+}
+
+#answer-marker path,
+#details-icon path {
+  fill: var(--light-mode-icon-color);
 }
 
 /* answer marker icon */
@@ -696,20 +752,47 @@ pre code.hljs {
   display: flex;
   gap: 0.5rem;
   width: 100%;
-  color: darkgray;
   align-items: center;
+}
+
+.night-mode .flashcard-metadata,
+.night-mode #deck-name-container {
+  color: var(--dark-mode-footnote-text-color);
+}
+.night-mode #flashcard-source-info:has(#source-text:empty) path {
+  fill: var(--dark-mode-empty-text-color);
+}
+.night-mode #flashcard-source-info:has(#source-text:empty) {
+  color: var(--dark-mode-empty-text-color);
+}
+
+.flashcard-metadata,
+#deck-name-container {
+  color: var(--light-mode-footnote-text-color);
+}
+
+#flashcard-source-info:has(#source-text:empty) path {
+  fill: var(--light-mode-empty-text-color);
+}
+
+#flashcard-source-info:has(#source-text:empty) {
+  color: var(--light-mode-empty-text-color);
 }
 
 #flashcard-source-info {
   margin-top: 2.875rem;
 }
 
-#flashcard-source-info:has(#source-text:empty) {
-  color: rgba(255, 255, 255, 0.25);
+.night-mode #source-icon path {
+  fill: var(--dark-mode-footnote-text-color);
+}
+
+#source-icon path {
+  fill: var(--source-icon-accent-color);
 }
 
 #source-text:empty::before {
-  content: 'n/a';
+  content: "n/a";
 }
 
 #source-text {
@@ -717,7 +800,6 @@ pre code.hljs {
 }
 
 #deck-name-container {
-  color: darkgray;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -745,11 +827,15 @@ pre code.hljs {
 /* ===========================
    Status Bar Component
 =========================== */
+.night-mode #status-bar {
+  color: var(--dark-mode-status-bar-color);
+}
+
 #status-bar {
   display: flex;
   justify-content: space-between;
-  color: var(--status-bar-color);
   box-sizing: border-box;
+  color: var(--light-mode-status-bar-color);
 }
 
 #status-bar li {
@@ -788,14 +874,21 @@ pre code.hljs {
   justify-content: center;
 }
 
-#undo-button path {
-  fill: var(--status-bar-color);
+.night-mode #undo-button path,
+.night-mode #flag-button path {
+  fill: var(--dark-mode-status-bar-color);
 }
 
+#undo-button path,
+#flag-button path {
+  fill: var(--light-mode-status-bar-color);
+}
+
+/*
 #flag-button path {
   fill: var(--flag-color);
 }
-
+*/
 /* button hover styling */
 #flag-button:hover,
 #undo-button:hover {
@@ -805,11 +898,11 @@ pre code.hljs {
 }
 
 #undo-button:hover {
-  color: var(--dark-mode-label-font-color);
+  color: var(--label-font-color);
 }
 
 #undo-button:hover path {
-  fill: var(--dark-mode-label-font-color);
+  fill: var(--label-font-color);
 }
 
 #flag-button:hover path {
@@ -958,7 +1051,7 @@ header,
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 #question-marker,
@@ -1046,17 +1139,19 @@ html.android .back {
   box-shadow: 0 8px 0 #1f2124;
 }
 
-.mac body {
-  background: #282828 !important;
-}
-
 .mac #flashcard-content,
 .win #flashcard-content,
-.linux:not(.android) {
+.linux:not(.android) #flashcard-content {
   max-height: var(--mac-flashcard-content-ideal-max-height);
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2); /* Soft & diffused raycast like */
-  box-shadow: none;
-  border-radius: 12px; /* Smooth, rounded edges */
+  border-radius: 12px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: linear-gradient(to bottom, #f8f8f8, #eaeaea);
+}
+.mac.night-mode #flashcard-content,
+.win.night-mode #flashcard-content,
+.linux:not(.android).night-mode #flashcard-content {
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: linear-gradient(to bottom, #242424, #1e1e1e);
 }

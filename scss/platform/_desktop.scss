@@ -1,14 +1,17 @@
-.mac body {
-  background: #282828 !important;
-}
-
-.mac #flashcard-content,
-.win #flashcard-content,
+.mac,
+.win,
 .linux:not(.android) {
-  max-height: var(--mac-flashcard-content-ideal-max-height);
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2); /* Soft & diffused raycast like */
-  box-shadow: none;
-  border-radius: 12px; /* Smooth, rounded edges */
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(to bottom, #242424, #1e1e1e);
+  #flashcard-content {
+    max-height: var(--mac-flashcard-content-ideal-max-height);
+    border-radius: 12px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: linear-gradient(to bottom, #f8f8f8, #eaeaea);
+  }
+
+  &.night-mode #flashcard-content {
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(to bottom, #242424, #1e1e1e);
+  }
 }

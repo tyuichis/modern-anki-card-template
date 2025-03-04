@@ -10,18 +10,29 @@
   width: 1.75em;
 }
 
+.night-mode {
+  #sentence-icon svg,
+  #pitch-icon svg,
+  .deck-icon svg,
+  #source-icon svg {
+    fill: darkgray;
+  }
+}
+
 #sentence-icon svg,
 #pitch-icon svg,
 .deck-icon svg,
 #source-icon svg {
-  fill: darkgray;
-}
-
-#flashcard-source-info:has(#source-text:empty) path {
-  fill: rgba(255, 255, 255, 0.25);
+  fill: var(--light-mode-icon-color);
 }
 
 .deck-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#details-icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,8 +44,16 @@
   height: 1.25em;
 }
 
-#answer-marker svg path {
-  fill: var(--main-text-color);
+.night-mode {
+  #answer-marker path,
+  #details-icon path {
+    fill: var(--dark-mode-main-text-color);
+  }
+}
+
+#answer-marker path,
+#details-icon path {
+  fill: var(--light-mode-icon-color);
 }
 
 /* answer marker icon */

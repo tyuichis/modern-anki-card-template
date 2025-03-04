@@ -3,16 +3,49 @@
   display: flex;
   gap: 0.5rem;
   width: 100%;
-  color: darkgray;
   align-items: center;
+}
+
+.night-mode {
+  .flashcard-metadata,
+  #deck-name-container {
+    color: var(--dark-mode-footnote-text-color);
+  }
+
+  #flashcard-source-info:has(#source-text:empty) path {
+    fill: var(--dark-mode-empty-text-color);
+  }
+
+  #flashcard-source-info:has(#source-text:empty) {
+    color: var(--dark-mode-empty-text-color);
+  }
+}
+
+.flashcard-metadata,
+#deck-name-container {
+  color: var(--light-mode-footnote-text-color);
+}
+
+#flashcard-source-info:has(#source-text:empty) path {
+  fill: var(--light-mode-empty-text-color);
+}
+
+#flashcard-source-info:has(#source-text:empty) {
+  color: var(--light-mode-empty-text-color);
 }
 
 #flashcard-source-info {
   margin-top: 2.875rem;
 }
 
-#flashcard-source-info:has(#source-text:empty) {
-  color: rgba(255, 255, 255, 0.25);
+.night-mode {
+  #source-icon path {
+    fill: var(--dark-mode-footnote-text-color);
+  }
+}
+
+#source-icon path {
+  fill: var(--source-icon-accent-color);
 }
 
 #source-text:empty::before {
@@ -24,7 +57,6 @@
 }
 
 #deck-name-container {
-  color: darkgray;
   display: flex;
   justify-content: center;
   align-items: center;

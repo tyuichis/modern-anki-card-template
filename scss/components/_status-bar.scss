@@ -2,11 +2,17 @@
    Status Bar Component
 =========================== */
 
+.night-mode {
+  #status-bar {
+    color: var(--dark-mode-status-bar-color);
+  }
+}
+
 #status-bar {
   display: flex;
   justify-content: space-between;
-  color: var(--status-bar-color);
   box-sizing: border-box;
+  color: var(--light-mode-status-bar-color);
 }
 
 #status-bar li {
@@ -46,13 +52,23 @@
   justify-content: center;
 }
 
-#undo-button path {
-  fill: var(--status-bar-color);
+.night-mode {
+  #undo-button path,
+  #flag-button path {
+    fill: var(--dark-mode-status-bar-color);
+  }
 }
 
+#undo-button path,
+#flag-button path {
+  fill: var(--light-mode-status-bar-color);
+}
+
+/*
 #flag-button path {
   fill: var(--flag-color);
 }
+*/
 
 /* button hover styling */
 #flag-button:hover,
@@ -63,11 +79,11 @@
 }
 
 #undo-button:hover {
-  color: var(--dark-mode-label-font-color);
+  color: var(--label-font-color);
 }
 
 #undo-button:hover path {
-  fill: var(--dark-mode-label-font-color);
+  fill: var(--label-font-color);
 }
 
 #flag-button:hover path {

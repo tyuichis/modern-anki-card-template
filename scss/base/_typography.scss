@@ -40,7 +40,7 @@ body {
 #flashcard-question:not(.seen) b,
 #flashcard-answer b,
 .cloze {
-  color: var(--dark-mode-label-font-color);
+  color: var(--label-font-color);
 }
 
 b,
@@ -53,9 +53,15 @@ b,
   color: darkgray;
 }
 
+.night-mode {
+  a {
+    color: var(--dark-mode-link-accent-color);
+    text-decoration: underline;
+  }
+}
+
 a {
-  color: darkgray;
-  text-decoration: underline;
+  color: var(--light-mode-link-accent-color);
 }
 
 .pass,
@@ -72,7 +78,7 @@ a {
 }
 
 #controls-title {
-  color: var(--status-bar-color);
+  color: var(--dark-mode-status-bar-color);
   font-weight: 400;
 }
 
@@ -83,7 +89,7 @@ a {
 
 #controls-options {
   font-family: var(--monospace-font-family);
-  color: var(--status-bar-color);
+  color: var(--dark-mode-status-bar-color);
   font-size: var(--ios-font-size-footnote); /* Default */
 }
 
@@ -91,9 +97,16 @@ a {
   margin: 0;
 }
 
+.night-mode {
+  #details-marker,
+  #details-text {
+    color: var(--dark-mode-details-text-color);
+  }
+}
+
 #details-marker,
 #details-text {
-  color: darkgray;
+  color: var(--light-mode-details-text-color);
 }
 
 #details-text {
