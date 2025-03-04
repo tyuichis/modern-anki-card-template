@@ -251,8 +251,8 @@ b,
   font-weight: 600; /* semi bold */
 }
 
-.seen,
-#details {
+.night-mode .seen,
+.night-mode #details {
   color: darkgray;
 }
 
@@ -635,6 +635,13 @@ pre code.hljs {
   opacity: 0.7;
 }
 
+/* not supported for mobile */
+.android #misc-info,
+.iphone #misc-info,
+.ipad #misc-info {
+  display: none;
+}
+
 /* animations */
 /* ANSWER TEXT */
 #flashcard-answer {
@@ -957,6 +964,13 @@ pre code.hljs {
   padding: 0;
 }
 
+/* not supported for mobile */
+.android #status-bar-buttons,
+.iphone #status-bar-buttons,
+.ipad #status-bar-buttons {
+  display: none;
+}
+
 /* ===========================
    Layout (Positioning and Spacing)
 =========================== */
@@ -1195,17 +1209,6 @@ html.android .back {
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: linear-gradient(to bottom, #242424, #1e1e1e);
-}
-
-/* mobile layout / fixes */
-/* not supported for mobile */
-.android #status-bar-buttons,
-.android #misc-info,
-.iphone #status-bar-buttons,
-.iphone #misc-info,
-.ipad #status-bar-buttons,
-.ipad #misc-info {
-  display: none;
 }
 
 /* fix ios text alignment */

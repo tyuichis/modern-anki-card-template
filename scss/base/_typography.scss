@@ -48,11 +48,12 @@ b,
   font-weight: 600; /* semi bold */
 }
 
-.seen,
-#details {
-  color: darkgray;
+.night-mode {
+  .seen,
+  #details {
+    color: darkgray;
+  }
 }
-
 .night-mode {
   a {
     color: var(--dark-mode-link-accent-color);
