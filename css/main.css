@@ -44,7 +44,7 @@
   --monospace-font-family:
     'JetBrainsMono Nerd Font Mono', 'JetBrains Mono', 'Fira Code', 'Menlo',
     'Consolas', 'Monaco', monospace;
-  --mac-font-family:
+  --system-font-family:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', system-iui, Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   --android-font-family: 'Noto Sans JP', 'Noto', 'Roboto', sans-serif;
@@ -326,7 +326,7 @@ code {
 .mac body,
 .linux:not(.android) body,
 .win body {
-  font-family: var(--mac-font-family);
+  font-family: var(--system-font-family);
   line-height: var(--mac-line-height-body);
 }
 
@@ -347,7 +347,7 @@ code {
 .mac #flashcard-content,
 .linux:not(.android) #flashcard-content,
 .win #flashcard-content {
-  font-family: var(--mac-font-family);
+  font-family: var(--system-font-family);
   font-size: var(--mac-font-size-body);
   line-height: var(--mac-line-height-body);
 }

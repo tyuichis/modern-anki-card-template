@@ -129,7 +129,7 @@ code {
 .mac body,
 .linux:not(.android) body,
 .win body {
-  font-family: var(--mac-font-family);
+  font-family: var(--system-font-family);
   line-height: var(--mac-line-height-body);
 }
 
@@ -150,7 +150,7 @@ code {
 .mac #flashcard-content,
 .linux:not(.android) #flashcard-content,
 .win #flashcard-content {
-  font-family: var(--mac-font-family);
+  font-family: var(--system-font-family);
   font-size: var(--mac-font-size-body);
   line-height: var(--mac-line-height-body);
 }
