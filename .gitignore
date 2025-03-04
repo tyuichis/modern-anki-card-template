@@ -40,3 +40,9 @@ lerna-debug.log*
 
 # ESLint / Prettier
 .eslintcache
+
+# Ignore Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
