@@ -1,0 +1,30 @@
+/* ===========================
+   Base Styles (Global Settings)
+=========================== */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Apply background color to body before content */
+body::before,
+body {
+  background: #272626 !important;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+
+  .night-mode & {
+    color: var(--main-text-color); /* base text color */
+  }
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+}

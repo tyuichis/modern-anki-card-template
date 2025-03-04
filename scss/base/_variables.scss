@@ -1,0 +1,214 @@
+/* ===========================
+   CSS Variables (Root Styles)
+=========================== */
+
+:root.night-mode,
+:root {
+  --font-size: 16px;
+}
+
+:root {
+  --main-bg-color: white;
+  --main-text-color: #d4d4d4; /* original: #ececec */
+
+  --main-font-family:
+    'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', sans-serif;
+  --alt-font-family:
+    'SF Pro Rounded', 'Noto Sans Rounded', 'Roboto Rounded',
+    'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari,
+    'Arial Rounded MT Bold', 'Arial Rounded MT', Calibri, 'Source Sans Pro',
+    sans-serif;
+
+  --ios-font-family:
+    'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+
+  --monospace-font-family:
+    'JetBrainsMono Nerd Font Mono', 'JetBrains Mono', 'Fira Code', 'Menlo',
+    'Consolas', 'Monaco', monospace;
+
+  --mac-font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-iui, Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  --android-font-family: 'Noto Sans JP', 'Noto', 'Roboto', sans-serif;
+
+  --dark-mode-label-font-color: #8e8e93; /* replace with JS depending on subject category */
+  --dark-mode-label-background-color: rgba(
+    44,
+    44,
+    46,
+    0.9
+  ); /* replace with JS depending on subject category */
+
+  --flag-color: rgba(255, 255, 255, 0.8);
+  --subject-flag-color: rgba(255, 255, 255, 0.8); /* set with JS */
+
+  --dark-mode-ios-link-color: #2997ff;
+
+  --flashcard-content-ideal-max-height: 417px;
+  --mac-flashcard-content-ideal-max-height: 478.467px;
+
+  /* pill button */
+
+  --pill-button-padding: 0.25em 1em;
+
+  /* iOS Typography Scale */
+  --ios-font-size-title1: 2.125rem; /* 34px / 16 */
+  --ios-line-height-title1: 2.5625rem; /* 41px / 16 */
+
+  --ios-font-size-title2: 1.75rem; /* 28px / 16 */
+  --ios-line-height-title2: 2.125rem; /* 34px / 16 */
+
+  --ios-font-size-title3: 1.375rem; /* 22px / 16 */
+  --ios-line-height-title3: 1.75rem; /* 28px / 16 */
+
+  --ios-font-size-headline: 1.0625rem; /* 17px / 16 */
+  --ios-line-height-headline: 1.375rem; /* 22px / 16 */
+
+  --ios-font-size-body: 1.0625rem; /* 17px / 16 */
+  --ios-line-height-body: 1.375rem; /* 22px / 16 */
+
+  --ios-font-size-callout: 1rem; /* 16px / 16 */
+  --ios-line-height-callout: 1.3125rem; /* 21px / 16 */
+
+  --ios-font-size-subheadline: 0.9375rem; /* 15px / 16 */
+  --ios-line-height-subheadline: 1.25rem; /* 20px / 16 */
+
+  --ios-font-size-footnote: 0.8125rem; /* 13px / 16 */
+  --ios-line-height-footnote: 1.125rem; /* 18px / 16 */
+
+  --ios-font-size-caption1: 0.75rem; /* 12px / 16 */
+  --ios-line-height-caption1: 1rem; /* 16px / 16 */
+
+  --ios-font-size-caption2: 0.6875rem; /* 11px / 16 */
+  --ios-line-height-caption2: 0.8125rem; /* 13px / 16 */
+
+  /* macOS Typography Scale */
+
+  --mac-font-size-title1: 2rem; /* ~32px / 16 */
+  --mac-line-height-title1: 2.5rem; /* ~40px / 16 */
+
+  --mac-font-size-title2: 1.5rem; /* 24px / 16 */
+  --mac-line-height-title2: 2rem; /* 32px / 16 */
+
+  --mac-font-size-title3: 1.25rem; /* 20px / 16 */
+  --mac-line-height-title3: 1.75rem; /* 28px / 16 */
+
+  --mac-font-size-headline: 1.125rem; /* 18px / 16 */
+  --mac-line-height-headline: 1.5rem; /* 24px / 16 */
+
+  --mac-font-size-body: 1rem; /* 16px / 16 */
+  --mac-line-height-body: 1.625rem; /* 26px / 16 */
+
+  --mac-font-size-callout: 0.9375rem; /* 15px / 16 */
+  --mac-line-height-callout: 1.375rem; /* 22px / 16 */
+
+  --mac-font-size-subheadline: 0.875rem; /* 14px / 16 */
+  --mac-line-height-subheadline: 1.25rem; /* 20px / 16 */
+
+  --mac-font-size-footnote: 0.75rem; /* 12px / 16 */
+  --mac-line-height-footnote: 1.125rem; /* 18px / 16 */
+
+  --mac-font-size-caption1: 0.6875rem; /* 11px / 16 */
+  --mac-line-height-caption1: 1rem; /* 16px / 16 */
+
+  --mac-font-size-caption2: 0.625rem; /* 10px / 16 */
+  --mac-line-height-caption2: 0.875rem; /* 14px / 16 */
+
+  /* Adjusted Android Typography Scale (Pixel 7) */
+  --android-font-size-title1: 2rem; /* ~32px / 16 */
+  --android-line-height-title1: 2.375rem; /* ~38px / 16 */
+
+  --android-font-size-title2: 1.625rem; /* ~26px / 16 */
+  --android-line-height-title2: 2rem; /* ~32px / 16 */
+
+  --android-font-size-title3: 1.3125rem; /* ~21px / 16 */
+  --android-line-height-title3: 1.625rem; /* ~26px / 16 */
+
+  --android-font-size-headline: 1.125rem; /* ~18px / 16 */
+  --android-line-height-headline: 1.4375rem; /* ~23px / 16 */
+
+  --android-font-size-body: 1rem; /* ~16px / 16 */
+  --android-line-height-body: 1.375rem; /* ~22px / 16 */
+
+  --android-font-size-callout: 0.9375rem; /* ~15px / 16 */
+  --android-line-height-callout: 1.25rem; /* ~20px / 16 */
+
+  --android-font-size-subheadline: 0.875rem; /* ~14px / 16 */
+  --android-line-height-subheadline: 1.1875rem; /* ~19px / 16 */
+
+  --android-font-size-footnote: 0.75rem; /* ~12px / 16 */
+  --android-line-height-footnote: 1rem; /* ~16px / 16 */
+
+  --android-font-size-caption1: 0.6875rem; /* ~11px / 16 */
+  --android-line-height-caption1: 0.9375rem; /* ~15px / 16 */
+
+  --android-font-size-caption2: 0.625rem; /* ~10px / 16 */
+  --android-line-height-caption2: 0.8125rem; /* ~13px / 16 */
+
+  --android-font-size-footnote-inter: 0.75rem; /* ~12px */
+  --android-line-height-footnote-inter: 1.125rem; /* ~18px */
+  --android-letter-spacing-inter: 0.02em; /* Optional for added clarity */
+
+  /* furigana */
+
+  --mac-font-size-furigana: 0.625rem; /* ~10px */
+  --mac-line-height-furigana: 0.75rem; /* ~12px */
+
+  --ios-font-size-furigana: 0.6875rem; /* ~11px */
+  --ios-line-height-furigana: 0.8125rem; /* ~13px */
+
+  --android-font-size-furigana: 0.6875rem; /* ~11px */
+  --android-line-height-furigana: 0.8125rem; /* ~13px */
+
+  /* macOS Code Typography Scale */
+  --mac-code-font-family:
+    ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+    'DejaVu Sans Mono', monospace;
+
+  --mac-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
+  --mac-code-line-height-large: 1.5rem; /* ~24px / 16 */
+
+  --mac-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
+  --mac-code-line-height-medium: 1.25rem; /* ~20px / 16 */
+
+  --mac-code-font-size-small: 0.75rem; /* ~12px / 16 For small inline snippets, metadata, etc. */
+  --mac-code-line-height-small: 1rem; /* ~16px / 16 */
+
+  /* iOS Code Typography Scale */
+  --ios-code-font-family:
+    'SF Mono', ui-monospace, Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+  --ios-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
+  --ios-code-line-height-large: 1.5rem; /* ~24px / 16 */
+
+  --ios-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
+  --ios-code-line-height-medium: 1.25rem; /* ~20px / 16 */
+
+  --ios-code-font-size-small: 0.75rem; /* ~12px / 16 For small inline snippets, metadata, etc. */
+  --ios-code-line-height-small: 1rem; /* ~16px / 16 */
+
+  /* Android Code Typography Scale */
+  --android-code-font-family:
+    'Roboto Mono', 'Cascadia Code', 'Source Code Pro', 'DejaVu Sans Mono',
+    monospace;
+
+  --android-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
+  --android-code-line-height-large: 1.5rem; /* ~24px / 16 */
+
+  --android-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
+  --android-code-line-height-medium: 1.25rem; /* ~20px / 16 */
+
+  --android-code-font-size-small: 0.75rem; /* ~12px / 16 For small inline snippets, metadata, etc. */
+  --android-code-line-height-small: 1rem; /* ~16px / 16 */
+
+  --app-width: 478.47px;
+  /* take into account button padding, left and right sides */
+  --status-bar-width: calc(478.47px + (0.25em * 2));
+  --status-bar-mobile-width: calc(90vw + (0.25em * 2));
+
+  --status-bar-color: rgba(255, 255, 255, 0.8); /* original: #49A2D5 */
+  --status-bar-accent-color: #49a2d5;
+}

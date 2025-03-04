@@ -1,0 +1,1104 @@
+/* ===========================
+   CSS Variables (Root Styles)
+=========================== */
+:root.night-mode,
+:root {
+  --font-size: 16px;
+}
+
+:root {
+  --main-bg-color: white;
+  --main-text-color: #d4d4d4; /* original: #ececec */
+  --main-font-family:
+    'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', sans-serif;
+  --alt-font-family:
+    'SF Pro Rounded', 'Noto Sans Rounded', 'Roboto Rounded',
+    'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari,
+    'Arial Rounded MT Bold', 'Arial Rounded MT', Calibri, 'Source Sans Pro',
+    sans-serif;
+  --ios-font-family:
+    'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --monospace-font-family:
+    'JetBrainsMono Nerd Font Mono', 'JetBrains Mono', 'Fira Code', 'Menlo',
+    'Consolas', 'Monaco', monospace;
+  --mac-font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-iui, Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --android-font-family: 'Noto Sans JP', 'Noto', 'Roboto', sans-serif;
+  --dark-mode-label-font-color: #8e8e93; /* replace with JS depending on subject category */
+  --dark-mode-label-background-color: rgba(
+    44,
+    44,
+    46,
+    0.9
+  ); /* replace with JS depending on subject category */
+  --flag-color: rgba(255, 255, 255, 0.8);
+  --subject-flag-color: rgba(255, 255, 255, 0.8); /* set with JS */
+  --dark-mode-ios-link-color: #2997ff;
+  --flashcard-content-ideal-max-height: 417px;
+  --mac-flashcard-content-ideal-max-height: 478.467px;
+  /* pill button */
+  --pill-button-padding: 0.25em 1em;
+  /* iOS Typography Scale */
+  --ios-font-size-title1: 2.125rem; /* 34px / 16 */
+  --ios-line-height-title1: 2.5625rem; /* 41px / 16 */
+  --ios-font-size-title2: 1.75rem; /* 28px / 16 */
+  --ios-line-height-title2: 2.125rem; /* 34px / 16 */
+  --ios-font-size-title3: 1.375rem; /* 22px / 16 */
+  --ios-line-height-title3: 1.75rem; /* 28px / 16 */
+  --ios-font-size-headline: 1.0625rem; /* 17px / 16 */
+  --ios-line-height-headline: 1.375rem; /* 22px / 16 */
+  --ios-font-size-body: 1.0625rem; /* 17px / 16 */
+  --ios-line-height-body: 1.375rem; /* 22px / 16 */
+  --ios-font-size-callout: 1rem; /* 16px / 16 */
+  --ios-line-height-callout: 1.3125rem; /* 21px / 16 */
+  --ios-font-size-subheadline: 0.9375rem; /* 15px / 16 */
+  --ios-line-height-subheadline: 1.25rem; /* 20px / 16 */
+  --ios-font-size-footnote: 0.8125rem; /* 13px / 16 */
+  --ios-line-height-footnote: 1.125rem; /* 18px / 16 */
+  --ios-font-size-caption1: 0.75rem; /* 12px / 16 */
+  --ios-line-height-caption1: 1rem; /* 16px / 16 */
+  --ios-font-size-caption2: 0.6875rem; /* 11px / 16 */
+  --ios-line-height-caption2: 0.8125rem; /* 13px / 16 */
+  /* macOS Typography Scale */
+  --mac-font-size-title1: 2rem; /* ~32px / 16 */
+  --mac-line-height-title1: 2.5rem; /* ~40px / 16 */
+  --mac-font-size-title2: 1.5rem; /* 24px / 16 */
+  --mac-line-height-title2: 2rem; /* 32px / 16 */
+  --mac-font-size-title3: 1.25rem; /* 20px / 16 */
+  --mac-line-height-title3: 1.75rem; /* 28px / 16 */
+  --mac-font-size-headline: 1.125rem; /* 18px / 16 */
+  --mac-line-height-headline: 1.5rem; /* 24px / 16 */
+  --mac-font-size-body: 1rem; /* 16px / 16 */
+  --mac-line-height-body: 1.625rem; /* 26px / 16 */
+  --mac-font-size-callout: 0.9375rem; /* 15px / 16 */
+  --mac-line-height-callout: 1.375rem; /* 22px / 16 */
+  --mac-font-size-subheadline: 0.875rem; /* 14px / 16 */
+  --mac-line-height-subheadline: 1.25rem; /* 20px / 16 */
+  --mac-font-size-footnote: 0.75rem; /* 12px / 16 */
+  --mac-line-height-footnote: 1.125rem; /* 18px / 16 */
+  --mac-font-size-caption1: 0.6875rem; /* 11px / 16 */
+  --mac-line-height-caption1: 1rem; /* 16px / 16 */
+  --mac-font-size-caption2: 0.625rem; /* 10px / 16 */
+  --mac-line-height-caption2: 0.875rem; /* 14px / 16 */
+  /* Adjusted Android Typography Scale (Pixel 7) */
+  --android-font-size-title1: 2rem; /* ~32px / 16 */
+  --android-line-height-title1: 2.375rem; /* ~38px / 16 */
+  --android-font-size-title2: 1.625rem; /* ~26px / 16 */
+  --android-line-height-title2: 2rem; /* ~32px / 16 */
+  --android-font-size-title3: 1.3125rem; /* ~21px / 16 */
+  --android-line-height-title3: 1.625rem; /* ~26px / 16 */
+  --android-font-size-headline: 1.125rem; /* ~18px / 16 */
+  --android-line-height-headline: 1.4375rem; /* ~23px / 16 */
+  --android-font-size-body: 1rem; /* ~16px / 16 */
+  --android-line-height-body: 1.375rem; /* ~22px / 16 */
+  --android-font-size-callout: 0.9375rem; /* ~15px / 16 */
+  --android-line-height-callout: 1.25rem; /* ~20px / 16 */
+  --android-font-size-subheadline: 0.875rem; /* ~14px / 16 */
+  --android-line-height-subheadline: 1.1875rem; /* ~19px / 16 */
+  --android-font-size-footnote: 0.75rem; /* ~12px / 16 */
+  --android-line-height-footnote: 1rem; /* ~16px / 16 */
+  --android-font-size-caption1: 0.6875rem; /* ~11px / 16 */
+  --android-line-height-caption1: 0.9375rem; /* ~15px / 16 */
+  --android-font-size-caption2: 0.625rem; /* ~10px / 16 */
+  --android-line-height-caption2: 0.8125rem; /* ~13px / 16 */
+  --android-font-size-footnote-inter: 0.75rem; /* ~12px */
+  --android-line-height-footnote-inter: 1.125rem; /* ~18px */
+  --android-letter-spacing-inter: 0.02em; /* Optional for added clarity */
+  /* furigana */
+  --mac-font-size-furigana: 0.625rem; /* ~10px */
+  --mac-line-height-furigana: 0.75rem; /* ~12px */
+  --ios-font-size-furigana: 0.6875rem; /* ~11px */
+  --ios-line-height-furigana: 0.8125rem; /* ~13px */
+  --android-font-size-furigana: 0.6875rem; /* ~11px */
+  --android-line-height-furigana: 0.8125rem; /* ~13px */
+  /* macOS Code Typography Scale */
+  --mac-code-font-family:
+    ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+    'DejaVu Sans Mono', monospace;
+  --mac-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
+  --mac-code-line-height-large: 1.5rem; /* ~24px / 16 */
+  --mac-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
+  --mac-code-line-height-medium: 1.25rem; /* ~20px / 16 */
+  --mac-code-font-size-small: 0.75rem; /* ~12px / 16 For small inline snippets, metadata, etc. */
+  --mac-code-line-height-small: 1rem; /* ~16px / 16 */
+  /* iOS Code Typography Scale */
+  --ios-code-font-family:
+    'SF Mono', ui-monospace, Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  --ios-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
+  --ios-code-line-height-large: 1.5rem; /* ~24px / 16 */
+  --ios-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
+  --ios-code-line-height-medium: 1.25rem; /* ~20px / 16 */
+  --ios-code-font-size-small: 0.75rem; /* ~12px / 16 For small inline snippets, metadata, etc. */
+  --ios-code-line-height-small: 1rem; /* ~16px / 16 */
+  /* Android Code Typography Scale */
+  --android-code-font-family:
+    'Roboto Mono', 'Cascadia Code', 'Source Code Pro', 'DejaVu Sans Mono',
+    monospace;
+  --android-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
+  --android-code-line-height-large: 1.5rem; /* ~24px / 16 */
+  --android-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
+  --android-code-line-height-medium: 1.25rem; /* ~20px / 16 */
+  --android-code-font-size-small: 0.75rem; /* ~12px / 16 For small inline snippets, metadata, etc. */
+  --android-code-line-height-small: 1rem; /* ~16px / 16 */
+  --app-width: 478.47px;
+  /* take into account button padding, left and right sides */
+  --status-bar-width: calc(478.47px + (0.25em * 2));
+  --status-bar-mobile-width: calc(90vw + (0.25em * 2));
+  --status-bar-color: rgba(255, 255, 255, 0.8); /* original: #49A2D5 */
+  --status-bar-accent-color: #49a2d5;
+}
+
+/* ===========================
+   Base Styles (Global Settings)
+=========================== */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Apply background color to body before content */
+body::before,
+body {
+  background: #272626 !important;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+.night-mode body {
+  color: var(--main-text-color); /* base text color */
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+}
+
+/* ===========================
+   Typography (Font Settings)
+=========================== */
+/* Define fonts globally, if needed later */
+body {
+  font-family: var(--alt-font-family), system-font, sans-serif;
+  line-height: var(--ios-line-height-body); /* Default */
+}
+
+#title,
+#subject {
+  font-family: var(--alt-font-family);
+}
+
+#subject {
+  font-size: var(--ios-font-size-footnote); /* Default */
+  line-height: var(--ios-line-height-footnote); /* Default */
+}
+
+#title {
+  margin-top: 0px; /* remove the margin from top of page. */
+  margin-bottom: 0rem;
+  font-size: var(--ios-font-size-title2); /* Default */
+  line-height: var(--ios-line-height-title2); /* Default */
+}
+
+.flashcard-content {
+  font-size: var(--ios-font-size-body); /* Default */
+  line-height: var(--ios-line-height-body); /* Default */
+}
+
+.flashcard-metadata {
+  font-size: var(--ios-font-size-footnote); /* Default */
+  line-height: var(--ios-font-size-footnote); /* Default */
+}
+
+/* bold takes accent color */
+#flashcard-question:not(.seen) b,
+#flashcard-answer b,
+.cloze {
+  color: var(--dark-mode-label-font-color);
+}
+
+b,
+.cloze {
+  font-weight: 600; /* semi bold */
+}
+
+.seen,
+#details {
+  color: darkgray;
+}
+
+a {
+  color: darkgray;
+  text-decoration: underline;
+}
+
+.pass,
+.fail {
+  font-weight: bold;
+}
+
+.pass {
+  color: #009f82;
+}
+
+.fail {
+  color: #ff6061;
+}
+
+#controls-title {
+  color: var(--status-bar-color);
+  font-weight: 400;
+}
+
+#controls-options .key-input {
+  background: #646669;
+  padding: 0.1rem 0.3rem;
+}
+
+#controls-options {
+  font-family: var(--monospace-font-family);
+  color: var(--status-bar-color);
+  font-size: var(--ios-font-size-footnote); /* Default */
+}
+
+#flashcard-extra-info p {
+  margin: 0;
+}
+
+#details-marker,
+#details-text {
+  color: darkgray;
+}
+
+#details-text {
+  display: inline;
+}
+
+code {
+  font-family: var(--monospace-font-family);
+}
+
+#status-bar,
+#controls-header {
+  font-size: var(--mac-font-size-callout);
+  line-height: var(--mac-line-height-callout);
+}
+
+/* desktop typography */
+.mac body,
+.linux:not(.android) body,
+.win body {
+  font-family: var(--mac-font-family);
+  line-height: var(--mac-line-height-body);
+}
+
+.mac #subject,
+.linux:not(.android) #subject,
+.win #subject {
+  font-size: var(--mac-font-size-footnote);
+  line-height: var(--mac-line-height-footnote);
+}
+
+.mac #title,
+.linux:not(.android) #title,
+.win #title {
+  font-size: var(--mac-font-size-title2);
+  line-height: var(--mac-line-height-title2);
+}
+
+.mac #flashcard-content,
+.linux:not(.android) #flashcard-content,
+.win #flashcard-content {
+  font-family: var(--mac-font-family);
+  font-size: var(--mac-font-size-body);
+  line-height: var(--mac-line-height-body);
+}
+
+.mac .flashcard-metadata,
+.mac #controls-options,
+.mac #deck-name-container,
+.linux:not(.android) .flashcard-metadata,
+.linux:not(.android) #controls-options,
+.linux:not(.android) #deck-name-container,
+.win .flashcard-metadata,
+.win #controls-options,
+.win #deck-name-container {
+  font-size: var(--mac-font-size-footnote);
+  line-height: var(--mac-line-height-footnote);
+}
+
+/* Android specific typography styles */
+.android body {
+  font-family: var(--android-font-family);
+  font-size: var(--android-font-size-body);
+  line-height: var(--android-line-height-body);
+}
+
+.android #subject {
+  font-size: var(--android-font-size-footnote);
+  line-height: var(--android-line-height-footnote);
+}
+
+.android #title {
+  margin-top: 0px;
+  margin-bottom: 0rem;
+  font-size: var(--android-font-size-title2);
+  line-height: var(--android-line-height-title2);
+}
+
+.android #flashcard-content {
+  font-size: var(--android-font-size-body);
+  line-height: var(--android-line-height-body);
+}
+
+.android .flashcard-metadata {
+  font-size: var(--android-font-size-footnote);
+  line-height: var(--android-line-height-footnote);
+}
+
+/* iphone, ipad typography */
+.iphone body,
+.ipad body {
+  font-family: var(--ios-font-family);
+  font-size: var(--ios-font-size-body);
+  line-height: var(--ios-line-height-body);
+}
+
+.iphone #subject,
+.ipad #subject {
+  font-size: var(--ios-font-size-footnote);
+  line-height: var(--ios-line-height-footnote);
+}
+
+.iphone #title,
+.ipad #title {
+  margin-top: 0px;
+  margin-bottom: 0rem;
+  font-size: var(--ios-font-size-title2);
+  line-height: var(--ios-line-height-title2);
+}
+
+.iphone #flashcard-content,
+.ipad #flashcard-content {
+  font-size: var(--ios-font-size-body);
+  line-height: var(--ios-line-height-body);
+}
+
+.iphone .flashcard-metadata,
+.ipad .flashcard-metadata {
+  font-size: var(--ios-font-size-footnote);
+  line-height: var(--ios-line-height-footnote);
+}
+
+/* furigana */
+.mac ruby > rt {
+  font-size: var(--mac-font-size-furigana);
+  line-height: var(--mac-line-height-furigana);
+}
+
+.ios ruby > rt {
+  font-size: var(--ios-font-size-furigana);
+  line-height: var(--ios-line-height-furigana);
+}
+
+.android ruby > rt {
+  font-size: var(--android-font-size-furigana);
+  line-height: var(--android-line-height-furigana);
+}
+
+/* code typography */
+code {
+  font-family: var(--monospace-font-family);
+}
+
+.mac code.hljs {
+  font-size: var(--mac-code-font-size-medium);
+}
+
+.mac pre code.hljs {
+  font-size: var(--mac-code-font-size-small);
+}
+
+.ios code.hljs {
+  font-size: var(--ios-code-font-size-medium);
+}
+
+.ios pre code.hljs {
+  font-size: var(--ios-code-font-size-small);
+}
+
+.android code.hljs {
+  font-size: var(--android-code-font-size-medium);
+}
+
+.android pre code.hljs {
+  font-size: var(--android-code-font-size-small);
+}
+
+code.hljs {
+  border-radius: 6px;
+}
+
+pre code.hljs {
+  max-width: 100%;
+}
+
+/* ===========================
+   Controls Component
+=========================== */
+#controls-info {
+  /* default*/
+  visibility: hidden;
+}
+
+#controls-info {
+  display: flex;
+  flex-flow: column;
+  /* width: fit-content; */
+  /* justify-content: start; */
+  height: var(--flashcard-content-ideal-max-height);
+  align-items: start;
+}
+
+#controls-header {
+  width: fit-content;
+  margin: 0;
+}
+
+#controls-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5625em; /* Space between the icon and the text, should be same as status icons. #TODO update universal icon HTML + CSS */
+}
+
+#controls-icon {
+  display: inline-flex; /* Ensures the icon aligns correctly with text */
+  align-items: center;
+  justify-content: center;
+}
+
+#controls-options {
+  display: flex;
+  flex-flow: column;
+  gap: 0.3em;
+  list-style: none;
+  padding: 0;
+}
+
+/* ===========================
+   Flashcard Component
+=========================== */
+#flashcard-content,
+.front,
+.back {
+  background: #323131;
+  border-radius: 15px;
+  box-shadow: 0 8px 0 #222121;
+}
+
+#flashcard-question:not(:only-child) {
+  margin-bottom: 1rem;
+}
+
+#question-marker,
+#question-text,
+#answer-text {
+  display: inline;
+}
+
+#question-text {
+  margin: 0;
+}
+
+#answer-text {
+  margin: 0;
+}
+
+#flashcard-textbox img {
+  max-width: 100%;
+  max-height: 15rem;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 1rem auto 0 auto;
+  border-radius: 12px;
+}
+
+#flashcard-textbox img:last-child {
+  margin-bottom: 0; /* if nothing comes after img, no spacing needed */
+}
+
+#flashcard-answer {
+  display: flex;
+  gap: 0.75em;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+#flashcard-textbox,
+.front,
+.back {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  max-width: 100%;
+  box-sizing: border-box; /* Also use in the textbox */
+}
+
+#flashcard-content,
+#flashcard-textbox {
+  flex-grow: 1;
+}
+
+#flashcard-title {
+  overflow-x: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-bottom: 1.1875rem;
+}
+
+#flashcard-subject {
+  display: inline-block;
+  align-self: baseline;
+}
+
+/* label */
+.subject-label {
+  color: var(--dark-mode-label-font-color);
+  background: var(--dark-mode-label-background-color);
+  padding: 0.3em 0.5em;
+  padding: var(--pill-button-padding);
+  border-radius: 6px;
+}
+
+#flashcard-content {
+  max-height: var(--flashcard-content-ideal-max-height);
+  overflow-y: auto;
+  display: flex;
+  box-sizing: border-box; /* use box-sizing in the content */
+  padding: 0; /* add back the padding, here */
+  margin: 0; /* remove the margin */
+}
+
+#flashcard-info {
+  display: flex;
+  flex-flow: column;
+  gap: 1.1875rem;
+}
+
+/* animations */
+/* ANSWER TEXT */
+#flashcard-answer {
+  animation: answerReveal 0.4s ease-out forwards;
+}
+
+@keyframes answerReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInSmooth {
+  from {
+    opacity: 0;
+    filter: brightness(0.85);
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    filter: brightness(1);
+    transform: translateY(0);
+  }
+}
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+/* CLOZE TEXT */
+.cloze-answer .cloze {
+  display: inline-block;
+  opacity: 0;
+  filter: brightness(0.85);
+  transform: translateY(2px); /* Tiny lift */
+  animation: fadeInSmooth 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* DETAIL BLOCK */
+#flashcard-details-info {
+  opacity: 0;
+  transform: translateY(4px) scale(0.98);
+  animation: popIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.25s forwards;
+}
+
+/* ===========================
+  Icons
+=========================== */
+/* japanese icons, and deck-related icons*/
+.deck-icon svg,
+#source-icon svg {
+  height: 1.75em;
+  width: 1.75em;
+}
+
+#sentence-icon svg,
+#pitch-icon svg,
+.deck-icon svg,
+#source-icon svg {
+  fill: darkgray;
+}
+
+#flashcard-source-info:has(#source-text:empty) path {
+  fill: rgba(255, 255, 255, 0.25);
+}
+
+.deck-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* question-answer card Answer icon */
+#answer-marker svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+#answer-marker svg path {
+  fill: var(--main-text-color);
+}
+
+/* answer marker icon */
+#answer-marker {
+  display: flex;
+  align-items: center;
+}
+
+/* Flashcard metadata container */
+.flashcard-metadata {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  color: darkgray;
+  align-items: center;
+}
+
+#flashcard-source-info {
+  margin-top: 2.875rem;
+}
+
+#flashcard-source-info:has(#source-text:empty) {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+#source-text:empty::before {
+  content: 'n/a';
+}
+
+#source-text {
+  overflow-x: auto;
+}
+
+#deck-name-container {
+  color: darkgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+#flashcard-labels {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 1.6875rem;
+}
+
+#flashcard-details-info {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+/* ===========================
+   Status Bar Component
+=========================== */
+#status-bar {
+  display: flex;
+  justify-content: space-between;
+  color: var(--status-bar-color);
+  box-sizing: border-box;
+}
+
+#status-bar li {
+  list-style: none;
+}
+
+/* status buttons */
+#flag,
+#undo {
+  padding-left: 0.5625em;
+}
+
+/* align the icon and text */
+#undo-button,
+#flag-button {
+  justify-content: center;
+  display: flex;
+  height: fit-content;
+  flex-flow: nowrap;
+  padding: 0.25em 0.4em 0.25em 0.4em;
+  box-sizing: border-box;
+}
+
+#flag-button {
+  padding-right: 0; /* remove the padding, just for flag. */
+}
+
+#flag-button,
+#undo-button {
+  align-items: center;
+}
+
+#flag-icon,
+#undo-icon {
+  display: flex;
+  justify-content: center;
+}
+
+#undo-button path {
+  fill: var(--status-bar-color);
+}
+
+#flag-button path {
+  fill: var(--flag-color);
+}
+
+/* button hover styling */
+#flag-button:hover,
+#undo-button:hover {
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+#undo-button:hover {
+  color: var(--dark-mode-label-font-color);
+}
+
+#undo-button:hover path {
+  fill: var(--dark-mode-label-font-color);
+}
+
+#flag-button:hover path {
+  fill: var(--subject-flag-color);
+}
+
+#status-bar-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===========================
+   Layout (Positioning and Spacing)
+=========================== */
+#_flag {
+  display: none;
+}
+
+html,
+body,
+#qa {
+  height: 100%; /* Make the html and body take up full height */
+  max-height: 100vh;
+  margin: 0;
+}
+
+#qa {
+  max-height: 100vh;
+  display: flex;
+  flex-flow: row; /* column for without section */
+  justify-content: center;
+  align-items: center;
+  gap: min(1vw, 3rem); /* gap for misc info */
+}
+
+#main {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: var(--status-bar-width);
+}
+
+header,
+#status-bar,
+#status-bar-buttons {
+  width: 100%; /* grow to 100%, then stop at max-width */
+  max-width: var(--status-bar-width);
+  max-height: 3rem;
+  flex-grow: 1;
+}
+
+#flashcard-title {
+  overflow-x: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-bottom: 1.1875rem;
+}
+
+#flashcard-subject {
+  display: inline-block;
+  align-self: baseline;
+}
+
+#flashcard-container {
+  /* iphone ideal width?
+      min-width: 353px;
+  */
+  width: 478.47px;
+  max-width: var(--app-width);
+  max-height: 43.0625rem;
+  flex-grow: 1;
+  padding: 0; /* Remove padding */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* Use box-sizing: border-box */
+}
+
+#flashcard-content {
+  max-height: var(--flashcard-content-ideal-max-height);
+  overflow-y: auto;
+  display: flex;
+  box-sizing: border-box; /* use box-sizing in the content */
+  padding: 0; /* add back the padding, here */
+  margin: 0; /* remove the margin */
+}
+
+#flashcard-content,
+#flashcard-textbox {
+  flex-grow: 1;
+}
+
+#flashcard-textbox,
+.front,
+.back {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  max-width: 100%;
+  box-sizing: border-box; /* Also use in the textbox */
+}
+
+#flashcard-answer {
+  display: flex;
+  gap: 0.75em;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+/* flashcard pictures */
+#flashcard-textbox img {
+  max-width: 100%;
+  max-height: 15rem;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 1rem auto 0 auto;
+  border-radius: 12px;
+}
+
+#flashcard-textbox img:last-child {
+  margin-bottom: 0; /* if nothing comes after img, no spacing needed */
+}
+
+#flashcard-source-info {
+  margin-top: 2.875rem;
+}
+
+#flashcard-question:not(:only-child) {
+  margin-bottom: 1rem;
+}
+
+#misc-info {
+  display: flex;
+  position: absolute;
+  left: calc(52% + max(var(--status-bar-width), var(--app-width)) / 2);
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#question-marker,
+#question-text,
+#answer-text {
+  display: inline;
+}
+
+#question-text {
+  margin: 0;
+}
+
+#answer-text {
+  margin: 0;
+}
+
+#details {
+  display: inline-block;
+}
+
+#flashcard-content {
+  position: relative;
+}
+
+/* mobile layout / fixes */
+/* not supported for mobile */
+.android #status-bar-buttons,
+.android #misc-info,
+.iphone #status-bar-buttons,
+.iphone #misc-info,
+.ipad #status-bar-buttons,
+.ipad #misc-info {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  #flashcard-container {
+    width: 90vw;
+  }
+  #status-bar,
+  #status-bar-buttons {
+    width: var(--status-bar-mobile-width);
+  }
+}
+.android body {
+  background: #1a1c1e !important;
+}
+
+/* android layout, based on Pixel 7 testing */
+.android #main {
+  height: 100vh;
+  justify-content: center;
+}
+
+.android #flashcard-content,
+.android .front,
+.android .back {
+  background: #242629 !important;
+  box-shadow: 0 8px 0 #1f2124;
+}
+
+.android #status-bar,
+.android #status-bar-buttons {
+  max-height: 1.5rem;
+}
+
+.android #flashcard-content {
+  height: 100vh !important;
+}
+
+.android #status-bar {
+  height: 15vh;
+}
+
+/* android renders background to a different color. either fix the background color, or set a new pair:
+
+Backdrop Background: #303030
+Flashcard Background: #353535
+
+*/
+html.android #flashcard-content,
+html.android .front,
+html.android .back {
+  background: #242629 !important;
+  box-shadow: 0 8px 0 #1f2124;
+}
+
+.mac body {
+  background: #282828 !important;
+}
+
+.mac #flashcard-content,
+.win #flashcard-content,
+.linux:not(.android) {
+  max-height: var(--mac-flashcard-content-ideal-max-height);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2); /* Soft & diffused raycast like */
+  box-shadow: none;
+  border-radius: 12px; /* Smooth, rounded edges */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(to bottom, #242424, #1e1e1e);
+}
+
+/* mobile layout / fixes */
+/* not supported for mobile */
+.android #status-bar-buttons,
+.android #misc-info,
+.iphone #status-bar-buttons,
+.iphone #misc-info,
+.ipad #status-bar-buttons,
+.ipad #misc-info {
+  display: none;
+}
+
+/* fix ios text alignment */
+.iphone #flashcard-title,
+.iphone #flashcard-subject,
+.ipad #flashcard-title,
+.ipad #flashcard-subject {
+  align-self: start;
+}
+
+.iphone #flashcard-question,
+.iphone #flashcard-answer,
+.iphone #source-text,
+.ipad #flashcard-question,
+.ipad #flashcard-answer,
+.ipad #source-text {
+  text-align: left;
+}
+
+/* override link color on ios */
+.iphone a,
+.ipad a {
+  color: darkgray;
+}
+
+/* not supported for ios */
+.iphone #flashcard-deck-info,
+.ipad #flashcard-deck-info {
+  display: none;
+}
+
+/*# sourceMappingURL=main.css.map */

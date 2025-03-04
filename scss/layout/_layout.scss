@@ -1,0 +1,184 @@
+/* ===========================
+   Layout (Positioning and Spacing)
+=========================== */
+
+#_flag {
+  display: none;
+}
+
+html,
+body,
+#qa {
+  height: 100%; /* Make the html and body take up full height */
+  max-height: 100vh;
+  margin: 0;
+}
+
+#qa {
+  max-height: 100vh;
+  display: flex;
+  flex-flow: row; /* column for without section */
+  justify-content: center;
+  align-items: center;
+  gap: min(1vw, 3rem); /* gap for misc info */
+}
+
+#main {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: var(--status-bar-width);
+}
+
+header,
+#status-bar,
+#status-bar-buttons {
+  width: 100%; /* grow to 100%, then stop at max-width */
+  max-width: var(--status-bar-width);
+  max-height: 3rem;
+  flex-grow: 1;
+}
+
+#flashcard-title {
+  overflow-x: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-bottom: 1.1875rem;
+}
+
+#flashcard-subject {
+  display: inline-block;
+  align-self: baseline;
+}
+
+#flashcard-container {
+  /* iphone ideal width?
+      min-width: 353px;
+  */
+  width: 478.47px;
+  max-width: var(--app-width);
+  max-height: 43.0625rem;
+  flex-grow: 1;
+  padding: 0; /* Remove padding */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* Use box-sizing: border-box */
+}
+
+#flashcard-content {
+  max-height: var(--flashcard-content-ideal-max-height);
+  overflow-y: auto;
+  display: flex;
+  box-sizing: border-box; /* use box-sizing in the content */
+  padding: 0; /* add back the padding, here */
+  margin: 0; /* remove the margin */
+}
+
+#flashcard-content,
+#flashcard-textbox {
+  flex-grow: 1;
+}
+
+#flashcard-textbox,
+.front,
+.back {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  max-width: 100%;
+  box-sizing: border-box; /* Also use in the textbox */
+}
+
+#flashcard-answer {
+  display: flex;
+  gap: 0.75em;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+/* flashcard pictures */
+
+#flashcard-textbox img {
+  max-width: 100%;
+  max-height: 15rem;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 1rem auto 0 auto;
+  border-radius: 12px;
+}
+
+#flashcard-textbox img:last-child {
+  margin-bottom: 0; /* if nothing comes after img, no spacing needed */
+}
+
+#flashcard-source-info {
+  margin-top: 2.875rem;
+}
+
+#flashcard-question:not(:only-child) {
+  margin-bottom: 1rem;
+}
+
+#misc-info {
+  display: flex;
+  position: absolute;
+  left: calc(52% + max(var(--status-bar-width), var(--app-width)) / 2);
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#question-marker,
+#question-text,
+#answer-text {
+  display: inline;
+}
+
+#question-text {
+  margin: 0;
+}
+
+#answer-text {
+  margin: 0;
+}
+
+#details {
+  display: inline-block;
+}
+
+#flashcard-content {
+  position: relative;
+}
+
+/* mobile layout / fixes */
+
+/* not supported for mobile */
+.android #status-bar-buttons,
+.android #misc-info,
+.iphone #status-bar-buttons,
+.iphone #misc-info,
+.ipad #status-bar-buttons,
+.ipad #misc-info {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  #flashcard-container {
+    width: 90vw;
+  }
+
+  #status-bar,
+  #status-bar-buttons {
+    width: var(--status-bar-mobile-width);
+  }
+}

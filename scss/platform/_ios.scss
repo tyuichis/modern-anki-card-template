@@ -1,0 +1,40 @@
+/* mobile layout / fixes */
+
+/* not supported for mobile */
+.android #status-bar-buttons,
+.android #misc-info,
+.iphone #status-bar-buttons,
+.iphone #misc-info,
+.ipad #status-bar-buttons,
+.ipad #misc-info {
+  display: none;
+}
+
+/* fix ios text alignment */
+.iphone #flashcard-title,
+.iphone #flashcard-subject,
+.ipad #flashcard-title,
+.ipad #flashcard-subject {
+  align-self: start;
+}
+
+.iphone #flashcard-question,
+.iphone #flashcard-answer,
+.iphone #source-text,
+.ipad #flashcard-question,
+.ipad #flashcard-answer,
+.ipad #source-text {
+  text-align: left;
+}
+
+/* override link color on ios */
+.iphone a,
+.ipad a {
+  color: darkgray;
+}
+
+/* not supported for ios */
+.iphone #flashcard-deck-info,
+.ipad #flashcard-deck-info {
+  display: none;
+}

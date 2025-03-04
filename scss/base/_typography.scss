@@ -1,0 +1,275 @@
+/* ===========================
+   Typography (Font Settings)
+=========================== */
+
+/* Define fonts globally, if needed later */
+body {
+  font-family: var(--alt-font-family), system-font, sans-serif;
+  line-height: var(--ios-line-height-body); /* Default */
+}
+
+#title,
+#subject {
+  font-family: var(--alt-font-family);
+}
+
+#subject {
+  font-size: var(--ios-font-size-footnote); /* Default */
+  line-height: var(--ios-line-height-footnote); /* Default */
+}
+
+#title {
+  margin-top: 0px; /* remove the margin from top of page. */
+  margin-bottom: 0rem;
+  font-size: var(--ios-font-size-title2); /* Default */
+  line-height: var(--ios-line-height-title2); /* Default */
+}
+
+.flashcard-content {
+  font-size: var(--ios-font-size-body); /* Default */
+  line-height: var(--ios-line-height-body); /* Default */
+}
+
+.flashcard-metadata {
+  font-size: var(--ios-font-size-footnote); /* Default */
+  line-height: var(--ios-font-size-footnote); /* Default */
+}
+
+/* bold takes accent color */
+
+#flashcard-question:not(.seen) b,
+#flashcard-answer b,
+.cloze {
+  color: var(--dark-mode-label-font-color);
+}
+
+b,
+.cloze {
+  font-weight: 600; /* semi bold */
+}
+
+.seen,
+#details {
+  color: darkgray;
+}
+
+a {
+  color: darkgray;
+  text-decoration: underline;
+}
+
+.pass,
+.fail {
+  font-weight: bold;
+}
+
+.pass {
+  color: #009f82;
+}
+
+.fail {
+  color: #ff6061;
+}
+
+#controls-title {
+  color: var(--status-bar-color);
+  font-weight: 400;
+}
+
+#controls-options .key-input {
+  background: #646669;
+  padding: 0.1rem 0.3rem;
+}
+
+#controls-options {
+  font-family: var(--monospace-font-family);
+  color: var(--status-bar-color);
+  font-size: var(--ios-font-size-footnote); /* Default */
+}
+
+#flashcard-extra-info p {
+  margin: 0;
+}
+
+#details-marker,
+#details-text {
+  color: darkgray;
+}
+
+#details-text {
+  display: inline;
+}
+
+code {
+  font-family: var(--monospace-font-family);
+}
+
+#status-bar,
+#controls-header {
+  font-size: var(--mac-font-size-callout);
+  line-height: var(--mac-line-height-callout);
+}
+
+/* desktop typography */
+
+.mac body,
+.linux:not(.android) body,
+.win body {
+  font-family: var(--mac-font-family);
+  line-height: var(--mac-line-height-body);
+}
+
+.mac #subject,
+.linux:not(.android) #subject,
+.win #subject {
+  font-size: var(--mac-font-size-footnote);
+  line-height: var(--mac-line-height-footnote);
+}
+
+.mac #title,
+.linux:not(.android) #title,
+.win #title {
+  font-size: var(--mac-font-size-title2);
+  line-height: var(--mac-line-height-title2);
+}
+
+.mac #flashcard-content,
+.linux:not(.android) #flashcard-content,
+.win #flashcard-content {
+  font-family: var(--mac-font-family);
+  font-size: var(--mac-font-size-body);
+  line-height: var(--mac-line-height-body);
+}
+
+.mac .flashcard-metadata,
+.mac #controls-options,
+.mac #deck-name-container,
+.linux:not(.android) .flashcard-metadata,
+.linux:not(.android) #controls-options,
+.linux:not(.android) #deck-name-container,
+.win .flashcard-metadata,
+.win #controls-options,
+.win #deck-name-container {
+  font-size: var(--mac-font-size-footnote);
+  line-height: var(--mac-line-height-footnote);
+}
+
+/* Android specific typography styles */
+
+.android body {
+  font-family: var(--android-font-family);
+  font-size: var(--android-font-size-body);
+  line-height: var(--android-line-height-body);
+}
+
+.android #subject {
+  font-size: var(--android-font-size-footnote);
+  line-height: var(--android-line-height-footnote);
+}
+
+.android #title {
+  margin-top: 0px;
+  margin-bottom: 0rem;
+  font-size: var(--android-font-size-title2);
+  line-height: var(--android-line-height-title2);
+}
+
+.android #flashcard-content {
+  font-size: var(--android-font-size-body);
+  line-height: var(--android-line-height-body);
+}
+
+.android .flashcard-metadata {
+  font-size: var(--android-font-size-footnote);
+  line-height: var(--android-line-height-footnote);
+}
+
+/* iphone, ipad typography */
+
+.iphone body,
+.ipad body {
+  font-family: var(--ios-font-family);
+  font-size: var(--ios-font-size-body);
+  line-height: var(--ios-line-height-body);
+}
+
+.iphone #subject,
+.ipad #subject {
+  font-size: var(--ios-font-size-footnote);
+  line-height: var(--ios-line-height-footnote);
+}
+
+.iphone #title,
+.ipad #title {
+  margin-top: 0px;
+  margin-bottom: 0rem;
+  font-size: var(--ios-font-size-title2);
+  line-height: var(--ios-line-height-title2);
+}
+
+.iphone #flashcard-content,
+.ipad #flashcard-content {
+  font-size: var(--ios-font-size-body);
+  line-height: var(--ios-line-height-body);
+}
+
+.iphone .flashcard-metadata,
+.ipad .flashcard-metadata {
+  font-size: var(--ios-font-size-footnote);
+  line-height: var(--ios-line-height-footnote);
+}
+
+/* furigana */
+
+.mac ruby > rt {
+  font-size: var(--mac-font-size-furigana);
+  line-height: var(--mac-line-height-furigana);
+}
+
+.ios ruby > rt {
+  font-size: var(--ios-font-size-furigana);
+  line-height: var(--ios-line-height-furigana);
+}
+
+.android ruby > rt {
+  font-size: var(--android-font-size-furigana);
+  line-height: var(--android-line-height-furigana);
+}
+
+/* code typography */
+
+code {
+  font-family: var(--monospace-font-family);
+}
+
+.mac code.hljs {
+  font-size: var(--mac-code-font-size-medium);
+}
+
+.mac pre code.hljs {
+  font-size: var(--mac-code-font-size-small);
+}
+
+.ios code.hljs {
+  font-size: var(--ios-code-font-size-medium);
+}
+
+.ios pre code.hljs {
+  font-size: var(--ios-code-font-size-small);
+}
+
+.android code.hljs {
+  font-size: var(--android-code-font-size-medium);
+}
+
+.android pre code.hljs {
+  font-size: var(--android-code-font-size-small);
+}
+
+code.hljs {
+  border-radius: 6px;
+}
+
+pre code.hljs {
+  max-width: 100%;
+}

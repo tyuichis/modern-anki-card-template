@@ -1,0 +1,50 @@
+/* Flashcard metadata container */
+.flashcard-metadata {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  color: darkgray;
+  align-items: center;
+}
+
+#flashcard-source-info {
+  margin-top: 2.875rem;
+}
+
+#flashcard-source-info:has(#source-text:empty) {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+#source-text:empty::before {
+  content: 'n/a';
+}
+
+#source-text {
+  overflow-x: auto;
+}
+
+#deck-name-container {
+  color: darkgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+#flashcard-labels {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 1.6875rem;
+}
+
+#flashcard-details-info {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}

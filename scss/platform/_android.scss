@@ -1,0 +1,48 @@
+.android body {
+  background: #1a1c1e !important;
+}
+
+/* android layout, based on Pixel 7 testing */
+
+.android #main {
+  height: calc(100vh);
+  justify-content: center;
+}
+
+.android #flashcard-content,
+.android .front,
+.android .back {
+  background: #242629 !important;
+  box-shadow: 0 8px 0 #1f2124;
+}
+
+.android #status-bar,
+.android #status-bar-buttons {
+  max-height: 1.5rem;
+}
+
+.android #flashcard-content {
+  height: 100vh !important;
+}
+
+.android #status-bar {
+  height: calc(15vh);
+}
+
+/* android renders background to a different color. either fix the background color, or set a new pair:
+
+Backdrop Background: #303030
+Flashcard Background: #353535
+
+*/
+
+// .android #flashcard-content {
+//   background: #353535;
+// }
+
+html.android #flashcard-content,
+html.android .front,
+html.android .back {
+  background: #242629 !important;
+  box-shadow: 0 8px 0 #1f2124;
+}
