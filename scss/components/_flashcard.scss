@@ -79,24 +79,6 @@
   margin-bottom: 1.1875rem;
 }
 
-#flashcard-subject {
-  display: inline-block;
-  align-self: baseline;
-}
-
-.android #flashcard-subject {
-  align-self: center; /* fix uneven alignment */
-}
-
-/* label */
-.subject-label {
-  color: var(--label-font-color);
-  background: var(--label-background-color);
-  padding: 0.3em 0.5em;
-  padding: var(--pill-button-padding);
-  border-radius: 6px;
-}
-
 #flashcard-content {
   max-height: var(--flashcard-content-ideal-max-height);
   overflow-y: auto;

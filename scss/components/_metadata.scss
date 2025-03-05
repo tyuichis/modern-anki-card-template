@@ -37,6 +37,24 @@
   color: var(--light-mode-footnote-text-color);
 }
 
+/* label */
+.subject-label {
+  color: var(--label-font-color);
+  background: var(--label-background-color);
+  padding: 0.3em 0.5em;
+  padding: var(--pill-button-padding);
+  border-radius: 6px;
+}
+
+#flashcard-subject {
+  display: inline-block;
+  align-self: baseline;
+}
+
+.android #flashcard-subject {
+  align-self: center; /* fix uneven alignment */
+}
+
 #flashcard-source-info:has(#source-text:empty) path {
   fill: var(--light-mode-empty-text-color);
 }
