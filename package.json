@@ -5,8 +5,7 @@
   "scripts": {
     "lint": "eslint . --ext .ts --fix",
     "format": "prettier --write .",
-    "build:css": "npx sass scss/main.scss css/main.css",
-    "header:license": "license-header --add --license license-header.txt --ignore-from .license-header-ignore"
+    "build:css": "npx sass scss/main.scss css/main.css"
   },
   "keywords": [],
   "author": "Tommy Yuichi Siek tommyyuichisiek@gmail.com",
@@ -16,7 +15,6 @@
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-prettier": "^5.2.3",
-    "license-header": "^0.0.1-security",
     "prettier": "^3.5.3"
   },
   "dependencies": {
