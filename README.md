@@ -1,7 +1,7 @@
 # About
 This Anki card template is built to be easy to use, beautifully consistent and feature-complete. While there are many templates out there, not many, if any, tried to engineer in a UI/UX experience that feels natively built-in.
 
-Here are some key features:
+## Key Features
 - Dark and Light Mode support
 - System fonts for a native feel
 - Furigana and Japanese text support (with correct typographic scale)
@@ -73,7 +73,7 @@ Note: You'll need to write your code blocks within the [HTML editor of Anki](htt
 
 As of March 4 2025, `<>` tags are not supported while writing code blocks using this extension. 
 
-## FAQ
+# FAQ
 <details>
 <summary> <h4>My subject label is grayed out. What gives?</h4></summary>
   
