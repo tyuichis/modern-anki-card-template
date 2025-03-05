@@ -22,28 +22,101 @@ Download the `.apkg` file from the Releases page, and it will import the two car
 To download all the add-ons at once (including the recommended add-ons below), copy and paste this into your Anki Add-on menu:
 
 ```
-1490471827 511710206 1844938046
+1490471827 511710206 1844938046 1960039667
 ```
 *Note, the Undo and Flag status buttons won't work until you download the UI status buttons add-on.
 
 ## Recommended add-ons
 
 ### 1. UI Status Buttons
+
 To use the UI buttons (Undo, Flag buttons) on Desktop, you'll need to download the add-on either from AnkiWeb, or within the Releases page.
 
 ### 2. Anki JavaScript API
 addon: `1490471827` 
+
 This is also a necessary add-on if you want to see how many remaining cards are in your deck during Card Review.
 
-### 3. Field AutoComplete
-addon: `511710206` If you find yourself often creating cards for the same topic, this is a lifesaver.
+### 3. Editor Live Preview
+addon: `1960039667` 
+
+**This is the most recommended third-party addon.**
+
+This card template was specially designed to reduce visual clutter and focus on the [Rule of Minimum Information](https://www.supermemo.com/en/blog/twenty-rules-of-formulating-knowledge#:~:text=cost%20you%20dearly!-,Stick%20to%20the%C2%A0minimum%20information%20principle,-The%20material%20you)[^1][^2]
+
+### 4. Field AutoComplete
+addon: `511710206` 
+
+If you find yourself often creating cards for the same topic, this is a lifesaver.
 
 Used alongside the native pin function, you save 1+ minute per card.
 
-### 4. Markdown support for code blocks and inline code
-addon: `1844938046` If you need to use code blocks repeatedly, get this. 
+### 5. Markdown support for code blocks and inline code
+addon: `1844938046` 
+
+If you need to use code blocks repeatedly, get this. 
 
 It enables you to use double ticks for inline-code, `, and triple ticks for multi-line code blocks ts  with optional language support, i.e. ts for typescript, rs for rust, etc.
 
+Note: You'll need to write your code blocks within the [HTML editor of Anki](https://docs.ankiweb.net/editing.html#:~:text=The%20%3C/%3E%20button%20allows%20editing%20the%20underlying%20HTML%20of%20a%20field.) (click the <> button in the Card Field to expand).
+
+As of March 4 2025, `<>` tags are not supported while writing code blocks using this extension. 
+
+## FAQ
+
+### 1. My subject label is grayed out. What gives?
+The subjects included in the templates are starting points-- not all subjects are covered. In the HTML front and back side, you'll see:
+
+```js
+  var subjects = {
+    algorithms: 'purple',
+    python: 'turquoise',
+    react: 'pink',
+    kubernetes: 'green',
+    rust: 'blue',
+    'software testing': 'red',
+    calculus: 'orange',
+    grammar: 'green',
+    'idioms and proverbs': 'pink',
+    /* ... other subjects here */
+  };
+```
+
+You can manually edit the key names to fit your subject names, but it's not recommended.
+
+Instead, you can visit an AI chatbot and generate subject label colors this way.
+Refer to the prompt located in [docs/generate-label-colors-prompt.txt](./docs/generate-label-colors-prompt.txt).
+
+To do that with a chat bot, follow these steps:
+
+1. Copy and paste the prompt and send.
+2. Enter in the subjects you need to study. For example, in a Deck about Organic Chemistry:
+
+```
+nomenclature, reactions, mechanisms, stereochemistry, spectroscopy, synthesis, functional groups, reagents, acids and bases, resonance
+```
+
+3. You should get something like this structure back:
+```js
+var subjects = {
+    "nomenclature": "purple",
+    "reactions": "green",
+    "mechanisms": "blue",
+    "stereochemistry": "blue",
+    "spectroscopy": "turquoise",
+    "synthesis": "pink",
+    "functional groups": "purple",
+    "reagents": "turquoise",
+    "acids and bases": "purple",
+    "resonance": "blue"
+}
+```
+
+4. Copy paste the new subject object (or part of it) into each of the card template's front and back side HTML. Ready to use!
+
+
 # License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+[^1]: The flashcard text content has a container to help immediately focus on the information. The flashcard is also positioned such that the contents are where your eyes typically are, slightly above center.
+[^2]: Metadata is still important to embed in a flashcard. For example, **sources** give reminders on where you learnt your knowledge and the memory associated with learning it.
