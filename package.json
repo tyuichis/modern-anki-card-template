@@ -6,7 +6,7 @@
     "lint": "eslint . --ext .ts --fix",
     "format": "prettier --write .",
     "build:css": "npx sass scss/main.scss css/main.css",
-    "header:license": "license-header --add --license license-header.txt --ignore node_modules dist build"
+    "header:license": "license-header --add --license license-header.txt --ignore-from .license-header-ignore"
   },
   "keywords": [],
   "author": "Tommy Yuichi Siek tommyyuichisiek@gmail.com",

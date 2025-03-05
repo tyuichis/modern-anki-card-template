@@ -1,0 +1,21 @@
+# Ignore build/output folders
+node_modules
+dist
+build
+third_party
+vendor
+public/assets
+assets
+config/
+
+# Ignore project metadata & config files
+.eslintrc.json
+.gitignore
+.license-header-ignore
+.prettierignore
+.prettierrc
+license-header.txt
+LICENSE.md
+package-lock.json
+package.json
+README.md
