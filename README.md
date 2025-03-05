@@ -1,13 +1,13 @@
 # About
 This Anki card template is built to be easy to use, beautifully consistent and feature-complete. While there are many templates out there, not many, if any, tried to engineer in a UI/UX experience that feels natively built-in.
 
-Here are some key features:
+## Key Features
 - Dark and Light Mode support
 - System fonts for a native feel
 - Furigana and Japanese text support (with correct typographic scale)
 - Desktop UI buttons for common tasks
 - Variable accent color based on subject names
-- Code highlighting
+- Optional code syntax highlighting[^1]
 - Accent color matches native Anki flag colors
 - Subtle animations for answer reveals
 - Near 'native' styling where possible, e.g., Material 3 color palette for Android
@@ -17,14 +17,25 @@ This card template was mainly produced and used on Mac and Android (Pixel). For 
 This setup also avoids the bloat of excessive add-ons, but encourages using select add-ons where they genuinely enhance the card creation experience. Essentially, a somewhat vanilla experience wrapped with a thoughtful framework.
 
 # Quick Start
-Download the `.apkg` file from the Releases page, and it will import the two card types (Q&A, Cloze types) for you to use right away*
+Download the `.apkg` file from the Releases page, and click to open & import the two card types (Q&A, Cloze types)
+
+✅ This is all you need to start. Though, not all features will be enabled:
+
+- ✅ Essential styling and appearance
+- ❌ the Undo and Flag status buttons won't work until the UI Status Buttons add-on is downloaded.
+- ❌ the remaining cards text won't update properly until the Anki JavaScript API add-on is downloaded.
+- ⚪ Optional: code highlighting is pre-configured, but requires `_highlight.js` and `_github-dark.min.css`. See below for instructions.
+  
+So you'll need some add-ons to make it work.
 
 To download all the add-ons at once (including the recommended add-ons below), copy and paste this into your Anki Add-on menu:
 
 ```
 1490471827 511710206 1844938046 1960039667
 ```
-*Note, the Undo and Flag status buttons won't work until you download the UI status buttons add-on.
+
+To enable code Syntax Highlighting, please add `_highlight.js` and `_github-dark.min.css` to your Anki's `collection.media` folder
+For more details on the folder path, see [Anki Docs](https://docs.ankiweb.net/files.html#file-locations)
 
 ## Recommended add-ons
 
@@ -42,7 +53,7 @@ addon: `1960039667`
 
 **This is the most recommended third-party addon.**
 
-This card template was specially designed to reduce visual clutter and focus on the [Rule of Minimum Information](https://www.supermemo.com/en/blog/twenty-rules-of-formulating-knowledge#:~:text=cost%20you%20dearly!-,Stick%20to%20the%C2%A0minimum%20information%20principle,-The%20material%20you)[^1][^2]
+This card template was specially designed to reduce visual clutter and focus on the [Rule of Minimum Information](https://www.supermemo.com/en/blog/twenty-rules-of-formulating-knowledge#:~:text=cost%20you%20dearly!-,Stick%20to%20the%C2%A0minimum%20information%20principle,-The%20material%20you)[^2][^3]
 
 ### 4. Field AutoComplete
 addon: `511710206` 
@@ -62,10 +73,12 @@ Note: You'll need to write your code blocks within the [HTML editor of Anki](htt
 
 As of March 4 2025, `<>` tags are not supported while writing code blocks using this extension. 
 
-## FAQ
-
-### 1. My subject label is grayed out. What gives?
-The subjects included in the templates are starting points-- not all subjects are covered. In the HTML front and back side, you'll see:
+# FAQ
+<details>
+<summary> <h4>My subject label is grayed out. What gives?</h4></summary>
+  
+If your subject wasn't included in the defaults, you can manually add them.
+The subjects included in the templates are starting points. In the HTML front and back side, you'll see:
 
 ```js
   var subjects = {
@@ -113,10 +126,20 @@ var subjects = {
 ```
 
 4. Copy paste the new subject object (or part of it) into each of the card template's front and back side HTML. Ready to use!
+</details>
 
+<details>
+<summary> <h4>Code highlighting doesn't seem to work</h4></summary>
+  
+Be sure to add `_highlight.js` and `_github-dark.min.css` to your Anki's `collection.media` folder.
+
+For more details, see [https://docs.ankiweb.net/files.html#file-locations](https://docs.ankiweb.net/files.html#file-locations)
+  
+</details>
 
 # License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-[^1]: The flashcard text content has a container to help immediately focus on the information. The flashcard is also positioned such that the contents are where your eyes typically are, slightly above center.
-[^2]: Metadata is still important to embed in a flashcard. For example, **sources** give reminders on where you learnt your knowledge and the memory associated with learning it.
+[^1]: The card template is already coded to use highlight.js if available. Please put `_highlight.js` and any theme (default, `_github-dark.min.css` in `collection.media` then restart Anki to use.
+[^2]: The flashcard text content has a container to help immediately focus on the information. The flashcard is also positioned such that the contents are where your eyes typically are, slightly above center.
+[^3]: Metadata is still important to embed in a flashcard. For example, **sources** give reminders on where you learnt your knowledge and the memory associated with learning it.
