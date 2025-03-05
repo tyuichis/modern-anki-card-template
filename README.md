@@ -1,4 +1,9 @@
-# About
+## modern-anki-card-template
+![AGPLv3 License](https://img.shields.io/badge/License-AGPLv3-blue.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/tyuichis/modern-anki-card-template)
+![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)
+![Ko-Fi](https://img.shields.io/badge/Ko--fi-Buy%20Me%20a%20Coffee-ff5f5f?logo=kofi)
+
 This Anki card template is built to be easy to use, beautifully consistent and feature-complete. While there are many templates out there, not many, if any, tried to engineer in a UI/UX experience that feels natively built-in.
 
 ## Key Features
@@ -16,7 +21,7 @@ This card template was mainly produced and used on Mac and Android (Pixel). For 
 
 This setup also avoids the bloat of excessive add-ons, but encourages using select add-ons where they genuinely enhance the card creation experience. Essentially, a somewhat vanilla experience wrapped with a thoughtful framework.
 
-# Quick Start
+## Quick Start
 Download the `.apkg` file from the Releases page, and click to open & import the two card types (Q&A, Cloze types)
 
 ✅ This is all you need to start. Though, not all features will be enabled:
@@ -73,7 +78,7 @@ Note: You'll need to write your code blocks within the [HTML editor of Anki](htt
 
 As of March 4 2025, `<>` tags are not supported while writing code blocks using this extension. 
 
-# FAQ
+## FAQ
 <details>
 <summary> <h4>My subject label is grayed out. What gives?</h4></summary>
   
@@ -137,8 +142,17 @@ For more details, see [https://docs.ankiweb.net/files.html#file-locations](https
   
 </details>
 
-# License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## License
+
+This project is licensed under the **GNU Affero General Public License v3.0 (AGPLv3)**.  
+
+You are free to use, modify, and distribute this project, provided that:  
+
+- Any modifications or derivative works must also be licensed under AGPLv3.  
+- If you distribute this project (or a modified version) as a **hosted service** (e.g., on a website or cloud platform), you must also provide access to the full source code.  
+
+For full details, see the [LICENSE](./LICENSE) file or read the full license text [here](https://www.gnu.org/licenses/agpl-3.0.html).  
+
 
 [^1]: The card template is already coded to use highlight.js if available. Please put `_highlight.js` and any theme (default, `_github-dark.min.css` in `collection.media` then restart Anki to use.
 [^2]: The flashcard text content has a container to help immediately focus on the information. The flashcard is also positioned such that the contents are where your eyes typically are, slightly above center.
