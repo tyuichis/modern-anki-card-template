@@ -1,0 +1,8 @@
+/*!
+ * modern-anki-card-template
+ * Copyright (C) 2025 Tommy Yuichi Siek
+ * 
+ * This file is part of modern-anki-card-template.
+ * Licensed under the AGPL-3.0 License.
+ * See the LICENSE file in the project root for details.
+ */
