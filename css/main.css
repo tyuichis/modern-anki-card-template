@@ -41,23 +41,23 @@ See the LICENSE file in the project root for details. */
   ); /* original: #49A2D5 */
   --status-bar-accent-color: #49a2d5;
   --main-font-family:
-    "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", sans-serif;
+    'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', sans-serif;
   --alt-font-family:
-    "SF Pro Rounded", "Noto Sans Rounded", "Roboto Rounded",
-    "Hiragino Maru Gothic ProN", Quicksand, Comfortaa, Manjari,
-    "Arial Rounded MT Bold", "Arial Rounded MT", Calibri, "Source Sans Pro",
+    'SF Pro Rounded', 'Noto Sans Rounded', 'Roboto Rounded',
+    'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari,
+    'Arial Rounded MT Bold', 'Arial Rounded MT', Calibri, 'Source Sans Pro',
     sans-serif;
   --ios-font-family:
-    "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+    'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
   --monospace-font-family:
-    "JetBrainsMono Nerd Font Mono", "JetBrains Mono", "Fira Code", "Menlo",
-    "Consolas", "Monaco", monospace;
+    'JetBrainsMono Nerd Font Mono', 'JetBrains Mono', 'Fira Code', 'Menlo',
+    'Consolas', 'Monaco', monospace;
   --system-font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", system-iui, Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  --android-font-family: "Noto Sans JP", "Noto", "Roboto", sans-serif;
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-iui, Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --android-font-family: 'Noto Sans JP', 'Noto', 'Roboto', sans-serif;
   --label-font-color: #8e8e93; /* replace with JS depending on subject category */
   --label-background-color: rgba(
     44,
@@ -147,8 +147,8 @@ See the LICENSE file in the project root for details. */
   --android-line-height-furigana: 0.8125rem; /* ~13px */
   /* macOS Code Typography Scale */
   --mac-code-font-family:
-    ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
-    "DejaVu Sans Mono", monospace;
+    ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+    'DejaVu Sans Mono', monospace;
   --mac-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
   --mac-code-line-height-large: 1.5rem; /* ~24px / 16 */
   --mac-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
@@ -157,7 +157,7 @@ See the LICENSE file in the project root for details. */
   --mac-code-line-height-small: 1rem; /* ~16px / 16 */
   /* iOS Code Typography Scale */
   --ios-code-font-family:
-    "SF Mono", ui-monospace, Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    'SF Mono', ui-monospace, Menlo, Consolas, 'DejaVu Sans Mono', monospace;
   --ios-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
   --ios-code-line-height-large: 1.5rem; /* ~24px / 16 */
   --ios-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
@@ -166,7 +166,7 @@ See the LICENSE file in the project root for details. */
   --ios-code-line-height-small: 1rem; /* ~16px / 16 */
   /* Android Code Typography Scale */
   --android-code-font-family:
-    "Roboto Mono", "Cascadia Code", "Source Code Pro", "DejaVu Sans Mono",
+    'Roboto Mono', 'Cascadia Code', 'Source Code Pro', 'DejaVu Sans Mono',
     monospace;
   --android-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
   --android-code-line-height-large: 1.5rem; /* ~24px / 16 */
@@ -382,7 +382,8 @@ code {
   line-height: var(--android-line-height-body);
 }
 
-.android #subject {
+.android #subject,
+.android #deck-name-container {
   font-size: var(--android-font-size-footnote);
   line-height: var(--android-line-height-footnote);
 }
@@ -452,46 +453,6 @@ code {
 .android ruby > rt {
   font-size: var(--android-font-size-furigana);
   line-height: var(--android-line-height-furigana);
-}
-
-/* code typography */
-code {
-  font-family: var(--monospace-font-family);
-}
-
-.mac code,
-.mac code.hljs {
-  font-size: var(--mac-code-font-size-medium);
-}
-.mac pre code,
-.mac pre code.hljs {
-  font-size: var(--mac-code-font-size-small);
-}
-
-.ios code,
-.ios code.hljs {
-  font-size: var(--ios-code-font-size-medium);
-}
-.ios pre code,
-.ios pre code.hljs {
-  font-size: var(--ios-code-font-size-small);
-}
-
-.android code,
-.android code.hljs {
-  font-size: var(--android-code-font-size-medium);
-}
-.android pre code,
-.android pre code.hljs {
-  font-size: var(--android-code-font-size-small);
-}
-
-code.hljs {
-  border-radius: 6px;
-}
-
-pre code.hljs {
-  max-width: 100%;
 }
 
 /* ===========================
@@ -608,24 +569,6 @@ pre code.hljs {
   white-space: nowrap;
   flex-shrink: 0;
   margin-bottom: 1.1875rem;
-}
-
-#flashcard-subject {
-  display: inline-block;
-  align-self: baseline;
-}
-
-.android #flashcard-subject {
-  align-self: center; /* fix uneven alignment */
-}
-
-/* label */
-.subject-label {
-  color: var(--label-font-color);
-  background: var(--label-background-color);
-  padding: 0.3em 0.5em;
-  padding: var(--pill-button-padding);
-  border-radius: 6px;
 }
 
 #flashcard-content {
@@ -802,6 +745,24 @@ pre code.hljs {
   color: var(--light-mode-footnote-text-color);
 }
 
+/* label */
+.subject-label {
+  color: var(--label-font-color);
+  background: var(--label-background-color);
+  padding: 0.3em 0.5em;
+  padding: var(--pill-button-padding);
+  border-radius: 6px;
+}
+
+#flashcard-subject {
+  display: inline-block;
+  align-self: baseline;
+}
+
+.android #flashcard-subject {
+  align-self: center; /* fix uneven alignment */
+}
+
 #flashcard-source-info:has(#source-text:empty) path {
   fill: var(--light-mode-empty-text-color);
 }
@@ -823,7 +784,7 @@ pre code.hljs {
 }
 
 #source-text:empty::before {
-  content: "n/a";
+  content: 'n/a';
 }
 
 #source-text {
