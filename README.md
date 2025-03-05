@@ -2,7 +2,7 @@
 ![AGPLv3 License](https://img.shields.io/badge/License-AGPLv3-blue.svg)
 ![GitHub last commit](https://img.shields.io/github/last-commit/tyuichis/modern-anki-card-template)
 ![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)
-![Ko-Fi](https://img.shields.io/badge/Ko--fi-Buy%20Me%20a%20Coffee-ff5f5f?logo=kofi)
+[![Ko-Fi](https://img.shields.io/badge/Ko--fi-Buy%20Me%20a%20Coffee-ff5f5f?logo=kofi)](https://ko-fi.com/tyuichis)
 
 This Anki card template is built to be easy to use, beautifully consistent and feature-complete. While there are many templates out there, not many, if any, tried to engineer in a UI/UX experience that feels natively built-in.
 
@@ -80,7 +80,7 @@ As of March 4 2025, `<>` tags are not supported while writing code blocks using 
 
 ## FAQ
 <details>
-<summary> <h4>My subject label is grayed out. What gives?</h4></summary>
+<summary> <b>My subject label is grayed out. What gives?</b></summary>
   
 If your subject wasn't included in the defaults, you can manually add them.
 The subjects included in the templates are starting points. In the HTML front and back side, you'll see:
@@ -134,13 +134,20 @@ var subjects = {
 </details>
 
 <details>
-<summary> <h4>Code highlighting doesn't seem to work</h4></summary>
+<summary> <b>Code highlighting doesn't seem to work</b></summary>
   
 Be sure to add `_highlight.js` and `_github-dark.min.css` to your Anki's `collection.media` folder.
 
 For more details, see [https://docs.ankiweb.net/files.html#file-locations](https://docs.ankiweb.net/files.html#file-locations)
   
 </details>
+
+## Support
+
+If you find this project helpful, consider supporting me on Ko-Fi! Your support helps keep development active.  
+
+[![Ko-Fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/tyuichis)
+
 
 ## License
 
@@ -151,7 +158,7 @@ You are free to use, modify, and distribute this project, provided that:
 - Any modifications or derivative works must also be licensed under AGPLv3.  
 - If you distribute this project (or a modified version) as a **hosted service** (e.g., on a website or cloud platform), you must also provide access to the full source code.  
 
-For full details, see the [LICENSE](./LICENSE) file or read the full license text [here](https://www.gnu.org/licenses/agpl-3.0.html).  
+For full details, see the [LICENSE](./LICENSE.md) file or read the full license text [here](https://www.gnu.org/licenses/agpl-3.0.html).  
 
 
 [^1]: The card template is already coded to use highlight.js if available. Please put `_highlight.js` and any theme (default, `_github-dark.min.css` in `collection.media` then restart Anki to use.
