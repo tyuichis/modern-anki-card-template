@@ -21,9 +21,11 @@ Download the `.apkg` file from the Releases page, and click to open & import the
 
 ✅ This is all you need to start. Though, not all features will be enabled:
 
-- the Undo and Flag status buttons won't work until you download the UI status buttons add-on.
-- the remaining cards text won't update properly
-
+- ✅ Essential styling and appearance
+- ❌ the Undo and Flag status buttons won't work until the UI Status Buttons add-on is downloaded.
+- ❌ the remaining cards text won't update properly until the Anki JavaScript API add-on is downloaded.
+- ⚪ Optional: code highlighting is pre-configured, but requires `_highlight.js` and `_github-dark.min.css`. See below for instructions.
+  
 So you'll need some add-ons to make it work.
 
 To download all the add-ons at once (including the recommended add-ons below), copy and paste this into your Anki Add-on menu:
@@ -32,7 +34,8 @@ To download all the add-ons at once (including the recommended add-ons below), c
 1490471827 511710206 1844938046 1960039667
 ```
 
-For coders and programmers: to enable syntax highlighting, please add `_highlight.js` and `_github-dark.min.css` to your Anki's `collection.media` folder[^2]
+To enable code Syntax Highlighting, please add `_highlight.js` and `_github-dark.min.css` to your Anki's `collection.media` folder
+For more details on the folder path, see [Anki Docs](https://docs.ankiweb.net/files.html#file-locations)
 
 ## Recommended add-ons
 
@@ -50,7 +53,7 @@ addon: `1960039667`
 
 **This is the most recommended third-party addon.**
 
-This card template was specially designed to reduce visual clutter and focus on the [Rule of Minimum Information](https://www.supermemo.com/en/blog/twenty-rules-of-formulating-knowledge#:~:text=cost%20you%20dearly!-,Stick%20to%20the%C2%A0minimum%20information%20principle,-The%20material%20you)[^3][^4]
+This card template was specially designed to reduce visual clutter and focus on the [Rule of Minimum Information](https://www.supermemo.com/en/blog/twenty-rules-of-formulating-knowledge#:~:text=cost%20you%20dearly!-,Stick%20to%20the%C2%A0minimum%20information%20principle,-The%20material%20you)[^2][^3]
 
 ### 4. Field AutoComplete
 addon: `511710206` 
@@ -138,6 +141,5 @@ For more details, see [https://docs.ankiweb.net/files.html#file-locations](https
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 [^1]: The card template is already coded to use highlight.js if available. Please put `_highlight.js` and any theme (default, `_github-dark.min.css` in `collection.media` then restart Anki to use.
-[^2]: Ibid, same as above footnote.
-[^3]: The flashcard text content has a container to help immediately focus on the information. The flashcard is also positioned such that the contents are where your eyes typically are, slightly above center.
-[^4]: Metadata is still important to embed in a flashcard. For example, **sources** give reminders on where you learnt your knowledge and the memory associated with learning it.
+[^2]: The flashcard text content has a container to help immediately focus on the information. The flashcard is also positioned such that the contents are where your eyes typically are, slightly above center.
+[^3]: Metadata is still important to embed in a flashcard. For example, **sources** give reminders on where you learnt your knowledge and the memory associated with learning it.
