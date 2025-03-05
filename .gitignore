@@ -46,3 +46,6 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# Misc
+license-header.txt
