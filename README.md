@@ -80,7 +80,7 @@ As of March 4 2025, `<>` tags are not supported while writing code blocks using 
 
 ## FAQ
 <details>
-<summary> <h4>My subject label is grayed out. What gives?</h4></summary>
+<summary> <b>My subject label is grayed out. What gives?</b></summary>
   
 If your subject wasn't included in the defaults, you can manually add them.
 The subjects included in the templates are starting points. In the HTML front and back side, you'll see:
@@ -134,7 +134,7 @@ var subjects = {
 </details>
 
 <details>
-<summary> <h4>Code highlighting doesn't seem to work</h4></summary>
+<summary> <b>Code highlighting doesn't seem to work</b></summary>
   
 Be sure to add `_highlight.js` and `_github-dark.min.css` to your Anki's `collection.media` folder.
 
@@ -158,7 +158,7 @@ You are free to use, modify, and distribute this project, provided that:
 - Any modifications or derivative works must also be licensed under AGPLv3.  
 - If you distribute this project (or a modified version) as a **hosted service** (e.g., on a website or cloud platform), you must also provide access to the full source code.  
 
-For full details, see the [LICENSE](./LICENSE) file or read the full license text [here](https://www.gnu.org/licenses/agpl-3.0.html).  
+For full details, see the [LICENSE](./LICENSE.md) file or read the full license text [here](https://www.gnu.org/licenses/agpl-3.0.html).  
 
 
 [^1]: The card template is already coded to use highlight.js if available. Please put `_highlight.js` and any theme (default, `_github-dark.min.css` in `collection.media` then restart Anki to use.
