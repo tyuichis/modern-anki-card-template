@@ -716,13 +716,17 @@ See the LICENSE file in the project root for details. -->
 </section>
 
 <script>
-  // Highlight all block-level code
-  hljs.highlightAll();
+  if (typeof hljs !== 'undefined') {
+    // Highlight all block-level code
+    hljs.highlightAll();
 
-  // Highlight inline code
-  document.querySelectorAll('code:not(pre code)').forEach((block) => {
-    hljs.highlightElement(block);
-  });
+    // Highlight inline code
+    document.querySelectorAll('code:not(pre code)').forEach((block) => {
+      hljs.highlightElement(block);
+    });
+  } else {
+    console.error('highlight.js failed to load. Check if installed');
+  }
 
   fetchDeckNames();
   updateDeckNames();

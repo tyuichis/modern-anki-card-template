@@ -5,14 +5,11 @@ This file is part of modern-anki-card-template.
 Licensed under the AGPL-3.0 License.
 See the LICENSE file in the project root for details. -->
 
-
 <!-- 
     Highlight.js v11.9.0 (git: b7ec4bfafc)
     (c) 2006-2023 undefined and other contributors
     License: BSD-3-Clause
 -->
-
-
 
 <link rel="stylesheet" href="_github-dark.min.css" />
 
@@ -744,15 +741,17 @@ See the LICENSE file in the project root for details. -->
 </section>
 
 <script>
-  // Highlight all block-level code
-  hljs.highlightAll();
+  if (typeof hljs !== 'undefined') {
+    // Highlight all block-level code
+    hljs.highlightAll();
 
-  // Highlight inline code
-  document.querySelectorAll('code:not(pre code)').forEach((block) => {
-    hljs.highlightElement(block);
-  });
-
-  showDetails();
+    // Highlight inline code
+    document.querySelectorAll('code:not(pre code)').forEach((block) => {
+      hljs.highlightElement(block);
+    });
+  } else {
+    console.error('highlight.js failed to load. Check if installed');
+  }
 
   fetchDeckNames();
   updateDeckNames();
