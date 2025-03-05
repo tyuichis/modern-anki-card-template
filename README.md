@@ -1,3 +1,4 @@
+![modern_card_preview](./metadata/img/light_and_dark_card_preview.webp)
 ## modern-anki-card-template
 ![AGPLv3 License](https://img.shields.io/badge/License-AGPLv3-blue.svg)
 ![GitHub last commit](https://img.shields.io/github/last-commit/tyuichis/modern-anki-card-template)
