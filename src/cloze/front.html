@@ -553,28 +553,9 @@ See the LICENSE file in the project root for details. -->
       console.warn('Element #remainingCards not found in the DOM.');
     }
   }
-
-  function fetchDeckNames() {
-    deckMeta = document.querySelector('meta[name="deck-name"]');
-    subdeckMeta = document.querySelector('meta[name="subdeck-name"]');
-
-    deckName = deckMeta?.getAttribute('content')?.trim() || '';
-    subdeckName = subdeckMeta?.getAttribute('content')?.trim() || '';
-
-    console.log(`deckName: ${deckName}, subdeckName: ${subdeckName}`);
-  }
-
-  function updateDeckNames() {
-    const deckNameTag = document.querySelector('#deck-name');
-    if (!subdeckName) {
-      deckNameTag.textContent = deckName;
-    } else deckNameTag.textContent = subdeckName;
-  }
 </script>
 
 <!-- Front Side -->
-<meta name="deck-name" content="{{Deck}}" />
-<meta name="subdeck-name" content="{{Subdeck}}" />
 
 <section id="main">
   <div id="status-bar">
@@ -638,7 +619,7 @@ See the LICENSE file in the project root for details. -->
             />
           </svg>
         </span>
-        <span id="deck-name"></span>
+        <span id="deck-name">{{Subdeck}}</span>
       </div>
 
       <div id="flashcard-subject">
@@ -727,9 +708,6 @@ See the LICENSE file in the project root for details. -->
   } else {
     console.error('highlight.js failed to load. Check if installed');
   }
-
-  fetchDeckNames();
-  updateDeckNames();
 
   // Fetch and update card counts from API
   fetchCardCount().then((cardCounts) => {

@@ -337,10 +337,6 @@ See the LICENSE file in the project root for details. -->
   // DOM Cache (initialize as null, will be assigned after the DOM is loaded)
   var subjectElement = null;
   var subjectCategory = null;
-  var deckMeta = null;
-  var subdeckMeta = null;
-  var deckName = null;
-  var subDeckName = null;
   var matchedCategoryColor;
 
   /* cache JS api items */
@@ -551,35 +547,10 @@ See the LICENSE file in the project root for details. -->
       console.warn('Element #remainingCards not found in the DOM.');
     }
   }
-
-  function fetchDeckNames() {
-    deckMeta = document.querySelector('meta[name="deck-name"]');
-    subdeckMeta = document.querySelector('meta[name="subdeck-name"]');
-
-    deckName = deckMeta?.getAttribute('content')?.trim() || '';
-    subdeckName = subdeckMeta?.getAttribute('content')?.trim() || '';
-
-    console.log(`deckName: ${deckName}, subdeckName: ${subdeckName}`);
-  }
-
-  fetchDeckNames();
-
-  function updateDeckNames() {
-    const deckNameTag = document.querySelector('#deck-name');
-    if (!subdeckName) {
-      deckNameTag.textContent = deckName;
-    } else deckNameTag.textContent = subdeckName;
-  }
-
-  updateDeckNames();
 </script>
 
 <!-- Front Side -->
 
-<!-- prettier-ignore-start -->
-<meta name="deck-name" content="{{Deck}}" />
-<meta name="subdeck-name" content="{{Subdeck}}" />
-<!-- prettier-ignore-end -->
 <section id="main">
   <div id="status-bar">
     <ul id="status-bar-buttons">
@@ -628,11 +599,9 @@ See the LICENSE file in the project root for details. -->
 
   <div id="flashcard-container">
     <div id="flashcard-title">
-      <!-- prettier-ignore-start -->
       <h1 id="title">
         {{^Card Category}}Untitled{{/Card Category}}{{Card Category}}
       </h1>
-      <!-- prettier-ignore-end -->
     </div>
     <div id="flashcard-labels">
       <div id="deck-name-container">
@@ -643,23 +612,19 @@ See the LICENSE file in the project root for details. -->
             />
           </svg>
         </span>
-        <span id="deck-name"></span>
+        <span id="deck-name">{{Subdeck}}</span>
       </div>
       <div id="flashcard-subject">
-        <!-- prettier-ignore-start -->
         <span id="subject" class="subject-label"
           >{{^Subject}}No topic selected{{/Subject}}{{Subject}}</span
         >
-        <!-- prettier-ignore-end -->
       </div>
     </div>
     <div id="flashcard-content">
       <div id="flashcard-textbox">
         <div id="flashcard-question">
           <span id="question-marker"></span>
-          <!-- prettier-ignore-start -->
           <p id="question-text">{{Question}}</p>
-          <!-- prettier-ignore-end -->
         </div>
       </div>
     </div>
@@ -672,9 +637,7 @@ See the LICENSE file in the project root for details. -->
             />
           </svg>
         </span>
-        <!-- prettier-ignore-start -->
         <span id="source-text">{{^Source}}{{/Source}}{{Source}}</span>
-        <!-- prettier-ignore-end -->
       </div>
       <div id="deck-remaining-cards-container" class="flashcard-metadata">
         <span class="deck-icon">
@@ -734,8 +697,6 @@ See the LICENSE file in the project root for details. -->
   } else {
     console.error('highlight.js failed to load. Check if installed');
   }
-  fetchDeckNames();
-  updateDeckNames();
 
   // Fetch and update card counts
   fetchCardCount().then((cardCounts) => {
