@@ -84,6 +84,10 @@
   align-self: baseline;
 }
 
+.android #flashcard-subject {
+  align-self: center; /* fix uneven alignment */
+}
+
 /* label */
 .subject-label {
   color: var(--label-font-color);
