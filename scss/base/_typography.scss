@@ -183,7 +183,8 @@ code {
   line-height: var(--android-line-height-body);
 }
 
-.android #subject {
+.android #subject,
+.android #deck-name-container {
   font-size: var(--android-font-size-footnote);
   line-height: var(--android-line-height-footnote);
 }
@@ -255,54 +256,4 @@ code {
 .android ruby > rt {
   font-size: var(--android-font-size-furigana);
   line-height: var(--android-line-height-furigana);
-}
-
-/* code typography */
-
-code {
-  font-family: var(--monospace-font-family);
-}
-
-.mac {
-  code,
-  code.hljs {
-    font-size: var(--mac-code-font-size-medium);
-  }
-
-  pre code,
-  pre code.hljs {
-    font-size: var(--mac-code-font-size-small);
-  }
-}
-
-.ios {
-  code,
-  code.hljs {
-    font-size: var(--ios-code-font-size-medium);
-  }
-
-  pre code,
-  pre code.hljs {
-    font-size: var(--ios-code-font-size-small);
-  }
-}
-
-.android {
-  code,
-  code.hljs {
-    font-size: var(--android-code-font-size-medium);
-  }
-
-  pre code,
-  pre code.hljs {
-    font-size: var(--android-code-font-size-small);
-  }
-}
-
-code.hljs {
-  border-radius: 6px;
-}
-
-pre code.hljs {
-  max-width: 100%;
 }
