@@ -26,6 +26,9 @@ See the LICENSE file in the project root for details. */
   --dark-mode-details-text-color: darkgrey;
   --light-mode-icon-color: #333333;
   --light-mode-status-bar-color: rgba(0, 0, 0, 0.8);
+  --dark-mode-code-block-background: #0d1116;
+  --light-mode-code-block-background: #f9f9f9;
+  --light-mode-code-block-border: #d1d1d1;
   /* bookmark / source icon color accent; none on dark mode */
   --source-icon-accent-color: #b55a5a;
   --light-mode-link-accent-color: #d91e50;
@@ -456,26 +459,29 @@ code {
   font-family: var(--monospace-font-family);
 }
 
+.mac code,
 .mac code.hljs {
   font-size: var(--mac-code-font-size-medium);
 }
-
+.mac pre code,
 .mac pre code.hljs {
   font-size: var(--mac-code-font-size-small);
 }
 
+.ios code,
 .ios code.hljs {
   font-size: var(--ios-code-font-size-medium);
 }
-
+.ios pre code,
 .ios pre code.hljs {
   font-size: var(--ios-code-font-size-small);
 }
 
+.android code,
 .android code.hljs {
   font-size: var(--android-code-font-size-medium);
 }
-
+.android pre code,
 .android pre code.hljs {
   font-size: var(--android-code-font-size-small);
 }
@@ -761,6 +767,9 @@ pre code.hljs {
   align-items: center;
 }
 
+/* ===========================
+   Metadata Component
+=========================== */
 /* Flashcard metadata container */
 .flashcard-metadata {
   display: flex;
@@ -976,6 +985,79 @@ pre code.hljs {
 .iphone #status-bar-buttons,
 .ipad #status-bar-buttons {
   display: none;
+}
+
+/* ===========================
+   Code Component
+=========================== */
+/* code typography */
+code {
+  font-family: var(--monospace-font-family);
+}
+
+.mac code,
+.mac code.hljs {
+  font-size: var(--mac-code-font-size-medium);
+}
+.mac pre code,
+.mac pre code.hljs {
+  font-size: var(--mac-code-font-size-small);
+}
+
+.ios code,
+.ios code.hljs {
+  font-size: var(--ios-code-font-size-medium);
+}
+.ios pre code,
+.ios pre code.hljs {
+  font-size: var(--ios-code-font-size-small);
+}
+
+.android code,
+.android code.hljs {
+  font-size: var(--android-code-font-size-medium);
+}
+.android pre code,
+.android pre code.hljs {
+  font-size: var(--android-code-font-size-small);
+}
+
+code.hljs {
+  border-radius: 6px;
+}
+
+/* default theme */
+/* does not override hljs themes */
+.night-mode pre:has(:not(.hljs)) {
+  background-color: var(--dark-mode-code-block-background);
+  border: 1px solid var(--dark-mode-code-block-background);
+}
+
+/* light mode default theme */
+pre:has(:not(.hljs)) {
+  background-color: var(--light-mode-code-block-background);
+  border: 1px solid var(--light-mode-code-block-border);
+  border-radius: 6px;
+}
+
+.night-mode code:not(.hljs) {
+  background: var(--dark-mode-code-block-background);
+  border: none;
+}
+
+code:not(.hljs):not(pre code) {
+  background-color: var(--light-mode-code-block-background);
+  border: 1px solid var(--light-mode-code-block-border);
+  border-radius: 6px;
+  padding: 3px 5px;
+}
+
+/* layout */
+pre code {
+  max-width: 100%;
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
 }
 
 /* ===========================

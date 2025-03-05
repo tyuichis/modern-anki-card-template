@@ -263,28 +263,40 @@ code {
   font-family: var(--monospace-font-family);
 }
 
-.mac code.hljs {
-  font-size: var(--mac-code-font-size-medium);
+.mac {
+  code,
+  code.hljs {
+    font-size: var(--mac-code-font-size-medium);
+  }
+
+  pre code,
+  pre code.hljs {
+    font-size: var(--mac-code-font-size-small);
+  }
 }
 
-.mac pre code.hljs {
-  font-size: var(--mac-code-font-size-small);
+.ios {
+  code,
+  code.hljs {
+    font-size: var(--ios-code-font-size-medium);
+  }
+
+  pre code,
+  pre code.hljs {
+    font-size: var(--ios-code-font-size-small);
+  }
 }
 
-.ios code.hljs {
-  font-size: var(--ios-code-font-size-medium);
-}
+.android {
+  code,
+  code.hljs {
+    font-size: var(--android-code-font-size-medium);
+  }
 
-.ios pre code.hljs {
-  font-size: var(--ios-code-font-size-small);
-}
-
-.android code.hljs {
-  font-size: var(--android-code-font-size-medium);
-}
-
-.android pre code.hljs {
-  font-size: var(--android-code-font-size-small);
+  pre code,
+  pre code.hljs {
+    font-size: var(--android-code-font-size-small);
+  }
 }
 
 code.hljs {

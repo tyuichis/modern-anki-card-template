@@ -1,0 +1,89 @@
+/* ===========================
+   Code Component
+=========================== */
+
+/* code typography */
+
+code {
+  font-family: var(--monospace-font-family);
+}
+
+.mac {
+  code,
+  code.hljs {
+    font-size: var(--mac-code-font-size-medium);
+  }
+
+  pre code,
+  pre code.hljs {
+    font-size: var(--mac-code-font-size-small);
+  }
+}
+
+.ios {
+  code,
+  code.hljs {
+    font-size: var(--ios-code-font-size-medium);
+  }
+
+  pre code,
+  pre code.hljs {
+    font-size: var(--ios-code-font-size-small);
+  }
+}
+
+.android {
+  code,
+  code.hljs {
+    font-size: var(--android-code-font-size-medium);
+  }
+
+  pre code,
+  pre code.hljs {
+    font-size: var(--android-code-font-size-small);
+  }
+}
+
+code.hljs {
+  border-radius: 6px;
+}
+
+/* default theme */
+
+/* does not override hljs themes */
+.night-mode {
+  pre:has(:not(.hljs)) {
+    background-color: var(--dark-mode-code-block-background);
+    border: 1px solid var(--dark-mode-code-block-background);
+  }
+}
+
+/* light mode default theme */
+pre:has(:not(.hljs)) {
+  background-color: var(--light-mode-code-block-background);
+  border: 1px solid var(--light-mode-code-block-border);
+  border-radius: 6px;
+}
+
+.night-mode {
+  code:not(.hljs) {
+    background: var(--dark-mode-code-block-background);
+    border: none;
+    // color: #c9d1d9; optional.
+  }
+}
+
+code:not(.hljs):not(pre code) {
+  background-color: var(--light-mode-code-block-background);
+  border: 1px solid var(--light-mode-code-block-border);
+  border-radius: 6px;
+  padding: 3px 5px;
+}
+
+/* layout */
+pre code {
+  max-width: 100%;
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
