@@ -5,7 +5,7 @@
 ![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)
 [![Ko-Fi](https://img.shields.io/badge/Ko--fi-Buy%20Me%20a%20Coffee-ff5f5f?logo=kofi)](https://ko-fi.com/tyuichis)
 
-This Anki card template is built to be easy to use, beautifully consistent and feature-complete. While there are many templates out there, not many, if any, tried to engineer in a UI/UX experience that feels natively built-in.
+This Anki card template is built to be easy to use, beautifully consistent and feature-complete. It comes with a Q&A (typical front and back style cards) and Cloze template. While there are many templates out there, not many, if any, tried to engineer in a UI/UX experience that feels natively built-in.
 
 ## Key Features
 - Dark and Light Mode support
