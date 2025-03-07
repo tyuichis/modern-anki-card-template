@@ -658,17 +658,4 @@ See the LICENSE file in the project root for details. -->
       }
     });
   }
-
-  document.addEventListener('keydown', function (event) {
-    // Check for right arrow key (ArrowRight or ->)
-    if (event.key === ' ') {
-      // Trigger the action in Anki (this will call pycmd("ans") in Anki)
-      pycmd('ans');
-    }
-
-    // Check for left arrow key (ArrowLeft or <-) — no action for now
-    if (event.key === 'ArrowLeft') {
-      console.log('Left arrow key pressed. (No action yet)');
-    }
-  });
 </script>
