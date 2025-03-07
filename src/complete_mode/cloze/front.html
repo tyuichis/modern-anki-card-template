@@ -13,8 +13,6 @@ See the LICENSE file in the project root for details. -->
 
 <link rel="stylesheet" href="_github-dark.min.css" />
 
-<script src="_highlight.min.js"></script>
-
 <script>
   var labelColors = {
     yellow: {
@@ -107,8 +105,7 @@ See the LICENSE file in the project root for details. -->
     'data structures': 'purple',
     grammar: 'green',
     vocabulary: 'blue',
-    reading: 'purple', 
-
+    reading: 'purple',
   };
 
   // Check if it's a mobile user agent or Android (outside the function)
@@ -220,6 +217,7 @@ See the LICENSE file in the project root for details. -->
   }
 
   // Function to update CSS variables based on subject category
+
   function updateLabelColors(subjectCategory) {
     let theme = document.body.classList.contains('nightMode')
       ? 'dark'
@@ -250,6 +248,7 @@ See the LICENSE file in the project root for details. -->
       );
     }
   }
+
   // Function to get the subject category from the DOM
   function getSubjectFromDOM() {
     subjectElement = document.getElementById('subject');
@@ -357,6 +356,7 @@ See the LICENSE file in the project root for details. -->
           <span id="undo">Undo</span>
         </div>
       </li>
+
       <!-- Flag Button -->
       <li>
         <div id="flag-button" class="button">
@@ -397,20 +397,23 @@ See the LICENSE file in the project root for details. -->
         </span>
         <span id="deck-name">{{Subdeck}}</span>
       </div>
+
       <div id="flashcard-subject">
         <span id="subject" class="subject-label"
           >{{^Subject}}No topic selected{{/Subject}}{{Subject}}</span
         >
       </div>
     </div>
+
     <div id="flashcard-content">
       <div id="flashcard-textbox">
         <div id="flashcard-question">
-          <span id="question-marker"></span>
-          <p id="question-text">{{Question}}</p>
+          <!-- <span id="question-marker"></span> -->
+          <p id="question-text">{{cloze:Cloze Text}}</p>
         </div>
       </div>
     </div>
+
     <div id="flashcard-info">
       <div id="flashcard-source-info" class="flashcard-metadata">
         <span id="source-icon">
@@ -422,6 +425,7 @@ See the LICENSE file in the project root for details. -->
         </span>
         <span id="source-text">{{^Source}}{{/Source}}{{Source}}</span>
       </div>
+
       <div id="deck-remaining-cards-container" class="flashcard-metadata">
         <span class="deck-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -469,19 +473,126 @@ See the LICENSE file in the project root for details. -->
 </section>
 
 <script>
-  if (typeof hljs !== 'undefined') {
-    // Highlight all block-level code
-    hljs.highlightAll();
+  var syntaxHighlighting = false; // Default is off; set to syntaxHighlighting = true; to turn on. Be sure to import _highlight_min.js and the language pack.
+  var hljs; // cache hljs
+  var loadedLanguages = {}; // cache loaded languages
 
-    // Highlight inline code
-    document.querySelectorAll('code:not(pre code)').forEach((block) => {
-      hljs.highlightElement(block);
-    });
-  } else {
-    console.error('highlight.js failed to load. Check if installed');
+  async function loadHighlightJS() {
+    if (!syntaxHighlighting) {
+      return false; // syntaxHighlighting is on. Don't load.
+    }
+
+    if (hljs) {
+      console.log('Highlight.js is already loaded.');
+      return true; // hljs already loaded
+    }
+
+    try {
+      // load highlight.js core
+      const hljsModule = await import('/_highlight.min.js');
+      hljs = hljsModule.default || hljsModule; // cache hljs
+
+      console.log('Highlight.js loaded:', hljs);
+
+      // languages to load
+      const languages = [
+        'bash',
+        'java',
+        'perl',
+        'scss',
+        'c',
+        'javascript',
+        'php',
+        'shell',
+        'cpp',
+        'json',
+        'python',
+        'csharp',
+        'kotlin',
+        'plaintext',
+        'swift',
+        'css',
+        'less',
+        'typescript',
+        'diff',
+        'lua',
+        'vbnet',
+        'go',
+        'makefile',
+        'r',
+        'wasm',
+        'graphql',
+        'markdown',
+        'ruby',
+        'xml',
+        'ini',
+        'objectivec',
+        'rust',
+        'yaml',
+      ];
+
+      // load and register languages
+      const loadPromises = languages.map(async (lang) => {
+        if (loadedLanguages[lang]) {
+          console.log(`Language ${lang} is already loaded.`);
+          return; // skip if already loaded
+        }
+
+        try {
+          const module = await import(`/_${lang}.min.js`);
+          hljs.registerLanguage(lang, module.default || module); // register language
+          loadedLanguages[lang] = true; // cache loaded language
+          console.log(`Language ${lang} loaded.`);
+        } catch (error) {
+          console.warn(`Failed to load language: ${lang}`, error);
+        }
+      });
+
+      // wait for all languages to load
+      await Promise.allSettled(loadPromises);
+
+      console.log('All languages attempted to load:', languages);
+
+      return true; // all loaded successfully
+    } catch (error) {
+      console.error('Failed to load Highlight.js:', error);
+      return false; // error loading
+    }
   }
 
-  // Fetch and update card counts
+  async function applyHighlighting() {
+    if (!syntaxHighlighting) {
+      return; // syntaxHighlighting is on. Don't run.
+    }
+
+    const isLoaded = await loadHighlightJS(); // wait for hljs to load
+
+    if (!isLoaded) {
+      console.error('Highlight.js was not loaded successfully.');
+      return; // stop if hljs failed to load
+    }
+
+    // highlight code blocks
+    document.querySelectorAll('pre code').forEach((block) => {
+      console.log('Highlighting block:', block);
+      hljs.highlightElement(block); // highlight block
+    });
+
+    // highlight inline code
+    document.querySelectorAll('code:not(pre code)').forEach((block) => {
+      console.log('Highlighting inline block:', block);
+      hljs.highlightElement(block); // highlight inline block
+    });
+
+    console.log('Highlighting applied successfully.');
+  }
+
+  // apply highlighting
+  applyHighlighting();
+</script>
+
+<script>
+  // Fetch and update card counts from API
   fetchCardCount().then((cardCounts) => {
     var totalRemaining = cardCounts.new + cardCounts.learn + cardCounts.review;
     updateRemainingCards(totalRemaining);
