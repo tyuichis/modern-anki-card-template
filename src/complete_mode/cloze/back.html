@@ -14,115 +14,26 @@ See the LICENSE file in the project root for details. -->
 <link rel="stylesheet" href="_github-dark.min.css" />
 
 <script>
-  var labelColors = {
-    yellow: {
-      dark: {
-        fontColor: '#ffc533',
-        backgroundColor: 'rgba(255,197,51,0.15)',
-      },
-      light: {
-        fontColor: '#b28b20',
-        backgroundColor: 'rgba(255,221,112,0.2)',
-      },
-    },
-    red: {
-      dark: {
-        fontColor: '#ff6161',
-        backgroundColor: 'rgba(255,97,97,0.15)',
-      },
-      light: {
-        fontColor: '#b24c4c',
-        backgroundColor: 'rgba(255,153,153,0.2)',
-      },
-    },
-    blue: {
-      dark: {
-        fontColor: '#57c1ff',
-        backgroundColor: 'rgba(87,193,255,0.15)',
-      },
-      light: {
-        fontColor: '#2d72d9',
-        backgroundColor: 'rgba(173,216,230,0.2)',
-      },
-    },
-    green: {
-      dark: {
-        fontColor: '#59d499',
-        backgroundColor: 'rgba(89,212,153,0.15)',
-      },
-      light: {
-        fontColor: '#3a805a',
-        backgroundColor: 'rgba(144,238,144,0.2)',
-      },
-    },
-    orange: {
-      dark: {
-        fontColor: '#ff9f0b',
-        backgroundColor: 'rgba(255,159,11,0.15)',
-      },
-      light: {
-        fontColor: '#b25f1e',
-        backgroundColor: 'rgba(255,200,130,0.2)',
-      },
-    },
-    pink: {
-      dark: {
-        fontColor: '#ff86b5',
-        backgroundColor: 'rgba(255,134,181,0.15)',
-      },
-      light: {
-        fontColor: '#b24863',
-        backgroundColor: 'rgba(255,182,193,0.2)',
-      },
-    },
-    turquoise: {
-      dark: {
-        fontColor: '#40e0d0',
-        backgroundColor: 'rgba(64,224,208,0.15)',
-      },
-      light: {
-        fontColor: '#2a716b',
-        backgroundColor: 'rgba(176,224,230,0.2)',
-      },
-    },
-    purple: {
-      dark: {
-        fontColor: '#b19cd9',
-        backgroundColor: 'rgba(177,156,217,0.15)',
-      },
-      light: {
-        fontColor: '#6b42c7',
-        backgroundColor: 'rgba(216,191,216,0.2)',
-      },
-    },
-  };
+  /* ui caching */
+  var labelColors;
+  var subjects;
 
-  var subjects = {
-    // Depending on the subject being learned, replace with color_preset or customise this object.
+  // Check if it's a mobile user agent or Android (outside the function)
 
-    // Examples:
-    algorithms: 'purple',
-    'data structures': 'purple',
-    react: 'pink',
-    docker: 'turquoise',
-    grammar: 'green',
-    vocabulary: 'blue',
-    reading: 'purple',
-  };
-
-  /* only for desktop. screw mobile */
-
-  var isMobile =
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent,
-    );
+  var isMobile;
+  if (!isMobile) {
+    isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent,
+      );
+  }
 
   // DOM Cache (initialize as null, will be assigned after the DOM is loaded)
   var subjectElement = null;
   var subjectCategory = null;
   var detailsText = null;
   var detailsBlock = null;
-  var matchedCategoryColor = null;
+  var matchedCategoryColor;
 
   /* cache JS api items */
   var remainingCards = null;
@@ -133,19 +44,122 @@ See the LICENSE file in the project root for details. -->
   var flagButton = null;
   var flag = null;
   var flagId = null;
+  var FLAG_COLORS;
+
+  if (!labelColors) {
+    labelColors = {
+      yellow: {
+        dark: {
+          fontColor: '#ffc533',
+          backgroundColor: 'rgba(255,197,51,0.15)',
+        },
+        light: {
+          fontColor: '#b28b20',
+          backgroundColor: 'rgba(255,221,112,0.2)',
+        },
+      },
+      red: {
+        dark: {
+          fontColor: '#ff6161',
+          backgroundColor: 'rgba(255,97,97,0.15)',
+        },
+        light: {
+          fontColor: '#b24c4c',
+          backgroundColor: 'rgba(255,153,153,0.2)',
+        },
+      },
+      blue: {
+        dark: {
+          fontColor: '#57c1ff',
+          backgroundColor: 'rgba(87,193,255,0.15)',
+        },
+        light: {
+          fontColor: '#2d72d9',
+          backgroundColor: 'rgba(173,216,230,0.2)',
+        },
+      },
+      green: {
+        dark: {
+          fontColor: '#59d499',
+          backgroundColor: 'rgba(89,212,153,0.15)',
+        },
+        light: {
+          fontColor: '#3a805a',
+          backgroundColor: 'rgba(144,238,144,0.2)',
+        },
+      },
+      orange: {
+        dark: {
+          fontColor: '#ff9f0b',
+          backgroundColor: 'rgba(255,159,11,0.15)',
+        },
+        light: {
+          fontColor: '#b25f1e',
+          backgroundColor: 'rgba(255,200,130,0.2)',
+        },
+      },
+      pink: {
+        dark: {
+          fontColor: '#ff86b5',
+          backgroundColor: 'rgba(255,134,181,0.15)',
+        },
+        light: {
+          fontColor: '#b24863',
+          backgroundColor: 'rgba(255,182,193,0.2)',
+        },
+      },
+      turquoise: {
+        dark: {
+          fontColor: '#40e0d0',
+          backgroundColor: 'rgba(64,224,208,0.15)',
+        },
+        light: {
+          fontColor: '#2a716b',
+          backgroundColor: 'rgba(176,224,230,0.2)',
+        },
+      },
+      purple: {
+        dark: {
+          fontColor: '#b19cd9',
+          backgroundColor: 'rgba(177,156,217,0.15)',
+        },
+        light: {
+          fontColor: '#6b42c7',
+          backgroundColor: 'rgba(216,191,216,0.2)',
+        },
+      },
+    };
+  }
+
+  if (!subjects) {
+    subjects = {
+      // Depending on the subject being learned, replace with color_preset or customise this object.
+
+      // Examples:
+      algorithms: 'purple',
+      'data structures': 'purple',
+      react: 'pink',
+      docker: 'turquoise',
+      grammar: 'green',
+      vocabulary: 'blue',
+      reading: 'purple',
+    };
+  }
 
   /* flag logic */
 
-  var FLAG_COLORS = {
-    // colorName: flagId
-    red: 1,
-    orange: 2,
-    green: 3,
-    blue: 4,
-    pink: 5,
-    turquoise: 6,
-    purple: 7,
-  };
+  if (!FLAG_COLORS) {
+    FLAG_COLORS = {
+      // colorName: flagId
+      red: 1,
+      orange: 2,
+      green: 3,
+      blue: 4,
+      pink: 5,
+      turquoise: 6,
+      purple: 7,
+    };
+  }
 
   function getFlagId(subjectColor) {
     try {
@@ -226,7 +240,6 @@ See the LICENSE file in the project root for details. -->
     let theme = document.body.classList.contains('nightMode')
       ? 'dark'
       : 'light';
-
     let colorDetails = labelColors[subjectCategory]?.[theme];
 
     if (colorDetails) {
@@ -253,7 +266,6 @@ See the LICENSE file in the project root for details. -->
       );
     }
   }
-
   // Function to get the subject category from the DOM
   function getSubjectFromDOM() {
     subjectElement = document.getElementById('subject');
