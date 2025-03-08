@@ -11,7 +11,8 @@ This Anki card template is built to be easy to use, beautifully consistent and f
 - Dark and Light Mode support
 - System fonts for a native feel
 - Furigana and Japanese text support (with correct typographic scale)
-- Desktop UI buttons for common tasks
+- Flashcard Metadata: Easily view the Deck your card belongs to, the number of remaining cards, and any active flags at a glance.
+- Desktop UI buttons: Flag and Undo buttons-- flag icon is colored when active.
 - Variable accent color based on subject names
 - Optional code syntax highlighting[^1]
 - Accent color matches native Anki flag colors
@@ -32,20 +33,27 @@ Download the `.apkg` file from the Releases page, and click to open & import the
 - ❌ the remaining cards text won't update properly until the Anki JavaScript API add-on is downloaded.
 - ⚪ Optional: code highlighting is pre-configured, but requires `_highlight.js` and `_github-dark.min.css`. See below for instructions.
   
-So you'll need some add-ons to make it work.
+To get all of the core features working, you'll need to get UI Status Buttons (`1230570706`) and Anki JavaScript API (`1490471827`)
+
+```
+1230570706 1490471827
+```
 
 To download all the add-ons at once (including the recommended add-ons below), copy and paste this into your Anki Add-on menu:
 
 ```
-1490471827 511710206 1844938046 1960039667
+1230570706 1490471827 511710206 1844938046 1960039667
 ```
 
-To enable code Syntax Highlighting, please add `_highlight.js` and `_github-dark.min.css` to your Anki's `collection.media` folder
-For more details on the folder path, see [Anki Docs](https://docs.ankiweb.net/files.html#file-locations)
+⚠️ To enable Syntax Highlighting, please add `_highlight.min.js` `_github-dark.min.css` and all files inside `languages/` in your Anki's `collection.media` folder,
+then change `syntaxHighlighting = false` to `syntaxHighlighting = true` in all of the Front and Back sides of the templates you want to use it on. 
+
+For more details on the folder path, see [Anki Docs](https://docs.ankiweb.net/files.html#file-locations).
 
 ## Recommended add-ons
 
 ### 1. UI Status Buttons
+addon: `1230570706`
 
 To use the UI buttons (Undo, Flag buttons) on Desktop, you'll need to download the add-on either from AnkiWeb, or within the Releases page.
 
