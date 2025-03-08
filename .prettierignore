@@ -1,2 +1,4 @@
 *.md
 *.txt
+# Plugins
+assets/highlight_js/languages/*

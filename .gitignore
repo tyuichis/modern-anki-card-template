@@ -49,6 +49,3 @@ __pycache__/
 
 # Misc
 license-header.txt
-
-# Plugins
-assets/highlight_js/languages/*
