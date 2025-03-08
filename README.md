@@ -151,6 +151,15 @@ For more details, see [https://docs.ankiweb.net/files.html#file-locations](https
   
 </details>
 
+<details>
+  <summary>What if I want to go back to my old template?</summary>
+  Good news, these templates are **backwards-compatible**. In the browser menu, you can click a card and right click to find the "Change Note Type" option.
+
+  The template fields map 1:1 with the original Anki cards, i.e. Front = Question, Back = Answer.
+
+  Same with Cloze.
+</details>
+
 ## Support
 
 If you find this project helpful, consider supporting me on Ko-Fi! Your support helps keep development active.  
