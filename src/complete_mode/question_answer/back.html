@@ -444,7 +444,7 @@ See the LICENSE file in the project root for details. -->
           <p id="answer-text">{{Answer}}</p>
           <div id="details" class="hidden">
             <span id="details-marker">NB: </span>
-            <p id="details-text">{{Details}}</p>
+            <span id="details-text">{{Details}}</span>
           </div>
         </div>
       </div>
@@ -626,9 +626,7 @@ See the LICENSE file in the project root for details. -->
 
   // apply highlighting
   applyHighlighting();
-</script>
 
-<script>
   // Fetch and update card counts
   fetchCardCount().then((cardCounts) => {
     var totalRemaining = cardCounts.new + cardCounts.learn + cardCounts.review;
