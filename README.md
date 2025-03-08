@@ -147,19 +147,25 @@ var subjects = {
 <details>
 <summary> <b>Code highlighting doesn't seem to work</b></summary>
   
-Be sure to add `_highlight.js` and `_github-dark.min.css` to your Anki's `collection.media` folder.
+Be sure to add `_highlight.min.js` `_github-dark.min.css` and all the `languages/ files` to your Anki's `collection.media` folder, then set `syntaxHighlighting = true` in your card templates.
 
-For more details, see [https://docs.ankiweb.net/files.html#file-locations](https://docs.ankiweb.net/files.html#file-locations)
+For a visual guide on enabling syntax highlighting, check out the [Wiki page](https://github.com/tyuichis/modern-anki-card-template/wiki/Enabling-Syntax-Highlighting).
   
 </details>
 
 <details>
   <summary><b>What if I want to go back to my old template?</b></summary>
-  Good news, these templates are **backwards-compatible**. In the browser menu, you can click a card and right click to find the "Change Note Type" option.
+  
+  Good news, these templates are backwards compatible. 
+  
+  In the browser menu, you can click a card and right click the "Change Note Type" option.
 
-  The template fields map 1:1 with the original Anki cards, i.e. Front = Question, Back = Answer.
+  The template fields map 1:1 with the original Anki cards, i.e. Front = Question, Back = Answer, and Cloze text = Cloze text.
 
-  Same with Cloze.
+> [!WARNING]
+> If you have more than "Front" and "Back" fields, be careful. You will lose data if you don't select all the fields.
+> Make a copy of your card first, then change the Note Type to test.
+  
 </details>
 
 ## Support
