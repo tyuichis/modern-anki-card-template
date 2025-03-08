@@ -61,7 +61,9 @@ Flashcard Background: #353535
 
   &.night-mode {
     body {
-      background: var(--android-dark-background);
+      background: var(
+        --android-dark-background
+      ) !important; // override default anki.
     }
 
     #flashcard-content {
