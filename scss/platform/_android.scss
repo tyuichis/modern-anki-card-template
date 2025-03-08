@@ -5,8 +5,17 @@
 // Licensed under the AGPL-3.0 License.
 // See the LICENSE file in the project root for details.
 
-.android body {
-  background: #1a1c1e !important;
+:root {
+  /* android material 3 theming */
+
+  --android-light-background: #f3f3f3;
+  --android-dark-background: #1a1c1e;
+
+  --android-flashcard-background-light: #f1f1f1;
+  --android-flashcard-background-dark: #242629;
+
+  --android-box-shadow-light: 0 8px 10px rgba(0, 0, 0, 0.1);
+  --android-box-shadow-dark: 0 8px 0 #1f2124;
 }
 
 /* android layout, based on Pixel 7 testing */
@@ -14,13 +23,6 @@
 .android #main {
   height: calc(100vh);
   justify-content: center;
-}
-
-.android #flashcard-content,
-.android .front,
-.android .back {
-  background: #242629 !important;
-  box-shadow: 0 8px 0 #1f2124;
 }
 
 .android #status-bar,
@@ -47,9 +49,24 @@ Flashcard Background: #353535
 //   background: #353535;
 // }
 
-html.android #flashcard-content,
-html.android .front,
-html.android .back {
-  background: #242629 !important;
-  box-shadow: 0 8px 0 #1f2124;
+.android {
+  body {
+    background: var(--android-light-background);
+  }
+
+  #flashcard-content {
+    background: var(--android-flashcard-background-light);
+    box-shadow: var(--android-box-shadow-light);
+  }
+
+  &.night-mode {
+    body {
+      background: var(--android-dark-background);
+    }
+
+    #flashcard-content {
+      background: var(--android-flashcard-background-dark);
+      box-shadow: var(--android-box-shadow-dark);
+    }
+  }
 }
