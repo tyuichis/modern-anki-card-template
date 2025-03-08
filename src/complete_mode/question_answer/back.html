@@ -13,10 +13,6 @@ See the LICENSE file in the project root for details. -->
 <link rel="stylesheet" href="_github-dark.min.css" />
 
 <script>
-  /* ui caching */
-  var labelColors;
-  var subjects;
-
   // Check if it's a mobile user agent or Android (outside the function)
 
   var isMobile;
@@ -45,6 +41,11 @@ See the LICENSE file in the project root for details. -->
   var flagId = null;
   var FLAG_COLORS;
 
+  /* ui caching */
+  var labelColors;
+  var subjects;
+
+  // label colors doesn't change, so cache it.
   if (!labelColors) {
     labelColors = {
       yellow: {
@@ -130,20 +131,19 @@ See the LICENSE file in the project root for details. -->
     };
   }
 
-  if (!subjects) {
-    subjects = {
-      // Depending on the subject being learned, replace with color_preset or customise this object.
+  // subjects DOES change depending on the card, so we need to re-assign (fixes card preview)
+  subjects = {
+    // Depending on the subject being learned, replace with color_preset or customise this object.
 
-      // Examples:
-      algorithms: 'purple',
-      'data structures': 'purple',
-      react: 'pink',
-      docker: 'turquoise',
-      grammar: 'green',
-      vocabulary: 'blue',
-      reading: 'purple',
-    };
-  }
+    // Examples:
+    algorithms: 'purple',
+    'data structures': 'purple',
+    react: 'pink',
+    docker: 'turquoise',
+    grammar: 'green',
+    vocabulary: 'blue',
+    reading: 'purple',
+  };
 
   /* flag logic */
 
