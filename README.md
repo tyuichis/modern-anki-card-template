@@ -102,61 +102,13 @@ As of March 4 2025, `<>` tags are not supported while writing code blocks using 
 <details>
 <summary> <b>My subject label is grayed out. What gives?</b></summary>
   
-If your subject wasn't included in the defaults, you can manually add them.
-The subjects included in the templates are starting points. In the HTML front and back side, you'll see:
-
-```js
-  var subjects = {
-    algorithms: 'purple',
-    python: 'turquoise',
-    react: 'pink',
-    kubernetes: 'green',
-    rust: 'blue',
-    'software testing': 'red',
-    calculus: 'orange',
-    grammar: 'green',
-    'idioms and proverbs': 'pink',
-    /* ... other subjects here */
-  };
-```
-
-You can manually edit the key names to fit your subject names, but it's not recommended.
-
-Instead, you can visit an AI chatbot and generate subject label colors this way.
-Refer to the prompt located in [docs/generate-label-colors-prompt.txt](./docs/generate-label-colors-prompt.txt).
-
-To do that with a chat bot, follow these steps:
-
-1. Copy and paste the prompt and send.
-2. Enter in the subjects you need to study. For example, in a Deck about Organic Chemistry:
-
-```
-nomenclature, reactions, mechanisms, stereochemistry, spectroscopy, synthesis, functional groups, reagents, acids and bases, resonance
-```
-
-3. You should get something like this structure back:
-```js
-var subjects = {
-    "nomenclature": "purple",
-    "reactions": "green",
-    "mechanisms": "blue",
-    "stereochemistry": "blue",
-    "spectroscopy": "turquoise",
-    "synthesis": "pink",
-    "functional groups": "purple",
-    "reagents": "turquoise",
-    "acids and bases": "purple",
-    "resonance": "blue"
-}
-```
-
-4. Copy paste the new subject object (or part of it) into each of the card template's front and back side HTML. Ready to use!
+If your subject wasn't included in the defaults, you can manually add them. [See the wiki page for more information](https://github.com/tyuichis/modern-anki-card-template/wiki/Adding-new-subjects)
 </details>
 
 <details>
 <summary> <b>Code highlighting doesn't seem to work</b></summary>
   
-Be sure to add `_highlight.min.js` `_github-dark.min.css` and all the `languages/ files` to your Anki's `collection.media` folder, then set `syntaxHighlighting = true` in your card templates.
+Be sure to add _highlight.min.js _github-dark.min.css and all the languages/ files to your Anki's collection.media folder, then set syntaxHighlighting = true in your card templates.
 
 For a visual guide on enabling syntax highlighting, check out the [Wiki page](https://github.com/tyuichis/modern-anki-card-template/wiki/Enabling-Syntax-Highlighting).
   
