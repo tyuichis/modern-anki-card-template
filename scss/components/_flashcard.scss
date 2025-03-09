@@ -107,6 +107,15 @@
   align-items: center;
 }
 
+/* center text if user is using only img cloze + text */
+.cloze:has(img:only-child) ~ .cloze-inactive,
+.cloze-inactive:has(img:only-child) ~ .cloze {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* This will center the text */
+}
+
 /* focus on answer on question-answer cards */
 .night-mode {
   #flashcard-question:not(:only-child):not(:has(.cloze-answer)) {
