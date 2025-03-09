@@ -70,6 +70,8 @@ See the LICENSE file in the project root for details. */
   --dark-mode-ios-link-color: #2997ff;
   --flashcard-content-ideal-max-height: 417px;
   --mac-flashcard-content-ideal-max-height: 478.467px;
+  --android-ideal-max-height: min(550px, 60vh);
+  --iphone-ideal-max-height: min(450px, 50vh);
   /* pill button */
   --pill-button-padding: 0.25em 1em;
   /* iOS Typography Scale */
@@ -405,7 +407,9 @@ code {
 }
 
 .iphone #subject,
-.ipad #subject {
+.ipad #subject,
+.iphone #deck-name-container,
+.ipad #deck-name-container {
   font-size: var(--ios-font-size-footnote);
   line-height: var(--ios-line-height-footnote);
 }
@@ -414,8 +418,8 @@ code {
 .ipad #title {
   margin-top: 0px;
   margin-bottom: 0rem;
-  font-size: var(--ios-font-size-title2);
-  line-height: var(--ios-line-height-title2);
+  font-size: var(--ios-font-size-title3);
+  line-height: var(--ios-line-height-title3);
 }
 
 .iphone #flashcard-content,
@@ -727,6 +731,19 @@ code {
 
 .android #flashcard-subject {
   align-self: center; /* fix uneven alignment */
+}
+
+.iphone #flashcard-subject,
+.ipad #flashcard-subject {
+  align-self: flex-end; /* fix uneven alignment */
+  margin-top: 3px;
+}
+
+/* disable remaining cards for now on mobile, due to breaking api changes */
+.android #deck-remaining-cards-container,
+.iphone #deck-remaining-cards-container,
+.ipad #deck-remaining-cards-container {
+  display: none;
 }
 
 #flashcard-source-info:has(#source-text:empty) path {
@@ -1200,6 +1217,7 @@ Flashcard Background: #353535
   background: var(--android-light-background);
 }
 .android #flashcard-content {
+  max-height: var(--android-ideal-max-height);
   background: var(--android-flashcard-background-light);
   box-shadow: var(--android-box-shadow-light);
 }
@@ -1228,6 +1246,17 @@ Flashcard Background: #353535
   background: linear-gradient(to bottom, #242424, #1e1e1e);
 }
 
+:root {
+  /* iOS Light & Dark Mode Color Variables */
+  --ios-light-background: #f3f3f3; /* Soft light gray */
+  --ios-dark-background: #121212; /* Darker background for iOS dark mode, more refined */
+  --ios-flashcard-background-light: #ffffff; /* Pure white for flashcard content */
+  --ios-flashcard-background-dark: #1e1e1e; /* Darker flashcard background for night mode, more neutral */
+  --ios-box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for iOS light mode */
+  --ios-box-shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slightly more intense shadow for dark mode */
+  --ios-border-radius: 12px; /* Rounded corners for iOS */
+}
+
 /* fix ios text alignment */
 .iphone #flashcard-title,
 .iphone #flashcard-subject,
@@ -1245,6 +1274,16 @@ Flashcard Background: #353535
   text-align: left;
 }
 
+.iphone body,
+.ipad body {
+  color: var(--light-mode-main-text-color);
+  font-family: var(--ios-font-family);
+}
+.iphone.night-mode body,
+.ipad.night-mode body {
+  color: var(--dark-mode-main-text-color);
+}
+
 /* override link color on ios */
 .iphone a,
 .ipad a {
@@ -1255,6 +1294,24 @@ Flashcard Background: #353535
 .iphone #flashcard-deck-info,
 .ipad #flashcard-deck-info {
   display: none;
+}
+
+.iphone body,
+.ipad body {
+  background: var(--ios-light-background);
+}
+.iphone #flashcard-content,
+.ipad #flashcard-content {
+  max-height: var(--iphone-ideal-max-height);
+  background: var(--ios-flashcard-background-light);
+  box-shadow: var(--ios-box-shadow-light);
+  border-radius: var(--ios-border-radius);
+}
+.iphone.night-mode #flashcard-content,
+.ipad.night-mode #flashcard-content {
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(to bottom, #242424, #1e1e1e);
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -55,6 +55,7 @@ Flashcard Background: #353535
   }
 
   #flashcard-content {
+    max-height: var(--android-ideal-max-height);
     background: var(--android-flashcard-background-light);
     box-shadow: var(--android-box-shadow-light);
   }

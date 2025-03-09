@@ -216,7 +216,9 @@ code {
 }
 
 .iphone #subject,
-.ipad #subject {
+.ipad #subject,
+.iphone #deck-name-container,
+.ipad #deck-name-container {
   font-size: var(--ios-font-size-footnote);
   line-height: var(--ios-line-height-footnote);
 }
@@ -225,8 +227,8 @@ code {
 .ipad #title {
   margin-top: 0px;
   margin-bottom: 0rem;
-  font-size: var(--ios-font-size-title2);
-  line-height: var(--ios-line-height-title2);
+  font-size: var(--ios-font-size-title3);
+  line-height: var(--ios-line-height-title3);
 }
 
 .iphone #flashcard-content,
