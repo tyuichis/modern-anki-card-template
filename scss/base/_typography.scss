@@ -46,12 +46,12 @@ body {
 
 #flashcard-question:not(.seen) b,
 #flashcard-answer b,
-.cloze {
+.cloze:not(:has(code)) {
   color: var(--label-font-color);
 }
 
 b,
-.cloze {
+.cloze:not(:has(code)) {
   font-weight: 600; /* semi bold */
 }
 
