@@ -612,16 +612,16 @@ See the LICENSE file in the project root for details. -->
     console.error('No subject category found.');
   }
 
-  /* status buttons */
-
-  undoButton = document.querySelector('#undo-button');
-
-  undoButton.addEventListener('click', () => {
-    console.log('undo_card called');
-    pycmd('undo_card');
-  });
-
   if (!isMobile) {
+    /* status buttons */
+
+    undoButton = document.querySelector('#undo-button');
+
+    undoButton.addEventListener('click', () => {
+      console.log('undo_card called');
+      pycmd('undo_card');
+    });
+
     // custom flag button only exists on desktop
     updateFlag(); // update on page reload. updates the visual state of the flag.
 
