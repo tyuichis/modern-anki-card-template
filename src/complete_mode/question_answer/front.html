@@ -127,6 +127,16 @@ See the LICENSE file in the project root for details. -->
           backgroundColor: 'rgba(216,191,216,0.2)',
         },
       },
+      default: {
+        dark: {
+          fontColor: '#cccccc',
+          backgroundColor: 'rgba(60, 60, 60, 0.5)',
+        },
+        light: {
+          fontColor: '#444444',
+          backgroundColor: 'rgba(220, 220, 220, 0.4)',
+        },
+      },
     };
   }
 
@@ -612,7 +622,7 @@ See the LICENSE file in the project root for details. -->
   subjectCategory = getSubjectFromDOM();
 
   if (subjectCategory) {
-    matchedCategoryColor = subjects[subjectCategory] || null; //  this returns a color
+    matchedCategoryColor = subjects[subjectCategory] || 'default'; // if not found, use default color.
     if (matchedCategoryColor) {
       updateLabelColors(matchedCategoryColor);
       flagId = getFlagId(matchedCategoryColor);
