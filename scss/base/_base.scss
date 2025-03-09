@@ -9,9 +9,12 @@
    Base Styles (Global Settings)
 =========================== */
 
-html {
+html,
+* {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
 }
 
 /* Apply background color to body before content */
@@ -27,16 +30,4 @@ body::before,
 body {
   background: var(--light-mode-main-bg-color) !important;
   color: var(--light-mode-main-text-color);
-}
-
-body {
-  width: 100%;
-  height: 100%;
-}
-
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  font-smooth: always;
 }
