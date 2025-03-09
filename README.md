@@ -54,10 +54,11 @@ To download all the add-ons at once (including the recommended add-ons below), c
 1230570706 1490471827 511710206 1844938046 1960039667
 ```
 
-⚠️ To enable Syntax Highlighting, please add `_highlight.min.js` `_github-dark.min.css` and all files inside `languages/` in your Anki's `collection.media` folder,
+> [!NOTE]
+> To enable Syntax Highlighting, please add `_highlight.min.js`, `_github-dark.min.css` and all files inside `languages/` in your Anki's `collection.media` folder,
 then change `syntaxHighlighting = false` to `syntaxHighlighting = true` in all of the Front and Back sides of the templates you want to use it on. 
-
-By default, it's not turned on to maximise performance.
+>
+> By default, it's not turned on to maximise performance.
 
 For more details on the folder path, see [Anki Docs](https://docs.ankiweb.net/files.html#file-locations).
 
