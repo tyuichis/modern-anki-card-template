@@ -475,7 +475,7 @@ See the LICENSE file in the project root for details. -->
 
   async function loadHighlightJS() {
     if (!syntaxHighlighting) {
-      return false; // syntaxHighlighting is on. Don't load.
+      return false; // syntaxHighlighting is off. Don't load.
     }
 
     if (hljs) {
@@ -558,7 +558,7 @@ See the LICENSE file in the project root for details. -->
 
   async function applyHighlighting() {
     if (!syntaxHighlighting) {
-      return; // syntaxHighlighting is on. Don't run.
+      return; // syntaxHighlighting is off. Don't run.
     }
 
     const isLoaded = await loadHighlightJS(); // wait for hljs to load
