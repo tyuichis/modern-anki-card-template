@@ -1,9 +1,18 @@
-![modern_card_preview](./metadata/img/light_and_dark_card_preview.webp)
+![modern_card_preview](./metadata/img/desktop_theme_preview.webp)
 ## modern-anki-card-template
 ![AGPLv3 License](https://img.shields.io/badge/License-AGPLv3-blue.svg)
 ![GitHub last commit](https://img.shields.io/github/last-commit/tyuichis/modern-anki-card-template)
 ![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)
 [![Ko-Fi](https://img.shields.io/badge/Ko--fi-Buy%20Me%20a%20Coffee-ff5f5f?logo=kofi)](https://ko-fi.com/tyuichis)
+
+### Mobile Preview
+
+<details>
+  <summary>Mobile preview (Click to expand)</summary>
+  
+  ![Ankidroid preview](./metadata/img/ankidroid_theme_preview.png)
+
+</details>
 
 This Anki card template is built to be easy to use, beautifully consistent and feature-complete. It comes with a Q&A (typical front and back style cards) and Cloze template. While there are many templates out there, not many, if any, tried to engineer in a UI/UX experience that feels natively built-in.
 
