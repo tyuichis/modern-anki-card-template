@@ -16,6 +16,75 @@
 
 This Anki card template is built to be easy to use, beautifully consistent and feature-complete. It comes with a Q&A (typical front and back style cards) and Cloze template. While there are many templates out there, not many, if any, tried to engineer in a UI/UX experience that feels natively built-in.
 
+## An Enhanced Vanilla Anki Framework
+
+Anki’s default card types—**Basic Note** and **Cloze Note**—are simple and effective.  
+However, they lack structure, making it harder to organize information efficiently.  
+
+### **The Problem**  
+- What should we write in each field?
+- How _much_ information should we have? 
+- How do we categorize cards for better review?  
+- In a mixed deck with many subdecks, how do we know where each card belongs?  
+- How do we remember where we got the information?  
+
+To solve these issues, we introduced a **structured framework** with additional fields.
+
+---
+
+### **The Improved Note Types**
+
+#### **Basic Note → Modern Q&A**
+| Default Field | Improved Field Name |
+|---------------|---------------------|
+|               | **Card Category**   |
+|               | **Subject**         |
+| Front         | **Question**        |
+| Back          | **Answer**          |
+|               | **Source**          |
+|               | **Details**         |
+
+
+#### **Cloze Note → Modern Cloze**
+| Default Field | Improved Field Name |
+|---------------|---------------------|
+|               | **Card Category**   |
+|               | **Subject**         |
+| Text          | **Cloze Text**      |
+|               | **Source**          |
+| Back Extra    | **Details**         |
+
+
+🔹 **New fields added:**  
+- **Card Category** (subtopic)  
+- **Subject** (main topic)  
+- **Source** (where the information came from)  
+- **Details** (extra explanations, if needed)  
+
+---
+
+### **Example: Computer Science Flashcard**
+
+| Field                | Basic Note Type                         | Modern Q&A Note Type                                            |
+|----------------------|-----------------------------------------|-----------------------------------------------------------------|
+| **Card Category**📌  |                                         | Data Representation                                             |
+| **Subject**📌        |                                         | Data                                                            |
+| **Front → Question** | What defines a tight compression ratio? | What defines a tight compression ratio?                         |
+| **Back → Answer**    | A value close to zero                   | A value close to zero                                           |
+| **Source**📌         |                                         | *Computer Science Illuminated, Chapter 3.1, Data and Computers* |
+| **Details**          |                                         | e.g. 0.25, 0.32...                                              |
+
+With these improvements, each card is now **self-contained and informative**.  
+
+This structure makes it easy to create high-quality flashcards with inherent links to one another.
+
+> [!TIP]
+> By using Anki's built-in **pinned fields**📌 feature, you can efficiently create multiple flashcards for a topic while keeping track of sources and context.
+> 
+> This is extremely useful if you were reading a chapter and needed to make flashcards for the same chapter.
+
+This approach to flashcards makes reviewing **more intuitive**, helps with **memory recall**, and ensures you can revisit and refine problematic cards easily.
+
 ## Key Features
 - Dark and Light Mode support
 - System fonts for a native feel
