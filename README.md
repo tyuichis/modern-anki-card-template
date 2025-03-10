@@ -74,6 +74,13 @@ To solve these issues, we introduced a **structured framework** with additional 
 | **Source**📌         |                                         | *Computer Science Illuminated, Chapter 3.1, Data and Computers* |
 | **Details**          |                                         | e.g. 0.25, 0.32...                                              |
 
+<details>
+  <summary>Card preview (Click to expand)</summary>
+  
+  ![Card creation preview](./metadata/img/card_creation_annotated.png)
+
+</details>
+
 With these improvements, each card is now **self-contained and informative**.  
 
 This structure makes it easy to create high-quality flashcards with inherent links to one another.
@@ -104,12 +111,15 @@ This setup also avoids the bloat of excessive add-ons, but encourages using sele
 ## Quick Start
 Download the `.apkg` file from the Releases page, and click to open & import the two card types (Q&A, Cloze types)
 
-✅ This is all you need to start. Though, not all features will be enabled:
+✅ This is all you need to start. 
 
-- ✅ Essential styling and appearance
-- ❌ the Undo and Flag status buttons won't work until the UI Status Buttons add-on is downloaded.
-- ❌ the remaining cards text won't update properly until the Anki JavaScript API add-on is downloaded.
-- ⚪ Optional: code highlighting is pre-configured, but requires `_highlight.min.js` and `_github-dark.min.css`. See below for instructions.
+> [!IMPORTANT]
+> Not all features will be enabled:
+> 
+> - ✅ **Essential styling and appearance** will work.
+> - ❌ **Undo and Flag status buttons** won't work until the UI Status Buttons add-on is downloaded.
+> - ❌ **Remaining cards text** won't update properly until the Anki JavaScript API add-on is downloaded.
+> - ⚪ **Optional**: Code highlighting is pre-configured, but requires `_highlight.min.js` and `_github-dark.min.css`. See below for instructions.
   
 To get all of the core features working, you'll need to get UI Status Buttons (`1230570706`) and Anki JavaScript API (`1490471827`)
 
@@ -128,8 +138,8 @@ To download all the add-ons at once (including the recommended add-ons below), c
 then change `syntaxHighlighting = false` to `syntaxHighlighting = true` in all of the Front and Back sides of the templates you want to use it on. 
 >
 > By default, it's not turned on to maximise performance.
-
-For more details on the folder path, see [Anki Docs](https://docs.ankiweb.net/files.html#file-locations).
+> 
+> For more details on the folder path, see [Anki Docs](https://docs.ankiweb.net/files.html#file-locations).
 
 ## Recommended add-ons
 
