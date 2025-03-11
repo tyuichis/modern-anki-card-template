@@ -562,100 +562,81 @@ See the LICENSE file in the project root for details. -->
 </script>
 
 <script>
-  var subjects = {}; // Holds subject-color mappings
-  var loadedSubjects = {}; // Tracks which files have been loaded
-  var subjectJSON = [
-    // use kebab-case
-    'computer-science',
-    'languages',
-    'chemistry',
-    'biology',
-    'math',
-    'medicine',
-    'physics',
-    'custom',
-  ];
-
-  // Helper functions for localStorage
-  function getFromLocalStorage(key, defaultValue) {
-    try {
-      const item = localStorage.getItem(key);
-      return item ? JSON.parse(item) : defaultValue;
-    } catch (error) {
-      console.error(`Error getting ${key} from localStorage:`, error);
-      return defaultValue;
-    }
+  globalThis.subjects = globalThis.subjects || {}; // Holds subject-color mappings
+  globalThis.loadedSubjects = globalThis.loadedSubjects || {}; // Tracks which files have been loaded
+  var subjectJSON;
+  if (!subjectJSON) {
+    subjectJSON = [
+      'computer-science',
+      'languages',
+      'chemistry',
+      'biology',
+      'math',
+      'medicine',
+      'physics',
+      'custom',
+    ];
   }
-
-  function setInLocalStorage(key, value) {
-    try {
-      localStorage.setItem(key, JSON.stringify(value));
-    } catch (error) {
-      console.error(`Error setting ${key} in localStorage:`, error);
-    }
-  }
-
-  // Load initial data from localStorage
-  subjects = getFromLocalStorage('subjects', {});
-  loadedSubjects = getFromLocalStorage('loadedSubjects', {});
 
   async function loadAllSubjectJSON() {
     let changesMade = false;
 
     await Promise.all(
       subjectJSON.map(async (subjectName) => {
-        if (loadedSubjects[subjectName]) return;
+        if (globalThis.loadedSubjects[subjectName]) return;
 
         try {
           const response = await fetch(`/_color-preset-${subjectName}.json`);
 
           if (!response.ok) {
-            loadedSubjects[subjectName] = 'failed';
+            globalThis.loadedSubjects[subjectName] = 'failed';
             changesMade = true;
             return;
           }
 
           const data = await response.json();
-          Object.assign(subjects, data);
-          loadedSubjects[subjectName] = true;
+          Object.assign(globalThis.subjects, data);
+          globalThis.loadedSubjects[subjectName] = true;
           changesMade = true;
         } catch (error) {
           console.error(
             `Error loading /_color-preset-${subjectName}.json:`,
             error,
           );
-          loadedSubjects[subjectName] = 'failed';
+          globalThis.loadedSubjects[subjectName] = 'failed';
           changesMade = true;
         }
       }),
     );
 
     if (changesMade) {
-      setInLocalStorage('subjects', subjects);
-      setInLocalStorage('loadedSubjects', loadedSubjects);
+      console.log(
+        'Subjects and loadedSubjects updated:',
+        globalThis.subjects,
+        globalThis.loadedSubjects,
+      );
     }
   }
 
   function getSubjectFromDOM() {
-    var subjectElement = document.getElementById('subject');
-    if (subjectElement) {
-      return subjectElement.textContent.trim().toLowerCase();
-    }
-    return null;
+    subjectElement = document.getElementById('subject');
+    return subjectElement
+      ? subjectElement.textContent.trim().toLowerCase()
+      : null;
   }
 
-  // Main execution
-  var subjectCategory = getSubjectFromDOM();
+  subjectCategory = getSubjectFromDOM();
 
   loadAllSubjectJSON()
     .then(() => {
       if (subjectCategory) {
-        var matchedCategoryColor = subjects[subjectCategory] || 'default';
+        matchedCategoryColor =
+          globalThis.subjects[subjectCategory] || 'default';
 
         if (matchedCategoryColor) {
           try {
             updateLabelColors(matchedCategoryColor);
-            var flagId = getFlagId(matchedCategoryColor);
+            const flagId = getFlagId(matchedCategoryColor);
           } catch (error) {
             console.error('Error updating UI:', error);
           }
