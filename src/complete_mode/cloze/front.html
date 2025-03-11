@@ -42,7 +42,6 @@ See the LICENSE file in the project root for details. -->
 
   /* ui caching */
   var labelColors;
-  var subjects;
 
   // label colors doesn't change, so cache it.
   if (!labelColors) {
@@ -139,20 +138,6 @@ See the LICENSE file in the project root for details. -->
       },
     };
   }
-
-  // subjects DOES change depending on the card, so we need to re-assign (fixes card preview)
-  subjects = {
-    // Depending on the subject being learned, replace with color_preset or customise this object.
-
-    // Examples:
-    algorithms: 'purple',
-    'data structures': 'purple',
-    react: 'pink',
-    docker: 'turquoise',
-    grammar: 'green',
-    vocabulary: 'blue',
-    reading: 'purple',
-  };
 
   /* flag logic */
 
@@ -275,17 +260,6 @@ See the LICENSE file in the project root for details. -->
     }
   }
 
-  // Function to get the subject category from the DOM
-  function getSubjectFromDOM() {
-    subjectElement = document.getElementById('subject');
-    if (subjectElement) {
-      return subjectElement.textContent.trim().toLowerCase(); // Get subject and make it lowercase to match the subjects object
-    } else {
-      console.error('Subject element not found.');
-      return null;
-    }
-  }
-
   // API Setup
 
   var api;
@@ -332,14 +306,14 @@ See the LICENSE file in the project root for details. -->
       learningCards = await ankiCall('ankiGetLrnCardCount');
       reviewCards = await ankiCall('ankiGetRevCardCount');
 
-      console.log(
-        'API Results - New:',
-        newCards,
-        ' Learning:',
-        learningCards,
-        ' Review:',
-        reviewCards,
-      );
+      // console.log(
+      //   'API Results - New:',
+      //   newCards,
+      //   ' Learning:',
+      //   learningCards,
+      //   ' Review:',
+      //   reviewCards,
+      // );
     } catch (e) {
       console.error('Error fetching card counts:', e);
     }
@@ -479,7 +453,7 @@ See the LICENSE file in the project root for details. -->
     }
 
     if (hljs) {
-      console.log('Highlight.js is already loaded.');
+      // console.log('Highlight.js is already loaded.');
       return true; // hljs already loaded
     }
 
@@ -488,7 +462,7 @@ See the LICENSE file in the project root for details. -->
       const hljsModule = await import('/_highlight.min.js');
       hljs = hljsModule.default || hljsModule; // cache hljs
 
-      console.log('Highlight.js loaded:', hljs);
+      // console.log('Highlight.js loaded:', hljs);
 
       // languages to load
       const languages = [
@@ -530,7 +504,7 @@ See the LICENSE file in the project root for details. -->
       // load and register languages
       const loadPromises = languages.map(async (lang) => {
         if (loadedLanguages[lang]) {
-          console.log(`Language ${lang} is already loaded.`);
+          // console.log(`Language ${lang} is already loaded.`);
           return; // skip if already loaded
         }
 
@@ -538,7 +512,7 @@ See the LICENSE file in the project root for details. -->
           const module = await import(`/_${lang}.min.js`);
           hljs.registerLanguage(lang, module.default || module); // register language
           loadedLanguages[lang] = true; // cache loaded language
-          console.log(`Language ${lang} loaded.`);
+          // console.log(`Language ${lang} loaded.`);
         } catch (error) {
           console.warn(`Failed to load language: ${lang}`, error);
         }
@@ -547,7 +521,7 @@ See the LICENSE file in the project root for details. -->
       // wait for all languages to load
       await Promise.allSettled(loadPromises);
 
-      console.log('All languages attempted to load:', languages);
+      // console.log('All languages attempted to load:', languages);
 
       return true; // all loaded successfully
     } catch (error) {
@@ -570,21 +544,126 @@ See the LICENSE file in the project root for details. -->
 
     // highlight code blocks
     document.querySelectorAll('pre code').forEach((block) => {
-      console.log('Highlighting block:', block);
+      // console.log('Highlighting block:', block);
       hljs.highlightElement(block); // highlight block
     });
 
     // highlight inline code
     document.querySelectorAll('code:not(pre code)').forEach((block) => {
-      console.log('Highlighting inline block:', block);
+      // console.log('Highlighting inline block:', block);
       hljs.highlightElement(block); // highlight inline block
     });
 
-    console.log('Highlighting applied successfully.');
+    // console.log('Highlighting applied successfully.');
   }
 
   // apply highlighting
   applyHighlighting();
+</script>
+
+<script>
+  var subjects = {}; // Holds subject-color mappings
+  var loadedSubjects = {}; // Tracks which files have been loaded
+  var subjectJSON = [
+    // use kebab-case
+    'computer-science',
+    'languages',
+    'chemistry',
+    'biology',
+    'math',
+    'medicine',
+    'physics',
+  ];
+
+  // Helper functions for localStorage
+  function getFromLocalStorage(key, defaultValue) {
+    try {
+      const item = localStorage.getItem(key);
+      return item ? JSON.parse(item) : defaultValue;
+    } catch (error) {
+      console.error(`Error getting ${key} from localStorage:`, error);
+      return defaultValue;
+    }
+  }
+
+  function setInLocalStorage(key, value) {
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+      console.error(`Error setting ${key} in localStorage:`, error);
+    }
+  }
+
+  // Load initial data from localStorage
+  subjects = getFromLocalStorage('subjects', {});
+  loadedSubjects = getFromLocalStorage('loadedSubjects', {});
+
+  async function loadAllSubjectJSON() {
+    let changesMade = false;
+
+    await Promise.all(
+      subjectJSON.map(async (subjectName) => {
+        if (loadedSubjects[subjectName]) return;
+
+        try {
+          const response = await fetch(`/_color-preset-${subjectName}.json`);
+
+          if (!response.ok) {
+            loadedSubjects[subjectName] = 'failed';
+            changesMade = true;
+            return;
+          }
+
+          const data = await response.json();
+          Object.assign(subjects, data);
+          loadedSubjects[subjectName] = true;
+          changesMade = true;
+        } catch (error) {
+          console.error(
+            `Error loading /_color-preset-${subjectName}.json:`,
+            error,
+          );
+          loadedSubjects[subjectName] = 'failed';
+          changesMade = true;
+        }
+      }),
+    );
+
+    if (changesMade) {
+      setInLocalStorage('subjects', subjects);
+      setInLocalStorage('loadedSubjects', loadedSubjects);
+    }
+  }
+
+  function getSubjectFromDOM() {
+    var subjectElement = document.getElementById('subject');
+    if (subjectElement) {
+      return subjectElement.textContent.trim().toLowerCase();
+    }
+    return null;
+  }
+
+  // Main execution
+  var subjectCategory = getSubjectFromDOM();
+
+  loadAllSubjectJSON()
+    .then(() => {
+      if (subjectCategory) {
+        var matchedCategoryColor = subjects[subjectCategory] || 'default';
+
+        if (matchedCategoryColor) {
+          try {
+            updateLabelColors(matchedCategoryColor);
+            var flagId = getFlagId(matchedCategoryColor);
+          } catch (error) {
+            console.error('Error updating UI:', error);
+          }
+        }
+      }
+    })
+    .catch((error) => {
+      console.error('Error loading subjects:', error);
+    });
 </script>
 
 <script>
@@ -594,31 +673,13 @@ See the LICENSE file in the project root for details. -->
     updateRemainingCards(totalRemaining);
   });
 
-  // Get the subject category from the DOM and update the label colors
-
-  subjectCategory = getSubjectFromDOM();
-
-  if (subjectCategory) {
-    matchedCategoryColor = subjects[subjectCategory] || 'default'; // if not found, use default color.
-    if (matchedCategoryColor) {
-      updateLabelColors(matchedCategoryColor);
-      flagId = getFlagId(matchedCategoryColor);
-    } else {
-      console.error(
-        `Subject category "${subjectCategory}" not found in subjects.`,
-      );
-    }
-  } else {
-    console.error('No subject category found.');
-  }
-
   if (!isMobile) {
     /* status buttons */
 
     undoButton = document.querySelector('#undo-button');
 
     undoButton.addEventListener('click', () => {
-      console.log('undo_card called');
+      // console.log('undo_card called');
       pycmd('undo_card');
     });
 
@@ -628,7 +689,7 @@ See the LICENSE file in the project root for details. -->
     // setup event listener
     flagButton = document.getElementById('flag-button');
     flagButton.addEventListener('click', async () => {
-      console.log('set_flag_[flagId] called');
+      // console.log('set_flag_[flagId] called');
       try {
         const flagStatus = await new Promise((resolve) =>
           pycmd(`set_flag_${flagId}`, resolve),
@@ -636,7 +697,7 @@ See the LICENSE file in the project root for details. -->
 
         updateFlag();
       } catch (e) {
-        console.log('Error getting flag status:', e);
+        // console.log('Error getting flag status:', e);
       }
     });
   }
