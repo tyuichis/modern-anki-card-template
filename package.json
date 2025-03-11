@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint . --ext .ts --fix",
     "format": "prettier --write .",
-    "build:css": "npx sass scss/main.scss css/main.css"
+    "build:css": "npx sass --no-source-map scss/main.scss css/main.css"
   },
   "keywords": [],
   "author": "Tommy Yuichi Siek tommyyuichisiek@gmail.com",
