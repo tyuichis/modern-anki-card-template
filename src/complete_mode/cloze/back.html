@@ -40,12 +40,9 @@ See the LICENSE file in the project root for details. -->
   var flagButton = null;
   var flag = null;
   var flagId = null;
-  var FLAG_COLORS;
 
-  var labelColors;
-  // label colors doesn't change, so cache it.
-  if (!labelColors) {
-    labelColors = {
+  if (!globalThis.labelColors) {
+    globalThis.labelColors = {
       yellow: {
         dark: {
           fontColor: '#ffc533',
@@ -57,10 +54,7 @@ See the LICENSE file in the project root for details. -->
         },
       },
       red: {
-        dark: {
-          fontColor: '#ff6161',
-          backgroundColor: 'rgba(255,97,97,0.15)',
-        },
+        dark: { fontColor: '#ff6161', backgroundColor: 'rgba(255,97,97,0.15)' },
         light: {
           fontColor: '#b24c4c',
           backgroundColor: 'rgba(255,153,153,0.2)',
@@ -141,8 +135,8 @@ See the LICENSE file in the project root for details. -->
 
   /* flag logic */
 
-  if (!FLAG_COLORS) {
-    FLAG_COLORS = {
+  if (!globalThis.FLAG_COLORS) {
+    globalThis.FLAG_COLORS = {
       // colorName: flagId
       red: 1,
       orange: 2,
