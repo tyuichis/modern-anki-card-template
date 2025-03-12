@@ -260,40 +260,51 @@ See the LICENSE file in the project root for details. -->
     }
   }
 
-  // API Setup
+  // API Setup (mobile only)
 
-  var api;
-  if (isMobile) {
-    var jsApiContract = {
-      version: '0.0.3',
-      developer: 'your-email@example.com' /* your email here */,
-    };
-    api = new AnkiDroidJS(jsApiContract);
-  }
+  /* disabled for now, until officially supported on Android, and AnkiMobile is supported */
+  // var api;
+  // if (isMobile) {
+  //   var jsApiContract = {
+  //     version: '0.0.3',
+  //     developer: 'your-email@example.com' /* your email here */,
+  //   };
+  //   api = new AnkiDroidJS(jsApiContract);
+  // }
 
-  async function ankiCall(method, apiFallback = false) {
-    if (isMobile && !apiFallback) {
-      const response = await api[method]();
-      if (response && response.success) {
-        return response.value;
-      } else {
-        if (response && response.error) {
-          throw new Error(
-            `AnkiDroid API call ${method} failed. Error: ${response.error}`,
-          );
-        } else {
-          throw new Error(`AnkiDroid API call ${method} failed.`);
-        }
-      }
-    } else {
-      const response = await new Promise((resolve) =>
-        pycmd(`AnkiJS.${method}()`, resolve),
-      );
+  // async function ankiCall(method, apiFallback = false) {
+  //   if (isMobile && !apiFallback) {
+  //     const response = await api[method]();
+  //     if (response && response.success) {
+  //       return response.value;
+  //     } else {
+  //       if (response && response.error) {
+  //         throw new Error(
+  //           `AnkiDroid API call ${method} failed. Error: ${response.error}`,
+  //         );
+  //       } else {
+  //         throw new Error(`AnkiDroid API call ${method} failed.`);
+  //       }
+  //     }
+  //   } else {
+  //     const response = await new Promise((resolve) =>
+  //       pycmd(`AnkiJS.${method}()`, resolve),
+  //     );
 
-      // Handle NaN and other cases if needed
-      const number = isNaN(Number(response)) ? 0 : Number(response);
-      return number;
-    }
+  //     // Handle NaN and other cases if needed
+  //     const number = isNaN(Number(response)) ? 0 : Number(response);
+  //     return number;
+  //   }
+  // }
+
+  async function ankiCall(method) {
+    const response = await new Promise((resolve) =>
+      pycmd(`AnkiJS.${method}()`, resolve),
+    );
+
+    // Handle NaN and other cases if needed
+    const number = isNaN(Number(response)) ? 0 : Number(response);
+    return number;
   }
 
   async function fetchCardCount() {
@@ -672,12 +683,6 @@ See the LICENSE file in the project root for details. -->
 </script>
 
 <script>
-  // Fetch and update card counts
-  fetchCardCount().then((cardCounts) => {
-    var totalRemaining = cardCounts.new + cardCounts.learn + cardCounts.review;
-    updateRemainingCards(totalRemaining);
-  });
-
   /* details text */
 
   function showDetails() {
@@ -695,6 +700,13 @@ See the LICENSE file in the project root for details. -->
   showDetails();
 
   if (!isMobile) {
+    // Fetch and update card counts from API
+    fetchCardCount().then((cardCounts) => {
+      var totalRemaining =
+        cardCounts.new + cardCounts.learn + cardCounts.review;
+      updateRemainingCards(totalRemaining);
+    });
+
     /* status buttons */
 
     undoButton = document.querySelector('#undo-button');
