@@ -78,5 +78,15 @@
       "fontColor": "#6b42c7",
       "backgroundColor": "rgba(216,191,216,0.2)"
     }
+  },
+  "default": {
+    "dark": {
+      "fontColor": "#cccccc",
+      "backgroundColor": "rgba(60, 60, 60, 0.5)"
+    },
+    "light": {
+      "fontColor": "#444444",
+      "backgroundColor": "rgba(220, 220, 220, 0.4)"
+    }
   }
 }
