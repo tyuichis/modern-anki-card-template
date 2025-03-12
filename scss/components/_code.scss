@@ -51,7 +51,8 @@ code.hljs {
 /* default theme */
 
 /* does not override hljs themes */
-.night-mode {
+.night-mode,
+.android .ankidroid_dark_mode {
   pre:has(:not(.hljs)) {
     background-color: var(--dark-mode-code-block-background);
     border: 1px solid var(--dark-mode-code-block-background);
@@ -65,7 +66,8 @@ pre:has(:not(.hljs)) {
   border-radius: 6px;
 }
 
-.night-mode {
+.night-mode,
+.android .ankidroid_dark_mode {
   code:not(.hljs) {
     background: var(--dark-mode-code-block-background);
     border: none;

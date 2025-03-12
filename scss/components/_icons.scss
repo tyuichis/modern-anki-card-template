@@ -17,7 +17,8 @@
   width: 1.75em;
 }
 
-.night-mode {
+.night-mode,
+.android .ankidroid_dark_mode {
   #sentence-icon svg,
   #pitch-icon svg,
   .deck-icon svg,
@@ -51,7 +52,8 @@
   height: 1.25em;
 }
 
-.night-mode {
+.night-mode,
+.android .ankidroid_dark_mode {
   #answer-marker path,
   #details-icon path {
     fill: var(--dark-mode-main-text-color);

@@ -117,7 +117,8 @@
 }
 
 /* focus on answer on question-answer cards */
-.night-mode {
+.night-mode,
+.android .ankidroid_dark_mode {
   #flashcard-question:not(:only-child):not(:has(.cloze-answer)) {
     opacity: 1;
   }

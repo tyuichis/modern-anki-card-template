@@ -55,13 +55,15 @@ b,
   font-weight: 600; /* semi bold */
 }
 
-.night-mode {
+.night-mode,
+.android .ankidroid_dark_mode {
   .seen,
   #details {
     color: darkgray;
   }
 }
-.night-mode {
+.night-mode,
+.android .ankidroid_dark_mode {
   a {
     color: var(--dark-mode-link-accent-color);
     text-decoration: underline;
@@ -105,7 +107,8 @@ a {
   margin: 0;
 }
 
-.night-mode {
+.night-mode,
+.android .ankidroid_dark_mode {
   #details-marker,
   #details-text {
     color: var(--dark-mode-details-text-color);

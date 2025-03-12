@@ -60,16 +60,19 @@ Flashcard Background: #353535
     box-shadow: var(--android-box-shadow-light);
   }
 
-  &.night-mode {
-    body {
-      background: var(
-        --android-dark-background
-      ) !important; // override default anki.
-    }
+  // Apply dark mode styles when .android has .night-mode OR body has .night_mode
+  // .night-mode exists on the HTML tag while on the new reviewer (same as desktop)
+  // .ankidroid_dark_mode is currently the only option on the old reviewer
+  &.night-mode body,
+  .ankidroid_dark_mode {
+    background: var(
+      --android-dark-background
+    ) !important; /* override default Anki */
+  }
 
-    #flashcard-content {
-      background: var(--android-flashcard-background-dark);
-      box-shadow: var(--android-box-shadow-dark);
-    }
+  &.night-mode #flashcard-content,
+  .ankidroid_dark_mode #flashcard-content {
+    background: var(--android-flashcard-background-dark);
+    box-shadow: var(--android-box-shadow-dark);
   }
 }

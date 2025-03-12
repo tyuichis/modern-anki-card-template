@@ -195,7 +195,9 @@ html,
 
 /* Apply background color to body before content */
 .night-mode body::before,
-.night-mode body {
+.night-mode body,
+.ankidroid_dark_mode body::before,
+.ankidroid_dark_mode body {
   background: var(--dark-mode-main-bg-color) !important;
   color: var(---dark-mode-main-text-color); /* base text color */
 }
@@ -255,11 +257,14 @@ b,
 }
 
 .night-mode .seen,
-.night-mode #details {
+.night-mode #details,
+.android .ankidroid_dark_mode .seen,
+.android .ankidroid_dark_mode #details {
   color: darkgray;
 }
 
-.night-mode a {
+.night-mode a,
+.android .ankidroid_dark_mode a {
   color: var(--dark-mode-link-accent-color);
   text-decoration: underline;
 }
@@ -302,7 +307,9 @@ a {
 }
 
 .night-mode #details-marker,
-.night-mode #details-text {
+.night-mode #details-text,
+.android .ankidroid_dark_mode #details-marker,
+.android .ankidroid_dark_mode #details-text {
   color: var(--dark-mode-details-text-color);
 }
 
@@ -561,7 +568,10 @@ code {
 }
 
 /* focus on answer on question-answer cards */
-.night-mode #flashcard-question:not(:only-child):not(:has(.cloze-answer)) {
+.night-mode #flashcard-question:not(:only-child):not(:has(.cloze-answer)),
+.android
+  .ankidroid_dark_mode
+  #flashcard-question:not(:only-child):not(:has(.cloze-answer)) {
   opacity: 1;
 }
 
@@ -643,7 +653,11 @@ code {
 .night-mode #sentence-icon svg,
 .night-mode #pitch-icon svg,
 .night-mode .deck-icon svg,
-.night-mode #source-icon svg {
+.night-mode #source-icon svg,
+.android .ankidroid_dark_mode #sentence-icon svg,
+.android .ankidroid_dark_mode #pitch-icon svg,
+.android .ankidroid_dark_mode .deck-icon svg,
+.android .ankidroid_dark_mode #source-icon svg {
   fill: darkgray;
 }
 
@@ -673,7 +687,9 @@ code {
 }
 
 .night-mode #answer-marker path,
-.night-mode #details-icon path {
+.night-mode #details-icon path,
+.android .ankidroid_dark_mode #answer-marker path,
+.android .ankidroid_dark_mode #details-icon path {
   fill: var(--dark-mode-main-text-color);
 }
 
@@ -700,13 +716,20 @@ code {
 }
 
 .night-mode .flashcard-metadata,
-.night-mode #deck-name-container {
+.night-mode #deck-name-container,
+.android .ankidroid_dark_mode .flashcard-metadata,
+.android .ankidroid_dark_mode #deck-name-container {
   color: var(--dark-mode-footnote-text-color);
 }
-.night-mode #flashcard-source-info:has(#source-text:empty) path {
+.night-mode #flashcard-source-info:has(#source-text:empty) path,
+.android
+  .ankidroid_dark_mode
+  #flashcard-source-info:has(#source-text:empty)
+  path {
   fill: var(--dark-mode-empty-text-color);
 }
-.night-mode #flashcard-source-info:has(#source-text:empty) {
+.night-mode #flashcard-source-info:has(#source-text:empty),
+.android .ankidroid_dark_mode #flashcard-source-info:has(#source-text:empty) {
   color: var(--dark-mode-empty-text-color);
 }
 
@@ -758,7 +781,8 @@ code {
   margin-top: 2.875rem;
 }
 
-.night-mode #source-icon path {
+.night-mode #source-icon path,
+.android .ankidroid_dark_mode #source-icon path {
   fill: var(--dark-mode-footnote-text-color);
 }
 
@@ -980,7 +1004,8 @@ code.hljs {
 
 /* default theme */
 /* does not override hljs themes */
-.night-mode pre:has(:not(.hljs)) {
+.night-mode pre:has(:not(.hljs)),
+.android .ankidroid_dark_mode pre:has(:not(.hljs)) {
   background-color: var(--dark-mode-code-block-background);
   border: 1px solid var(--dark-mode-code-block-background);
 }
@@ -992,7 +1017,8 @@ pre:has(:not(.hljs)) {
   border-radius: 6px;
 }
 
-.night-mode code:not(.hljs) {
+.night-mode code:not(.hljs),
+.android .ankidroid_dark_mode code:not(.hljs) {
   background: var(--dark-mode-code-block-background);
   border: none;
 }
@@ -1221,10 +1247,14 @@ Flashcard Background: #353535
   background: var(--android-flashcard-background-light);
   box-shadow: var(--android-box-shadow-light);
 }
-.android.night-mode body {
-  background: var(--android-dark-background) !important;
+.android.night-mode body,
+.android .ankidroid_dark_mode {
+  background: var(
+    --android-dark-background
+  ) !important; /* override default Anki */
 }
-.android.night-mode #flashcard-content {
+.android.night-mode #flashcard-content,
+.android .ankidroid_dark_mode #flashcard-content {
   background: var(--android-flashcard-background-dark);
   box-shadow: var(--android-box-shadow-dark);
 }
@@ -1313,5 +1343,3 @@ Flashcard Background: #353535
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: linear-gradient(to bottom, #242424, #1e1e1e);
 }
-
-/*# sourceMappingURL=main.css.map */

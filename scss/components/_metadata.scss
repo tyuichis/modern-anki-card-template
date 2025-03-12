@@ -17,7 +17,8 @@
   align-items: center;
 }
 
-.night-mode {
+.night-mode,
+.android .ankidroid_dark_mode {
   .flashcard-metadata,
   #deck-name-container {
     color: var(--dark-mode-footnote-text-color);
@@ -87,7 +88,8 @@
   margin-top: 2.875rem;
 }
 
-.night-mode {
+.night-mode,
+.android .ankidroid_dark_mode {
   #source-icon path {
     fill: var(--dark-mode-footnote-text-color);
   }

@@ -18,7 +18,8 @@ html,
 }
 
 /* Apply background color to body before content */
-.night-mode {
+.night-mode,
+.ankidroid_dark_mode {
   body::before,
   body {
     background: var(--dark-mode-main-bg-color) !important;
