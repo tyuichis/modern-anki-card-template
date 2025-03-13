@@ -34,51 +34,117 @@
 
 ---
 
-I'll categorize these mathematics and related subjects using the fixed color system.
-
 ```javascript
 var subjects = {
   // Purple - Fundamentals/Core Concepts
   "arithmetic": "purple",
+  "basic operations": "purple",
   "algebra": "purple",
   "geometry": "purple",
   "trigonometry": "purple",
+  "calculus": "purple",
   "statistics": "purple",
   "probability": "purple",
-  "logic": "purple",
+  "linear algebra": "purple",
+  "math foundations": "purple",
   
   // Turquoise - Mechanics/Tools/Syntax
+  "fractions": "turquoise",
+  "decimals": "turquoise",
+  "percentages": "turquoise",
+  "equations": "turquoise",
+  "inequalities": "turquoise",
+  "exponents": "turquoise",
+  "logarithms": "turquoise",
+  "functions": "turquoise",
+  "limits": "turquoise",
+  "vectors": "turquoise",
+  "matrices": "turquoise",
+  "systems of equations": "turquoise",
+  "logic": "turquoise",
+  "axioms": "turquoise",
+  "theorems": "turquoise",
   "proofs": "turquoise",
-  "numerical analysis": "turquoise",
-  "optimization": "turquoise",
-  "set theory": "turquoise",
+  "computational methods": "turquoise",
   
   // Pink - Application/Practice/Examples
+  "applications": "pink",
+  "data analysis": "pink",
   "physics": "pink",
+  "applied math": "pink",
+  "numerical analysis": "pink",
+  "approximation": "pink",
   "finance": "pink",
-  "game theory": "pink",
+  "stochastic calculus": "pink",
+  "risk modeling": "pink",
   
   // Blue - Advanced/Complex/Abstract
   "precalculus": "blue",
-  "calculus": "blue",
-  "linear algebra": "blue",
-  "discrete mathematics": "blue",
+  "mathematical induction": "blue",
   "advanced calculus": "blue",
-  "differential equations": "blue",
+  "multivariable calculus": "blue",
+  "vector calculus": "blue",
+  "differential forms": "blue",
   "complex analysis": "blue",
   "real analysis": "blue",
   "abstract algebra": "blue",
   "topology": "blue",
+  "fourier analysis": "blue",
+  "pdes": "blue",
   "category theory": "blue",
+  "abstract structures": "blue",
   
   // Orange - Details/Nuances/Variations
-  "graph theory": "orange",
+  "polynomials": "orange",
+  "rational expressions": "orange",
+  "euclidean geometry": "orange",
+  "transformations": "orange",
+  "coordinate geometry": "orange",
+  "conic sections": "orange",
+  "trigonometric functions": "orange",
+  "inverse functions": "orange",
+  "identities": "orange",
+  "unit circle": "orange",
+  "sequences": "orange",
+  "series": "orange",
+  "derivatives": "orange",
+  "integrals": "orange",
+  "distributions": "orange",
+  "hypothesis testing": "orange",
+  "complex numbers": "orange",
+  "contour integration": "orange",
+  "analytic functions": "orange",
+  "rigorous calculus": "orange",
   
   // Green - Frameworks/Systems/Structures
-  // No specific subjects allocated to Green in this set
+  "differential equations": "green",
+  "ordinary differential equations": "green",
+  "partial differential equations": "green",
+  "groups": "green",
+  "rings": "green",
+  "fields": "green",
+  "number theory": "green",
+  "set theory": "green",
+  "combinatorics": "green",
+  "graph theory": "green",
+  "networks": "green",
+  "paths": "green",
+  "trees": "green",
+  "eulerian cycles": "green",
+  "hamiltonian cycles": "green",
+  "cardinality": "green",
+  "infinite sets": "green",
+  "metric spaces": "green",
+  "continuity": "green",
+  "homeomorphisms": "green",
   
   // Red - External/Peripheral
-  // No specific subjects allocated to Red in this set
+  "optimization": "red",
+  "linear programming": "red",
+  "convex optimization": "red",
+  "game theory": "red",
+  "decision making": "red",
+  "nash equilibrium": "red"
 };
 
 ```
@@ -86,37 +152,64 @@ var subjects = {
 ## Color Categorization Explanation
 
 ### 🟣 Purple – Fundamentals/Core Concepts
-- **Arithmetic** → Most fundamental mathematical concept involving basic operations
-- **Algebra** → Core concept for mathematical structure and equation solving
-- **Geometry** → Fundamental concept of shapes, sizes and properties of space
-- **Trigonometry** → Core concept dealing with relationships between angles and sides
-- **Statistics** → Fundamental concept for data collection and analysis
-- **Probability** → Core concept about likelihood and randomness
-- **Logic** → Fundamental concept of reasoning and valid argument structure
+- **Arithmetic** → Most fundamental mathematical concept involving quantitative calculations
+- **Basic Operations** → Core operations (addition, subtraction, multiplication, division)
+- **Algebra** → Fundamental concept for mathematical structure and equation solving
+- **Geometry** → Core concept dealing with properties and relations of points, lines, surfaces
+- **Trigonometry** → Fundamental concept of angle relationships and functions
+- **Calculus** → Core concept of rates of change and accumulation
+- **Statistics/Probability** → Fundamental concepts for analyzing data and uncertainty
+- **Linear Algebra** → Core concept for vector spaces and linear transformations
+- **Math Foundations** → Fundamental principles underlying all mathematics
 
 ### 🔵 Turquoise – Mechanics/Tools/Syntax
-- **Proofs** → Technical tool for establishing mathematical truth
-- **Numerical Analysis** → Technical methods for approximating mathematical problems
-- **Optimization** → Tools and techniques for finding maximum/minimum values
-- **Set Theory** → Technical foundation for mathematical structures
+- **Fractions/Decimals/Percentages** → Basic tools for representing quantities
+- **Equations/Inequalities** → Technical tools for expressing mathematical relationships
+- **Exponents/Logarithms** → Mechanical tools for manipulating expressions
+- **Functions/Limits** → Technical mechanisms for mathematical operations
+- **Vectors/Matrices** → Tools for representing and manipulating mathematical objects
+- **Systems of Equations** → Technique for solving multiple equations simultaneously
+- **Logic/Axioms/Theorems/Proofs** → Tools for establishing mathematical truths
+- **Computational Methods** → Techniques for solving mathematical problems
 
 ### 💖 Pink – Application/Practice/Examples
-- **Physics** → Practical application of mathematical concepts to physical phenomena
-- **Finance** → Applied mathematics in monetary and economic contexts
-- **Game Theory** → Application of mathematics to strategic decision-making
+- **Applications** → Practical uses of mathematical concepts
+- **Data Analysis** → Applied statistical methods for real-world data
+- **Physics/Applied Math** → Practical applications of mathematics to physical phenomena
+- **Numerical Analysis/Approximation** → Practical methods for approximating solutions
+- **Finance/Stochastic Calculus/Risk Modeling** → Applied mathematics in financial contexts
 
 ### 🟦 Blue – Advanced/Complex/Abstract
-- **Precalculus/Calculus** → Advanced mathematical subjects
-- **Linear Algebra** → Abstract study of vector spaces and linear mappings
-- **Discrete Mathematics** → Advanced study of countable structures
-- **Advanced Calculus** → More complex extension of calculus
-- **Differential Equations** → Abstract study of equations involving derivatives
+- **Precalculus/Mathematical Induction** → Advanced mathematical concepts
+- **Advanced/Multivariable/Vector Calculus** → Complex extensions of calculus
+- **Differential Forms** → Abstract mathematical objects
 - **Complex/Real Analysis** → Deep, abstract mathematical theories
 - **Abstract Algebra** → Advanced study of algebraic structures
 - **Topology** → Abstract study of spatial properties
-- **Category Theory** → Highly abstract mathematical framework
+- **Fourier Analysis/PDEs** → Advanced mathematical techniques
+- **Category Theory/Abstract Structures** → Highly abstract mathematical frameworks
 
 ### 🟠 Orange – Details/Nuances/Variations
-- **Graph Theory** → Specialized area studying relationships between objects
+- **Polynomials/Rational Expressions** → Specific types of algebraic expressions
+- **Euclidean Geometry/Coordinate Geometry/Conic Sections** → Specialized geometry topics
+- **Trigonometric Functions/Inverse Functions/Identities/Unit Circle** → Specific trigonometry concepts
+- **Sequences/Series** → Particular types of mathematical structures
+- **Derivatives/Integrals** → Specific calculus operations
+- **Distributions/Hypothesis Testing** → Specialized statistical methods
+- **Complex Numbers/Contour Integration/Analytic Functions** → Specific aspects of complex analysis
+- **Rigorous Calculus** → Detailed, formal approach to calculus
 
-The categorization maintains logical relationships while distributing subjects across the color categories. I've placed most advanced mathematical topics in the Blue category as they represent complex/abstract concepts. Note that Green and Red categories have no specific subjects allocated in this set, as none of the provided mathematical subjects fit well into the "Frameworks/Systems/Structures" or "External/Peripheral" classifications.
+### 🟢 Green – Frameworks/Systems/Structures
+- **Differential Equations (ODE/PDE)** → Systems for modeling change
+- **Groups/Rings/Fields** → Algebraic structures with defined operations
+- **Number Theory** → Framework for studying integers
+- **Set Theory/Combinatorics** → Structured approaches to collections and counting
+- **Graph Theory/Networks/Paths/Trees/Cycles** → Frameworks for modeling relationships
+- **Cardinality/Infinite Sets** → Structured approaches to measuring sets
+- **Metric Spaces/Continuity/Homeomorphisms** → Topological structures and properties
+
+### 🔴 Red – External/Peripheral
+- **Optimization/Linear Programming/Convex Optimization** → Specialized applied mathematics
+- **Game Theory/Decision Making/Nash Equilibrium** → Mathematics applied to strategic decision-making
+
+The categorization balances mathematical subjects across the seven color categories while maintaining logical relationships. Core mathematical branches are classified as Purple, while their specific components are distributed across other categories based on their nature (tools, applications, advanced concepts, details, structures, or peripheral topics).
