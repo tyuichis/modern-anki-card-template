@@ -92,32 +92,131 @@
 }
 
 /* Flagged States */
-#flag-button.flag-red #flag-icon path {
-  fill: rgba(248, 77, 67, 1);
+
+/* colors synced with "fontColor" in _labelColors.json,  */
+/* some colors need to be re-tested, as flag colors look too dark */
+/* for now, the color system is here */
+
+:root {
+  --dark-mode-flag-yellow: #ffc533;
+  --light-mode-flag-yellow: #b28b20;
+
+  --dark-mode-flag-red: #ff6161;
+  --light-mode-flag-red: #b24c4c;
+
+  --dark-mode-flag-blue: #57c1ff;
+  --light-mode-flag-blue: #2d72d9;
+
+  --dark-mode-flag-green: #59d499;
+  --light-mode-flag-green: #3a805a;
+
+  --dark-mode-flag-orange: #ff9f0b;
+  --light-mode-flag-orange: #b25f1e;
+
+  --dark-mode-flag-pink: #ff86b5;
+  --light-mode-flag-pink: #b24863;
+
+  --dark-mode-flag-turquoise: #40e0d0;
+  --light-mode-flag-turquoise: #2a716b;
+
+  --dark-mode-flag-purple: #b19cd9;
+  --light-mode-flag-purple: #6b42c7;
+
+  --dark-mode-flag-default: #cccccc;
+  --light-mode-flag-default: #444444;
 }
 
-#flag-button.flag-orange #flag-icon path {
-  fill: rgba(255, 165, 0, 1);
+.night-mode {
+  #flag-button.flag-yellow #flag-icon path,
+  #flag-button.flag-yellow:hover #flag-icon path {
+    fill: var(--dark-mode-flag-yellow);
+  }
+
+  #flag-button.flag-red #flag-icon path,
+  #flag-button.flag-red:hover #flag-icon path {
+    fill: var(--dark-mode-flag-red);
+  }
+
+  #flag-button.flag-blue #flag-icon path,
+  #flag-button.flag-blue:hover #flag-icon path {
+    fill: var(--dark-mode-flag-blue);
+  }
+
+  #flag-button.flag-green #flag-icon path,
+  #flag-button.flag-green:hover #flag-icon path {
+    fill: var(--dark-mode-flag-green);
+  }
+
+  #flag-button.flag-orange #flag-icon path,
+  #flag-button.flag-orange:hover #flag-icon path {
+    fill: var(--dark-mode-flag-orange);
+  }
+
+  #flag-button.flag-pink #flag-icon path,
+  #flag-button.flag-pink:hover #flag-icon path {
+    fill: var(--dark-mode-flag-pink);
+  }
+
+  #flag-button.flag-turquoise #flag-icon path,
+  #flag-button.flag-turquoise:hover #flag-icon path {
+    fill: var(--dark-mode-flag-turquoise);
+  }
+
+  #flag-button.flag-purple #flag-icon path,
+  #flag-button.flag-purple:hover #flag-icon path {
+    fill: var(--dark-mode-flag-purple);
+  }
+
+  #flag-button.flag-default #flag-icon path,
+  #flag-button.flag-default:hover #flag-icon path {
+    fill: var(--dark-mode-flag-default);
+  }
 }
 
-#flag-button.flag-green #flag-icon path {
-  fill: rgba(50, 215, 75, 1);
+/* light mode flags */
+#flag-button.flag-yellow #flag-icon path,
+#flag-button.flag-yellow:hover #flag-icon path {
+  fill: var(--light-mode-flag-yellow);
 }
 
-#flag-button.flag-blue #flag-icon path {
-  fill: rgba(11, 132, 255, 1);
+#flag-button.flag-red #flag-icon path,
+#flag-button.flag-red:hover #flag-icon path {
+  fill: var(--light-mode-flag-red);
 }
 
-#flag-button.flag-pink #flag-icon path {
-  fill: rgba(255, 90, 200, 1);
+#flag-button.flag-blue #flag-icon path,
+#flag-button.flag-blue:hover #flag-icon path {
+  fill: var(--light-mode-flag-blue);
 }
 
-#flag-button.flag-turquoise #flag-icon path {
-  fill: rgba(103, 211, 207, 1);
+#flag-button.flag-green #flag-icon path,
+#flag-button.flag-green:hover #flag-icon path {
+  fill: var(--light-mode-flag-green);
 }
 
-#flag-button.flag-purple #flag-icon path {
-  fill: rgba(191, 90, 242, 1);
+#flag-button.flag-orange #flag-icon path,
+#flag-button.flag-orange:hover #flag-icon path {
+  fill: var(--light-mode-flag-orange);
+}
+
+#flag-button.flag-pink #flag-icon path,
+#flag-button.flag-pink:hover #flag-icon path {
+  fill: var(--light-mode-flag-pink);
+}
+
+#flag-button.flag-turquoise #flag-icon path,
+#flag-button.flag-turquoise:hover #flag-icon path {
+  fill: var(--light-mode-flag-turquoise);
+}
+
+#flag-button.flag-purple #flag-icon path,
+#flag-button.flag-purple:hover #flag-icon path {
+  fill: var(--light-mode-flag-purple);
+}
+
+#flag-button.flag-default #flag-icon path,
+#flag-button.flag-default:hover #flag-icon path {
+  fill: var(--light-mode-flag-default);
 }
 
 /* button hover styling */
@@ -128,16 +227,15 @@
   cursor: pointer;
 }
 
-#undo-button:hover {
+#undo-button:hover,
+#flag-button:hover {
   color: var(--label-font-color);
 }
 
-#undo-button:hover path {
+#undo-button:hover path,
+#flag-button:hover path,
+#flag-button:hover:not(.flagged) #flag-icon path {
   fill: var(--label-font-color);
-}
-
-#flag-button:hover path {
-  fill: var(--subject-flag-color);
 }
 
 #status-bar-buttons {
