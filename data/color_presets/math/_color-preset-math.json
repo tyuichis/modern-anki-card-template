@@ -9,6 +9,7 @@
   "probability": "purple",
   "linear algebra": "purple",
   "math foundations": "purple",
+
   "fractions": "turquoise",
   "decimals": "turquoise",
   "percentages": "turquoise",
@@ -26,6 +27,7 @@
   "theorems": "turquoise",
   "proofs": "turquoise",
   "computational methods": "turquoise",
+
   "applications": "pink",
   "data analysis": "pink",
   "physics": "pink",
@@ -35,6 +37,7 @@
   "finance": "pink",
   "stochastic calculus": "pink",
   "risk modeling": "pink",
+
   "precalculus": "blue",
   "mathematical induction": "blue",
   "advanced calculus": "blue",
@@ -49,6 +52,7 @@
   "pdes": "blue",
   "category theory": "blue",
   "abstract structures": "blue",
+
   "polynomials": "orange",
   "rational expressions": "orange",
   "euclidean geometry": "orange",
@@ -69,6 +73,7 @@
   "contour integration": "orange",
   "analytic functions": "orange",
   "rigorous calculus": "orange",
+
   "differential equations": "green",
   "ordinary differential equations": "green",
   "partial differential equations": "green",
@@ -89,6 +94,7 @@
   "metric spaces": "green",
   "continuity": "green",
   "homeomorphisms": "green",
+
   "optimization": "red",
   "linear programming": "red",
   "convex optimization": "red",
