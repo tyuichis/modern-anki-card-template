@@ -1,173 +1,322 @@
 > [!NOTE]
-> Subjects output by ChatGPT 4o
+> Subjects output by ChatGPT 4o, categorised by Gemini 2.0
 
-mechanics, kinematics, dynamics, newton's laws, work, energy, power, momentum, impulse, collisions, rotational motion, torque, angular momentum, simple harmonic motion, waves, sound, optics, thermodynamics, heat, temperature, thermal energy, entropy, electricity, magnetism, electromagnetism, circuits, electrostatics, electrodynamics, light, quantum mechanics, nuclear physics, fluid mechanics, pressure, buoyancy, viscosity, heat transfer, conduction, convection, radiation, oscillations, resonance, interference, diffraction, polarization, electromagnetic spectrum, electric fields, magnetic fields, electric potential, current, resistance, capacitance, inductance, ac circuits, dc circuits, semiconductors, diodes, optics lenses, mirrors, refraction, reflection, wave-particle duality, photoelectric effect, atomic structure, quantum numbers, electron configuration, nuclear reactions, radioactive decay, half-life, nuclear fission, nuclear fusion, elementary particles, fundamental forces, gravity, strong nuclear force, weak nuclear force, isotopes, radioactive decay modes, classical mechanics, rigid body dynamics, celestial mechanics, lagrangian mechanics, hamiltonian mechanics, advanced electromagnetism, maxwell's equations, electromagnetic waves, faraday's law, gauss's law, ampère's law, lorentz force, relativity, special relativity, general relativity, time dilation, length contraction, spacetime curvature, quantum physics, particle physics, quantum field theory, uncertainty principle, schrodinger equation, heisenberg principle, feynman diagrams, standard model, neutrinos, quarks, bosons, higgs boson, statistical mechanics, partition function, boltzmann distribution, fermi-dirac statistics, bose-einstein statistics, condensed matter physics, solid state physics, crystallography, superconductivity, semiconductor physics, band theory, astrophysics, cosmology, big bang theory, cosmic microwave background, dark matter, dark energy, black holes, neutron stars, gravitational waves, expansion of the universe, plasma physics, fusion reactors, ionized gases, magnetohydrodynamics, geophysics, seismology, plate tectonics, earth's magnetic field, applied physics, engineering, acoustics, biomechanics, renewable energy, optics in technology, nanotechnology
+*   **High School (and Introductory College Physics)**
+
+    *   Mechanics
+    *   Kinematics
+    *   Dynamics
+    *   Newton's Laws
+    *   Work
+    *   Energy
+    *   Power
+    *   Momentum
+    *   Impulse
+    *   Collisions
+    *   Rotational Motion
+    *   Torque
+    *   Angular Momentum
+    *   Simple Harmonic Motion
+    *   Waves
+    *   Sound
+    *   Optics
+    *   Heat
+    *   Temperature
+    *   Thermal Energy
+    *   Electricity
+    *   Magnetism
+    *   Circuits
+    *   Electrostatics
+    *   Light
+    *   Pressure
+    *   Buoyancy
+    *   Oscillations
+    *   Resonance
+    *   Interference
+    *   Diffraction
+    *   Polarization
+    *   Electromagnetic Spectrum
+    *   Electric Fields
+    *   Magnetic Fields
+    *   Electric Potential
+    *   Current
+    *   Resistance
+    *   Capacitance
+    *   Inductance
+    *   AC Circuits
+    *   DC Circuits
+    *   Optics Lenses
+    *   Mirrors
+    *   Refraction
+    *   Reflection
+    *   Atomic Structure
+    *   Isotopes
+
+*   **Undergraduate Physics (Early Years, typically 1st and 2nd year)**
+
+    *   Classical Mechanics
+    *   Thermodynamics
+    *   Entropy
+    *   Gravity
+    *   Electromagnetism
+    *   Fluid Mechanics
+    *   Viscosity
+    *   Semiconductors
+    *   Diodes
+    *   Wave-Particle Duality
+    *   Photoelectric Effect
+    *   Quantum Numbers
+    *   Electron Configuration
+    *   Half-Life
+    *   Radioactive decay modes
+    *   Heat Transfer
+    *   Conduction
+    *   Convection
+    *   Radiation
+    *   Faraday's Law
+    *   Gauss's Law
+    *   Ampère's Law
+    *   Lorentz Force
+    *   Special Relativity
+
+*   **Undergraduate Physics (Later Years, typically 3rd and 4th year)**
+
+    *   Quantum Mechanics
+    *   Nuclear Physics
+    *   Rigid Body Dynamics
+    *   Lagrangian Mechanics
+    *   Hamiltonian Mechanics
+    *   Advanced Electromagnetism
+    *   Maxwell's Equations
+    *   Electromagnetic Waves
+    *   Relativity
+    *   General Relativity
+    *   Time Dilation
+    *   Length Contraction
+    *   Spacetime Curvature
+    *   Quantum Physics
+    *   Nuclear Reactions
+    *   Radioactive Decay
+    *   Nuclear Fission
+    *   Nuclear Fusion
+    *   Elementary Particles
+    *   Fundamental Forces
+    *   Strong Nuclear Force
+    *   Weak Nuclear Force
+    *   Celestial Mechanics
+    *   Uncertainty Principle
+    *   Schrodinger Equation
+    *   Heisenberg Principle
+    *   Statistical Mechanics
+
+*   **Graduate Study and Research (Masters and Doctoral, PhD)**
+
+    *   Condensed Matter Physics
+    *   Solid State Physics
+    *   Crystallography
+    *   Superconductivity
+    *   Semiconductor Physics
+    *   Band Theory
+    *   Astrophysics
+    *   Cosmology
+    *   Particle Physics
+    *   Quantum Field Theory
+    *   Feynman Diagrams
+    *   Standard Model
+    *   Neutrinos
+    *   Quarks
+    *   Bosons
+    *   Higgs Boson
+    *   Partition Function
+    *   Boltzmann Distribution
+    *   Fermi-Dirac Statistics
+    *   Bose-Einstein Statistics
+    *   Big Bang Theory
+    *   Cosmic Microwave Background
+    *   Dark Matter
+    *   Dark Energy
+    *   Black Holes
+    *   Neutron Stars
+    *   Gravitational Waves
+    *   Expansion of the Universe
+    *   Plasma Physics
+    *   Fusion Reactors
+    *   Ionized Gases
+    *   Magnetohydrodynamics
+    *   Geophysics
+    *   Seismology
+    *   Plate Tectonics
+    *   Earth's Magnetic Field
+    *   Applied Physics
+    *   Engineering
+    *   Acoustics
+    *   Biomechanics
+    *   Renewable Energy
+    *   Optics in Technology
+    *   Nanotechnology
+    *   Electrodynamics
+
+---
 
 > [!NOTE]
 > Color organisation by Gemini 2.0 Pro Experimental 02-05
 
 ```javascript
 var subjects = {
-    // Purple - Fundamentals/Core Concepts
-    "mechanics": "purple",
-    "kinematics": "purple",
-    "dynamics": "purple",
-    "newton's laws": "purple",
-    "energy": "purple",
-    "momentum": "purple",
-    "waves": "purple",
-    "thermodynamics": "purple",
-    "heat": "purple",
-    "temperature": "purple",
-     "entropy": "purple",
-    "electricity": "purple",
-    "magnetism": "purple",
-    "electromagnetism": "purple",
-    "light": "purple", // Light as a fundamental phenomenon
-    "quantum mechanics": "purple",
-    "nuclear physics": "purple",
-    "fluid mechanics": "purple",
-    "classical mechanics": "purple",
-    "statistical mechanics": "purple",
-        "fundamental forces": "purple",
-    "gravity": "purple",
-    "strong nuclear force": "purple",
-    "weak nuclear force": "purple",
+  // Purple - Fundamentals/Core Concepts
+  "mechanics": "purple",
+  "kinematics": "purple",
+  "dynamics": "purple",
+  "newton's laws": "purple",
+  "energy": "purple",
+  "momentum": "purple",
+  "waves": "purple",
+  "thermodynamics": "purple",
+  "heat": "purple",
+  "temperature": "purple",
+  "entropy": "purple",
+  "electricity": "purple",
+  "magnetism": "purple",
+  "electromagnetism": "purple",
+  "light": "purple",
+  "quantum mechanics": "purple",
+  "nuclear physics": "purple",
+  "fluid mechanics": "purple",
+  "classical mechanics": "purple",
+  "statistical mechanics": "purple",
+  "fundamental forces": "purple",
+  "gravity": "purple",
+  "strong nuclear force": "purple",
+  "weak nuclear force": "purple",
 
+  // Turquoise - Mechanics/Tools/Syntax
+  "work": "turquoise",
+  "power": "turquoise",
+  "impulse": "turquoise",
+  "torque": "turquoise",
+  "thermal energy": "turquoise",
+  "pressure": "turquoise",
+  "buoyancy": "turquoise",
+  "viscosity": "turquoise",
+  "electric fields": "turquoise",
+  "magnetic fields": "turquoise",
+  "electric potential": "turquoise",
+  "current": "turquoise",
+  "resistance": "turquoise",
+  "capacitance": "turquoise",
+  "inductance": "turquoise",
+  "wave-particle duality": "turquoise",
+  "photoelectric effect": "turquoise",
+  "nuclear reactions": "turquoise",
+  "celestial mechanics": "turquoise",
+  "maxwell's equations": "turquoise",
+  "faraday's law": "turquoise",
+  "gauss's law": "turquoise",
+  "ampère's law": "turquoise",
+  "lorentz force": "turquoise",
+  "time dilation": "turquoise",
+  "length contraction": "turquoise",
+  "schrodinger equation": "turquoise",
+  "heisenberg principle": "turquoise",
+  "partition function": "turquoise",
+  "boltzmann distribution": "turquoise",
+  "fermi-dirac statistics": "turquoise",
+  "bose-einstein statistics": "turquoise",
+  "plate tectonics": "turquoise",
+  "earth's magnetic field": "turquoise",
 
-    // Turquoise - Mechanics/Tools/Syntax
-    "work": "turquoise", // Work as a calculation/concept
-    "power": "turquoise", // Power as a calculation/concept
-    "impulse": "turquoise",
-    "torque": "turquoise",
-    "thermal energy": "turquoise", // concept/form of energy, related to temp
-    "pressure": "turquoise",
-    "buoyancy": "turquoise",
-    "viscosity": "turquoise",
-    "electric fields": "turquoise",
-    "magnetic fields": "turquoise",
-    "electric potential": "turquoise",
-    "current": "turquoise",
-    "resistance": "turquoise",
-    "capacitance": "turquoise",
-    "inductance": "turquoise",
-     "wave-particle duality": "turquoise", // a *concept* related to QM
-    "photoelectric effect": "turquoise", // Specific effect/interaction.
-    "nuclear reactions": "turquoise", // process
-     "celestial mechanics": "turquoise", // applying mechanics
-    "maxwell's equations": "turquoise", // Equations governing electromagnetism
-    "faraday's law": "turquoise", // Law of induction
-    "gauss's law": "turquoise", // Law relating electric field to charge
-    "ampère's law": "turquoise", // Law relating magnetic field to current
-    "lorentz force": "turquoise", // Force on a charged particle in a field
-    "time dilation": "turquoise", // specific
-    "length contraction": "turquoise", //specific
-    "schrodinger equation": "turquoise", // Equation governing QM
-    "heisenberg principle": "turquoise", // Uncertainty principle
-      "partition function": "turquoise", // Calculation tool in stat mech
-    "boltzmann distribution": "turquoise", // Probability distribution
-    "fermi-dirac statistics": "turquoise", // Quantum statistics
-    "bose-einstein statistics": "turquoise", // Quantum statistics
-    "plate tectonics": "turquoise", //mechanics, movement
-  "earth's magnetic field": "turquoise", // Specific field.
+  // Pink - Application/Practice/Examples
+  "ac circuits": "pink",
+  "dc circuits": "pink",
+  "semiconductors": "pink",
+  "diodes": "pink",
+  "optics lenses": "pink",
+  "mirrors": "pink",
+  "fusion reactors": "pink",
+  "engineering": "pink",
+  "renewable energy": "pink",
+  "optics in technology": "pink",
+  "nanotechnology": "pink",
 
+  // Blue - Advanced/Complex/Abstract
+  "lagrangian mechanics": "blue",
+  "hamiltonian mechanics": "blue",
+  "advanced electromagnetism": "blue",
+  "relativity": "blue",
+  "special relativity": "blue",
+  "general relativity": "blue",
+  "spacetime curvature": "blue",
+  "quantum physics": "blue",
+  "particle physics": "blue",
+  "quantum field theory": "blue",
+  "uncertainty principle": "blue",
+  "feynman diagrams": "blue",
+  "standard model": "blue",
+  "condensed matter physics": "blue",
+  "solid state physics": "blue",
+  "superconductivity": "blue",
+  "semiconductor physics": "blue",
+  "band theory": "blue",
+  "astrophysics": "blue",
+  "cosmology": "blue",
+  "plasma physics": "blue",
+  "geophysics": "blue",
 
-    // Pink - Application/Practice/Examples
-    "ac circuits": "pink",  // Specific type of circuit
-    "dc circuits": "pink", // Specific type of circuit
-    "semiconductors": "pink", // Specific materials
-    "diodes": "pink", // Specific component
-    "optics lenses": "pink", // Specific optical components
-    "mirrors": "pink", // Specific optical components
-     "fusion reactors": "pink", // Specific application of plasma physics
-        "engineering": "pink",
-        "renewable energy": "pink",
-      "optics in technology": "pink", //specific area.
-    "nanotechnology": "pink",
+  // Orange - Details/Nuances/Variations
+  "collisions": "orange",
+  "rotational motion": "orange",
+  "angular momentum": "orange",
+  "simple harmonic motion": "orange",
+  "sound": "orange",
+  "optics": "orange",
+  "heat transfer": "orange",
+  "conduction": "orange",
+  "convection": "orange",
+  "radiation": "orange",
+  "oscillations": "orange",
+  "resonance": "orange",
+  "interference": "orange",
+  "diffraction": "orange",
+  "polarization": "orange",
+  "electromagnetic spectrum": "orange",
+  "electrostatics": "orange",
+  "electrodynamics": "orange",
+  "circuits": "orange",
+  "refraction": "orange",
+  "reflection": "orange",
+  "atomic structure": "orange",
+  "quantum numbers": "orange",
+  "electron configuration": "orange",
+  "radioactive decay": "orange",
+  "half-life": "orange",
+  "nuclear fission": "orange",
+  "nuclear fusion": "orange",
+  "elementary particles": "orange",
+  "isotopes": "orange",
+  "radioactive decay modes": "orange",
+  "rigid body dynamics": "orange",
+  "electromagnetic waves": "orange",
+  "black holes": "orange",
+  "neutron stars": "orange",
+  "gravitational waves": "orange",
+  "expansion of the universe": "orange",
+  "ionized gases": "orange",
+  "magnetohydrodynamics": "orange",
+  "seismology": "orange",
 
-
-
-
-    // Blue - Advanced/Complex/Abstract
-    "lagrangian mechanics": "blue", // Advanced formulation of mechanics
-    "hamiltonian mechanics": "blue", // Advanced formulation of mechanics
-   "advanced electromagnetism": "blue", // More advanced treatment of E&M
-    "relativity": "blue",
-    "special relativity": "blue",
-    "general relativity": "blue",
-   "spacetime curvature": "blue", // concept within general relativity
-    "quantum physics": "blue", // Advanced QM
-    "particle physics": "blue", // Study of elementary particles
-    "quantum field theory": "blue",
-    "uncertainty principle": "blue", // fundamental principle
- "feynman diagrams": "blue", // Tool for calculations in QFT
-    "standard model": "blue", // Model of particle physics
-      "condensed matter physics": "blue",
-    "solid state physics": "blue",
-    "superconductivity": "blue", // Specific phenomenon
-     "semiconductor physics": "blue",
-    "band theory": "blue", // Theory in solid state physics
-    "astrophysics": "blue",
-    "cosmology": "blue",
-      "plasma physics": "blue",
-      "geophysics": "blue",
-
-    // Orange - Details/Nuances/Variations
-      "collisions": "orange", // specific interaction
-    "rotational motion": "orange",
-     "angular momentum": "orange",
-    "simple harmonic motion": "orange",
-    "sound": "orange",  // Specific type of wave
-    "optics": "orange", // Specific area of study within waves & light
-     "heat transfer": "orange",
-     "conduction": "orange",
-    "convection": "orange",
-    "radiation": "orange",
-    "oscillations": "orange",
-    "resonance": "orange",
-    "interference": "orange",
-    "diffraction": "orange",
-    "polarization": "orange",
-    "electromagnetic spectrum": "orange", // Range of EM waves
-   "electrostatics": "orange",
-    "electrodynamics": "orange",
-   "circuits": "orange",
-   "refraction": "orange", // Specific phenomenon
-    "reflection": "orange", // Specific phenomenon
-    "atomic structure": "orange",
-    "quantum numbers": "orange",
-    "electron configuration": "orange",
-     "radioactive decay": "orange",
-    "half-life": "orange",
-    "nuclear fission": "orange",
-    "nuclear fusion": "orange",
-    "elementary particles": "orange",  // specifics
-     "isotopes": "orange", // Specific forms of elements
-    "radioactive decay modes": "orange", // Types of decay
-    "rigid body dynamics": "orange",
- "electromagnetic waves": "orange", // Specific type of wave
-  "black holes": "orange", // Specific astrophysical objects
-    "neutron stars": "orange", // Specific astrophysical objects
-   "gravitational waves": "orange", // Specific type of wave.
- "expansion of the universe": "orange", // Specific phenomenon
-    "ionized gases": "orange", // Specific state of matter
-    "magnetohydrodynamics": "orange", // Specific area of study
-     "seismology": "orange", // Specific area of study within geophysics
-
-    // Green - Frameworks/Systems/Structures
-      "big bang theory": "green", // Overarching theory.
-    "cosmic microwave background": "green", // Part of the Big Bang model.
-     "dark matter": "green", // Part of cosmological models.
-    "dark energy": "green",// Part of cosmological models.
-    "applied physics": "green", // Overarching field of applying physics
-  "acoustics": "green", //overall structure
+  // Green - Frameworks/Systems/Structures
+  "big bang theory": "green",
+  "cosmic microwave background": "green",
+  "dark matter": "green",
+  "dark energy": "green",
+  "applied physics": "green",
+  "acoustics": "green",
   "biomechanics": "green",
-    // Red - External/Peripheral
- "neutrinos": "red",
-    "quarks": "red",
-    "bosons": "red",
-     "higgs boson": "red", // Specific particle
-
+  // Red - External/Peripheral
+  "neutrinos": "red",
+  "quarks": "red",
+  "bosons": "red",
+  "higgs boson": "red",
 };
 ```
 
