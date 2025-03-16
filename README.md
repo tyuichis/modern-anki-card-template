@@ -90,7 +90,7 @@ This structure makes it easy to create high-quality flashcards with inherent lin
 > 
 > This is extremely useful if you were reading a chapter and needed to make flashcards for the same chapter.
 
-This approach to flashcards makes reviewing **more intuitive**, helps with **memory recall**, and ensures you can revisit and refine problematic cards easily.
+This approach to flashcards creating cards **more intuitive**, helps with **memory recall**, and ensures you can revisit and refine problematic cards easily.
 
 ## Key Features
 - Dark and Light Mode support
@@ -103,10 +103,16 @@ This approach to flashcards makes reviewing **more intuitive**, helps with **mem
 - Accent color matches native Anki flag colors
 - Subtle animations for answer reveals
 - Near 'native' styling where possible, e.g., Material 3 color palette for Android
-  
-This card template was mainly produced and used on Mac and Android (Pixel). For any design or functionality tweaks on other platforms, such as Windows or Unix, please let me know.
 
-This setup also avoids the bloat of excessive add-ons, but encourages using select add-ons where they genuinely enhance the card creation experience. Essentially, a somewhat vanilla experience wrapped with a thoughtful framework.
+This card template was designed to be:
+- Fast to make high-quality cards
+- Fast to recall cards
+- Fast to fix cards
+
+It also avoids the bloat of excessive add-ons, but encourages select add-ons which makes card creation a lot more efficient, such as Editor Live Preview and Field AutoComplete.
+
+> [!NOTE]
+> This card template was mainly produced and used on Mac and Android (Pixel). For any design or functionality tweaks on other platforms, such as Windows or Unix, please let me know.
 
 ## Quick Start
 Download the `.apkg` file from the Releases page, and click to open & import the two card types (Q&A, Cloze types)
