@@ -571,9 +571,13 @@ See the LICENSE file in the project root for details. -->
 </script>
 
 <script>
-  globalThis.subjects = globalThis.subjects || {}; // Holds subject-color mappings
-  globalThis.loadedSubjects = globalThis.loadedSubjects || {}; // Tracks which files have been loaded
+  // keep track of failed loads for debugging
+  if (!globalThis.loadedSubjects) {
+    globalThis.loadedSubjects = {};
+  }
+
   var subjectJSON;
+
   if (!subjectJSON) {
     subjectJSON = [
       'computer-science',
@@ -587,46 +591,6 @@ See the LICENSE file in the project root for details. -->
     ];
   }
 
-  async function loadAllSubjectJSON() {
-    let changesMade = false;
-
-    await Promise.all(
-      subjectJSON.map(async (subjectName) => {
-        if (globalThis.loadedSubjects[subjectName]) return;
-
-        try {
-          const response = await fetch(`/_color-preset-${subjectName}.json`);
-
-          if (!response.ok) {
-            globalThis.loadedSubjects[subjectName] = 'failed';
-            changesMade = true;
-            return;
-          }
-
-          const data = await response.json();
-          Object.assign(globalThis.subjects, data);
-          globalThis.loadedSubjects[subjectName] = true;
-          changesMade = true;
-        } catch (error) {
-          console.error(
-            `Error loading /_color-preset-${subjectName}.json:`,
-            error,
-          );
-          globalThis.loadedSubjects[subjectName] = 'failed';
-          changesMade = true;
-        }
-      }),
-    );
-
-    if (changesMade) {
-      console.log(
-        'Subjects and loadedSubjects updated:',
-        globalThis.subjects,
-        globalThis.loadedSubjects,
-      );
-    }
-  }
-
   function getSubjectFromDOM() {
     subjectElement = document.getElementById('subject');
     return subjectElement
@@ -634,27 +598,47 @@ See the LICENSE file in the project root for details. -->
       : null;
   }
 
-  subjectCategory = getSubjectFromDOM();
+  function applySubjectStyling() {
+    subjectCategory = getSubjectFromDOM();
+    if (!subjectCategory) return;
 
-  loadAllSubjectJSON()
-    .then(() => {
-      if (subjectCategory) {
-        matchedCategoryColor =
-          globalThis.subjects[subjectCategory] || 'default';
+    matchedCategoryColor = globalThis.subjects[subjectCategory] || 'default';
+    updateLabelColors(matchedCategoryColor);
+    flagId = getFlagId(matchedCategoryColor);
+  }
 
-        if (matchedCategoryColor) {
-          try {
-            updateLabelColors(matchedCategoryColor);
-            const flagId = getFlagId(matchedCategoryColor);
-          } catch (error) {
-            console.error('Error updating UI:', error);
+  async function loadAllSubjectJSON() {
+    if (globalThis.subjects) return;
+    globalThis.subjects = {};
+    await Promise.all(
+      subjectJSON.map(async (subjectName) => {
+        try {
+          const response = await fetch(`/_color-preset-${subjectName}.json`);
+          if (!response.ok) {
+            globalThis.loadedSubjects[subjectName] = false;
+            return;
           }
+
+          const data = await response.json();
+          Object.assign(globalThis.subjects, data);
+          globalThis.loadedSubjects[subjectName] = true;
+        } catch (error) {
+          console.error(
+            `Error loading /_color-preset-${subjectName}.json:`,
+            error,
+          );
+          globalThis.loadedSubjects[subjectName] = false;
         }
-      }
-    })
-    .catch((error) => {
-      console.error('Error loading subjects:', error);
-    });
+      }),
+    );
+  }
+
+  (async () => {
+    if (!globalThis.subjects) {
+      await loadAllSubjectJSON();
+    }
+    applySubjectStyling();
+  })();
 </script>
 
 <script>
