@@ -1,0 +1,80 @@
+// modern-anki-card-template
+// Copyright (C) 2025 Tommy Yuichi Siek
+
+// This file is part of modern-anki-card-template.
+// Licensed under the AGPL-3.0 License.
+// See the LICENSE file in the project root for details.
+
+// Variables
+@use 'base/variables';
+
+// Base styles
+@use 'base/base';
+@use 'base/typography';
+@use 'base/accent-colors';
+
+// Components
+// @use 'components/controls'; unused, deprecated
+@use 'components/flashcard';
+@use 'components/icons';
+@use 'components/metadata';
+// @use 'components/status-bar'; excluded, status bar requires add-on, so disabled.
+@use 'components/code';
+
+// Layout
+@use 'layout/layout';
+
+// Platform-specific styles
+@use 'platform/android';
+@use 'platform/desktop';
+@use 'platform/ios';
+
+/* ===========================
+   Setting your accent colors here
+=========================== */
+
+/* Default accent color: blue */
+/* Change the color to any of these 7: */
+/*
+    yellow
+    red
+    blue
+    green
+    orange
+    pink
+    turquoise
+    purple
+*/
+
+/* For example, selecting red:
+--accent-<color>-fg-color -> --accent-red-fg-color
+--accent-<color>-bg-color -> --accent-red-bg-color
+*/
+
+#flashcard-question:not(.seen) b,
+#flashcard-answer b,
+.cloze:not(:has(code)),
+.subject-label {
+  color: var(--accent-blue-fg-color);
+}
+
+.subject-label {
+  background-color: var(--accent-blue-bg-color);
+}
+
+// not supported
+// #undo-button:hover,
+// #flag-button:hover {
+//   color: accent
+// }
+
+// #undo-button:hover path,
+// #flag-button:hover path,
+// #flag-button:hover:not(.flagged) #flag-icon path {
+//   fill: accent
+// }
+
+/* manually add top margin, as status bar is now gone. */
+#flashcard-title {
+  margin: 1rem 0 1.1875rem 0;
+}

@@ -1,0 +1,1285 @@
+/* modern-anki-card-template
+Copyright (C) 2025 Tommy Yuichi Siek
+
+This file is part of modern-anki-card-template.
+Licensed under the AGPL-3.0 License.
+See the LICENSE file in the project root for details. */
+
+/* ===========================
+   CSS Variables (Root Styles)
+=========================== */
+:root.night-mode,
+:root {
+  --font-size: 16px;
+}
+
+:root {
+  --light-mode-main-bg-color: #f3f3f3;
+  --dark-mode-main-bg-color: #272626;
+  --light-mode-main-text-color: #333333;
+  --dark-mode-main-text-color: #d4d4d4; /* original: #ececec */
+  --light-mode-footnote-text-color: #666666;
+  --dark-mode-footnote-text-color: darkgrey;
+  --light-mode-empty-text-color: rgba(0, 0, 0, 0.25);
+  --dark-mode-empty-text-color: rgba(255, 255, 255, 0.25);
+  --light-mode-details-text-color: #666;
+  --dark-mode-details-text-color: darkgrey;
+  --light-mode-icon-color: #333333;
+  --light-mode-status-bar-color: rgba(0, 0, 0, 0.8);
+  --dark-mode-code-block-background: #0d1116;
+  --light-mode-code-block-background: #f9f9f9;
+  --light-mode-code-block-border: #d1d1d1;
+  /* bookmark / source icon color accent; none on dark mode */
+  --source-icon-accent-color: #b55a5a;
+  --light-mode-link-accent-color: #d91e50;
+  --dark-mode-link-accent-color: darkgrey;
+  --dark-mode-status-bar-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* original: #49A2D5 */
+  --status-bar-accent-color: #49a2d5;
+  --main-font-family:
+    'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', sans-serif;
+  --alt-font-family:
+    'SF Pro Rounded', 'Noto Sans Rounded', 'Roboto Rounded',
+    'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari,
+    'Arial Rounded MT Bold', 'Arial Rounded MT', Calibri, 'Source Sans Pro',
+    sans-serif;
+  --ios-font-family:
+    'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --monospace-font-family:
+    'JetBrainsMono Nerd Font Mono', 'JetBrains Mono', 'Fira Code', 'Menlo',
+    'Consolas', 'Monaco', monospace;
+  --system-font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-iui, Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --android-font-family: 'Noto Sans JP', 'Noto', 'Roboto', sans-serif;
+  --label-font-color: #8e8e93; /* replace with JS depending on subject category */
+  --label-background-color: rgba(
+    44,
+    44,
+    46,
+    0.9
+  ); /* replace with JS depending on subject category */
+  --flag-color: rgba(255, 255, 255, 0.8);
+  --subject-flag-color: rgba(255, 255, 255, 0.8); /* set with JS */
+  --dark-mode-ios-link-color: #2997ff;
+  --flashcard-content-ideal-max-height: 417px;
+  --mac-flashcard-content-ideal-max-height: 478.467px;
+  --android-ideal-max-height: min(550px, 60vh);
+  --iphone-ideal-max-height: min(450px, 50vh);
+  /* pill button */
+  --pill-button-padding: 0.25em 1em;
+  /* iOS Typography Scale */
+  --ios-font-size-title1: 2.125rem; /* 34px / 16 */
+  --ios-line-height-title1: 2.5625rem; /* 41px / 16 */
+  --ios-font-size-title2: 1.75rem; /* 28px / 16 */
+  --ios-line-height-title2: 2.125rem; /* 34px / 16 */
+  --ios-font-size-title3: 1.375rem; /* 22px / 16 */
+  --ios-line-height-title3: 1.75rem; /* 28px / 16 */
+  --ios-font-size-headline: 1.0625rem; /* 17px / 16 */
+  --ios-line-height-headline: 1.375rem; /* 22px / 16 */
+  --ios-font-size-body: 1.0625rem; /* 17px / 16 */
+  --ios-line-height-body: 1.375rem; /* 22px / 16 */
+  --ios-font-size-callout: 1rem; /* 16px / 16 */
+  --ios-line-height-callout: 1.3125rem; /* 21px / 16 */
+  --ios-font-size-subheadline: 0.9375rem; /* 15px / 16 */
+  --ios-line-height-subheadline: 1.25rem; /* 20px / 16 */
+  --ios-font-size-footnote: 0.8125rem; /* 13px / 16 */
+  --ios-line-height-footnote: 1.125rem; /* 18px / 16 */
+  --ios-font-size-caption1: 0.75rem; /* 12px / 16 */
+  --ios-line-height-caption1: 1rem; /* 16px / 16 */
+  --ios-font-size-caption2: 0.6875rem; /* 11px / 16 */
+  --ios-line-height-caption2: 0.8125rem; /* 13px / 16 */
+  /* macOS Typography Scale */
+  --mac-font-size-title1: 2rem; /* ~32px / 16 */
+  --mac-line-height-title1: 2.5rem; /* ~40px / 16 */
+  --mac-font-size-title2: 1.5rem; /* 24px / 16 */
+  --mac-line-height-title2: 2rem; /* 32px / 16 */
+  --mac-font-size-title3: 1.25rem; /* 20px / 16 */
+  --mac-line-height-title3: 1.75rem; /* 28px / 16 */
+  --mac-font-size-headline: 1.125rem; /* 18px / 16 */
+  --mac-line-height-headline: 1.5rem; /* 24px / 16 */
+  --mac-font-size-body: 1rem; /* 16px / 16 */
+  --mac-line-height-body: 1.625rem; /* 26px / 16 */
+  --mac-font-size-callout: 0.9375rem; /* 15px / 16 */
+  --mac-line-height-callout: 1.375rem; /* 22px / 16 */
+  --mac-font-size-subheadline: 0.875rem; /* 14px / 16 */
+  --mac-line-height-subheadline: 1.25rem; /* 20px / 16 */
+  --mac-font-size-footnote: 0.75rem; /* 12px / 16 */
+  --mac-line-height-footnote: 1.125rem; /* 18px / 16 */
+  --mac-font-size-caption1: 0.6875rem; /* 11px / 16 */
+  --mac-line-height-caption1: 1rem; /* 16px / 16 */
+  --mac-font-size-caption2: 0.625rem; /* 10px / 16 */
+  --mac-line-height-caption2: 0.875rem; /* 14px / 16 */
+  /* Adjusted Android Typography Scale (Pixel 7) */
+  --android-font-size-title1: 2rem; /* ~32px / 16 */
+  --android-line-height-title1: 2.375rem; /* ~38px / 16 */
+  --android-font-size-title2: 1.625rem; /* ~26px / 16 */
+  --android-line-height-title2: 2rem; /* ~32px / 16 */
+  --android-font-size-title3: 1.3125rem; /* ~21px / 16 */
+  --android-line-height-title3: 1.625rem; /* ~26px / 16 */
+  --android-font-size-headline: 1.125rem; /* ~18px / 16 */
+  --android-line-height-headline: 1.4375rem; /* ~23px / 16 */
+  --android-font-size-body: 1rem; /* ~16px / 16 */
+  --android-line-height-body: 1.375rem; /* ~22px / 16 */
+  --android-font-size-callout: 0.9375rem; /* ~15px / 16 */
+  --android-line-height-callout: 1.25rem; /* ~20px / 16 */
+  --android-font-size-subheadline: 0.875rem; /* ~14px / 16 */
+  --android-line-height-subheadline: 1.1875rem; /* ~19px / 16 */
+  --android-font-size-footnote: 0.75rem; /* ~12px / 16 */
+  --android-line-height-footnote: 1rem; /* ~16px / 16 */
+  --android-font-size-caption1: 0.6875rem; /* ~11px / 16 */
+  --android-line-height-caption1: 0.9375rem; /* ~15px / 16 */
+  --android-font-size-caption2: 0.625rem; /* ~10px / 16 */
+  --android-line-height-caption2: 0.8125rem; /* ~13px / 16 */
+  --android-font-size-footnote-inter: 0.75rem; /* ~12px */
+  --android-line-height-footnote-inter: 1.125rem; /* ~18px */
+  --android-letter-spacing-inter: 0.02em; /* Optional for added clarity */
+  /* furigana */
+  --mac-font-size-furigana: 0.625rem; /* ~10px */
+  --mac-line-height-furigana: 0.75rem; /* ~12px */
+  --ios-font-size-furigana: 0.6875rem; /* ~11px */
+  --ios-line-height-furigana: 0.8125rem; /* ~13px */
+  --android-font-size-furigana: 0.6875rem; /* ~11px */
+  --android-line-height-furigana: 0.8125rem; /* ~13px */
+  /* macOS Code Typography Scale */
+  --mac-code-font-family:
+    ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+    'DejaVu Sans Mono', monospace;
+  --mac-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
+  --mac-code-line-height-large: 1.5rem; /* ~24px / 16 */
+  --mac-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
+  --mac-code-line-height-medium: 1.25rem; /* ~20px / 16 */
+  --mac-code-font-size-small: 0.75rem; /* ~12px / 16 For small inline snippets, metadata, etc. */
+  --mac-code-line-height-small: 1rem; /* ~16px / 16 */
+  /* iOS Code Typography Scale */
+  --ios-code-font-family:
+    'SF Mono', ui-monospace, Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  --ios-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
+  --ios-code-line-height-large: 1.5rem; /* ~24px / 16 */
+  --ios-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
+  --ios-code-line-height-medium: 1.25rem; /* ~20px / 16 */
+  --ios-code-font-size-small: 0.75rem; /* ~12px / 16 For small inline snippets, metadata, etc. */
+  --ios-code-line-height-small: 1rem; /* ~16px / 16 */
+  /* Android Code Typography Scale */
+  --android-code-font-family:
+    'Roboto Mono', 'Cascadia Code', 'Source Code Pro', 'DejaVu Sans Mono',
+    monospace;
+  --android-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
+  --android-code-line-height-large: 1.5rem; /* ~24px / 16 */
+  --android-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
+  --android-code-line-height-medium: 1.25rem; /* ~20px / 16 */
+  --android-code-font-size-small: 0.75rem; /* ~12px / 16 For small inline snippets, metadata, etc. */
+  --android-code-line-height-small: 1rem; /* ~16px / 16 */
+  --app-width: 478.47px;
+  /* take into account button padding, left and right sides */
+  --status-bar-width: calc(478.47px + (0.25em * 2));
+  --status-bar-mobile-width: calc(90vw + (0.25em * 2));
+}
+
+/* ===========================
+   Base Styles (Global Settings)
+=========================== */
+html,
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+}
+
+/* Apply background color to body before content */
+.night-mode body::before,
+.night-mode body,
+.ankidroid_dark_mode body::before,
+.ankidroid_dark_mode body {
+  background: var(--dark-mode-main-bg-color) !important;
+  color: var(---dark-mode-main-text-color); /* base text color */
+}
+
+body::before,
+body {
+  background: var(--light-mode-main-bg-color) !important;
+  color: var(--light-mode-main-text-color);
+}
+
+/* ===========================
+   Typography (Font Settings)
+=========================== */
+/* Define fonts globally, if needed later */
+body {
+  font-family: var(--alt-font-family), system-font, sans-serif;
+  line-height: var(--ios-line-height-body); /* Default */
+}
+
+#title,
+#subject {
+  font-family: var(--alt-font-family);
+}
+
+#subject {
+  font-size: var(--ios-font-size-footnote); /* Default */
+  line-height: var(--ios-line-height-footnote); /* Default */
+}
+
+#title {
+  margin-top: 0px; /* remove the margin from top of page. */
+  margin-bottom: 0rem;
+  font-size: var(--ios-font-size-title2); /* Default */
+  line-height: var(--ios-line-height-title2); /* Default */
+}
+
+.flashcard-content {
+  font-size: var(--ios-font-size-body); /* Default */
+  line-height: var(--ios-line-height-body); /* Default */
+}
+
+.flashcard-metadata {
+  font-size: var(--ios-font-size-footnote); /* Default */
+  line-height: var(--ios-font-size-footnote); /* Default */
+}
+
+/* bold takes accent color */
+#flashcard-question:not(.seen) b,
+#flashcard-answer b,
+.cloze:not(:has(code)) {
+  color: var(--label-font-color);
+}
+
+b,
+.cloze:not(:has(code)) {
+  font-weight: 600; /* semi bold */
+}
+
+.night-mode .seen,
+.night-mode #details,
+.android .ankidroid_dark_mode .seen,
+.android .ankidroid_dark_mode #details {
+  color: darkgray;
+}
+
+.night-mode a,
+.android .ankidroid_dark_mode a {
+  color: var(--dark-mode-link-accent-color);
+  text-decoration: underline;
+}
+
+a {
+  color: var(--light-mode-link-accent-color);
+}
+
+.pass,
+.fail {
+  font-weight: bold;
+}
+
+.pass {
+  color: #009f82;
+}
+
+.fail {
+  color: #ff6061;
+}
+
+#controls-title {
+  color: var(--dark-mode-status-bar-color);
+  font-weight: 400;
+}
+
+#controls-options .key-input {
+  background: #646669;
+  padding: 0.1rem 0.3rem;
+}
+
+#controls-options {
+  font-family: var(--monospace-font-family);
+  color: var(--dark-mode-status-bar-color);
+  font-size: var(--ios-font-size-footnote); /* Default */
+}
+
+#flashcard-extra-info p {
+  margin: 0;
+}
+
+.night-mode #details-marker,
+.night-mode #details-text,
+.android .ankidroid_dark_mode #details-marker,
+.android .ankidroid_dark_mode #details-text {
+  color: var(--dark-mode-details-text-color);
+}
+
+#details-marker,
+#details-text {
+  color: var(--light-mode-details-text-color);
+}
+
+#details-text {
+  display: inline;
+}
+
+code {
+  font-family: var(--monospace-font-family);
+}
+
+#status-bar,
+#controls-header {
+  font-size: var(--mac-font-size-callout);
+  line-height: var(--mac-line-height-callout);
+}
+
+/* desktop typography */
+.mac body,
+.linux:not(.android) body,
+.win body {
+  font-family: var(--system-font-family);
+  line-height: var(--mac-line-height-body);
+}
+
+.mac #subject,
+.linux:not(.android) #subject,
+.win #subject {
+  font-size: var(--mac-font-size-footnote);
+  line-height: var(--mac-line-height-footnote);
+}
+
+.mac #title,
+.linux:not(.android) #title,
+.win #title {
+  font-size: var(--mac-font-size-title2);
+  line-height: var(--mac-line-height-title2);
+}
+
+.mac #flashcard-content,
+.linux:not(.android) #flashcard-content,
+.win #flashcard-content {
+  font-family: var(--system-font-family);
+  font-size: var(--mac-font-size-body);
+  line-height: var(--mac-line-height-body);
+}
+
+.mac .flashcard-metadata,
+.mac #controls-options,
+.mac #deck-name-container,
+.linux:not(.android) .flashcard-metadata,
+.linux:not(.android) #controls-options,
+.linux:not(.android) #deck-name-container,
+.win .flashcard-metadata,
+.win #controls-options,
+.win #deck-name-container {
+  font-size: var(--mac-font-size-footnote);
+  line-height: var(--mac-line-height-footnote);
+}
+
+/* Android specific typography styles */
+.android body {
+  font-family: var(--android-font-family);
+  font-size: var(--android-font-size-body);
+  line-height: var(--android-line-height-body);
+}
+
+.android #subject,
+.android #deck-name-container {
+  font-size: var(--android-font-size-footnote);
+  line-height: var(--android-line-height-footnote);
+}
+
+.android #title {
+  margin-top: 0px;
+  margin-bottom: 0rem;
+  font-size: var(--android-font-size-title2);
+  line-height: var(--android-line-height-title2);
+}
+
+.android #flashcard-content {
+  font-size: var(--android-font-size-body);
+  line-height: var(--android-line-height-body);
+}
+
+.android .flashcard-metadata {
+  font-size: var(--android-font-size-footnote);
+  line-height: var(--android-line-height-footnote);
+}
+
+/* iphone, ipad typography */
+.iphone body,
+.ipad body {
+  font-family: var(--ios-font-family);
+  font-size: var(--ios-font-size-body);
+  line-height: var(--ios-line-height-body);
+}
+
+.iphone #subject,
+.ipad #subject,
+.iphone #deck-name-container,
+.ipad #deck-name-container {
+  font-size: var(--ios-font-size-footnote);
+  line-height: var(--ios-line-height-footnote);
+}
+
+.iphone #title,
+.ipad #title {
+  margin-top: 0px;
+  margin-bottom: 0rem;
+  font-size: var(--ios-font-size-title3);
+  line-height: var(--ios-line-height-title3);
+}
+
+.iphone #flashcard-content,
+.ipad #flashcard-content {
+  font-size: var(--ios-font-size-body);
+  line-height: var(--ios-line-height-body);
+}
+
+.iphone .flashcard-metadata,
+.ipad .flashcard-metadata {
+  font-size: var(--ios-font-size-footnote);
+  line-height: var(--ios-line-height-footnote);
+}
+
+/* furigana */
+.mac ruby > rt {
+  font-size: var(--mac-font-size-furigana);
+  line-height: var(--mac-line-height-furigana);
+}
+
+.ios ruby > rt {
+  font-size: var(--ios-font-size-furigana);
+  line-height: var(--ios-line-height-furigana);
+}
+
+.android ruby > rt {
+  font-size: var(--android-font-size-furigana);
+  line-height: var(--android-line-height-furigana);
+}
+
+/* ===========================
+   Accent Colors
+=========================== */
+:root {
+  --accent-yellow-fg-color: #b28b20;
+  --accent-yellow-bg-color: rgba(255, 221, 112, 0.2);
+  --accent-red-fg-color: #b24c4c;
+  --accent-red-bg-color: rgba(255, 153, 153, 0.2);
+  --accent-blue-fg-color: #2d72d9;
+  --accent-blue-bg-color: rgba(173, 216, 230, 0.2);
+  --accent-green-fg-color: #3a805a;
+  --accent-green-bg-color: rgba(144, 238, 144, 0.2);
+  --accent-orange-fg-color: #b25f1e;
+  --accent-orange-bg-color: rgba(255, 200, 130, 0.2);
+  --accent-pink-fg-color: #b24863;
+  --accent-pink-bg-color: rgba(255, 182, 193, 0.2);
+  --accent-turquoise-fg-color: #2a716b;
+  --accent-turquoise-bg-color: rgba(176, 224, 230, 0.2);
+  --accent-purple-fg-color: #6b42c7;
+  --accent-purple-bg-color: rgba(216, 191, 216, 0.2);
+  --accent-default-fg-color: #444444;
+  --accent-default-bg-color: rgba(220, 220, 220, 0.4);
+}
+
+.nightMode {
+  --accent-yellow-fg-color: #ffc533;
+  --accent-yellow-bg-color: rgba(255, 197, 51, 0.15);
+  --accent-red-fg-color: #ff6161;
+  --accent-red-bg-color: rgba(255, 97, 97, 0.15);
+  --accent-blue-fg-color: #57c1ff;
+  --accent-blue-bg-color: rgba(87, 193, 255, 0.15);
+  --accent-green-fg-color: #59d499;
+  --accent-green-bg-color: rgba(89, 212, 153, 0.15);
+  --accent-orange-fg-color: #ff9f0b;
+  --accent-orange-bg-color: rgba(255, 159, 11, 0.15);
+  --accent-pink-fg-color: #ff86b5;
+  --accent-pink-bg-color: rgba(255, 134, 181, 0.15);
+  --accent-turquoise-fg-color: #40e0d0;
+  --accent-turquoise-bg-color: rgba(64, 224, 208, 0.15);
+  --accent-purple-fg-color: #b19cd9;
+  --accent-purple-bg-color: rgba(177, 156, 217, 0.15);
+  --accent-default-fg-color: #cccccc;
+  --accent-default-bg-color: rgba(60, 60, 60, 0.5);
+}
+
+/* ===========================
+   Flashcard Component
+=========================== */
+#flashcard-content,
+.front,
+.back {
+  background: #323131;
+  border-radius: 15px;
+  box-shadow: 0 8px 0 #222121;
+}
+
+#flashcard-question:not(:only-child) {
+  margin-bottom: 1rem;
+}
+
+#question-marker,
+#question-text,
+#answer-text {
+  display: inline;
+}
+
+#question-text {
+  margin: 0;
+}
+
+#answer-text {
+  margin: 0;
+}
+
+#flashcard-textbox img {
+  max-width: 100%;
+  max-height: 15rem;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 1rem auto 0 auto;
+  border-radius: 12px;
+}
+
+#flashcard-textbox img:last-child {
+  margin-bottom: 0; /* if nothing comes after img, no spacing needed */
+}
+
+#flashcard-answer {
+  display: flex;
+  gap: 0.75em;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+#flashcard-textbox,
+.front,
+.back {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  max-width: 100%;
+  box-sizing: border-box; /* Also use in the textbox */
+}
+
+#flashcard-content,
+#flashcard-textbox {
+  flex-grow: 1;
+}
+
+#flashcard-title {
+  overflow-x: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-bottom: 1.1875rem;
+}
+
+#flashcard-content {
+  max-height: var(--flashcard-content-ideal-max-height);
+  overflow-y: auto;
+  display: flex;
+  box-sizing: border-box; /* use box-sizing in the content */
+  padding: 0; /* add back the padding, here */
+  margin: 0; /* remove the margin */
+}
+
+#flashcard-info {
+  display: flex;
+  flex-flow: column;
+  gap: 1.1875rem;
+}
+
+#details-text {
+  max-width: 100%; /* contain code blocks */
+}
+
+/* center images for img-only cloze types */
+.cloze:has(img:only-child),
+.cloze-inactive:has(img:only-child) {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* center text if user is using only img cloze + text */
+.cloze:has(img:only-child) ~ .cloze-inactive,
+.cloze-inactive:has(img:only-child) ~ .cloze {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* This will center the text */
+}
+
+/* focus on answer on question-answer cards */
+.night-mode #flashcard-question:not(:only-child):not(:has(.cloze-answer)),
+.android
+  .ankidroid_dark_mode
+  #flashcard-question:not(:only-child):not(:has(.cloze-answer)) {
+  opacity: 1;
+}
+
+#flashcard-question:not(:only-child):not(:has(.cloze-answer)) {
+  opacity: 0.7;
+}
+
+/* not supported for mobile */
+.android #misc-info,
+.iphone #misc-info,
+.ipad #misc-info {
+  display: none;
+}
+
+/* animations */
+/* ANSWER TEXT */
+#flashcard-answer {
+  animation: answerReveal 0.4s ease-out forwards;
+}
+
+@keyframes answerReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInSmooth {
+  from {
+    opacity: 0;
+    filter: brightness(0.85);
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    filter: brightness(1);
+    transform: translateY(0);
+  }
+}
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+/* CLOZE TEXT */
+.cloze-answer .cloze {
+  display: inline-block;
+  opacity: 0;
+  filter: brightness(0.85);
+  transform: translateY(2px); /* Tiny lift */
+  animation: fadeInSmooth 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* DETAIL BLOCK */
+#flashcard-details-info {
+  opacity: 0;
+  transform: translateY(4px) scale(0.98);
+  animation: popIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.25s forwards;
+}
+
+/* ===========================
+  Icons
+=========================== */
+/* japanese icons, and deck-related icons*/
+.deck-icon svg,
+#source-icon svg {
+  height: 1.75em;
+  width: 1.75em;
+}
+
+.night-mode #sentence-icon svg,
+.night-mode #pitch-icon svg,
+.night-mode .deck-icon svg,
+.night-mode #source-icon svg,
+.android .ankidroid_dark_mode #sentence-icon svg,
+.android .ankidroid_dark_mode #pitch-icon svg,
+.android .ankidroid_dark_mode .deck-icon svg,
+.android .ankidroid_dark_mode #source-icon svg {
+  fill: darkgray;
+}
+
+#sentence-icon svg,
+#pitch-icon svg,
+.deck-icon svg,
+#source-icon svg {
+  fill: var(--light-mode-icon-color);
+}
+
+.deck-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#details-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* question-answer card Answer icon */
+#answer-marker svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.night-mode #answer-marker path,
+.night-mode #details-icon path,
+.android .ankidroid_dark_mode #answer-marker path,
+.android .ankidroid_dark_mode #details-icon path {
+  fill: var(--dark-mode-main-text-color);
+}
+
+#answer-marker path,
+#details-icon path {
+  fill: var(--light-mode-icon-color);
+}
+
+/* answer marker icon */
+#answer-marker {
+  display: flex;
+  align-items: center;
+}
+
+/* ===========================
+   Metadata Component
+=========================== */
+/* Flashcard metadata container */
+.flashcard-metadata {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  align-items: center;
+}
+
+.night-mode .flashcard-metadata,
+.night-mode #deck-name-container,
+.android .ankidroid_dark_mode .flashcard-metadata,
+.android .ankidroid_dark_mode #deck-name-container {
+  color: var(--dark-mode-footnote-text-color);
+}
+.night-mode #flashcard-source-info:has(#source-text:empty) path,
+.android
+  .ankidroid_dark_mode
+  #flashcard-source-info:has(#source-text:empty)
+  path {
+  fill: var(--dark-mode-empty-text-color);
+}
+.night-mode #flashcard-source-info:has(#source-text:empty),
+.android .ankidroid_dark_mode #flashcard-source-info:has(#source-text:empty) {
+  color: var(--dark-mode-empty-text-color);
+}
+
+.flashcard-metadata,
+#deck-name-container {
+  color: var(--light-mode-footnote-text-color);
+}
+
+/* label */
+.subject-label {
+  color: var(--label-font-color);
+  background: var(--label-background-color);
+  padding: 0.3em 0.5em;
+  padding: var(--pill-button-padding);
+  border-radius: 6px;
+}
+
+#flashcard-subject {
+  display: inline-block;
+  align-self: baseline;
+}
+
+.android #flashcard-subject {
+  align-self: center; /* fix uneven alignment */
+}
+
+.iphone #flashcard-subject,
+.ipad #flashcard-subject {
+  align-self: flex-end; /* fix uneven alignment */
+  margin-top: 3px;
+}
+
+/* disable remaining cards for now on mobile, due to breaking api changes */
+.android #deck-remaining-cards-container,
+.iphone #deck-remaining-cards-container,
+.ipad #deck-remaining-cards-container {
+  display: none;
+}
+
+#flashcard-source-info:has(#source-text:empty) path {
+  fill: var(--light-mode-empty-text-color);
+}
+
+#flashcard-source-info:has(#source-text:empty) {
+  color: var(--light-mode-empty-text-color);
+}
+
+#flashcard-source-info {
+  margin-top: 2.875rem;
+}
+
+.night-mode #source-icon path,
+.android .ankidroid_dark_mode #source-icon path {
+  fill: var(--dark-mode-footnote-text-color);
+}
+
+#source-icon path {
+  fill: var(--source-icon-accent-color);
+}
+
+#source-text:empty::before {
+  content: 'n/a';
+}
+
+#source-text {
+  overflow-x: auto;
+}
+
+#deck-name-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+#flashcard-labels {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 1.6875rem;
+}
+
+#flashcard-details-info {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+/* ===========================
+   Code Component
+=========================== */
+/* code typography */
+code {
+  font-family: var(--monospace-font-family);
+}
+
+.mac code,
+.mac code.hljs {
+  font-size: var(--mac-code-font-size-medium);
+}
+.mac pre code,
+.mac pre code.hljs {
+  font-size: var(--mac-code-font-size-small);
+}
+
+.ios code,
+.ios code.hljs {
+  font-size: var(--ios-code-font-size-medium);
+}
+.ios pre code,
+.ios pre code.hljs {
+  font-size: var(--ios-code-font-size-small);
+}
+
+.android code,
+.android code.hljs {
+  font-size: var(--android-code-font-size-medium);
+}
+.android pre code,
+.android pre code.hljs {
+  font-size: var(--android-code-font-size-small);
+}
+
+code.hljs {
+  border-radius: 6px;
+}
+
+/* default theme */
+/* does not override hljs themes */
+.night-mode pre:has(:not(.hljs)),
+.android .ankidroid_dark_mode pre:has(:not(.hljs)) {
+  background-color: var(--dark-mode-code-block-background);
+  border: 1px solid var(--dark-mode-code-block-background);
+}
+
+/* light mode default theme */
+pre:has(:not(.hljs)) {
+  background-color: var(--light-mode-code-block-background);
+  border: 1px solid var(--light-mode-code-block-border);
+  border-radius: 6px;
+}
+
+.night-mode code:not(.hljs),
+.android .ankidroid_dark_mode code:not(.hljs) {
+  background: var(--dark-mode-code-block-background);
+  border: none;
+}
+
+code:not(.hljs):not(pre code) {
+  background-color: var(--light-mode-code-block-background);
+  border: 1px solid var(--light-mode-code-block-border);
+  border-radius: 6px;
+  padding: 3px 5px;
+}
+
+/* layout */
+pre code {
+  max-width: 100%;
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+
+/* ===========================
+   Layout (Positioning and Spacing)
+=========================== */
+#_flag {
+  display: none;
+}
+
+html,
+body,
+#qa {
+  height: 100%; /* Make the html and body take up full height */
+  max-height: 100vh;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+}
+
+#qa {
+  display: flex;
+  flex-flow: row; /* column for without section */
+  justify-content: center;
+  align-items: center;
+}
+
+#main {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: var(--status-bar-width);
+}
+
+header,
+#status-bar,
+#status-bar-buttons {
+  width: 100%; /* grow to 100%, then stop at max-width */
+  max-width: var(--status-bar-width);
+  max-height: 3rem;
+  flex-grow: 1;
+}
+
+#flashcard-title {
+  overflow-x: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-bottom: 1.1875rem;
+}
+
+#flashcard-container {
+  /* iphone ideal width?
+      min-width: 353px;
+  */
+  width: 478.47px;
+  max-width: var(--app-width);
+  max-height: 43.0625rem;
+  flex-grow: 1;
+  padding: 0; /* Remove padding */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* Use box-sizing: border-box */
+}
+
+#flashcard-content {
+  max-height: var(--flashcard-content-ideal-max-height);
+  overflow-y: auto;
+  display: flex;
+  box-sizing: border-box; /* use box-sizing in the content */
+  padding: 0; /* add back the padding, here */
+  margin: 0; /* remove the margin */
+}
+
+#flashcard-content,
+#flashcard-textbox {
+  flex-grow: 1;
+}
+
+#flashcard-textbox {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  max-width: 100%;
+  box-sizing: border-box; /* Also use in the textbox */
+}
+
+#flashcard-answer {
+  display: flex;
+  gap: 0.75em;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+/* flashcard pictures */
+#flashcard-textbox img {
+  max-width: 100%;
+  max-height: 15rem;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 1rem auto 0 auto;
+  border-radius: 12px;
+}
+
+#flashcard-textbox img:last-child {
+  margin-bottom: 0; /* if nothing comes after img, no spacing needed */
+}
+
+#flashcard-source-info {
+  margin-top: 2.875rem;
+}
+
+#flashcard-question:not(:only-child) {
+  margin-bottom: 1rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#question-marker,
+#question-text,
+#answer-text {
+  display: inline;
+}
+
+#question-text {
+  margin: 0;
+}
+
+#answer-text {
+  margin: 0;
+}
+
+#details {
+  display: inline-block;
+}
+
+#flashcard-content {
+  position: relative;
+}
+
+/* mobile layout / fixes */
+/* not supported for mobile */
+.android #status-bar-buttons,
+.android #misc-info,
+.iphone #status-bar-buttons,
+.iphone #misc-info,
+.ipad #status-bar-buttons,
+.ipad #misc-info {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  #flashcard-container {
+    width: 90vw;
+  }
+  #status-bar,
+  #status-bar-buttons {
+    width: var(--status-bar-mobile-width);
+  }
+}
+:root {
+  /* android material 3 theming */
+  --android-light-background: #f3f3f3;
+  --android-dark-background: #1a1c1e;
+  --android-flashcard-background-light: #f1f1f1;
+  --android-flashcard-background-dark: #242629;
+  --android-box-shadow-light: 0 8px 10px rgba(0, 0, 0, 0.1);
+  --android-box-shadow-dark: 0 8px 0 #1f2124;
+}
+
+/* android layout, based on Pixel 7 testing */
+.android #main {
+  height: 100vh;
+  justify-content: center;
+}
+
+.android #status-bar,
+.android #status-bar-buttons {
+  max-height: 1.5rem;
+}
+
+.android #flashcard-content {
+  height: 100vh !important;
+}
+
+.android #status-bar {
+  height: 15vh;
+}
+
+/* android renders background to a different color. either fix the background color, or set a new pair:
+
+Backdrop Background: #303030
+Flashcard Background: #353535
+
+*/
+.android body {
+  background: var(--android-light-background);
+}
+.android #flashcard-content {
+  max-height: var(--android-ideal-max-height);
+  background: var(--android-flashcard-background-light);
+  box-shadow: var(--android-box-shadow-light);
+}
+.android.night-mode body,
+.android .ankidroid_dark_mode {
+  background: var(
+    --android-dark-background
+  ) !important; /* override default Anki */
+}
+.android.night-mode #flashcard-content,
+.android .ankidroid_dark_mode #flashcard-content {
+  background: var(--android-flashcard-background-dark);
+  box-shadow: var(--android-box-shadow-dark);
+}
+
+.mac #flashcard-content,
+.win #flashcard-content,
+.linux:not(.android) #flashcard-content {
+  max-height: var(--mac-flashcard-content-ideal-max-height);
+  border-radius: 12px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: linear-gradient(to bottom, #f8f8f8, #eaeaea);
+}
+.mac.night-mode #flashcard-content,
+.win.night-mode #flashcard-content,
+.linux:not(.android).night-mode #flashcard-content {
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(to bottom, #242424, #1e1e1e);
+}
+
+:root {
+  /* iOS Light & Dark Mode Color Variables */
+  --ios-light-background: #f3f3f3; /* Soft light gray */
+  --ios-dark-background: #121212; /* Darker background for iOS dark mode, more refined */
+  --ios-flashcard-background-light: #ffffff; /* Pure white for flashcard content */
+  --ios-flashcard-background-dark: #1e1e1e; /* Darker flashcard background for night mode, more neutral */
+  --ios-box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for iOS light mode */
+  --ios-box-shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slightly more intense shadow for dark mode */
+  --ios-border-radius: 12px; /* Rounded corners for iOS */
+}
+
+/* fix ios text alignment */
+.iphone #flashcard-title,
+.iphone #flashcard-subject,
+.ipad #flashcard-title,
+.ipad #flashcard-subject {
+  align-self: start;
+}
+
+.iphone #flashcard-question,
+.iphone #flashcard-answer,
+.iphone #source-text,
+.ipad #flashcard-question,
+.ipad #flashcard-answer,
+.ipad #source-text {
+  text-align: left;
+}
+
+.iphone body,
+.ipad body {
+  color: var(--light-mode-main-text-color);
+  font-family: var(--ios-font-family);
+}
+.iphone.night-mode body,
+.ipad.night-mode body {
+  color: var(--dark-mode-main-text-color);
+}
+
+/* override link color on ios */
+.iphone a,
+.ipad a {
+  color: darkgray;
+}
+
+/* not supported for ios */
+.iphone #flashcard-deck-info,
+.ipad #flashcard-deck-info {
+  display: none;
+}
+
+.iphone body,
+.ipad body {
+  background: var(--ios-light-background);
+}
+.iphone #flashcard-content,
+.ipad #flashcard-content {
+  max-height: var(--iphone-ideal-max-height);
+  background: var(--ios-flashcard-background-light);
+  box-shadow: var(--ios-box-shadow-light);
+  border-radius: var(--ios-border-radius);
+}
+.iphone.night-mode #flashcard-content,
+.ipad.night-mode #flashcard-content {
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(to bottom, #242424, #1e1e1e);
+}
+
+/* ===========================
+   Setting your accent colors here
+=========================== */
+/* Default accent color: blue */
+/* Change the color to any of these 7: */
+/*
+    yellow
+    red
+    blue
+    green
+    orange
+    pink
+    turquoise
+    purple
+*/
+/* For example, selecting red:
+--accent-<color>-fg-color -> --accent-red-fg-color
+--accent-<color>-bg-color -> --accent-red-bg-color
+*/
+#flashcard-question:not(.seen) b,
+#flashcard-answer b,
+.cloze:not(:has(code)),
+.subject-label {
+  color: var(--accent-blue-fg-color);
+}
+
+.subject-label {
+  background-color: var(--accent-blue-bg-color);
+}
+
+/* manually add top margin, as status bar is now gone. */
+#flashcard-title {
+  margin: 1rem 0 1.1875rem 0;
+}
