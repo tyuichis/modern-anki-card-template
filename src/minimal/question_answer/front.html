@@ -1,0 +1,182 @@
+<!-- modern-anki-card-template
+Copyright (C) 2025 Tommy Yuichi Siek
+
+This file is part of modern-anki-card-template.
+Licensed under the AGPL-3.0 License.
+See the LICENSE file in the project root for details. -->
+
+<!-- 
+    Highlight.js v11.9.0 (git: b7ec4bfafc)
+    (c) 2006-2023 undefined and other contributors
+    License: BSD-3-Clause
+-->
+
+<link rel="stylesheet" href="_github-dark.min.css" />
+
+<!-- Front Side -->
+
+<section id="main">
+  <div id="flashcard-container">
+    <div id="flashcard-title">
+      <h1 id="title">
+        {{^Card Category}}Untitled{{/Card Category}}{{Card Category}}
+      </h1>
+    </div>
+    <div id="flashcard-labels">
+      <div id="deck-name-container">
+        <span class="deck-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path
+              d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"
+            />
+          </svg>
+        </span>
+        <span id="deck-name">{{Subdeck}}</span>
+      </div>
+      <div id="flashcard-subject">
+        <span id="subject" class="subject-label"
+          >{{^Subject}}No topic selected{{/Subject}}{{Subject}}</span
+        >
+      </div>
+    </div>
+    <div id="flashcard-content">
+      <div id="flashcard-textbox">
+        <div id="flashcard-question">
+          <span id="question-marker"></span>
+          <p id="question-text">{{Question}}</p>
+        </div>
+      </div>
+    </div>
+    <div id="flashcard-info">
+      <div id="flashcard-source-info" class="flashcard-metadata">
+        <span id="source-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+            <path
+              d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"
+            />
+          </svg>
+        </span>
+        <span id="source-text">{{^Source}}{{/Source}}{{Source}}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  var syntaxHighlighting = false; // Default is off; set to syntaxHighlighting = true; to turn on. Be sure to import _highlight_min.js and the language pack.
+  var hljs; // cache hljs
+  var loadedLanguages = {}; // cache loaded languages
+
+  async function loadHighlightJS() {
+    if (!syntaxHighlighting) {
+      return false; // syntaxHighlighting is off. Don't load.
+    }
+
+    if (hljs) {
+      console.log('Highlight.js is already loaded.');
+      return true; // hljs already loaded
+    }
+
+    try {
+      // load highlight.js core
+      const hljsModule = await import('/_highlight.min.js');
+      hljs = hljsModule.default || hljsModule; // cache hljs
+
+      console.log('Highlight.js loaded:', hljs);
+
+      // languages to load
+      const languages = [
+        'bash',
+        'java',
+        'perl',
+        'scss',
+        'c',
+        'javascript',
+        'php',
+        'shell',
+        'cpp',
+        'json',
+        'python',
+        'csharp',
+        'kotlin',
+        'plaintext',
+        'swift',
+        'css',
+        'less',
+        'typescript',
+        'diff',
+        'lua',
+        'vbnet',
+        'go',
+        'makefile',
+        'r',
+        'wasm',
+        'graphql',
+        'markdown',
+        'ruby',
+        'xml',
+        'ini',
+        'objectivec',
+        'rust',
+        'yaml',
+      ];
+
+      // load and register languages
+      const loadPromises = languages.map(async (lang) => {
+        if (loadedLanguages[lang]) {
+          console.log(`Language ${lang} is already loaded.`);
+          return; // skip if already loaded
+        }
+
+        try {
+          const module = await import(`/_${lang}.min.js`);
+          hljs.registerLanguage(lang, module.default || module); // register language
+          loadedLanguages[lang] = true; // cache loaded language
+          console.log(`Language ${lang} loaded.`);
+        } catch (error) {
+          console.warn(`Failed to load language: ${lang}`, error);
+        }
+      });
+
+      // wait for all languages to load
+      await Promise.allSettled(loadPromises);
+
+      console.log('All languages attempted to load:', languages);
+
+      return true; // all loaded successfully
+    } catch (error) {
+      console.error('Failed to load Highlight.js:', error);
+      return false; // error loading
+    }
+  }
+
+  async function applyHighlighting() {
+    if (!syntaxHighlighting) {
+      return; // syntaxHighlighting is off. Don't run.
+    }
+
+    const isLoaded = await loadHighlightJS(); // wait for hljs to load
+
+    if (!isLoaded) {
+      console.error('Highlight.js was not loaded successfully.');
+      return; // stop if hljs failed to load
+    }
+
+    // highlight code blocks
+    document.querySelectorAll('pre code').forEach((block) => {
+      console.log('Highlighting block:', block);
+      hljs.highlightElement(block); // highlight block
+    });
+
+    // highlight inline code
+    document.querySelectorAll('code:not(pre code)').forEach((block) => {
+      console.log('Highlighting inline block:', block);
+      hljs.highlightElement(block); // highlight inline block
+    });
+
+    console.log('Highlighting applied successfully.');
+  }
+
+  // apply highlighting
+  applyHighlighting();
+</script>

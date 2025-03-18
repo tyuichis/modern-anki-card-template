@@ -1,0 +1,244 @@
+<!-- modern-anki-card-template
+Copyright (C) 2025 Tommy Yuichi Siek
+
+This file is part of modern-anki-card-template.
+Licensed under the AGPL-3.0 License.
+See the LICENSE file in the project root for details. -->
+
+<!-- 
+    Highlight.js v11.9.0 (git: b7ec4bfafc)
+    (c) 2006-2023 undefined and other contributors
+    License: BSD-3-Clause
+-->
+
+<link rel="stylesheet" href="_github-dark.min.css" />
+
+<!-- Front Side -->
+
+<section id="main">
+  <div id="status-bar">
+    <ul id="status-bar-buttons">
+      <!-- Undo Button -->
+      <li>
+        <div id="undo-button" class="button">
+          <span id="undo-icon">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.51562 7.00022H1.25C0.834375 7.00022 0.5 6.66585 0.5 6.25022V2.25022C0.5 1.9471 0.68125 1.6721 0.9625 1.55647C1.24375 1.44085 1.56562 1.50335 1.78125 1.71897L3.08125 3.01897C5.81875 0.315849 10.2281 0.325224 12.95 3.05022C15.6844 5.7846 15.6844 10.2158 12.95 12.9502C10.2156 15.6846 5.78437 15.6846 3.05 12.9502C2.65937 12.5596 2.65937 11.9252 3.05 11.5346C3.44062 11.144 4.075 11.144 4.46562 11.5346C6.41875 13.4877 9.58438 13.4877 11.5375 11.5346C13.4906 9.58147 13.4906 6.41585 11.5375 4.46272C9.59375 2.51897 6.45312 2.5096 4.49687 4.43147L5.78125 5.71897C5.99688 5.9346 6.05937 6.25647 5.94375 6.53772C5.82812 6.81897 5.55312 7.00022 5.25 7.00022H1.51562Z"
+                fill="#49A2D5"
+              />
+            </svg>
+          </span>
+          <span id="undo">Undo</span>
+        </div>
+      </li>
+
+      <!-- Flag Button -->
+      <li>
+        <div id="flag-button" class="button">
+          <span id="flag-icon">
+            <svg
+              width="14"
+              height="16"
+              viewBox="0 0 14 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 1C2 0.446875 1.55313 0 1 0C0.446875 0 0 0.446875 0 1V2V11.5V15C0 15.5531 0.446875 16 1 16C1.55313 16 2 15.5531 2 15V11L4.00937 10.4969C5.29375 10.175 6.65313 10.325 7.8375 10.9156C9.21875 11.6062 10.8219 11.6906 12.2656 11.1469L13.35 10.7406C13.7406 10.5938 14 10.2219 14 9.80313V2.0625C14 1.34375 13.2438 0.875 12.6 1.19687L12.3 1.34687C10.8531 2.07187 9.15 2.07187 7.70312 1.34687C6.60625 0.796875 5.34687 0.659375 4.15625 0.95625L2 1.5V1Z"
+                fill="white"
+              />
+            </svg>
+          </span>
+          <span id="flag">Flag</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div id="flashcard-container">
+    <div id="flashcard-title">
+      <h1 id="title">
+        {{^Card Category}}Untitled{{/Card Category}}{{Card Category}}
+      </h1>
+    </div>
+    <div id="flashcard-labels">
+      <div id="deck-name-container">
+        <span class="deck-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path
+              d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"
+            />
+          </svg>
+        </span>
+        <span id="deck-name">{{Subdeck}}</span>
+      </div>
+
+      <div id="flashcard-subject">
+        <span id="subject" class="subject-label"
+          >{{^Subject}}No topic selected{{/Subject}}{{Subject}}</span
+        >
+      </div>
+    </div>
+
+    <div id="flashcard-content">
+      <div id="flashcard-textbox">
+        <div id="flashcard-question">
+          <!-- <span id="question-marker"></span> -->
+          <p id="question-text">{{cloze:Cloze Text}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="flashcard-info">
+      <div id="flashcard-source-info" class="flashcard-metadata">
+        <span id="source-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+            <path
+              d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"
+            />
+          </svg>
+        </span>
+        <span id="source-text">{{^Source}}{{/Source}}{{Source}}</span>
+      </div>
+
+      <div id="deck-remaining-cards-container" class="flashcard-metadata">
+        <span class="deck-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path
+              d="M64 80c-8.8 0-16 7.2-16 16l0 320c0 8.8 7.2 16 16 16l224 0 0-80c0-17.7 14.3-32 32-32l80 0 0-224c0-8.8-7.2-16-16-16L64 80zM288 480L64 480c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32l320 0c35.3 0 64 28.7 64 64l0 224 0 5.5c0 17-6.7 33.3-18.7 45.3l-90.5 90.5c-12 12-28.3 18.7-45.3 18.7l-5.5 0z"
+            />
+          </svg>
+        </span>
+        <span id="deck-count"
+          >Cards remaining: <span id="remainingCards">0</span></span
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  var syntaxHighlighting = false; // Default is off; set to syntaxHighlighting = true; to turn on. Be sure to import _highlight_min.js and the language pack.
+  var hljs; // cache hljs
+  var loadedLanguages = {}; // cache loaded languages
+
+  async function loadHighlightJS() {
+    if (!syntaxHighlighting) {
+      return false; // syntaxHighlighting is off. Don't load.
+    }
+
+    if (hljs) {
+      console.log('Highlight.js is already loaded.');
+      return true; // hljs already loaded
+    }
+
+    try {
+      // load highlight.js core
+      const hljsModule = await import('/_highlight.min.js');
+      hljs = hljsModule.default || hljsModule; // cache hljs
+
+      console.log('Highlight.js loaded:', hljs);
+
+      // languages to load
+      const languages = [
+        'bash',
+        'java',
+        'perl',
+        'scss',
+        'c',
+        'javascript',
+        'php',
+        'shell',
+        'cpp',
+        'json',
+        'python',
+        'csharp',
+        'kotlin',
+        'plaintext',
+        'swift',
+        'css',
+        'less',
+        'typescript',
+        'diff',
+        'lua',
+        'vbnet',
+        'go',
+        'makefile',
+        'r',
+        'wasm',
+        'graphql',
+        'markdown',
+        'ruby',
+        'xml',
+        'ini',
+        'objectivec',
+        'rust',
+        'yaml',
+      ];
+
+      // load and register languages
+      const loadPromises = languages.map(async (lang) => {
+        if (loadedLanguages[lang]) {
+          console.log(`Language ${lang} is already loaded.`);
+          return; // skip if already loaded
+        }
+
+        try {
+          const module = await import(`/_${lang}.min.js`);
+          hljs.registerLanguage(lang, module.default || module); // register language
+          loadedLanguages[lang] = true; // cache loaded language
+          console.log(`Language ${lang} loaded.`);
+        } catch (error) {
+          console.warn(`Failed to load language: ${lang}`, error);
+        }
+      });
+
+      // wait for all languages to load
+      await Promise.allSettled(loadPromises);
+
+      console.log('All languages attempted to load:', languages);
+
+      return true; // all loaded successfully
+    } catch (error) {
+      console.error('Failed to load Highlight.js:', error);
+      return false; // error loading
+    }
+  }
+
+  async function applyHighlighting() {
+    if (!syntaxHighlighting) {
+      return; // syntaxHighlighting is off. Don't run.
+    }
+
+    const isLoaded = await loadHighlightJS(); // wait for hljs to load
+
+    if (!isLoaded) {
+      console.error('Highlight.js was not loaded successfully.');
+      return; // stop if hljs failed to load
+    }
+
+    // highlight code blocks
+    document.querySelectorAll('pre code').forEach((block) => {
+      console.log('Highlighting block:', block);
+      hljs.highlightElement(block); // highlight block
+    });
+
+    // highlight inline code
+    document.querySelectorAll('code:not(pre code)').forEach((block) => {
+      console.log('Highlighting inline block:', block);
+      hljs.highlightElement(block); // highlight inline block
+    });
+
+    console.log('Highlighting applied successfully.');
+  }
+
+  // apply highlighting
+  applyHighlighting();
+</script>
