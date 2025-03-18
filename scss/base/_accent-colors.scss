@@ -1,0 +1,237 @@
+@use 'sass:map';
+
+/* ===========================
+   Accent Colors
+=========================== */
+
+$accentColors: (
+  yellow: (
+    light: (
+      fg: #b28b20,
+      bg: rgba(255, 221, 112, 0.2),
+    ),
+    dark: (
+      fg: #ffc533,
+      bg: rgba(255, 197, 51, 0.15),
+    ),
+  ),
+  red: (
+    light: (
+      fg: #b24c4c,
+      bg: rgba(255, 153, 153, 0.2),
+    ),
+    dark: (
+      fg: #ff6161,
+      bg: rgba(255, 97, 97, 0.15),
+    ),
+  ),
+  blue: (
+    light: (
+      fg: #2d72d9,
+      bg: rgba(173, 216, 230, 0.2),
+    ),
+    dark: (
+      fg: #57c1ff,
+      bg: rgba(87, 193, 255, 0.15),
+    ),
+  ),
+  green: (
+    light: (
+      fg: #3a805a,
+      bg: rgba(144, 238, 144, 0.2),
+    ),
+    dark: (
+      fg: #59d499,
+      bg: rgba(89, 212, 153, 0.15),
+    ),
+  ),
+  orange: (
+    light: (
+      fg: #b25f1e,
+      bg: rgba(255, 200, 130, 0.2),
+    ),
+    dark: (
+      fg: #ff9f0b,
+      bg: rgba(255, 159, 11, 0.15),
+    ),
+  ),
+  pink: (
+    light: (
+      fg: #b24863,
+      bg: rgba(255, 182, 193, 0.2),
+    ),
+    dark: (
+      fg: #ff86b5,
+      bg: rgba(255, 134, 181, 0.15),
+    ),
+  ),
+  turquoise: (
+    light: (
+      fg: #2a716b,
+      bg: rgba(176, 224, 230, 0.2),
+    ),
+    dark: (
+      fg: #40e0d0,
+      bg: rgba(64, 224, 208, 0.15),
+    ),
+  ),
+  purple: (
+    light: (
+      fg: #6b42c7,
+      bg: rgba(216, 191, 216, 0.2),
+    ),
+    dark: (
+      fg: #b19cd9,
+      bg: rgba(177, 156, 217, 0.15),
+    ),
+  ),
+  default: (
+    light: (
+      fg: #444444,
+      bg: rgba(220, 220, 220, 0.4),
+    ),
+    dark: (
+      fg: #cccccc,
+      bg: rgba(60, 60, 60, 0.5),
+    ),
+  ),
+);
+
+:root {
+  @each $color, $modes in $accentColors {
+    $lightValues: map.get($modes, light);
+
+    $lightFontColor: map.get($lightValues, fg);
+    $lightBackgroundColor: map.get($lightValues, bg);
+
+    --accent-#{"#{$color}"}-fg-color: #{$lightFontColor};
+    --accent-#{"#{$color}"}-bg-color: #{$lightBackgroundColor};
+  }
+}
+
+.nightMode {
+  @each $color, $modes in $accentColors {
+    $darkValues: map.get($modes, dark);
+
+    $darkFontColor: map.get($darkValues, fg);
+    $darkBackgroundColor: map.get($darkValues, bg);
+
+    --accent-#{"#{$color}"}-fg-color: #{$darkFontColor};
+    --accent-#{"#{$color}"}-bg-color: #{$darkBackgroundColor};
+  }
+}
+
+// :root {
+//   --accent-yellow-fg-color: #b28b20;
+//   --accent-yellow-bg-color: rgba(255,221,112,0.2);
+//   --accent-red-fg-color: #b24c4c;
+//   --accent-red-bg-color: rgba(255,153,153,0.2);
+//   --accent-blue-fg-color: #2d72d9;
+//   --accent-blue-bg-color: rgba(173,216,230,0.2);
+//   --accent-green-fg-color: #3a805a;
+//   --accent-green-bg-color: rgba(144,238,144,0.2);
+//   --accent-orange-fg-color: #b25f1e;
+//   --accent-orange-bg-color: rgba(255,200,130,0.2);
+//   --accent-pink-fg-color: #b24863;
+//   --accent-pink-bg-color: rgba(255,182,193,0.2);
+//   --accent-turquoise-fg-color: #2a716b;
+//   --accent-turquoise-bg-color: rgba(176,224,230,0.2);
+//   --accent-purple-fg-color: #6b42c7;
+//   --accent-purple-bg-color: rgba(216,191,216,0.2);
+//   --accent-default-fg-color: #444444;
+//   --accent-default-bg-color: rgba(220,220,220,0.4);
+// }
+
+// .nightMode {
+//   --accent-yellow-fg-color: #ffc533;
+//   --accent-yellow-bg-color: rgba(255,197,51,0.15);
+//   --accent-red-fg-color: #ff6161;
+//   --accent-red-bg-color: rgba(255,97,97,0.15);
+//   --accent-blue-fg-color: #57c1ff;
+//   --accent-blue-bg-color: rgba(87,193,255,0.15);
+//   --accent-green-fg-color: #59d499;
+//   --accent-green-bg-color: rgba(89,212,153,0.15);
+//   --accent-orange-fg-color: #ff9f0b;
+//   --accent-orange-bg-color: rgba(255,159,11,0.15);
+//   --accent-pink-fg-color: #ff86b5;
+//   --accent-pink-bg-color: rgba(255,134,181,0.15);
+//   --accent-turquoise-fg-color: #40e0d0;
+//   --accent-turquoise-bg-color: rgba(64,224,208,0.15);
+//   --accent-purple-fg-color: #b19cd9;
+//   --accent-purple-bg-color: rgba(177,156,217,0.15);
+//   --accent-default-fg-color: #cccccc;
+//   --accent-default-bg-color: rgba(60,60,60,0.5);
+// }
+
+// to use when QT 6.8 releases
+
+// :root {
+//   @each $color, $modes in $accentColors {
+//     $lightValues: map.get($modes, light);
+
+//     $lightFontColor: map.get($lightValues, fg);
+//     $lightBackgroundColor: map.get($lightValues, bg);
+
+//     --accent-#{"#{$color}"}-fg-color: #{$lightFontColor};
+//     --accent-#{"#{$color}"}-bg-color: #{$lightBackgroundColor};
+//   }
+// }
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     @each $color, $modes in $accentColors {
+//       $darkValues: map.get($modes, dark);
+
+//       $darkFontColor: map.get($darkValues, fg);
+//       $darkBackgroundColor: map.get($darkValues, bg);
+
+//       --accent-#{"#{$color}"}-fg-color: #{$darkFontColor};
+//       --accent-#{"#{$color}"}-bg-color: #{$darkBackgroundColor};
+//     }
+//   }
+// }
+
+// will output this struct:
+// :root {
+//   --accent-yellow-fg-color: #b28b20;
+//   --accent-yellow-bg-color: rgba(255,221,112,0.2);
+//   --accent-red-fg-color: #b24c4c;
+//   --accent-red-bg-color: rgba(255,153,153,0.2);
+//   --accent-blue-fg-color: #2d72d9;
+//   --accent-blue-bg-color: rgba(173,216,230,0.2);
+//   --accent-green-fg-color: #3a805a;
+//   --accent-green-bg-color: rgba(144,238,144,0.2);
+//   --accent-orange-fg-color: #b25f1e;
+//   --accent-orange-bg-color: rgba(255,200,130,0.2);
+//   --accent-pink-fg-color: #b24863;
+//   --accent-pink-bg-color: rgba(255,182,193,0.2);
+//   --accent-turquoise-fg-color: #2a716b;
+//   --accent-turquoise-bg-color: rgba(176,224,230,0.2);
+//   --accent-purple-fg-color: #6b42c7;
+//   --accent-purple-bg-color: rgba(216,191,216,0.2);
+//   --accent-default-fg-color: #444444;
+//   --accent-default-bg-color: rgba(220, 220, 220, 0.4);
+// }
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --accent-yellow-fg-color: #ffc533;
+//     --accent-yellow-bg-color: rgba(255,197,51,0.15);
+//     --accent-red-fg-color: #ff6161;
+//     --accent-red-bg-color: rgba(255,97,97,0.15);
+//     --accent-blue-fg-color: #57c1ff;
+//     --accent-blue-bg-color: rgba(87,193,255,0.15);
+//     --accent-green-fg-color: #59d499;
+//     --accent-green-bg-color: rgba(89,212,153,0.15);
+//     --accent-orange-fg-color: #ff9f0b;
+//     --accent-orange-bg-color: rgba(255,159,11,0.15);
+//     --accent-pink-fg-color: #ff86b5;
+//     --accent-pink-bg-color: rgba(255,134,181,0.15);
+//     --accent-turquoise-fg-color: #40e0d0;
+//     --accent-turquoise-bg-color: rgba(64,224,208,0.15);
+//     --accent-purple-fg-color: #b19cd9;
+//     --accent-purple-bg-color: rgba(177,156,217,0.15);
+//     --accent-default-fg-color: #cccccc;
+//     --accent-default-bg-color: rgba(60, 60, 60, 0.5);
+//   }
+// }
