@@ -1,3 +1,9 @@
+// prefers-color-scheme is fixed on Desktop starting Qt 6.8 release, whenever
+// that is
+// /* use github theming for highlight.js */
+// @import url('_github.min.css') screen and (prefers-color-scheme: light);
+// @import url('_github-dark.min.css') screen and (prefers-color-scheme: dark);
+
 /* ===========================
    Code Component
 =========================== */
@@ -81,6 +87,12 @@ code:not(.hljs):not(pre code) {
   border-radius: 6px;
   padding: 3px 5px;
 }
+
+// disabled until prefers-color-scheme is fixed on Anki Desktop.
+// /* (github) light theme is missing a border. */
+// body:not(.nightMode) code.hljs {
+//   border: 1px solid var(--light-mode-code-block-border);
+// }
 
 /* layout */
 pre code {
