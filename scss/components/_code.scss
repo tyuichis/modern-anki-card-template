@@ -8,13 +8,32 @@
    Code Component
 =========================== */
 
-/* code typography */
+/* layout */
+pre code {
+  max-width: 100%;
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  white-space: pre; // this overrides code (which is just inline code).
+}
 
+pre {
+  flex-basis: 100%; // always make code blocks take up a whole line / row
+  max-width: 100%;
+}
+
+code {
+  white-space: nowrap; // don't wrap inline code for visibility; if too long, use pre, code blocks
+}
+
+/* code typography */
 code {
   font-family: var(--monospace-font-family);
 }
 
-.mac {
+.mac,
+.win,
+.linux:not(.android) {
   code,
   code.hljs {
     font-size: var(--mac-code-font-size-medium);
@@ -26,7 +45,9 @@ code {
   }
 }
 
-.ios {
+// revisit ipad styles later
+.iphone,
+.ipad {
   code,
   code.hljs {
     font-size: var(--ios-code-font-size-medium);
@@ -57,8 +78,7 @@ code.hljs {
 /* default theme */
 
 /* does not override hljs themes */
-.night-mode,
-.android .ankidroid_dark_mode {
+.nightMode {
   pre:has(:not(.hljs)) {
     background-color: var(--dark-mode-code-block-background);
     border: 1px solid var(--dark-mode-code-block-background);
@@ -72,8 +92,7 @@ pre:has(:not(.hljs)) {
   border-radius: 6px;
 }
 
-.night-mode,
-.android .ankidroid_dark_mode {
+.nightMode {
   code:not(.hljs) {
     background: var(--dark-mode-code-block-background);
     border: none;
@@ -93,11 +112,3 @@ code:not(.hljs):not(pre code) {
 // body:not(.nightMode) code.hljs {
 //   border: 1px solid var(--light-mode-code-block-border);
 // }
-
-/* layout */
-pre code {
-  max-width: 100%;
-  display: block;
-  overflow-x: auto;
-  padding: 1em;
-}
