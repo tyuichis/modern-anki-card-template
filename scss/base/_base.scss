@@ -18,17 +18,16 @@ html,
 }
 
 /* Apply background color to body before content */
-.night-mode,
-.ankidroid_dark_mode {
-  body::before,
-  body {
-    background: var(--dark-mode-main-bg-color) !important;
-    color: var(---dark-mode-main-text-color); /* base text color */
+.nightMode {
+  &.card::before,
+  &.card {
+    background: var(--dark-mode-main-bg-color);
+    color: var(--dark-mode-main-text-color); /* base text color */
   }
 }
 
-body::before,
-body {
-  background: var(--light-mode-main-bg-color) !important;
+.card::before,
+.card {
+  background: var(--light-mode-main-bg-color);
   color: var(--light-mode-main-text-color);
 }
