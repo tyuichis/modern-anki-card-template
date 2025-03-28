@@ -730,11 +730,15 @@ See the LICENSE file in the project root for details. -->
       hljs.highlightElement(block); // highlight block
     });
 
-    // highlight inline code
-    document.querySelectorAll('code:not(pre code)').forEach((block) => {
-      // console.log('Highlighting inline block:', block);
-      hljs.highlightElement(block); // highlight inline block
-    });
+    // NOTE:
+    // Inline code highlighting is disabled for better readability.
+    // highlight.js cannot detect the correct language for inline code
+    // without backend support, which adds unnecessary overhead.
+    // This approach aligns with best practices seen in Ghostty docs, MDN, etc.
+
+    // document.querySelectorAll('code:not(pre code)').forEach((block) => {
+    //   hljs.highlightElement(block); // Previously highlighted inline code
+    // });
 
     // console.log('Highlighting applied successfully.');
   }
