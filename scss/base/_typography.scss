@@ -10,14 +10,14 @@
 =========================== */
 
 /* Define fonts globally, if needed later */
-body {
-  font-family: var(--alt-font-family), system-font, sans-serif;
+.card {
+  font-family: var(--system-font-family);
   line-height: var(--ios-line-height-body); /* Default */
 }
 
 #title,
 #subject {
-  font-family: var(--alt-font-family);
+  font-family: var(--title-font-family);
 }
 
 #subject {
@@ -46,7 +46,8 @@ body {
 
 #flashcard-question:not(.seen) b,
 #flashcard-answer b,
-.cloze:not(:has(code)) {
+.cloze:not(:has(code)),
+#details b {
   color: var(--label-font-color);
 }
 
@@ -55,81 +56,60 @@ b,
   font-weight: 600; /* semi bold */
 }
 
-.night-mode,
-.android .ankidroid_dark_mode {
-  .seen,
-  #details {
-    color: darkgray;
+.nightMode {
+  .seen {
+    color: var(--dark-mode-main-text-color);
   }
 }
-.night-mode,
-.android .ankidroid_dark_mode {
+
+.card {
   a {
-    color: var(--dark-mode-link-accent-color);
-    text-decoration: underline;
+    color: var(--light-mode-footnote-text-color);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+    line-break: anywhere;
   }
-}
 
-a {
-  color: var(--light-mode-link-accent-color);
-}
+  a:hover {
+    color: var(--light-mode-link-accent-color);
+    color: #1a73e8;
+  }
 
-.pass,
-.fail {
-  font-weight: bold;
-}
+  &.nightMode {
+    a {
+      color: var(--dark-mode-link-accent-color);
+      text-decoration: underline;
+    }
 
-.pass {
-  color: #009f82;
-}
-
-.fail {
-  color: #ff6061;
-}
-
-#controls-title {
-  color: var(--dark-mode-status-bar-color);
-  font-weight: 400;
-}
-
-#controls-options .key-input {
-  background: #646669;
-  padding: 0.1rem 0.3rem;
-}
-
-#controls-options {
-  font-family: var(--monospace-font-family);
-  color: var(--dark-mode-status-bar-color);
-  font-size: var(--ios-font-size-footnote); /* Default */
+    a:hover {
+      color: #8ab4f8;
+    }
+  }
 }
 
 #flashcard-extra-info p {
   margin: 0;
 }
 
-.night-mode,
-.android .ankidroid_dark_mode {
-  #details-marker,
-  #details-text {
-    color: var(--dark-mode-details-text-color);
-  }
+.nightMode #details {
+  color: var(--dark-mode-details-text-color);
 }
 
-#details-marker,
-#details-text {
+#details {
   color: var(--light-mode-details-text-color);
 }
 
 #details-text {
   display: inline;
+  text-align: left;
 }
 
 code {
   font-family: var(--monospace-font-family);
 }
 
-#status-bar,
-#controls-header {
+#status-bar {
   font-size: var(--mac-font-size-callout);
   line-height: var(--mac-line-height-callout);
 }
@@ -181,39 +161,49 @@ code {
 /* Android specific typography styles */
 
 .android body {
-  font-family: var(--android-font-family);
-  font-size: var(--android-font-size-body);
-  line-height: var(--android-line-height-body);
+  /* Use the complete set of properties from the MD3 scale */
+  font: var(--md-typescale-body-medium-font);
+  font-size: var(--md-typescale-body-medium-size);
+  line-height: var(--md-typescale-body-medium-line-height);
+  font-weight: var(--md-typescale-body-medium-weight);
+  letter-spacing: var(--md-typescale-body-medium-tracking);
+  /* No need to set font-family again if it's already in --md-typescale-body-large-font */
 }
 
 .android #subject,
 .android #deck-name-container {
-  font-size: var(--android-font-size-footnote);
-  line-height: var(--android-line-height-footnote);
+  font: var(--md-typescale-label-medium-font);
+  font-size: var(--md-typescale-label-medium-size);
+  line-height: var(--md-typescale-label-medium-line-height);
+  font-weight: var(--md-typescale-label-medium-weight);
+  letter-spacing: var(--md-typescale-label-medium-tracking);
 }
 
 .android #title {
   margin-top: 0px;
-  margin-bottom: 0rem;
-  font-size: var(--android-font-size-title2);
-  line-height: var(--android-line-height-title2);
-}
-
-.android #flashcard-content {
-  font-size: var(--android-font-size-body);
-  line-height: var(--android-line-height-body);
+  margin-bottom: 0rem; /*  Consider using consistent spacing (e.g., multiples of 8px) */
+  /* Use Headline Small - good for card titles */
+  font: var(--md-typescale-headline-small-font);
+  font-size: var(--md-typescale-headline-small-size);
+  line-height: var(--md-typescale-headline-small-line-height);
+  font-weight: var(--md-typescale-headline-small-weight);
+  letter-spacing: var(--md-typescale-headline-small-tracking);
 }
 
 .android .flashcard-metadata {
-  font-size: var(--android-font-size-footnote);
-  line-height: var(--android-line-height-footnote);
+  /* Use Label Small - appropriate for metadata */
+  font: var(--md-typescale-label-small-font);
+  font-size: var(--md-typescale-label-small-size);
+  line-height: var(--md-typescale-label-small-line-height);
+  font-weight: var(--md-typescale-label-small-weight);
+  letter-spacing: var(--md-typescale-label-small-tracking);
 }
 
 /* iphone, ipad typography */
 
 .iphone body,
 .ipad body {
-  font-family: var(--ios-font-family);
+  font-family: var(--system-font-family);
   font-size: var(--ios-font-size-body);
   line-height: var(--ios-line-height-body);
 }
@@ -228,10 +218,11 @@ code {
 
 .iphone #title,
 .ipad #title {
+  font-family: var(--system-font-family); // Sf pro rounded doesn't work well.
   margin-top: 0px;
   margin-bottom: 0rem;
-  font-size: var(--ios-font-size-title3);
-  line-height: var(--ios-line-height-title3);
+  font-size: var(--ios-font-size-title2);
+  line-height: var(--ios-line-height-title2);
 }
 
 .iphone #flashcard-content,
