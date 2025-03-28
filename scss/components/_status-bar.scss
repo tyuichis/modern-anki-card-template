@@ -9,7 +9,7 @@
    Status Bar Component
 =========================== */
 
-.night-mode {
+.nightMode {
   #status-bar {
     color: var(--dark-mode-status-bar-color);
   }
@@ -28,11 +28,6 @@
 
 /* status buttons */
 
-#flag,
-#undo {
-  padding-left: 0.5625em;
-}
-
 /* align the icon and text */
 #undo-button,
 #flag-button {
@@ -40,8 +35,9 @@
   display: flex;
   height: fit-content;
   flex-flow: nowrap;
-  padding: 0.25em 0.4em 0.25em 0.4em;
+  // padding: 0.25em 0.4em 0.25em 0.4em;
   box-sizing: border-box;
+  gap: 0.5625em;
 }
 
 #flag-button {
@@ -59,7 +55,7 @@
   justify-content: center;
 }
 
-.night-mode {
+.nightMode {
   #undo-button path {
     fill: var(--dark-mode-status-bar-color);
   }
@@ -81,7 +77,7 @@
 }
 
 /* Default (Unflagged) State */
-.night-mode {
+.nightMode {
   #flag-button:not(.flagged) #flag-icon path {
     fill: var(--dark-mode-status-bar-color);
   }
@@ -126,7 +122,7 @@
   --light-mode-flag-default: #444444;
 }
 
-.night-mode {
+.nightMode {
   #flag-button.flag-yellow #flag-icon path,
   #flag-button.flag-yellow:hover #flag-icon path {
     fill: var(--dark-mode-flag-yellow);
