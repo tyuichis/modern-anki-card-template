@@ -27,16 +27,11 @@
 
   --light-mode-details-text-color: #666;
   --dark-mode-details-text-color: darkgrey;
-
-  --light-mode-icon-color: #333333;
   --light-mode-status-bar-color: rgba(0, 0, 0, 0.8);
 
   --dark-mode-code-block-background: #0d1116;
   --light-mode-code-block-background: #f9f9f9;
   --light-mode-code-block-border: #d1d1d1;
-
-  /* bookmark / source icon color accent; none on dark mode */
-  --source-icon-accent-color: #b55a5a;
 
   --light-mode-link-accent-color: #d91e50;
   --dark-mode-link-accent-color: darkgrey;
@@ -49,10 +44,7 @@
   ); /* original: #49A2D5 */
   --status-bar-accent-color: #49a2d5;
 
-  --main-font-family:
-    'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', sans-serif;
-  --alt-font-family:
+  --title-font-family:
     'SF Pro Rounded', 'Noto Sans Rounded', 'Roboto Rounded',
     'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari,
     'Arial Rounded MT Bold', 'Arial Rounded MT', Calibri, 'Source Sans Pro',
@@ -69,6 +61,10 @@
   --system-font-family:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', system-iui, Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  --jp-font-family:
+    'SF Pro JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP',
+    'Yu Gothic', 'Meiryo', sans-serif;
 
   --android-font-family: 'Noto Sans JP', 'Noto', 'Roboto', sans-serif;
 
@@ -95,35 +91,73 @@
   --pill-button-padding: 0.25em 1em;
 
   /* iOS Typography Scale */
-  --ios-font-size-title1: 2.125rem; /* 34px / 16 */
-  --ios-line-height-title1: 2.5625rem; /* 41px / 16 */
+  // --ios-font-size-title1: 2.125rem; /* 34px / 16 */
+  // --ios-line-height-title1: 2.5625rem; /* 41px / 16 */
 
-  --ios-font-size-title2: 1.75rem; /* 28px / 16 */
-  --ios-line-height-title2: 2.125rem; /* 34px / 16 */
+  // --ios-font-size-title2: 1.75rem; /* 28px / 16 */
+  // --ios-line-height-title2: 2.125rem; /* 34px / 16 */
 
-  --ios-font-size-title3: 1.375rem; /* 22px / 16 */
-  --ios-line-height-title3: 1.75rem; /* 28px / 16 */
+  // --ios-font-size-title3: 1.375rem; /* 22px / 16 */
+  // --ios-line-height-title3: 1.75rem; /* 28px / 16 */
 
-  --ios-font-size-headline: 1.0625rem; /* 17px / 16 */
-  --ios-line-height-headline: 1.375rem; /* 22px / 16 */
+  // --ios-font-size-headline: 1.0625rem; /* 17px / 16 */
+  // --ios-line-height-headline: 1.375rem; /* 22px / 16 */
 
-  --ios-font-size-body: 1.0625rem; /* 17px / 16 */
-  --ios-line-height-body: 1.375rem; /* 22px / 16 */
+  // --ios-font-size-body: 1.0625rem; /* 17px / 16 */
+  // --ios-line-height-body: 1.375rem; /* 22px / 16 */
 
-  --ios-font-size-callout: 1rem; /* 16px / 16 */
-  --ios-line-height-callout: 1.3125rem; /* 21px / 16 */
+  // --ios-font-size-callout: 1rem; /* 16px / 16 */
+  // --ios-line-height-callout: 1.3125rem; /* 21px / 16 */
 
-  --ios-font-size-subheadline: 0.9375rem; /* 15px / 16 */
-  --ios-line-height-subheadline: 1.25rem; /* 20px / 16 */
+  // --ios-font-size-subheadline: 0.9375rem; /* 15px / 16 */
+  // --ios-line-height-subheadline: 1.25rem; /* 20px / 16 */
 
-  --ios-font-size-footnote: 0.8125rem; /* 13px / 16 */
-  --ios-line-height-footnote: 1.125rem; /* 18px / 16 */
+  // --ios-font-size-footnote: 0.8125rem; /* 13px / 16 */
+  // --ios-line-height-footnote: 1.125rem; /* 18px / 16 */
 
-  --ios-font-size-caption1: 0.75rem; /* 12px / 16 */
-  --ios-line-height-caption1: 1rem; /* 16px / 16 */
+  // --ios-font-size-caption1: 0.75rem; /* 12px / 16 */
+  // --ios-line-height-caption1: 1rem; /* 16px / 16 */
 
-  --ios-font-size-caption2: 0.6875rem; /* 11px / 16 */
-  --ios-line-height-caption2: 0.8125rem; /* 13px / 16 */
+  // --ios-font-size-caption2: 0.6875rem; /* 11px / 16 */
+  // --ios-line-height-caption2: 0.8125rem; /* 13px / 16 */
+
+  /* Refined iOS Typography Scale */
+  /* Title Sizes */
+  --ios-font-size-title1: 1.75rem; /* Large title */
+  --ios-line-height-title1: 2.125rem;
+
+  --ios-font-size-title2: 1.375rem; /* Medium title */
+  --ios-line-height-title2: 1.75rem;
+
+  --ios-font-size-title3: 1.25rem; /* Small title */
+  --ios-line-height-title3: 1.5rem;
+
+  /* Headline */
+  --ios-font-size-headline: 1rem; /* Primary text emphasis */
+  --ios-line-height-headline: 1.375rem;
+
+  /* Body Sizes */
+  --ios-font-size-body: 0.9375rem; /* Standard body text */
+  --ios-line-height-body: 1.25rem;
+
+  /* Callout */
+  --ios-font-size-callout: 0.875rem; /* Secondary information */
+  --ios-line-height-callout: 1.125rem;
+
+  /* Subheadline */
+  --ios-font-size-subheadline: 0.8125rem; /* Tertiary information */
+  --ios-line-height-subheadline: 1.125rem;
+
+  /* Footnote */
+  --ios-font-size-footnote: 0.75rem; /* Smallest standard text */
+  --ios-line-height-footnote: 1rem;
+
+  /* Caption Sizes */
+  --ios-font-size-caption1: 0.6875rem; /* Smallest caption */
+  --ios-line-height-caption1: 0.875rem;
+
+  --ios-font-size-caption2: 0.625rem; /* Extremely small caption */
+  --ios-line-height-caption2: 0.75rem;
 
   /* macOS Typography Scale */
 
@@ -158,39 +192,107 @@
   --mac-line-height-caption2: 0.875rem; /* 14px / 16 */
 
   /* Adjusted Android Typography Scale (Pixel 7) */
-  --android-font-size-title1: 2rem; /* ~32px / 16 */
-  --android-line-height-title1: 2.375rem; /* ~38px / 16 */
 
-  --android-font-size-title2: 1.625rem; /* ~26px / 16 */
-  --android-line-height-title2: 2rem; /* ~32px / 16 */
+  /* --- Material Design 3 Typography --- */
+  /* Font: Roboto */
+  --md-ref-typeface-plain: 'Roboto', sans-serif;
+  --md-ref-typeface-brand:
+    'Roboto', sans-serif; /* Can be different for branding */
 
-  --android-font-size-title3: 1.3125rem; /* ~21px / 16 */
-  --android-line-height-title3: 1.625rem; /* ~26px / 16 */
+  /* --- Display Styles (Large Text - Optional) --- */
+  --md-typescale-display-large-font: var(--md-ref-typeface-brand);
+  --md-typescale-display-large-size: 3.5625rem; /* 57px / 16 */
+  --md-typescale-display-large-line-height: 4rem; /* 64px / 16 */
+  --md-typescale-display-large-weight: 400;
+  --md-typescale-display-large-tracking: -0.015625em;
 
-  --android-font-size-headline: 1.125rem; /* ~18px / 16 */
-  --android-line-height-headline: 1.4375rem; /* ~23px / 16 */
+  --md-typescale-display-medium-font: var(--md-ref-typeface-brand);
+  --md-typescale-display-medium-size: 2.8125rem; /* 45px / 16 */
+  --md-typescale-display-medium-line-height: 3.25rem; /* 52px / 16 */
+  --md-typescale-display-medium-weight: 400;
+  --md-typescale-display-medium-tracking: 0em;
 
-  --android-font-size-body: 1rem; /* ~16px / 16 */
-  --android-line-height-body: 1.375rem; /* ~22px / 16 */
+  --md-typescale-display-small-font: var(--md-ref-typeface-brand);
+  --md-typescale-display-small-size: 2.25rem; /* 36px / 16 */
+  --md-typescale-display-small-line-height: 2.75rem; /* 44px / 16 */
+  --md-typescale-display-small-weight: 400;
+  --md-typescale-display-small-tracking: 0em;
 
-  --android-font-size-callout: 0.9375rem; /* ~15px / 16 */
-  --android-line-height-callout: 1.25rem; /* ~20px / 16 */
+  /* --- Headline Styles --- */
+  --md-typescale-headline-large-font: var(--md-ref-typeface-brand);
+  --md-typescale-headline-large-size: 2rem; /* 32px / 16 */
+  --md-typescale-headline-large-line-height: 2.5rem; /* 40px / 16 */
+  --md-typescale-headline-large-weight: 400;
+  --md-typescale-headline-large-tracking: 0em;
 
-  --android-font-size-subheadline: 0.875rem; /* ~14px / 16 */
-  --android-line-height-subheadline: 1.1875rem; /* ~19px / 16 */
+  --md-typescale-headline-medium-font: var(--md-ref-typeface-brand);
+  --md-typescale-headline-medium-size: 1.75rem; /* 28px / 16 */
+  --md-typescale-headline-medium-line-height: 2.25rem; /* 36px / 16 */
+  --md-typescale-headline-medium-weight: 400;
+  --md-typescale-headline-medium-tracking: 0.009375em;
 
-  --android-font-size-footnote: 0.75rem; /* ~12px / 16 */
-  --android-line-height-footnote: 1rem; /* ~16px / 16 */
+  --md-typescale-headline-small-font: var(--md-ref-typeface-brand);
+  --md-typescale-headline-small-size: 1.5rem; /* 24px / 16 */
+  --md-typescale-headline-small-line-height: 2rem; /* 32px / 16 */
+  --md-typescale-headline-small-weight: 400;
+  --md-typescale-headline-small-tracking: 0.00625em;
 
-  --android-font-size-caption1: 0.6875rem; /* ~11px / 16 */
-  --android-line-height-caption1: 0.9375rem; /* ~15px / 16 */
+  /* --- Title Styles --- */
+  --md-typescale-title-large-font: var(--md-ref-typeface-brand);
+  --md-typescale-title-large-size: 1.375rem; /* 22px */
+  --md-typescale-title-large-line-height: 1.75rem; /* 28px */
+  --md-typescale-title-large-weight: 400;
+  --md-typescale-title-large-tracking: 0em;
 
-  --android-font-size-caption2: 0.625rem; /* ~10px / 16 */
-  --android-line-height-caption2: 0.8125rem; /* ~13px / 16 */
+  --md-typescale-title-medium-font: var(--md-ref-typeface-plain);
+  --md-typescale-title-medium-size: 1rem; /* 16px */
+  --md-typescale-title-medium-line-height: 1.5rem; /* 24px */
+  --md-typescale-title-medium-weight: 500;
+  --md-typescale-title-medium-tracking: 0.009375em;
 
-  --android-font-size-footnote-inter: 0.75rem; /* ~12px */
-  --android-line-height-footnote-inter: 1.125rem; /* ~18px */
-  --android-letter-spacing-inter: 0.02em; /* Optional for added clarity */
+  --md-typescale-title-small-font: var(--md-ref-typeface-plain);
+  --md-typescale-title-small-size: 0.875rem; /* 14px */
+  --md-typescale-title-small-line-height: 1.25rem; /* 20px */
+  --md-typescale-title-small-weight: 500;
+  --md-typescale-title-small-tracking: 0.00625em;
+
+  /* --- Body Styles --- */
+  --md-typescale-body-large-font: var(--md-ref-typeface-plain);
+  --md-typescale-body-large-size: 1rem; /* 16px / 16 */
+  --md-typescale-body-large-line-height: 1.5rem; /* 24px / 16 */
+  --md-typescale-body-large-weight: 400;
+  --md-typescale-body-large-tracking: 0.03125em;
+
+  --md-typescale-body-medium-font: var(--md-ref-typeface-plain);
+  --md-typescale-body-medium-size: 0.875rem; /* 14px / 16 */
+  --md-typescale-body-medium-line-height: 1.25rem; /* 20px / 16 */
+  --md-typescale-body-medium-weight: 400;
+  --md-typescale-body-medium-tracking: 0.015625em;
+
+  --md-typescale-body-small-font: var(--md-ref-typeface-plain);
+  --md-typescale-body-small-size: 0.75rem; /* 12px / 16 */
+  --md-typescale-body-small-line-height: 1rem; /* 16px / 16 */
+  --md-typescale-body-small-weight: 400;
+  --md-typescale-body-small-tracking: 0.025em;
+
+  /* --- Label Styles --- */
+  --md-typescale-label-large-font: var(--md-ref-typeface-plain);
+  --md-typescale-label-large-size: 0.875rem; /* 14px */
+  --md-typescale-label-large-line-height: 1.25rem; /* 20px */
+  --md-typescale-label-large-weight: 500;
+  --md-typescale-label-large-tracking: 0.00625em;
+
+  --md-typescale-label-medium-font: var(--md-ref-typeface-plain);
+  --md-typescale-label-medium-size: 0.75rem; /* 12px */
+  --md-typescale-label-medium-line-height: 1rem; /* 16px */
+  --md-typescale-label-medium-weight: 500;
+  --md-typescale-label-medium-tracking: 0.03125em;
+
+  --md-typescale-label-small-font: var(--md-ref-typeface-plain);
+  --md-typescale-label-small-size: 0.6875rem; /* 11px */
+  --md-typescale-label-small-line-height: 1rem; /* 16px */
+  --md-typescale-label-small-weight: 500;
+  --md-typescale-label-small-tracking: 0.03125em;
 
   /* furigana */
 
