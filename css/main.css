@@ -24,13 +24,10 @@ See the LICENSE file in the project root for details. */
   --dark-mode-empty-text-color: rgba(255, 255, 255, 0.25);
   --light-mode-details-text-color: #666;
   --dark-mode-details-text-color: darkgrey;
-  --light-mode-icon-color: #333333;
   --light-mode-status-bar-color: rgba(0, 0, 0, 0.8);
   --dark-mode-code-block-background: #0d1116;
   --light-mode-code-block-background: #f9f9f9;
   --light-mode-code-block-border: #d1d1d1;
-  /* bookmark / source icon color accent; none on dark mode */
-  --source-icon-accent-color: #b55a5a;
   --light-mode-link-accent-color: #d91e50;
   --dark-mode-link-accent-color: darkgrey;
   --dark-mode-status-bar-color: rgba(
@@ -40,24 +37,24 @@ See the LICENSE file in the project root for details. */
     0.8
   ); /* original: #49A2D5 */
   --status-bar-accent-color: #49a2d5;
-  --main-font-family:
-    'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', sans-serif;
-  --alt-font-family:
-    'SF Pro Rounded', 'Noto Sans Rounded', 'Roboto Rounded',
-    'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari,
-    'Arial Rounded MT Bold', 'Arial Rounded MT', Calibri, 'Source Sans Pro',
+  --title-font-family:
+    "SF Pro Rounded", "Noto Sans Rounded", "Roboto Rounded",
+    "Hiragino Maru Gothic ProN", Quicksand, Comfortaa, Manjari,
+    "Arial Rounded MT Bold", "Arial Rounded MT", Calibri, "Source Sans Pro",
     sans-serif;
   --ios-font-family:
-    'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
+    "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   --monospace-font-family:
-    'JetBrainsMono Nerd Font Mono', 'JetBrains Mono', 'Fira Code', 'Menlo',
-    'Consolas', 'Monaco', monospace;
+    "JetBrainsMono Nerd Font Mono", "JetBrains Mono", "Fira Code", "Menlo",
+    "Consolas", "Monaco", monospace;
   --system-font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-iui, Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  --android-font-family: 'Noto Sans JP', 'Noto', 'Roboto', sans-serif;
+    -apple-system, BlinkMacSystemFont, "Segoe UI", system-iui, Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --jp-font-family:
+    "SF Pro JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    "Yu Gothic", "Meiryo", sans-serif;
+  --android-font-family: "Noto Sans JP", "Noto", "Roboto", sans-serif;
   --label-font-color: #8e8e93; /* replace with JS depending on subject category */
   --label-background-color: rgba(
     44,
@@ -75,26 +72,34 @@ See the LICENSE file in the project root for details. */
   /* pill button */
   --pill-button-padding: 0.25em 1em;
   /* iOS Typography Scale */
-  --ios-font-size-title1: 2.125rem; /* 34px / 16 */
-  --ios-line-height-title1: 2.5625rem; /* 41px / 16 */
-  --ios-font-size-title2: 1.75rem; /* 28px / 16 */
-  --ios-line-height-title2: 2.125rem; /* 34px / 16 */
-  --ios-font-size-title3: 1.375rem; /* 22px / 16 */
-  --ios-line-height-title3: 1.75rem; /* 28px / 16 */
-  --ios-font-size-headline: 1.0625rem; /* 17px / 16 */
-  --ios-line-height-headline: 1.375rem; /* 22px / 16 */
-  --ios-font-size-body: 1.0625rem; /* 17px / 16 */
-  --ios-line-height-body: 1.375rem; /* 22px / 16 */
-  --ios-font-size-callout: 1rem; /* 16px / 16 */
-  --ios-line-height-callout: 1.3125rem; /* 21px / 16 */
-  --ios-font-size-subheadline: 0.9375rem; /* 15px / 16 */
-  --ios-line-height-subheadline: 1.25rem; /* 20px / 16 */
-  --ios-font-size-footnote: 0.8125rem; /* 13px / 16 */
-  --ios-line-height-footnote: 1.125rem; /* 18px / 16 */
-  --ios-font-size-caption1: 0.75rem; /* 12px / 16 */
-  --ios-line-height-caption1: 1rem; /* 16px / 16 */
-  --ios-font-size-caption2: 0.6875rem; /* 11px / 16 */
-  --ios-line-height-caption2: 0.8125rem; /* 13px / 16 */
+  /* Refined iOS Typography Scale */
+  /* Title Sizes */
+  --ios-font-size-title1: 1.75rem; /* Large title */
+  --ios-line-height-title1: 2.125rem;
+  --ios-font-size-title2: 1.375rem; /* Medium title */
+  --ios-line-height-title2: 1.75rem;
+  --ios-font-size-title3: 1.25rem; /* Small title */
+  --ios-line-height-title3: 1.5rem;
+  /* Headline */
+  --ios-font-size-headline: 1rem; /* Primary text emphasis */
+  --ios-line-height-headline: 1.375rem;
+  /* Body Sizes */
+  --ios-font-size-body: 0.9375rem; /* Standard body text */
+  --ios-line-height-body: 1.25rem;
+  /* Callout */
+  --ios-font-size-callout: 0.875rem; /* Secondary information */
+  --ios-line-height-callout: 1.125rem;
+  /* Subheadline */
+  --ios-font-size-subheadline: 0.8125rem; /* Tertiary information */
+  --ios-line-height-subheadline: 1.125rem;
+  /* Footnote */
+  --ios-font-size-footnote: 0.75rem; /* Smallest standard text */
+  --ios-line-height-footnote: 1rem;
+  /* Caption Sizes */
+  --ios-font-size-caption1: 0.6875rem; /* Smallest caption */
+  --ios-line-height-caption1: 0.875rem;
+  --ios-font-size-caption2: 0.625rem; /* Extremely small caption */
+  --ios-line-height-caption2: 0.75rem;
   /* macOS Typography Scale */
   --mac-font-size-title1: 2rem; /* ~32px / 16 */
   --mac-line-height-title1: 2.5rem; /* ~40px / 16 */
@@ -117,29 +122,91 @@ See the LICENSE file in the project root for details. */
   --mac-font-size-caption2: 0.625rem; /* 10px / 16 */
   --mac-line-height-caption2: 0.875rem; /* 14px / 16 */
   /* Adjusted Android Typography Scale (Pixel 7) */
-  --android-font-size-title1: 2rem; /* ~32px / 16 */
-  --android-line-height-title1: 2.375rem; /* ~38px / 16 */
-  --android-font-size-title2: 1.625rem; /* ~26px / 16 */
-  --android-line-height-title2: 2rem; /* ~32px / 16 */
-  --android-font-size-title3: 1.3125rem; /* ~21px / 16 */
-  --android-line-height-title3: 1.625rem; /* ~26px / 16 */
-  --android-font-size-headline: 1.125rem; /* ~18px / 16 */
-  --android-line-height-headline: 1.4375rem; /* ~23px / 16 */
-  --android-font-size-body: 1rem; /* ~16px / 16 */
-  --android-line-height-body: 1.375rem; /* ~22px / 16 */
-  --android-font-size-callout: 0.9375rem; /* ~15px / 16 */
-  --android-line-height-callout: 1.25rem; /* ~20px / 16 */
-  --android-font-size-subheadline: 0.875rem; /* ~14px / 16 */
-  --android-line-height-subheadline: 1.1875rem; /* ~19px / 16 */
-  --android-font-size-footnote: 0.75rem; /* ~12px / 16 */
-  --android-line-height-footnote: 1rem; /* ~16px / 16 */
-  --android-font-size-caption1: 0.6875rem; /* ~11px / 16 */
-  --android-line-height-caption1: 0.9375rem; /* ~15px / 16 */
-  --android-font-size-caption2: 0.625rem; /* ~10px / 16 */
-  --android-line-height-caption2: 0.8125rem; /* ~13px / 16 */
-  --android-font-size-footnote-inter: 0.75rem; /* ~12px */
-  --android-line-height-footnote-inter: 1.125rem; /* ~18px */
-  --android-letter-spacing-inter: 0.02em; /* Optional for added clarity */
+  /* --- Material Design 3 Typography --- */
+  /* Font: Roboto */
+  --md-ref-typeface-plain: "Roboto", sans-serif;
+  --md-ref-typeface-brand:
+    "Roboto", sans-serif; /* Can be different for branding */
+  /* --- Display Styles (Large Text - Optional) --- */
+  --md-typescale-display-large-font: var(--md-ref-typeface-brand);
+  --md-typescale-display-large-size: 3.5625rem; /* 57px / 16 */
+  --md-typescale-display-large-line-height: 4rem; /* 64px / 16 */
+  --md-typescale-display-large-weight: 400;
+  --md-typescale-display-large-tracking: -0.015625em;
+  --md-typescale-display-medium-font: var(--md-ref-typeface-brand);
+  --md-typescale-display-medium-size: 2.8125rem; /* 45px / 16 */
+  --md-typescale-display-medium-line-height: 3.25rem; /* 52px / 16 */
+  --md-typescale-display-medium-weight: 400;
+  --md-typescale-display-medium-tracking: 0em;
+  --md-typescale-display-small-font: var(--md-ref-typeface-brand);
+  --md-typescale-display-small-size: 2.25rem; /* 36px / 16 */
+  --md-typescale-display-small-line-height: 2.75rem; /* 44px / 16 */
+  --md-typescale-display-small-weight: 400;
+  --md-typescale-display-small-tracking: 0em;
+  /* --- Headline Styles --- */
+  --md-typescale-headline-large-font: var(--md-ref-typeface-brand);
+  --md-typescale-headline-large-size: 2rem; /* 32px / 16 */
+  --md-typescale-headline-large-line-height: 2.5rem; /* 40px / 16 */
+  --md-typescale-headline-large-weight: 400;
+  --md-typescale-headline-large-tracking: 0em;
+  --md-typescale-headline-medium-font: var(--md-ref-typeface-brand);
+  --md-typescale-headline-medium-size: 1.75rem; /* 28px / 16 */
+  --md-typescale-headline-medium-line-height: 2.25rem; /* 36px / 16 */
+  --md-typescale-headline-medium-weight: 400;
+  --md-typescale-headline-medium-tracking: 0.009375em;
+  --md-typescale-headline-small-font: var(--md-ref-typeface-brand);
+  --md-typescale-headline-small-size: 1.5rem; /* 24px / 16 */
+  --md-typescale-headline-small-line-height: 2rem; /* 32px / 16 */
+  --md-typescale-headline-small-weight: 400;
+  --md-typescale-headline-small-tracking: 0.00625em;
+  /* --- Title Styles --- */
+  --md-typescale-title-large-font: var(--md-ref-typeface-brand);
+  --md-typescale-title-large-size: 1.375rem; /* 22px */
+  --md-typescale-title-large-line-height: 1.75rem; /* 28px */
+  --md-typescale-title-large-weight: 400;
+  --md-typescale-title-large-tracking: 0em;
+  --md-typescale-title-medium-font: var(--md-ref-typeface-plain);
+  --md-typescale-title-medium-size: 1rem; /* 16px */
+  --md-typescale-title-medium-line-height: 1.5rem; /* 24px */
+  --md-typescale-title-medium-weight: 500;
+  --md-typescale-title-medium-tracking: 0.009375em;
+  --md-typescale-title-small-font: var(--md-ref-typeface-plain);
+  --md-typescale-title-small-size: 0.875rem; /* 14px */
+  --md-typescale-title-small-line-height: 1.25rem; /* 20px */
+  --md-typescale-title-small-weight: 500;
+  --md-typescale-title-small-tracking: 0.00625em;
+  /* --- Body Styles --- */
+  --md-typescale-body-large-font: var(--md-ref-typeface-plain);
+  --md-typescale-body-large-size: 1rem; /* 16px / 16 */
+  --md-typescale-body-large-line-height: 1.5rem; /* 24px / 16 */
+  --md-typescale-body-large-weight: 400;
+  --md-typescale-body-large-tracking: 0.03125em;
+  --md-typescale-body-medium-font: var(--md-ref-typeface-plain);
+  --md-typescale-body-medium-size: 0.875rem; /* 14px / 16 */
+  --md-typescale-body-medium-line-height: 1.25rem; /* 20px / 16 */
+  --md-typescale-body-medium-weight: 400;
+  --md-typescale-body-medium-tracking: 0.015625em;
+  --md-typescale-body-small-font: var(--md-ref-typeface-plain);
+  --md-typescale-body-small-size: 0.75rem; /* 12px / 16 */
+  --md-typescale-body-small-line-height: 1rem; /* 16px / 16 */
+  --md-typescale-body-small-weight: 400;
+  --md-typescale-body-small-tracking: 0.025em;
+  /* --- Label Styles --- */
+  --md-typescale-label-large-font: var(--md-ref-typeface-plain);
+  --md-typescale-label-large-size: 0.875rem; /* 14px */
+  --md-typescale-label-large-line-height: 1.25rem; /* 20px */
+  --md-typescale-label-large-weight: 500;
+  --md-typescale-label-large-tracking: 0.00625em;
+  --md-typescale-label-medium-font: var(--md-ref-typeface-plain);
+  --md-typescale-label-medium-size: 0.75rem; /* 12px */
+  --md-typescale-label-medium-line-height: 1rem; /* 16px */
+  --md-typescale-label-medium-weight: 500;
+  --md-typescale-label-medium-tracking: 0.03125em;
+  --md-typescale-label-small-font: var(--md-ref-typeface-plain);
+  --md-typescale-label-small-size: 0.6875rem; /* 11px */
+  --md-typescale-label-small-line-height: 1rem; /* 16px */
+  --md-typescale-label-small-weight: 500;
+  --md-typescale-label-small-tracking: 0.03125em;
   /* furigana */
   --mac-font-size-furigana: 0.625rem; /* ~10px */
   --mac-line-height-furigana: 0.75rem; /* ~12px */
@@ -149,8 +216,8 @@ See the LICENSE file in the project root for details. */
   --android-line-height-furigana: 0.8125rem; /* ~13px */
   /* macOS Code Typography Scale */
   --mac-code-font-family:
-    ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
-    'DejaVu Sans Mono', monospace;
+    ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+    "DejaVu Sans Mono", monospace;
   --mac-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
   --mac-code-line-height-large: 1.5rem; /* ~24px / 16 */
   --mac-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
@@ -159,7 +226,7 @@ See the LICENSE file in the project root for details. */
   --mac-code-line-height-small: 1rem; /* ~16px / 16 */
   /* iOS Code Typography Scale */
   --ios-code-font-family:
-    'SF Mono', ui-monospace, Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    "SF Mono", ui-monospace, Menlo, Consolas, "DejaVu Sans Mono", monospace;
   --ios-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
   --ios-code-line-height-large: 1.5rem; /* ~24px / 16 */
   --ios-code-font-size-medium: 0.875rem; /* ~14px / 16 For most inline code, smaller blocks */
@@ -168,7 +235,7 @@ See the LICENSE file in the project root for details. */
   --ios-code-line-height-small: 1rem; /* ~16px / 16 */
   /* Android Code Typography Scale */
   --android-code-font-family:
-    'Roboto Mono', 'Cascadia Code', 'Source Code Pro', 'DejaVu Sans Mono',
+    "Roboto Mono", "Cascadia Code", "Source Code Pro", "DejaVu Sans Mono",
     monospace;
   --android-code-font-size-large: 1rem; /* ~16px / 16 For larger blocks, headings */
   --android-code-line-height-large: 1.5rem; /* ~24px / 16 */
@@ -194,17 +261,14 @@ html,
 }
 
 /* Apply background color to body before content */
-.night-mode body::before,
-.night-mode body,
-.ankidroid_dark_mode body::before,
-.ankidroid_dark_mode body {
-  background: var(--dark-mode-main-bg-color) !important;
-  color: var(---dark-mode-main-text-color); /* base text color */
+.nightMode.card::before, .nightMode.card {
+  background: var(--dark-mode-main-bg-color);
+  color: var(--dark-mode-main-text-color); /* base text color */
 }
 
-body::before,
-body {
-  background: var(--light-mode-main-bg-color) !important;
+.card::before,
+.card {
+  background: var(--light-mode-main-bg-color);
   color: var(--light-mode-main-text-color);
 }
 
@@ -212,14 +276,14 @@ body {
    Typography (Font Settings)
 =========================== */
 /* Define fonts globally, if needed later */
-body {
-  font-family: var(--alt-font-family), system-font, sans-serif;
+.card {
+  font-family: var(--system-font-family);
   line-height: var(--ios-line-height-body); /* Default */
 }
 
 #title,
 #subject {
-  font-family: var(--alt-font-family);
+  font-family: var(--title-font-family);
 }
 
 #subject {
@@ -247,7 +311,8 @@ body {
 /* bold takes accent color */
 #flashcard-question:not(.seen) b,
 #flashcard-answer b,
-.cloze:not(:has(code)) {
+.cloze:not(:has(code)),
+#details b {
   color: var(--label-font-color);
 }
 
@@ -256,78 +321,51 @@ b,
   font-weight: 600; /* semi bold */
 }
 
-.night-mode .seen,
-.night-mode #details,
-.android .ankidroid_dark_mode .seen,
-.android .ankidroid_dark_mode #details {
-  color: darkgray;
+.nightMode .seen {
+  color: var(--dark-mode-main-text-color);
 }
 
-.night-mode a,
-.android .ankidroid_dark_mode a {
+.card a {
+  color: var(--light-mode-footnote-text-color);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  line-break: anywhere;
+}
+.card a:hover {
+  color: var(--light-mode-link-accent-color);
+  color: #1a73e8;
+}
+.card.nightMode a {
   color: var(--dark-mode-link-accent-color);
   text-decoration: underline;
 }
-
-a {
-  color: var(--light-mode-link-accent-color);
-}
-
-.pass,
-.fail {
-  font-weight: bold;
-}
-
-.pass {
-  color: #009f82;
-}
-
-.fail {
-  color: #ff6061;
-}
-
-#controls-title {
-  color: var(--dark-mode-status-bar-color);
-  font-weight: 400;
-}
-
-#controls-options .key-input {
-  background: #646669;
-  padding: 0.1rem 0.3rem;
-}
-
-#controls-options {
-  font-family: var(--monospace-font-family);
-  color: var(--dark-mode-status-bar-color);
-  font-size: var(--ios-font-size-footnote); /* Default */
+.card.nightMode a:hover {
+  color: #8ab4f8;
 }
 
 #flashcard-extra-info p {
   margin: 0;
 }
 
-.night-mode #details-marker,
-.night-mode #details-text,
-.android .ankidroid_dark_mode #details-marker,
-.android .ankidroid_dark_mode #details-text {
+.nightMode #details {
   color: var(--dark-mode-details-text-color);
 }
 
-#details-marker,
-#details-text {
+#details {
   color: var(--light-mode-details-text-color);
 }
 
 #details-text {
   display: inline;
+  text-align: left;
 }
 
 code {
   font-family: var(--monospace-font-family);
 }
 
-#status-bar,
-#controls-header {
+#status-bar {
   font-size: var(--mac-font-size-callout);
   line-height: var(--mac-line-height-callout);
 }
@@ -377,38 +415,48 @@ code {
 
 /* Android specific typography styles */
 .android body {
-  font-family: var(--android-font-family);
-  font-size: var(--android-font-size-body);
-  line-height: var(--android-line-height-body);
+  /* Use the complete set of properties from the MD3 scale */
+  font: var(--md-typescale-body-medium-font);
+  font-size: var(--md-typescale-body-medium-size);
+  line-height: var(--md-typescale-body-medium-line-height);
+  font-weight: var(--md-typescale-body-medium-weight);
+  letter-spacing: var(--md-typescale-body-medium-tracking);
+  /* No need to set font-family again if it's already in --md-typescale-body-large-font */
 }
 
 .android #subject,
 .android #deck-name-container {
-  font-size: var(--android-font-size-footnote);
-  line-height: var(--android-line-height-footnote);
+  font: var(--md-typescale-label-medium-font);
+  font-size: var(--md-typescale-label-medium-size);
+  line-height: var(--md-typescale-label-medium-line-height);
+  font-weight: var(--md-typescale-label-medium-weight);
+  letter-spacing: var(--md-typescale-label-medium-tracking);
 }
 
 .android #title {
   margin-top: 0px;
-  margin-bottom: 0rem;
-  font-size: var(--android-font-size-title2);
-  line-height: var(--android-line-height-title2);
-}
-
-.android #flashcard-content {
-  font-size: var(--android-font-size-body);
-  line-height: var(--android-line-height-body);
+  margin-bottom: 0rem; /*  Consider using consistent spacing (e.g., multiples of 8px) */
+  /* Use Headline Small - good for card titles */
+  font: var(--md-typescale-headline-small-font);
+  font-size: var(--md-typescale-headline-small-size);
+  line-height: var(--md-typescale-headline-small-line-height);
+  font-weight: var(--md-typescale-headline-small-weight);
+  letter-spacing: var(--md-typescale-headline-small-tracking);
 }
 
 .android .flashcard-metadata {
-  font-size: var(--android-font-size-footnote);
-  line-height: var(--android-line-height-footnote);
+  /* Use Label Small - appropriate for metadata */
+  font: var(--md-typescale-label-small-font);
+  font-size: var(--md-typescale-label-small-size);
+  line-height: var(--md-typescale-label-small-line-height);
+  font-weight: var(--md-typescale-label-small-weight);
+  letter-spacing: var(--md-typescale-label-small-tracking);
 }
 
 /* iphone, ipad typography */
 .iphone body,
 .ipad body {
-  font-family: var(--ios-font-family);
+  font-family: var(--system-font-family);
   font-size: var(--ios-font-size-body);
   line-height: var(--ios-line-height-body);
 }
@@ -423,10 +471,11 @@ code {
 
 .iphone #title,
 .ipad #title {
+  font-family: var(--system-font-family);
   margin-top: 0px;
   margin-bottom: 0rem;
-  font-size: var(--ios-font-size-title3);
-  line-height: var(--ios-line-height-title3);
+  font-size: var(--ios-font-size-title2);
+  line-height: var(--ios-line-height-title2);
 }
 
 .iphone #flashcard-content,
@@ -460,16 +509,8 @@ code {
 /* ===========================
    Flashcard Component
 =========================== */
-#flashcard-content,
-.front,
-.back {
-  background: #323131;
+#flashcard-content {
   border-radius: 15px;
-  box-shadow: 0 8px 0 #222121;
-}
-
-#flashcard-question:not(:only-child) {
-  margin-bottom: 1rem;
 }
 
 #question-marker,
@@ -478,10 +519,7 @@ code {
   display: inline;
 }
 
-#question-text {
-  margin: 0;
-}
-
+#question-text,
 #answer-text {
   margin: 0;
 }
@@ -500,16 +538,11 @@ code {
   margin-bottom: 0; /* if nothing comes after img, no spacing needed */
 }
 
-#flashcard-answer {
-  display: flex;
-  gap: 0.75em;
-  align-items: center;
-  flex-flow: row wrap;
+#question-text > img:first-child {
+  margin-top: 0;
 }
 
-#flashcard-textbox,
-.front,
-.back {
+#flashcard-textbox {
   padding: 2.5rem 2rem;
   display: flex;
   flex-direction: column;
@@ -524,6 +557,8 @@ code {
 }
 
 #flashcard-title {
+  display: flex;
+  justify-content: start;
   overflow-x: auto;
   white-space: nowrap;
   flex-shrink: 0;
@@ -545,8 +580,23 @@ code {
   gap: 1.1875rem;
 }
 
+#details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.75em;
+}
+
+#flashcard-textbox > *:last-child {
+  padding-bottom: 1.25rem;
+}
+
 #details-text {
   max-width: 100%; /* contain code blocks */
+}
+
+#details-text:has(> pre:only-of-type) pre {
+  margin: 0;
 }
 
 /* center images for img-only cloze types */
@@ -568,14 +618,7 @@ code {
 }
 
 /* focus on answer on question-answer cards */
-.night-mode #flashcard-question:not(:only-child):not(:has(.cloze-answer)),
-.android
-  .ankidroid_dark_mode
-  #flashcard-question:not(:only-child):not(:has(.cloze-answer)) {
-  opacity: 1;
-}
-
-#flashcard-question:not(:only-child):not(:has(.cloze-answer)) {
+.seen {
   opacity: 0.7;
 }
 
@@ -634,7 +677,8 @@ code {
 }
 
 /* DETAIL BLOCK */
-#flashcard-details-info {
+#flashcard-details-info,
+#details {
   opacity: 0;
   transform: translateY(4px) scale(0.98);
   animation: popIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.25s forwards;
@@ -643,28 +687,58 @@ code {
 /* ===========================
   Icons
 =========================== */
+:root {
+  --light-mode-icon-color: #333333;
+  --dark-mode-icon-color: darkgray;
+  /* bookmark / source icon color accent; none on dark mode */
+  --source-icon-accent-color: #b55a5a;
+}
+
 /* japanese icons, and deck-related icons*/
-.deck-icon svg,
-#source-icon svg {
-  height: 1.75em;
+/* resize icons */
+#flashcard-details-info [class$=-icon] svg,
+#flashcard-details-info [id$=-icon] svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+#flashcard-info [class$=-icon] svg,
+#flashcard-info [id$=-icon] svg,
+#deck-name-container [class$=-icon] svg,
+#deck-name-container [id$=-icon] svg {
   width: 1.75em;
+  height: 1.75em;
 }
 
-.night-mode #sentence-icon svg,
-.night-mode #pitch-icon svg,
-.night-mode .deck-icon svg,
-.night-mode #source-icon svg,
-.android .ankidroid_dark_mode #sentence-icon svg,
-.android .ankidroid_dark_mode #pitch-icon svg,
-.android .ankidroid_dark_mode .deck-icon svg,
-.android .ankidroid_dark_mode #source-icon svg {
-  fill: darkgray;
+.iphone #flashcard-info [class$=-icon] svg,
+.iphone #flashcard-info [id$=-icon] svg,
+.iphone #deck-name-container [class$=-icon] svg,
+.iphone #deck-name-container [id$=-icon] svg {
+  width: 1.5em;
+  height: 1.5em;
 }
 
-#sentence-icon svg,
-#pitch-icon svg,
-.deck-icon svg,
-#source-icon svg {
+#flashcard-textbox [class$=-icon] svg,
+#flashcard-textbox [id$=-icon] svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.nightMode #answer-icon path,
+.nightMode #sentence-icon path,
+.nightMode #pitch-icon path,
+.nightMode .deck-icon path,
+.nightMode #source-icon path,
+.nightMode #details-icon path {
+  fill: var(--dark-mode-icon-color);
+}
+
+#answer-icon path,
+#sentence-icon path,
+#pitch-icon path,
+.deck-icon path,
+#source-icon path,
+#details-icon path {
   fill: var(--light-mode-icon-color);
 }
 
@@ -678,30 +752,83 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* question-answer card Answer icon */
-#answer-marker svg {
-  width: 1.25em;
-  height: 1.25em;
-}
-
-.night-mode #answer-marker path,
-.night-mode #details-icon path,
-.android .ankidroid_dark_mode #answer-marker path,
-.android .ankidroid_dark_mode #details-icon path {
-  fill: var(--dark-mode-main-text-color);
-}
-
-#answer-marker path,
-#details-icon path {
-  fill: var(--light-mode-icon-color);
+  gap: 0.5rem;
+  margin-top: 0.085em;
 }
 
 /* answer marker icon */
-#answer-marker {
+#answer-icon {
   display: flex;
   align-items: center;
+}
+
+/* dynamic icons */
+/* use outline or filled depending on device or state */
+.dynamic-icon {
+  display: flex;
+  align-items: center;
+}
+
+.dynamic-icon::before {
+  content: "";
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 1.75em;
+  height: 1.75em;
+  display: inline-block;
+}
+
+#source-text:empty::before {
+  content: "n/a";
+}
+
+.nightMode #flashcard-source-info:has(#source-text:empty) #source-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23A9A9A9' d='M12.016 53.16c1.218 0 1.922-.61 4.289-2.976L27.672 38.84c.117-.094.234-.188.328-.188c.117 0 .21.094.328.188l11.39 11.344c2.321 2.32 3.071 2.976 4.266 2.976c1.477 0 2.602-.89 2.602-3.023V10.176c0-4.875-2.414-7.336-7.266-7.336H16.68c-4.828 0-7.266 2.46-7.266 7.336v39.96c0 2.134 1.149 3.024 2.602 3.024m1.757-5.695c-.328.328-.585.234-.585-.211V10.246c0-2.344 1.265-3.633 3.703-3.633h22.242c2.437 0 3.68 1.29 3.68 3.633v37.008c0 .445-.258.516-.587.21L29.173 34.552c-.399-.422-.82-.54-1.172-.54c-.328 0-.75.118-1.172.54Z'/%3E%3C/svg%3E");
+}
+
+#flashcard-source-info:has(#source-text:empty) #source-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23666666' d='M12.016 53.16c1.218 0 1.922-.61 4.289-2.976L27.672 38.84c.117-.094.234-.188.328-.188c.117 0 .21.094.328.188l11.39 11.344c2.321 2.32 3.071 2.976 4.266 2.976c1.477 0 2.602-.89 2.602-3.023V10.176c0-4.875-2.414-7.336-7.266-7.336H16.68c-4.828 0-7.266 2.46-7.266 7.336v39.96c0 2.134 1.149 3.024 2.602 3.024m1.757-5.695c-.328.328-.585.234-.585-.211V10.246c0-2.344 1.265-3.633 3.703-3.633h22.242c2.437 0 3.68 1.29 3.68 3.633v37.008c0 .445-.258.516-.587.21L29.173 34.552c-.399-.422-.82-.54-1.172-.54c-.328 0-.75.118-1.172.54Z'/%3E%3C/svg%3E");
+}
+
+.nightMode #source-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23A9A9A9' d='M12.016 53.16c1.218 0 1.851-.68 4.289-2.976l10.547-10.125c.539-.493.82-.633 1.148-.633s.656.164 1.148.633l11.977 11.53c.938.892 1.664 1.571 2.86 1.571c1.476 0 2.6-.89 2.6-3.023V10.176c0-4.875-2.413-7.336-7.265-7.336H16.68c-4.828 0-7.266 2.46-7.266 7.336v39.96c0 2.134 1.149 3.024 2.602 3.024'/%3E%3C/svg%3E");
+}
+
+#source-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23b55a5a' d='M12.016 53.16c1.218 0 1.851-.68 4.289-2.976l10.547-10.125c.539-.493.82-.633 1.148-.633s.656.164 1.148.633l11.977 11.53c.938.892 1.664 1.571 2.86 1.571c1.476 0 2.6-.89 2.6-3.023V10.176c0-4.875-2.413-7.336-7.265-7.336H16.68c-4.828 0-7.266 2.46-7.266 7.336v39.96c0 2.134 1.149 3.024 2.602 3.024'/%3E%3C/svg%3E");
+}
+
+#source-icon {
+  align-self: flex-start;
+}
+
+.nightMode #subdeck-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23A9A9A9' d='M12.695 4.656h30.633c-.14-1.968-1.266-3.023-3.422-3.023H16.117c-2.156 0-3.281 1.055-3.422 3.023m-4.594 6.492h39.844c-.351-2.132-1.383-3.304-3.726-3.304H11.805c-2.344 0-3.352 1.172-3.703 3.304m2.133 43.22H45.79c4.875 0 7.336-2.438 7.336-7.266V22.21c0-4.828-2.46-7.266-7.336-7.266H10.234c-4.898 0-7.36 2.414-7.36 7.266V47.1c0 4.829 2.462 7.266 7.36 7.266m.07-3.774c-2.343 0-3.656-1.266-3.656-3.703V22.398c0-2.437 1.313-3.68 3.657-3.68h35.414c2.32 0 3.632 1.243 3.632 3.68v24.493c0 2.437-1.312 3.703-3.632 3.703Z'/%3E%3C/svg%3E");
+}
+
+.nightMode #remaining-cards-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23A9A9A9' d='m11.83 46.622l.59-.102v1.159c0 4.187 2.114 6.301 6.382 6.301h30.815c4.25 0 6.383-2.114 6.383-6.301V26.072c0-4.167-2.134-6.281-6.383-6.281h-4.756l-1.2-6.911c-.73-4.127-3.21-5.834-7.378-5.102L5.935 13.144Q-.375 14.24.752 20.462l3.7 21.058c.752 4.126 3.19 5.834 7.378 5.102m-4.187-5.854L4.004 20.055c-.386-2.073.55-3.354 2.541-3.7l30.267-5.345c1.971-.346 3.293.548 3.659 2.622l1.097 6.159H18.802c-4.268 0-6.382 2.093-6.382 6.28v17.116l-1.098.203c-2.012.346-3.313-.549-3.68-2.622m11.2 9.94c-2.033 0-3.15-1.098-3.15-3.212V26.255c0-2.114 1.117-3.192 3.15-3.192h30.734c1.992 0 3.15 1.078 3.15 3.192v21.241c0 2.114-1.158 3.212-3.15 3.212Z'/%3E%3C/svg%3E");
+}
+
+#remaining-cards-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23666666' d='m11.83 46.622l.59-.102v1.159c0 4.187 2.114 6.301 6.382 6.301h30.815c4.25 0 6.383-2.114 6.383-6.301V26.072c0-4.167-2.134-6.281-6.383-6.281h-4.756l-1.2-6.911c-.73-4.127-3.21-5.834-7.378-5.102L5.935 13.144Q-.375 14.24.752 20.462l3.7 21.058c.752 4.126 3.19 5.834 7.378 5.102m-4.187-5.854L4.004 20.055c-.386-2.073.55-3.354 2.541-3.7l30.267-5.345c1.971-.346 3.293.548 3.659 2.622l1.097 6.159H18.802c-4.268 0-6.382 2.093-6.382 6.28v17.116l-1.098.203c-2.012.346-3.313-.549-3.68-2.622m11.2 9.94c-2.033 0-3.15-1.098-3.15-3.212V26.255c0-2.114 1.117-3.192 3.15-3.192h30.734c1.992 0 3.15 1.078 3.15 3.192v21.241c0 2.114-1.158 3.212-3.15 3.212Z'/%3E%3C/svg%3E");
+}
+
+#subdeck-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23666666' d='M12.695 4.656h30.633c-.14-1.968-1.266-3.023-3.422-3.023H16.117c-2.156 0-3.281 1.055-3.422 3.023m-4.594 6.492h39.844c-.351-2.132-1.383-3.304-3.726-3.304H11.805c-2.344 0-3.352 1.172-3.703 3.304m2.133 43.22H45.79c4.875 0 7.336-2.438 7.336-7.266V22.21c0-4.828-2.46-7.266-7.336-7.266H10.234c-4.898 0-7.36 2.414-7.36 7.266V47.1c0 4.829 2.462 7.266 7.36 7.266m.07-3.774c-2.343 0-3.656-1.266-3.656-3.703V22.398c0-2.437 1.313-3.68 3.657-3.68h35.414c2.32 0 3.632 1.243 3.632 3.68v24.493c0 2.437-1.312 3.703-3.632 3.703Z'/%3E%3C/svg%3E");
+}
+
+.iphone #subdeck-icon::before,
+.ipad #subdeck-icon::before,
+.android #subdeck-icon::before {
+  height: 1.5em;
+  width: 1.5em;
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23666666' d='M13.164 4.656h30.164c-.14-1.968-1.266-3.023-3.422-3.023h-23.32c-2.156 0-3.281 1.055-3.422 3.023m-5.062 6.492h39.843c-.351-2.132-1.383-3.304-3.726-3.304H11.805c-2.344 0-3.352 1.172-3.703 3.304m2.132 43.22H45.79c4.875 0 7.336-2.438 7.336-7.266V22.21c0-4.828-2.46-7.266-7.336-7.266H10.234c-4.898 0-7.36 2.414-7.36 7.266V47.1c0 4.829 2.462 7.266 7.36 7.266'/%3E%3C/svg%3E");
+}
+.iphone .nightMode #subdeck-icon::before,
+.ipad .nightMode #subdeck-icon::before,
+.android .nightMode #subdeck-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23A9A9A9' d='M13.164 4.656h30.164c-.14-1.968-1.266-3.023-3.422-3.023h-23.32c-2.156 0-3.281 1.055-3.422 3.023m-5.062 6.492h39.843c-.351-2.132-1.383-3.304-3.726-3.304H11.805c-2.344 0-3.352 1.172-3.703 3.304m2.132 43.22H45.79c4.875 0 7.336-2.438 7.336-7.266V22.21c0-4.828-2.46-7.266-7.336-7.266H10.234c-4.898 0-7.36 2.414-7.36 7.266V47.1c0 4.829 2.462 7.266 7.36 7.266'/%3E%3C/svg%3E");
 }
 
 /* ===========================
@@ -715,22 +842,9 @@ code {
   align-items: center;
 }
 
-.night-mode .flashcard-metadata,
-.night-mode #deck-name-container,
-.android .ankidroid_dark_mode .flashcard-metadata,
-.android .ankidroid_dark_mode #deck-name-container {
+.nightMode .flashcard-metadata,
+.nightMode #deck-name-container {
   color: var(--dark-mode-footnote-text-color);
-}
-.night-mode #flashcard-source-info:has(#source-text:empty) path,
-.android
-  .ankidroid_dark_mode
-  #flashcard-source-info:has(#source-text:empty)
-  path {
-  fill: var(--dark-mode-empty-text-color);
-}
-.night-mode #flashcard-source-info:has(#source-text:empty),
-.android .ankidroid_dark_mode #flashcard-source-info:has(#source-text:empty) {
-  color: var(--dark-mode-empty-text-color);
 }
 
 .flashcard-metadata,
@@ -747,21 +861,6 @@ code {
   border-radius: 6px;
 }
 
-#flashcard-subject {
-  display: inline-block;
-  align-self: baseline;
-}
-
-.android #flashcard-subject {
-  align-self: center; /* fix uneven alignment */
-}
-
-.iphone #flashcard-subject,
-.ipad #flashcard-subject {
-  align-self: flex-end; /* fix uneven alignment */
-  margin-top: 3px;
-}
-
 /* disable remaining cards for now on mobile, due to breaking api changes */
 .android #deck-remaining-cards-container,
 .iphone #deck-remaining-cards-container,
@@ -769,29 +868,16 @@ code {
   display: none;
 }
 
-#flashcard-source-info:has(#source-text:empty) path {
-  fill: var(--light-mode-empty-text-color);
-}
-
 #flashcard-source-info:has(#source-text:empty) {
-  color: var(--light-mode-empty-text-color);
-}
-
-#flashcard-source-info {
-  margin-top: 2.875rem;
-}
-
-.night-mode #source-icon path,
-.android .ankidroid_dark_mode #source-icon path {
-  fill: var(--dark-mode-footnote-text-color);
+  opacity: 0.5;
 }
 
 #source-icon path {
   fill: var(--source-icon-accent-color);
 }
 
-#source-text:empty::before {
-  content: 'n/a';
+#flashcard-source-info {
+  margin-top: 2.875rem;
 }
 
 #source-text {
@@ -800,8 +886,9 @@ code {
 
 #deck-name-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  flex-flow: row wrap;
   gap: 0.5rem;
   padding: 0.25rem 0;
 }
@@ -823,10 +910,18 @@ code {
   flex-wrap: wrap;
 }
 
+/* align icons */
+#flashcard-details-info > * {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  gap: 0.75em;
+}
+
 /* ===========================
    Status Bar Component
 =========================== */
-.night-mode #status-bar {
+.nightMode #status-bar {
   color: var(--dark-mode-status-bar-color);
 }
 
@@ -842,11 +937,6 @@ code {
 }
 
 /* status buttons */
-#flag,
-#undo {
-  padding-left: 0.5625em;
-}
-
 /* align the icon and text */
 #undo-button,
 #flag-button {
@@ -854,8 +944,8 @@ code {
   display: flex;
   height: fit-content;
   flex-flow: nowrap;
-  padding: 0.25em 0.4em 0.25em 0.4em;
   box-sizing: border-box;
+  gap: 0.5625em;
 }
 
 #flag-button {
@@ -873,7 +963,7 @@ code {
   justify-content: center;
 }
 
-.night-mode #undo-button path {
+.nightMode #undo-button path {
   fill: var(--dark-mode-status-bar-color);
 }
 
@@ -892,7 +982,7 @@ code {
 }
 
 /* Default (Unflagged) State */
-.night-mode #flag-button:not(.flagged) #flag-icon path {
+.nightMode #flag-button:not(.flagged) #flag-icon path {
   fill: var(--dark-mode-status-bar-color);
 }
 
@@ -925,76 +1015,94 @@ code {
   --light-mode-flag-default: #444444;
 }
 
-.night-mode #flag-button.flag-yellow #flag-icon path,
-.night-mode #flag-button.flag-yellow:hover #flag-icon path {
+.nightMode #flag-button #dropdown-menu .flag-yellow path,
+.nightMode #flag-button.flag-yellow #flag-icon path,
+.nightMode #flag-button.flag-yellow:hover #flag-icon path {
   fill: var(--dark-mode-flag-yellow);
 }
-.night-mode #flag-button.flag-red #flag-icon path,
-.night-mode #flag-button.flag-red:hover #flag-icon path {
+.nightMode #flag-button #dropdown-menu .flag-red path,
+.nightMode #flag-button.flag-red #flag-icon path,
+.nightMode #flag-button.flag-red:hover #flag-icon path {
   fill: var(--dark-mode-flag-red);
 }
-.night-mode #flag-button.flag-blue #flag-icon path,
-.night-mode #flag-button.flag-blue:hover #flag-icon path {
+.nightMode #flag-button #dropdown-menu .flag-blue path,
+.nightMode #flag-button.flag-blue #flag-icon path,
+.nightMode #flag-button.flag-blue:hover #flag-icon path {
   fill: var(--dark-mode-flag-blue);
 }
-.night-mode #flag-button.flag-green #flag-icon path,
-.night-mode #flag-button.flag-green:hover #flag-icon path {
+.nightMode #flag-button #dropdown-menu .flag-green path,
+.nightMode #flag-button.flag-green #flag-icon path,
+.nightMode #flag-button.flag-green:hover #flag-icon path {
   fill: var(--dark-mode-flag-green);
 }
-.night-mode #flag-button.flag-orange #flag-icon path,
-.night-mode #flag-button.flag-orange:hover #flag-icon path {
+.nightMode #flag-button #dropdown-menu .flag-orange path,
+.nightMode #flag-button.flag-orange #flag-icon path,
+.nightMode #flag-button.flag-orange:hover #flag-icon path {
   fill: var(--dark-mode-flag-orange);
 }
-.night-mode #flag-button.flag-pink #flag-icon path,
-.night-mode #flag-button.flag-pink:hover #flag-icon path {
+.nightMode #flag-button #dropdown-menu .flag-pink path,
+.nightMode #flag-button.flag-pink #flag-icon path,
+.nightMode #flag-button.flag-pink:hover #flag-icon path {
   fill: var(--dark-mode-flag-pink);
 }
-.night-mode #flag-button.flag-turquoise #flag-icon path,
-.night-mode #flag-button.flag-turquoise:hover #flag-icon path {
+.nightMode #flag-button #dropdown-menu .flag-turquoise path,
+.nightMode #flag-button.flag-turquoise #flag-icon path,
+.nightMode #flag-button.flag-turquoise:hover #flag-icon path {
   fill: var(--dark-mode-flag-turquoise);
 }
-.night-mode #flag-button.flag-purple #flag-icon path,
-.night-mode #flag-button.flag-purple:hover #flag-icon path {
+.nightMode #flag-button #dropdown-menu .flag-purple path,
+.nightMode #flag-button.flag-purple #flag-icon path,
+.nightMode #flag-button.flag-purple:hover #flag-icon path {
   fill: var(--dark-mode-flag-purple);
 }
-.night-mode #flag-button.flag-default #flag-icon path,
-.night-mode #flag-button.flag-default:hover #flag-icon path {
+.nightMode #flag-button #dropdown-menu .flag-default path,
+.nightMode #flag-button.flag-default #flag-icon path,
+.nightMode #flag-button.flag-default:hover #flag-icon path {
   fill: var(--dark-mode-flag-default);
 }
 
 /* light mode flags */
+#flag-button #dropdown-menu .flag-yellow path,
 #flag-button.flag-yellow #flag-icon path {
   fill: var(--light-mode-flag-yellow);
 }
 
+#flag-button #dropdown-menu .flag-red path,
 #flag-button.flag-red #flag-icon path {
   fill: var(--light-mode-flag-red);
 }
 
+#flag-button #dropdown-menu .flag-blue path,
 #flag-button.flag-blue #flag-icon path {
   fill: var(--light-mode-flag-blue);
 }
 
+#flag-button #dropdown-menu .flag-green path,
 #flag-button.flag-green #flag-icon path {
   fill: var(--light-mode-flag-green);
 }
 
+#flag-button #dropdown-menu .flag-orange path,
 #flag-button.flag-orange #flag-icon path {
   fill: var(--light-mode-flag-orange);
 }
 
+#flag-button #dropdown-menu .flag-pink path,
 #flag-button.flag-pink #flag-icon path {
   fill: var(--light-mode-flag-pink);
 }
 
+#flag-button #dropdown-menu .flag-turquoise path,
 #flag-button.flag-turquoise #flag-icon path {
   fill: var(--light-mode-flag-turquoise);
 }
 
+#flag-button #dropdown-menu .flag-purple path,
 #flag-button.flag-purple #flag-icon path {
   fill: var(--light-mode-flag-purple);
 }
 
+#flag-button #dropdown-menu .flag-default path,
 #flag-button.flag-default #flag-icon path {
   fill: var(--light-mode-flag-default);
 }
@@ -1007,14 +1115,11 @@ code {
   cursor: pointer;
 }
 
-#undo-button:hover,
-#flag-button:hover {
+#undo-button:hover {
   color: var(--label-font-color);
 }
 
-#undo-button:hover path,
-#flag-button:hover path,
-#flag-button:hover:not(.flagged) #flag-icon path {
+#undo-button:hover path {
   fill: var(--label-font-color);
 }
 
@@ -1032,29 +1137,180 @@ code {
   display: none;
 }
 
+#flag-button {
+  flex-flow: column;
+}
+
+.flag-dropdown-icon svg {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+#flag-button-container {
+  display: flex;
+  gap: 0.5625em;
+  align-items: center;
+  align-self: end;
+}
+
+#dropdown-menu {
+  display: none; /* Hidden by default */
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+  z-index: 1;
+  padding: 0;
+  list-style-type: none; /* Remove list item markers */
+}
+
+#dropdown-menu .dropdown-item {
+  display: flex;
+  padding: 0.25em;
+  margin: 0;
+  border: none;
+  background: none;
+  text-align: left;
+  max-width: 100%;
+  background: #f7f7f8;
+}
+
+#dropdown-menu .dropdown-item:hover {
+  border: none;
+}
+
+/* Show the dropdown menu when hovering over the parent */
+#flag-button:hover #dropdown-menu {
+  display: flex;
+  flex-flow: column;
+}
+
+#dropdown-menu .dropdown-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.75em;
+  margin: 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f7f7f8;
+  box-shadow: none;
+}
+
+#dropdown-menu .dropdown-button:hover {
+  background: #EAEAEA;
+}
+
+.dropdown-item:first-child,
+.dropdown-item:first-child button {
+  border-radius: 5px 5px 0 0;
+}
+
+.dropdown-item:last-child,
+.dropdown-item:last-child button {
+  border-radius: 0 0 5px 5px;
+}
+
+#dropdown-menu #flag-text-container {
+  display: flex;
+  gap: 0.75em;
+  align-items: center;
+}
+
+.nightMode #dropdown-menu .dropdown-item {
+  background: #1a1a1a;
+}
+.nightMode #dropdown-menu .dropdown-button {
+  background: #1a1a1a;
+  border: none;
+}
+.nightMode #dropdown-menu .dropdown-button:hover {
+  background: #1f1f1f;
+  border-radius: 5px;
+}
+.nightMode #dropdown-menu .dropdown-text {
+  color: var(--dark-mode-main-text-color);
+}
+.nightMode #dropdown-menu .dropdown-control {
+  color: #d9d9d9;
+  border: none;
+}
+
+#dropdown-menu .dropdown-text {
+  color: #555;
+}
+
+#dropdown-menu .dropdown-control {
+  padding: 0.5em;
+  border-radius: 5px;
+  font-size: 0.9em;
+  color: #909090;
+  border: 1px solid #dedede;
+}
+
+#dropdown-menu .dropdown-control {
+  display: none;
+}
+
 /* ===========================
    Code Component
 =========================== */
+/* layout */
+pre code {
+  max-width: 100%;
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  white-space: pre;
+}
+
+pre {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+code {
+  white-space: nowrap;
+}
+
 /* code typography */
 code {
   font-family: var(--monospace-font-family);
 }
 
 .mac code,
-.mac code.hljs {
+.mac code.hljs,
+.win code,
+.win code.hljs,
+.linux:not(.android) code,
+.linux:not(.android) code.hljs {
   font-size: var(--mac-code-font-size-medium);
 }
 .mac pre code,
-.mac pre code.hljs {
+.mac pre code.hljs,
+.win pre code,
+.win pre code.hljs,
+.linux:not(.android) pre code,
+.linux:not(.android) pre code.hljs {
   font-size: var(--mac-code-font-size-small);
 }
 
-.ios code,
-.ios code.hljs {
+.mobile :not(pre) code {
+  line-height: 2.15rem;
+}
+
+.iphone code,
+.iphone code.hljs,
+.ipad code,
+.ipad code.hljs {
   font-size: var(--ios-code-font-size-medium);
 }
-.ios pre code,
-.ios pre code.hljs {
+.iphone pre code,
+.iphone pre code.hljs,
+.ipad pre code,
+.ipad pre code.hljs {
   font-size: var(--ios-code-font-size-small);
 }
 
@@ -1073,8 +1329,7 @@ code.hljs {
 
 /* default theme */
 /* does not override hljs themes */
-.night-mode pre:has(:not(.hljs)),
-.android .ankidroid_dark_mode pre:has(:not(.hljs)) {
+.nightMode pre:has(:not(.hljs)) {
   background-color: var(--dark-mode-code-block-background);
   border: 1px solid var(--dark-mode-code-block-background);
 }
@@ -1086,8 +1341,7 @@ pre:has(:not(.hljs)) {
   border-radius: 6px;
 }
 
-.night-mode code:not(.hljs),
-.android .ankidroid_dark_mode code:not(.hljs) {
+.nightMode code:not(.hljs) {
   background: var(--dark-mode-code-block-background);
   border: none;
 }
@@ -1099,14 +1353,6 @@ code:not(.hljs):not(pre code) {
   padding: 3px 5px;
 }
 
-/* layout */
-pre code {
-  max-width: 100%;
-  display: block;
-  overflow-x: auto;
-  padding: 1em;
-}
-
 /* ===========================
    Layout (Positioning and Spacing)
 =========================== */
@@ -1115,22 +1361,18 @@ pre code {
 }
 
 html,
-body,
+.card,
 #qa {
-  height: 100%; /* Make the html and body take up full height */
+  /* Make the html and body take up full height */
+  height: min(100%, 100vh);
   max-height: 100vh;
   margin: 0;
 }
 
-body {
-  height: 100%;
-}
-
-#qa {
+.card {
+  height: min(100%, 100vh);
   display: flex;
-  flex-flow: row; /* column for without section */
   justify-content: center;
-  align-items: center;
 }
 
 #main {
@@ -1138,8 +1380,8 @@ body {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
+  height: min(100%, 100vh);
+  width: min(100%, 100vw);
   max-width: var(--status-bar-width);
 }
 
@@ -1148,7 +1390,7 @@ header,
 #status-bar-buttons {
   width: 100%; /* grow to 100%, then stop at max-width */
   max-width: var(--status-bar-width);
-  max-height: 3rem;
+  max-height: 2.95em;
   flex-grow: 1;
 }
 
@@ -1192,6 +1434,7 @@ header,
   padding: 2.5rem 2rem;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   min-height: 250px;
   max-width: 100%;
   box-sizing: border-box; /* Also use in the textbox */
@@ -1200,7 +1443,10 @@ header,
 #flashcard-answer {
   display: flex;
   gap: 0.75em;
-  align-items: center;
+  align-items: flex-start;
+}
+
+#flashcard-answer:has(pre) {
   flex-flow: row wrap;
 }
 
@@ -1223,10 +1469,6 @@ header,
   margin-top: 2.875rem;
 }
 
-#flashcard-question:not(:only-child) {
-  margin-bottom: 1rem;
-}
-
 .hidden {
   display: none !important;
 }
@@ -1243,10 +1485,6 @@ header,
 
 #answer-text {
   margin: 0;
-}
-
-#details {
-  display: inline-block;
 }
 
 #flashcard-content {
@@ -1275,12 +1513,18 @@ header,
 }
 :root {
   /* android material 3 theming */
-  --android-light-background: #f3f3f3;
+  --android-light-background: #fcfcfc;
   --android-dark-background: #1a1c1e;
-  --android-flashcard-background-light: #f1f1f1;
+  --android-flashcard-background-light: #fefefe;
   --android-flashcard-background-dark: #242629;
-  --android-box-shadow-light: 0 8px 10px rgba(0, 0, 0, 0.1);
+  --android-box-shadow-light: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   --android-box-shadow-dark: 0 8px 0 #1f2124;
+  --android-alt-dark-bg-color: #0f0f0f;
+  --android-alt-dark-surface-color: linear-gradient(
+    to bottom,
+    #1d1d1d,
+    #181818
+  );
 }
 
 /* android layout, based on Pixel 7 testing */
@@ -1308,7 +1552,7 @@ Backdrop Background: #303030
 Flashcard Background: #353535
 
 */
-.android body {
+.android body.card {
   background: var(--android-light-background);
 }
 .android #flashcard-content {
@@ -1316,16 +1560,33 @@ Flashcard Background: #353535
   background: var(--android-flashcard-background-light);
   box-shadow: var(--android-box-shadow-light);
 }
-.android.night-mode body,
-.android .ankidroid_dark_mode {
-  background: var(
-    --android-dark-background
-  ) !important; /* override default Anki */
+.android #title {
+  font-weight: 500;
 }
-.android.night-mode #flashcard-content,
-.android .ankidroid_dark_mode #flashcard-content {
+.android #answer-icon {
+  margin: 0;
+}
+.android .nightMode.card {
+  background: var(--android-dark-background);
+  background: var(--android-alt-dark-bg-color);
+}
+.android .nightMode #flashcard-content {
   background: var(--android-flashcard-background-dark);
   box-shadow: var(--android-box-shadow-dark);
+  background: var(--android-alt-dark-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #161618, #1c1c1e);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+}
+
+:root {
+  --desktop-light-mode-bg: linear-gradient(to bottom, #f8f8f8, #eaeaea);
+  --desktop-light-mode-box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  --desktop-light-mode-border: 1px solid rgba(0, 0, 0, 0.08);
+  --desktop-dark-mode-bg: linear-gradient(to bottom, #242424, #1e1e1e);
+  --desktop-dark-mode-box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+  --desktop-dark-mode-border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .mac #flashcard-content,
@@ -1333,35 +1594,33 @@ Flashcard Background: #353535
 .linux:not(.android) #flashcard-content {
   max-height: var(--mac-flashcard-content-ideal-max-height);
   border-radius: 12px;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: linear-gradient(to bottom, #f8f8f8, #eaeaea);
+  box-shadow: var(--desktop-light-mode-box-shadow);
+  border: var(--desktop-light-mode-border);
+  background: var(--desktop-light-mode-bg);
 }
-.mac.night-mode #flashcard-content,
-.win.night-mode #flashcard-content,
-.linux:not(.android).night-mode #flashcard-content {
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(to bottom, #242424, #1e1e1e);
+.mac .nightMode #flashcard-content,
+.win .nightMode #flashcard-content,
+.linux:not(.android) .nightMode #flashcard-content {
+  box-shadow: var(--desktop-dark-mode-box-shadow);
+  border: var(--desktop-dark-mode-border);
+  background: var(--desktop-dark-mode-bg);
+}
+.mac .callout,
+.win .callout,
+.linux:not(.android) .callout {
+  font-size: var(--mac-font-size-callout);
+  line-height: var(--mac-line-height-callout);
 }
 
 :root {
   /* iOS Light & Dark Mode Color Variables */
-  --ios-light-background: #f3f3f3; /* Soft light gray */
-  --ios-dark-background: #121212; /* Darker background for iOS dark mode, more refined */
-  --ios-flashcard-background-light: #ffffff; /* Pure white for flashcard content */
-  --ios-flashcard-background-dark: #1e1e1e; /* Darker flashcard background for night mode, more neutral */
-  --ios-box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for iOS light mode */
-  --ios-box-shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slightly more intense shadow for dark mode */
-  --ios-border-radius: 12px; /* Rounded corners for iOS */
-}
-
-/* fix ios text alignment */
-.iphone #flashcard-title,
-.iphone #flashcard-subject,
-.ipad #flashcard-title,
-.ipad #flashcard-subject {
-  align-self: start;
+  --ios-light-background: #f7f7f7;
+  --ios-flashcard-background-light: #ffffff;
+  --ios-box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --ios-dark-mode-bg: linear-gradient(to bottom, #242424, #1e1e1e);
+  --ios-dark-mode-box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+  --ios-dark-mode-border: 1px solid rgba(255, 255, 255, 0.08);
+  --ios-border-radius: 12px;
 }
 
 .iphone #flashcard-question,
@@ -1373,42 +1632,45 @@ Flashcard Background: #353535
   text-align: left;
 }
 
-.iphone body,
-.ipad body {
-  color: var(--light-mode-main-text-color);
-  font-family: var(--ios-font-family);
-}
-.iphone.night-mode body,
-.ipad.night-mode body {
-  color: var(--dark-mode-main-text-color);
-}
-
-/* override link color on ios */
-.iphone a,
-.ipad a {
-  color: darkgray;
-}
-
-/* not supported for ios */
+/* deck metadata is not supported for ios */
 .iphone #flashcard-deck-info,
 .ipad #flashcard-deck-info {
   display: none;
 }
 
-.iphone body,
-.ipad body {
+.iphone .card,
+.ipad .card {
+  color: var(--light-mode-main-text-color);
+  font-family: var(--system-font-family);
   background: var(--ios-light-background);
 }
-.iphone #flashcard-content,
-.ipad #flashcard-content {
+.iphone .card #flashcard-content,
+.ipad .card #flashcard-content {
   max-height: var(--iphone-ideal-max-height);
   background: var(--ios-flashcard-background-light);
   box-shadow: var(--ios-box-shadow-light);
   border-radius: var(--ios-border-radius);
 }
-.iphone.night-mode #flashcard-content,
-.ipad.night-mode #flashcard-content {
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(to bottom, #242424, #1e1e1e);
+.iphone .card #flashcard-container,
+.ipad .card #flashcard-container {
+  padding: 0 0.5em;
+}
+.iphone .card #flashcard-textbox,
+.ipad .card #flashcard-textbox {
+  padding: 1.35rem 1.75rem;
+}
+.iphone .card.nightMode,
+.ipad .card.nightMode {
+  color: var(--dark-mode-main-text-color);
+  background: var(--dark-mode-main-bg-color);
+}
+.iphone .card.nightMode #flashcard-content,
+.ipad .card.nightMode #flashcard-content {
+  box-shadow: var(--ios-dark-mode-box-shadow);
+  border: var(--ios-dark-mode-border);
+  background: var(--ios-dark-mode-bg);
+}
+.iphone .card.nightMode a,
+.ipad .card.nightMode a {
+  color: var(--dark-mode-link-accent-color);
 }
