@@ -45,6 +45,12 @@ code {
   }
 }
 
+// inline code doesn't have enough breathing room on mobile devices.
+
+.mobile :not(pre) code {
+  line-height: 2.15rem;
+}
+
 // revisit ipad styles later
 .iphone,
 .ipad {
