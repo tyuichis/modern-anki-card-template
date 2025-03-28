@@ -7,56 +7,28 @@
 
 :root {
   /* iOS Light & Dark Mode Color Variables */
-  --ios-light-background: #f3f3f3; /* Soft light gray */
-  --ios-dark-background: #121212; /* Darker background for iOS dark mode, more refined */
+  --ios-light-background: #f7f7f7;
+  --ios-flashcard-background-light: #ffffff;
+  --ios-box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-  --ios-flashcard-background-light: #ffffff; /* Pure white for flashcard content */
-  --ios-flashcard-background-dark: #1e1e1e; /* Darker flashcard background for night mode, more neutral */
+  // use desktop styling
+  --ios-dark-mode-bg: linear-gradient(to bottom, #242424, #1e1e1e);
+  --ios-dark-mode-box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+  --ios-dark-mode-border: 1px solid rgba(255, 255, 255, 0.08);
 
-  --ios-box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for iOS light mode */
-  --ios-box-shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slightly more intense shadow for dark mode */
-
-  --ios-border-radius: 12px; /* Rounded corners for iOS */
-}
-
-/* fix ios text alignment */
-.iphone #flashcard-title,
-.iphone #flashcard-subject,
-.ipad #flashcard-title,
-.ipad #flashcard-subject {
-  align-self: start;
-}
-
-.iphone #flashcard-question,
-.iphone #flashcard-answer,
-.iphone #source-text,
-.ipad #flashcard-question,
-.ipad #flashcard-answer,
-.ipad #source-text {
-  text-align: left;
+  --ios-border-radius: 12px;
 }
 
 .iphone,
 .ipad {
-  body {
-    color: var(--light-mode-main-text-color);
-    font-family: var(--ios-font-family); // for testing.
-  }
-
-  &.night-mode {
-    body {
-      color: var(--dark-mode-main-text-color);
-    }
+  #flashcard-question,
+  #flashcard-answer,
+  #source-text {
+    text-align: left;
   }
 }
 
-/* override link color on ios */
-.iphone a,
-.ipad a {
-  color: darkgray;
-}
-
-/* not supported for ios */
+/* deck metadata is not supported for ios */
 .iphone #flashcard-deck-info,
 .ipad #flashcard-deck-info {
   display: none;
@@ -64,33 +36,39 @@
 
 .iphone,
 .ipad {
-  body {
+  .card {
+    color: var(--light-mode-main-text-color);
+    font-family: var(--system-font-family);
     background: var(--ios-light-background);
-  }
 
-  #flashcard-content {
-    max-height: var(--iphone-ideal-max-height);
-    background: var(--ios-flashcard-background-light);
-    box-shadow: var(--ios-box-shadow-light);
-    border-radius: var(--ios-border-radius);
-  }
+    #flashcard-content {
+      max-height: var(--iphone-ideal-max-height);
+      background: var(--ios-flashcard-background-light);
+      box-shadow: var(--ios-box-shadow-light);
+      border-radius: var(--ios-border-radius);
+    }
 
-  // flat style.
-  // &.night-mode {
-  //   body {
-  //     background: var(--ios-dark-background);
-  //   }
+    #flashcard-container {
+      padding: 0 0.5em; // iphone sides too cramped.
+    }
 
-  //   #flashcard-content {
-  //     background: var(--ios-flashcard-background-dark);
-  //     box-shadow: var(--ios-box-shadow-dark);
-  //   }
-  // }
+    #flashcard-textbox {
+      padding: 1.35rem 1.75rem;
+    }
 
-  // use mac style
-  &.night-mode #flashcard-content {
-    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: linear-gradient(to bottom, #242424, #1e1e1e);
+    &.nightMode {
+      color: var(--dark-mode-main-text-color);
+      background: var(--dark-mode-main-bg-color);
+
+      #flashcard-content {
+        box-shadow: var(--ios-dark-mode-box-shadow);
+        border: var(--ios-dark-mode-border);
+        background: var(--ios-dark-mode-bg);
+      }
+
+      a {
+        color: var(--dark-mode-link-accent-color);
+      }
+    }
   }
 }
