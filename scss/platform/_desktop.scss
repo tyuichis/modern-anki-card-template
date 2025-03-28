@@ -6,31 +6,47 @@
 // See the LICENSE file in the project root for details.
 
 :root {
-  --desktop-light-mode-bg: linear-gradient(to bottom, #f8f8f8, #eaeaea);
-  --desktop-light-mode-box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  // --desktop-light-mode-surface-bg: linear-gradient(to bottom, #f8f8f8, #eaeaea); original gradient
+  --desktop-light-mode-surface-bg: #fafafa; // use plain design
+  --desktop-light-mode-bg: #f3f3f3;
+  // --desktop-light-mode-box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  --desktop-light-mode-box-shadow: none; // use plain design
   --desktop-light-mode-border: 1px solid rgba(0, 0, 0, 0.08);
 
-  --desktop-dark-mode-bg: linear-gradient(to bottom, #242424, #1e1e1e);
+  --desktop-dark-mode-surface-bg: linear-gradient(to bottom, #242424, #1e1e1e);
   --desktop-dark-mode-box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
   --desktop-dark-mode-border: 1px solid rgba(255, 255, 255, 0.08);
+  --desktop-flashcard-border-radius: 9px; //original 12px
 }
 
 .mac,
 .win,
 .linux:not(.android) {
-  #flashcard-content {
-    max-height: var(--mac-flashcard-content-ideal-max-height);
-    border-radius: 12px;
-    box-shadow: var(--desktop-light-mode-box-shadow);
-    border: var(--desktop-light-mode-border);
+  .card,
+  .card::before {
     background: var(--desktop-light-mode-bg);
   }
 
+  #flashcard-content {
+    max-height: var(--mac-flashcard-content-ideal-max-height);
+    border-radius: var(--desktop-flashcard-border-radius);
+    box-shadow: var(--desktop-light-mode-box-shadow);
+    border: var(--desktop-light-mode-border);
+    background: var(--desktop-light-mode-surface-bg);
+  }
+
   .nightMode {
+    &.card,
+    &.card::before {
+      background: var(
+        --dark-mode-main-bg-color
+      ); // make sure light mode card does not override our desktop dark mode.
+    }
+
     #flashcard-content {
       box-shadow: var(--desktop-dark-mode-box-shadow);
       border: var(--desktop-dark-mode-border);
-      background: var(--desktop-dark-mode-bg);
+      background: var(--desktop-dark-mode-surface-bg);
     }
   }
 
