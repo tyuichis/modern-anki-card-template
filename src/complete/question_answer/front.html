@@ -40,6 +40,7 @@ See the LICENSE file in the project root for details. -->
   var flagButton = null;
   var flag = null;
   var flagId = null;
+  var dropdownButtons = null;
 
   if (!globalThis.labelColors) {
     globalThis.labelColors = {
@@ -195,6 +196,16 @@ See the LICENSE file in the project root for details. -->
       flagButton.classList.remove('flagged');
     } else {
       flagButton.classList.add('flagged');
+    }
+  }
+
+  async function setFlag(value) {
+    try {
+      return await new Promise((resolve) =>
+        pycmd(`set_flag_${value}`, resolve),
+      );
+    } catch (error) {
+      console.error('Some error occurred while setting a flag:', error);
     }
   }
 
@@ -375,21 +386,193 @@ See the LICENSE file in the project root for details. -->
       <!-- Flag Button -->
       <li>
         <div id="flag-button" class="button">
-          <span id="flag-icon">
-            <svg
-              width="14"
-              height="16"
-              viewBox="0 0 14 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2 1C2 0.446875 1.55313 0 1 0C0.446875 0 0 0.446875 0 1V2V11.5V15C0 15.5531 0.446875 16 1 16C1.55313 16 2 15.5531 2 15V11L4.00937 10.4969C5.29375 10.175 6.65313 10.325 7.8375 10.9156C9.21875 11.6062 10.8219 11.6906 12.2656 11.1469L13.35 10.7406C13.7406 10.5938 14 10.2219 14 9.80313V2.0625C14 1.34375 13.2438 0.875 12.6 1.19687L12.3 1.34687C10.8531 2.07187 9.15 2.07187 7.70312 1.34687C6.60625 0.796875 5.34687 0.659375 4.15625 0.95625L2 1.5V1Z"
-                fill="white"
-              />
-            </svg>
-          </span>
-          <span id="flag">Flag</span>
+          <div id="flag-button-container">
+            <span id="flag-icon">
+              <svg
+                width="14"
+                height="16"
+                viewBox="0 0 14 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 1C2 0.446875 1.55313 0 1 0C0.446875 0 0 0.446875 0 1V2V11.5V15C0 15.5531 0.446875 16 1 16C1.55313 16 2 15.5531 2 15V11L4.00937 10.4969C5.29375 10.175 6.65313 10.325 7.8375 10.9156C9.21875 11.6062 10.8219 11.6906 12.2656 11.1469L13.35 10.7406C13.7406 10.5938 14 10.2219 14 9.80313V2.0625C14 1.34375 13.2438 0.875 12.6 1.19687L12.3 1.34687C10.8531 2.07187 9.15 2.07187 7.70312 1.34687C6.60625 0.796875 5.34687 0.659375 4.15625 0.95625L2 1.5V1Z"
+                  fill="white"
+                />
+              </svg>
+            </span>
+            <span id="flag">Flag</span>
+          </div>
+          <ul id="dropdown-menu" class="dropdown-content">
+            <li class="dropdown-item">
+              <button class="dropdown-button" value="1">
+                <div id="flag-text-container">
+                  <span class="flag-dropdown-icon flag-red">
+                    <svg
+                      width="56"
+                      height="56"
+                      viewBox="0 0 56 56"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M8.969 51.004c.984 0 1.781-.773 1.781-1.781V36.215c.586-.258 2.79-1.102 6.234-1.102c8.672 0 14.11 4.243 22.36 4.243c3.656 0 5.015-.399 6.797-1.196c1.617-.726 2.672-1.945 2.672-4.101V10.246c0-1.242-1.079-1.992-2.438-1.992c-1.148 0-3.305 1.008-7.336 1.008c-8.25 0-13.664-4.266-22.36-4.266c-3.656 0-5.038.398-6.82 1.195c-1.617.727-2.671 1.97-2.671 4.102v38.93c0 .96.82 1.78 1.78 1.78"
+                      />
+                    </svg>
+                  </span>
+                  <span class="dropdown-text">Red</span>
+                </div>
+                <span class="dropdown-control">⌘1</span>
+              </button>
+            </li>
+            <li class="dropdown-item">
+              <button class="dropdown-button" value="2">
+                <div id="flag-text-container">
+                  <span class="flag-dropdown-icon flag-orange">
+                    <svg
+                      width="56"
+                      height="56"
+                      viewBox="0 0 56 56"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M8.969 51.004c.984 0 1.781-.773 1.781-1.781V36.215c.586-.258 2.79-1.102 6.234-1.102c8.672 0 14.11 4.243 22.36 4.243c3.656 0 5.015-.399 6.797-1.196c1.617-.726 2.672-1.945 2.672-4.101V10.246c0-1.242-1.079-1.992-2.438-1.992c-1.148 0-3.305 1.008-7.336 1.008c-8.25 0-13.664-4.266-22.36-4.266c-3.656 0-5.038.398-6.82 1.195c-1.617.727-2.671 1.97-2.671 4.102v38.93c0 .96.82 1.78 1.78 1.78"
+                      />
+                    </svg>
+                  </span>
+                  <span class="dropdown-text">Orange</span>
+                </div>
+                <span class="dropdown-control">⌘2</span>
+              </button>
+            </li>
+            <li class="dropdown-item">
+              <button class="dropdown-button" value="3">
+                <div id="flag-text-container">
+                  <span class="flag-dropdown-icon flag-green">
+                    <svg
+                      width="56"
+                      height="56"
+                      viewBox="0 0 56 56"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M8.969 51.004c.984 0 1.781-.773 1.781-1.781V36.215c.586-.258 2.79-1.102 6.234-1.102c8.672 0 14.11 4.243 22.36 4.243c3.656 0 5.015-.399 6.797-1.196c1.617-.726 2.672-1.945 2.672-4.101V10.246c0-1.242-1.079-1.992-2.438-1.992c-1.148 0-3.305 1.008-7.336 1.008c-8.25 0-13.664-4.266-22.36-4.266c-3.656 0-5.038.398-6.82 1.195c-1.617.727-2.671 1.97-2.671 4.102v38.93c0 .96.82 1.78 1.78 1.78"
+                      />
+                    </svg>
+                  </span>
+                  <span class="dropdown-text">Green</span>
+                </div>
+                <span class="dropdown-control">⌘3</span>
+              </button>
+            </li>
+            <li class="dropdown-item">
+              <button class="dropdown-button" value="4">
+                <div id="flag-text-container">
+                  <span class="flag-dropdown-icon flag-blue">
+                    <svg
+                      width="56"
+                      height="56"
+                      viewBox="0 0 56 56"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M8.969 51.004c.984 0 1.781-.773 1.781-1.781V36.215c.586-.258 2.79-1.102 6.234-1.102c8.672 0 14.11 4.243 22.36 4.243c3.656 0 5.015-.399 6.797-1.196c1.617-.726 2.672-1.945 2.672-4.101V10.246c0-1.242-1.079-1.992-2.438-1.992c-1.148 0-3.305 1.008-7.336 1.008c-8.25 0-13.664-4.266-22.36-4.266c-3.656 0-5.038.398-6.82 1.195c-1.617.727-2.671 1.97-2.671 4.102v38.93c0 .96.82 1.78 1.78 1.78"
+                      />
+                    </svg>
+                  </span>
+                  <span class="dropdown-text">Blue</span>
+                </div>
+                <span class="dropdown-control">⌘4</span>
+              </button>
+            </li>
+            <li class="dropdown-item">
+              <button class="dropdown-button" value="5">
+                <div id="flag-text-container">
+                  <span class="flag-dropdown-icon flag-pink">
+                    <svg
+                      width="56"
+                      height="56"
+                      viewBox="0 0 56 56"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M8.969 51.004c.984 0 1.781-.773 1.781-1.781V36.215c.586-.258 2.79-1.102 6.234-1.102c8.672 0 14.11 4.243 22.36 4.243c3.656 0 5.015-.399 6.797-1.196c1.617-.726 2.672-1.945 2.672-4.101V10.246c0-1.242-1.079-1.992-2.438-1.992c-1.148 0-3.305 1.008-7.336 1.008c-8.25 0-13.664-4.266-22.36-4.266c-3.656 0-5.038.398-6.82 1.195c-1.617.727-2.671 1.97-2.671 4.102v38.93c0 .96.82 1.78 1.78 1.78"
+                      />
+                    </svg>
+                  </span>
+                  <span class="dropdown-text">Pink</span>
+                </div>
+                <span class="dropdown-control">⌘5</span>
+              </button>
+            </li>
+            <li class="dropdown-item">
+              <button class="dropdown-button" value="6">
+                <div id="flag-text-container">
+                  <span class="flag-dropdown-icon flag-turquoise">
+                    <svg
+                      width="56"
+                      height="56"
+                      viewBox="0 0 56 56"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M8.969 51.004c.984 0 1.781-.773 1.781-1.781V36.215c.586-.258 2.79-1.102 6.234-1.102c8.672 0 14.11 4.243 22.36 4.243c3.656 0 5.015-.399 6.797-1.196c1.617-.726 2.672-1.945 2.672-4.101V10.246c0-1.242-1.079-1.992-2.438-1.992c-1.148 0-3.305 1.008-7.336 1.008c-8.25 0-13.664-4.266-22.36-4.266c-3.656 0-5.038.398-6.82 1.195c-1.617.727-2.671 1.97-2.671 4.102v38.93c0 .96.82 1.78 1.78 1.78"
+                      />
+                    </svg>
+                  </span>
+                  <span class="dropdown-text">Turquoise</span>
+                </div>
+                <span class="dropdown-control">⌘6</span>
+              </button>
+            </li>
+            <li class="dropdown-item">
+              <button class="dropdown-button" value="7">
+                <div id="flag-text-container">
+                  <span class="flag-dropdown-icon flag-purple">
+                    <svg
+                      width="56"
+                      height="56"
+                      viewBox="0 0 56 56"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M8.969 51.004c.984 0 1.781-.773 1.781-1.781V36.215c.586-.258 2.79-1.102 6.234-1.102c8.672 0 14.11 4.243 22.36 4.243c3.656 0 5.015-.399 6.797-1.196c1.617-.726 2.672-1.945 2.672-4.101V10.246c0-1.242-1.079-1.992-2.438-1.992c-1.148 0-3.305 1.008-7.336 1.008c-8.25 0-13.664-4.266-22.36-4.266c-3.656 0-5.038.398-6.82 1.195c-1.617.727-2.671 1.97-2.671 4.102v38.93c0 .96.82 1.78 1.78 1.78"
+                      />
+                    </svg>
+                  </span>
+                  <span class="dropdown-text">Purple</span>
+                </div>
+                <span class="dropdown-control">⌘7</span>
+              </button>
+            </li>
+            <li class="dropdown-item">
+              <button class="dropdown-button" value="0">
+                <div id="flag-text-container">
+                  <span class="flag-dropdown-icon flag-default">
+                    <svg
+                      width="56"
+                      height="56"
+                      viewBox="0 0 56 56"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M47.067 46.598c.726.703 1.874.703 2.554 0c.727-.68.727-1.852 0-2.555L8.911 3.356a1.84 1.84 0 0 0-2.579 0c-.68.68-.68 1.875 0 2.554ZM16.879 7.363l31.172 31.149c.375-.586.586-1.266.586-2.11V12.59c0-1.242-1.078-1.992-2.438-1.992c-1.148 0-3.304 1.007-7.336 1.007c-8.086 0-13.476-4.124-21.984-4.242M7.012 51.566c0 .961.82 1.782 1.781 1.782c.984 0 1.781-.774 1.781-1.782V38.56c.586-.258 2.79-1.102 6.235-1.102c8.297 0 13.5 3.844 21.351 4.195L7.48 11.02a3 3 0 0 0-.468 1.617Z"
+                      />
+                    </svg>
+                  </span>
+                  <span class="dropdown-text">No Flag</span>
+                </div>
+                <span class="dropdown-control">⌘0</span>
+              </button>
+            </li>
+          </ul>
         </div>
       </li>
     </ul>
@@ -397,7 +580,9 @@ See the LICENSE file in the project root for details. -->
 
   <div id="flashcard-container">
     <div id="flashcard-title">
-      <h1 id="title">{{^Card Category}}Untitled{{/Card Category}}{{Card Category}}</h1>
+      <h1 id="title">
+        {{^Card Category}}Untitled{{/Card Category}}{{Card Category}}
+      </h1>
     </div>
     <div id="flashcard-labels">
       <div id="deck-name-container">
@@ -649,19 +834,24 @@ See the LICENSE file in the project root for details. -->
     // custom flag button only exists on desktop
     updateFlag(); // update on page reload. updates the visual state of the flag.
 
-    // setup event listener
-    flagButton = document.getElementById('flag-button');
-    flagButton.addEventListener('click', async () => {
-      // console.log('set_flag_[flagId] called');
-      try {
-        const flagStatus = await new Promise((resolve) =>
-          pycmd(`set_flag_${flagId}`, resolve),
-        );
+    // Select all buttons inside the dropdown menu
+    dropdownButtons = document.querySelectorAll(
+      '#dropdown-menu .dropdown-button',
+    );
 
-        updateFlag();
-      } catch (e) {
-        // console.log('Error getting flag status:', e);
-      }
+    // Add an event listener to each button
+    dropdownButtons.forEach((button) => {
+      button.addEventListener('click', async (event) => {
+        try {
+          event.preventDefault();
+
+          await setFlag(button.value);
+
+          updateFlag();
+        } catch (error) {
+          console.log('Some error occured while setting a flag: ', error);
+        }
+      });
     });
   }
 </script>
