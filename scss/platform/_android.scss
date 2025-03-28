@@ -8,14 +8,21 @@
 :root {
   /* android material 3 theming */
 
-  --android-light-background: #f3f3f3;
+  --android-light-background: #fcfcfc; // original: #f3f3f3
   --android-dark-background: #1a1c1e;
 
-  --android-flashcard-background-light: #f1f1f1;
+  --android-flashcard-background-light: #fefefe; // original: #f1f1f1;
   --android-flashcard-background-dark: #242629;
 
-  --android-box-shadow-light: 0 8px 10px rgba(0, 0, 0, 0.1);
+  --android-box-shadow-light: 0px 1px 3px 1px rgba(0, 0, 0, 0.15); // original: 0 8px 10px rgba(0, 0, 0, 0.1);
   --android-box-shadow-dark: 0 8px 0 #1f2124;
+
+  --android-alt-dark-bg-color: #0f0f0f;
+  --android-alt-dark-surface-color: linear-gradient(
+    to bottom,
+    #1d1d1d,
+    #181818
+  );
 }
 
 /* android layout, based on Pixel 7 testing */
@@ -50,7 +57,7 @@ Flashcard Background: #353535
 // }
 
 .android {
-  body {
+  body.card {
     background: var(--android-light-background);
   }
 
@@ -60,19 +67,34 @@ Flashcard Background: #353535
     box-shadow: var(--android-box-shadow-light);
   }
 
-  // Apply dark mode styles when .android has .night-mode OR body has .night_mode
-  // .night-mode exists on the HTML tag while on the new reviewer (same as desktop)
-  // .ankidroid_dark_mode is currently the only option on the old reviewer
-  &.night-mode body,
-  .ankidroid_dark_mode {
-    background: var(
-      --android-dark-background
-    ) !important; /* override default Anki */
+  #title {
+    font-weight: 500; // material design titles
   }
 
-  &.night-mode #flashcard-content,
-  .ankidroid_dark_mode #flashcard-content {
-    background: var(--android-flashcard-background-dark);
-    box-shadow: var(--android-box-shadow-dark);
+  #answer-icon {
+    margin: 0; // fix misalignment.
+  }
+
+  .nightMode {
+    // .card is on the same body tag as .nightMode
+    &.card {
+      background: var(--android-dark-background);
+      // test
+      background: var(--android-alt-dark-bg-color);
+    }
+
+    #flashcard-content {
+      background: var(--android-flashcard-background-dark);
+      box-shadow: var(--android-box-shadow-dark);
+
+      // test
+      background: var(--android-alt-dark-surface-color);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      background: linear-gradient(135deg, #161618, #1c1c1e);
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      // border: 1px solid #2c2c2c;
+    }
   }
 }
