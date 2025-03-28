@@ -33,8 +33,12 @@
   --light-mode-code-block-background: #f9f9f9;
   --light-mode-code-block-border: #d1d1d1;
 
-  --light-mode-link-accent-color: #d91e50;
-  --dark-mode-link-accent-color: darkgrey;
+  --light-mode-link-text-color: #666666;
+  --dark-mode-link-text-color: darkgrey;
+  --light-mode-link-hover-color: #1a73e8; // original: #d91e50
+  --dark-mode-link-hover-color: #8ab4f8;
+  --light-mode-link-focus-color: rgba(26, 115, 232, 0.3);
+  --dark-mode-link-focus-color: rgba(138, 180, 248, 0.3);
 
   --dark-mode-status-bar-color: rgba(
     255,

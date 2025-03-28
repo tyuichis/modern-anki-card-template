@@ -62,6 +62,8 @@ b,
   }
 }
 
+/* link tags, underline for accessiblity */
+
 .card {
   a {
     color: var(--light-mode-footnote-text-color);
@@ -72,18 +74,28 @@ b,
   }
 
   a:hover {
-    color: var(--light-mode-link-accent-color);
-    color: #1a73e8;
+    color: var(--light-mode-link-hover-color);
+    text-decoration: underline;
+  }
+
+  a:focus {
+    text-decoration: underline;
+    outline: var(--light-mode-link-focus-color);
   }
 
   &.nightMode {
     a {
-      color: var(--dark-mode-link-accent-color);
-      text-decoration: underline;
+      color: var(--dark-mode-link-text-color);
     }
 
     a:hover {
-      color: #8ab4f8;
+      color: var(--dark-mode-link-hover-color);
+      text-decoration: underline;
+    }
+
+    a:focus {
+      text-decoration: underline;
+      outline: var(--dark-mode-link-focus-color);
     }
   }
 }
