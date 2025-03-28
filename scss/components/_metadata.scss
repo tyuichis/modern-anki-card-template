@@ -17,20 +17,19 @@
   align-items: center;
 }
 
-.night-mode,
-.android .ankidroid_dark_mode {
+.nightMode {
   .flashcard-metadata,
   #deck-name-container {
     color: var(--dark-mode-footnote-text-color);
   }
 
-  #flashcard-source-info:has(#source-text:empty) path {
-    fill: var(--dark-mode-empty-text-color);
-  }
+  // #flashcard-source-info:has(#source-text:empty) path {
+  //   fill: var(--dark-mode-empty-text-color);
+  // }
 
-  #flashcard-source-info:has(#source-text:empty) {
-    color: var(--dark-mode-empty-text-color);
-  }
+  // #flashcard-source-info:has(#source-text:empty) {
+  //   color: var(--dark-mode-empty-text-color);
+  // }
 }
 
 .flashcard-metadata,
@@ -47,25 +46,6 @@
   border-radius: 6px;
 }
 
-#flashcard-subject {
-  display: inline-block;
-  align-self: baseline;
-}
-
-.android {
-  #flashcard-subject {
-    align-self: center; /* fix uneven alignment */
-  }
-}
-
-.iphone,
-.ipad {
-  #flashcard-subject {
-    align-self: flex-end; /* fix uneven alignment */
-    margin-top: 3px;
-  }
-}
-
 /* disable remaining cards for now on mobile, due to breaking api changes */
 
 .android,
@@ -76,31 +56,21 @@
   }
 }
 
-#flashcard-source-info:has(#source-text:empty) path {
-  fill: var(--light-mode-empty-text-color);
-}
+// #flashcard-source-info:has(#source-text:empty) path {
+//   fill: var(--light-mode-empty-text-color);
+// }
 
 #flashcard-source-info:has(#source-text:empty) {
-  color: var(--light-mode-empty-text-color);
-}
-
-#flashcard-source-info {
-  margin-top: 2.875rem;
-}
-
-.night-mode,
-.android .ankidroid_dark_mode {
-  #source-icon path {
-    fill: var(--dark-mode-footnote-text-color);
-  }
+  // color: var(--light-mode-empty-text-color);
+  opacity: 0.5;
 }
 
 #source-icon path {
   fill: var(--source-icon-accent-color);
 }
 
-#source-text:empty::before {
-  content: 'n/a';
+#flashcard-source-info {
+  margin-top: 2.875rem;
 }
 
 #source-text {
@@ -109,8 +79,9 @@
 
 #deck-name-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  flex-flow: row wrap;
   gap: 0.5rem;
   padding: 0.25rem 0;
 }
@@ -130,4 +101,12 @@
   align-items: center;
   gap: 0.5em;
   flex-wrap: wrap;
+}
+
+/* align icons */
+#flashcard-details-info > * {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  gap: 0.75em;
 }
