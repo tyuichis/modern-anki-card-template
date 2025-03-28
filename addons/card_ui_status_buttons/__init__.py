@@ -152,8 +152,9 @@ def on_js_message(handled: Tuple[bool, Any], js_message: str, context: Any) -> T
                 logging.warning(f"Flag value out of range: {flag_value}")
                 return False, "Flag value out of range"
 
-            # Set the flag, toggling if a flag is already present
-            set_card_flag(card.id, flag_value if user_flag == 0 else 0)
+            # Toggle if a flag is already present
+            # set_card_flag(card.id, flag_value if user_flag == 0 else 0)
+            set_card_flag(card.id, flag_value)
             return True, flag_value
         except Exception as e:
             logging.error(f"Error setting flag: {e}", exc_info=True)
