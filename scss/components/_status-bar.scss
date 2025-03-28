@@ -90,36 +90,26 @@
 /* Flagged States */
 
 /* colors synced with "fontColor" in _labelColors.json,  */
-/* some colors need to be re-tested, as flag colors look too dark */
-/* for now, the color system is here */
+
+/* to do: completely decouple flag states from subject, making it optional */
 
 :root {
-  --dark-mode-flag-yellow: #ffc533;
-  --light-mode-flag-yellow: #b28b20;
-
   --dark-mode-flag-red: #ff6161;
-  --light-mode-flag-red: #b24c4c;
-
+  --light-mode-flag-red: #d9534f;
   --dark-mode-flag-blue: #57c1ff;
-  --light-mode-flag-blue: #2d72d9;
-
+  --light-mode-flag-blue: #2a6bbf;
   --dark-mode-flag-green: #59d499;
-  --light-mode-flag-green: #3a805a;
-
+  --light-mode-flag-green: #2f9e5b;
   --dark-mode-flag-orange: #ff9f0b;
-  --light-mode-flag-orange: #b25f1e;
-
+  --light-mode-flag-orange: #d9781e;
   --dark-mode-flag-pink: #ff86b5;
-  --light-mode-flag-pink: #b24863;
-
+  --light-mode-flag-pink: #d94e7f;
   --dark-mode-flag-turquoise: #40e0d0;
-  --light-mode-flag-turquoise: #2a716b;
-
+  --light-mode-flag-turquoise: #259c96;
   --dark-mode-flag-purple: #b19cd9;
-  --light-mode-flag-purple: #6b42c7;
-
+  --light-mode-flag-purple: #7a5edc;
   --dark-mode-flag-default: #cccccc;
-  --light-mode-flag-default: #444444;
+  --light-mode-flag-default: #666666;
 }
 
 .nightMode {
@@ -270,15 +260,22 @@
   align-self: end;
 }
 
+/* Dropdown Menu utility variables */
+:root {
+  --light-mode-dropdown-item-bg: #fafafa;
+  --dropdown-menu-border-radius: 9px;
+}
+
 #dropdown-menu {
   display: none; /* Hidden by default */
   position: relative;
-  border-radius: 5px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  // box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--dropdown-menu-border-radius);
   min-width: 160px;
   z-index: 1;
   padding: 0;
-  list-style-type: none; /* Remove list item markers */
+  list-style-type: none;
 }
 
 #dropdown-menu .dropdown-item {
@@ -289,7 +286,7 @@
   background: none;
   text-align: left;
   max-width: 100%;
-  background: #f7f7f8;
+  background: var(--light-mode-dropdown-item-bg);
 }
 
 #dropdown-menu .dropdown-item:hover {
@@ -310,24 +307,26 @@
   padding: 0.75em;
   margin: 0;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--dropdown-menu-border-radius);
   cursor: pointer;
-  background-color: #f7f7f8;
+  background: var(--light-mode-dropdown-item-bg);
   box-shadow: none;
 }
 
 #dropdown-menu .dropdown-button:hover {
-  background: #EAEAEA;
+  background: #eaeaea;
 }
 
 .dropdown-item:first-child,
 .dropdown-item:first-child button {
-  border-radius: 5px 5px 0 0;
+  border-radius: var(--dropdown-menu-border-radius)
+    var(--dropdown-menu-border-radius) 0 0;
 }
 
 .dropdown-item:last-child,
 .dropdown-item:last-child button {
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 var(--dropdown-menu-border-radius)
+    var(--dropdown-menu-border-radius);
 }
 
 #dropdown-menu #flag-text-container {
@@ -340,7 +339,7 @@
   .dropdown-item {
     background: #1a1a1a;
   }
-  
+
   .dropdown-button {
     background: #1a1a1a;
     border: none;
@@ -348,7 +347,7 @@
 
   .dropdown-button:hover {
     background: #1f1f1f;
-    border-radius: 5px;
+    border-radius: var(--dropdown-menu-border-radius);
   }
 
   .dropdown-text {
@@ -365,6 +364,7 @@
   color: #555;
 }
 
+/* These are control icons for hotkeys, but-- hotkey modification doesn't work with JS (must use Python) */
 #dropdown-menu .dropdown-control {
   padding: 0.5em;
   border-radius: 5px;
