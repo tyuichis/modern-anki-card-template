@@ -31,7 +31,8 @@
 
   --dark-mode-code-block-background: #0d1116;
   --light-mode-code-block-background: #f9f9f9;
-  --light-mode-code-block-border: #d1d1d1;
+  --light-mode-code-block-border: 1px solid #d1d1d1;
+  --dark-mode-code-block-border: 1px solid rgba(255, 255, 255, 0.2);
 
   --light-mode-link-text-color: #666666;
   --dark-mode-link-text-color: darkgrey;
