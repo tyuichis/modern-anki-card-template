@@ -263,14 +263,20 @@
 /* Dropdown Menu utility variables */
 :root {
   --light-mode-dropdown-item-bg: #fafafa;
+  --light-mode-dropdown-item-bg-hover: #eaeaea;
+  --dark-mode-dropdown-item-bg: #1a1a1a;
+  --dark-mode-dropdown-item-bg-hover: #1f1f1f;
+  --dropdown-item-text-color: #555;
   --dropdown-menu-border-radius: 9px;
+  --light-mode-dropdown-menu-border: 1px solid rgba(0, 0, 0, 0.08);
+  --dark-mode-dropdown-menu-border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #dropdown-menu {
   display: none; /* Hidden by default */
   position: relative;
   // box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: var(--light-mode-dropdown-menu-border);
   border-radius: var(--dropdown-menu-border-radius);
   min-width: 160px;
   z-index: 1;
@@ -300,6 +306,7 @@
 }
 
 #dropdown-menu .dropdown-button {
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -308,13 +315,12 @@
   margin: 0;
   border: none;
   border-radius: var(--dropdown-menu-border-radius);
-  cursor: pointer;
   background: var(--light-mode-dropdown-item-bg);
   box-shadow: none;
 }
 
 #dropdown-menu .dropdown-button:hover {
-  background: #eaeaea;
+  background: var(--light-mode-dropdown-item-bg-hover);
 }
 
 .dropdown-item:first-child,
@@ -336,17 +342,19 @@
 }
 
 .nightMode #dropdown-menu {
+  border: var(--dark-mode-dropdown-menu-border);
+
   .dropdown-item {
-    background: #1a1a1a;
+    background: var(--dark-mode-dropdown-item-bg);
   }
 
   .dropdown-button {
-    background: #1a1a1a;
+    background: var(--dark-mode-dropdown-item-bg);
     border: none;
   }
 
   .dropdown-button:hover {
-    background: #1f1f1f;
+    background: var(--dark-mode-dropdown-item-bg-hover);
     border-radius: var(--dropdown-menu-border-radius);
   }
 
@@ -361,7 +369,7 @@
 }
 
 #dropdown-menu .dropdown-text {
-  color: #555;
+  color: var(--dropdown-item-text-color);
 }
 
 /* These are control icons for hotkeys, but-- hotkey modification doesn't work with JS (must use Python) */
