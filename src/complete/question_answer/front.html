@@ -40,6 +40,7 @@ See the LICENSE file in the project root for details. -->
   var flagButton = null;
   var flag = null;
   var flagId = null;
+  var dropdownMenu = null;
   var dropdownButtons = null;
 
   if (!globalThis.labelColors) {
@@ -161,7 +162,7 @@ See the LICENSE file in the project root for details. -->
 
   // Function to update CSS classes on the flag button
   function setFlagDisplay(flagId) {
-    const flagButton = document.getElementById('flag-button'); // caching
+    flagButton = document.getElementById('flag-button'); // caching
 
     if (!flagButton) {
       console.warn('Flag button element not found.');
@@ -835,27 +836,41 @@ See the LICENSE file in the project root for details. -->
       // console.log('undo_card called');
       pycmd('undo_card');
     });
-    // custom flag button only exists on desktop
+
     updateFlag(); // update on page reload. updates the visual state of the flag.
 
-    // Select all buttons inside the dropdown menu
-    dropdownButtons = document.querySelectorAll(
-      '#dropdown-menu .dropdown-button',
+    if (!flagButton) flagButton = document.getElementById('flag-button');
+
+    dropdownMenu = document.getElementById('dropdown-menu');
+    dropdownButtons = Array.from(
+      dropdownMenu.querySelectorAll('.dropdown-button'),
     );
 
-    // Add an event listener to each button
-    dropdownButtons.forEach((button) => {
-      button.addEventListener('click', async (event) => {
-        try {
-          event.preventDefault();
+    // Click to Open/Close the Dropdown
+    flagButton.addEventListener('click', function (event) {
+      dropdownMenu.classList.toggle('show');
+    });
 
-          await setFlag(button.value);
+    // Close the dropdown when clicking an inner button
+    dropdownButtons.forEach(function (button) {
+      button.addEventListener('click', async function (event) {
+        event.preventDefault();
 
-          updateFlag();
-        } catch (error) {
-          console.log('Some error occured while setting a flag: ', error);
-        }
+        await setFlag(button.value);
+
+        updateFlag();
+        dropdownMenu.classList.remove('show');
       });
+    });
+
+    // Close the dropdown on outside click
+    document.addEventListener('click', function (event) {
+      if (
+        !flagButton.contains(event.target) &&
+        !dropdownMenu.contains(event.target)
+      ) {
+        dropdownMenu.classList.remove('show');
+      }
     });
   }
 </script>
