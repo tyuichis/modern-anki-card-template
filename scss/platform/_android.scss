@@ -67,6 +67,10 @@ Flashcard Background: #353535
     box-shadow: var(--android-box-shadow-light);
   }
 
+  #flashcard-textbox {
+    padding: 1.35rem 1.75rem;
+  }
+
   #title {
     font-weight: 500; // material design titles
   }
@@ -91,8 +95,8 @@ Flashcard Background: #353535
       background: var(--android-alt-dark-surface-color);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-      background: linear-gradient(135deg, #161618, #1c1c1e);
-      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+      // background: linear-gradient(135deg, #161618, #1c1c1e);
+      // box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
       border-radius: 12px;
       // border: 1px solid #2c2c2c;
     }
