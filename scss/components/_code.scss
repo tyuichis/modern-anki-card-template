@@ -8,6 +8,10 @@
    Code Component
 =========================== */
 
+:root {
+  --code-block-border-radius: 6px;
+}
+
 /* layout */
 pre code {
   max-width: 100%;
@@ -78,7 +82,7 @@ code {
 }
 
 code.hljs {
-  border-radius: 6px;
+  border-radius: var(--code-block-border-radius);
 }
 
 /* default theme */
@@ -94,8 +98,8 @@ code.hljs {
 /* light mode default theme */
 pre:has(:not(.hljs)) {
   background-color: var(--light-mode-code-block-background);
-  border: 1px solid var(--light-mode-code-block-border);
-  border-radius: 6px;
+  border: var(--light-mode-code-block-border);
+  border-radius: var(--code-block-border-radius);
 }
 
 .nightMode {
@@ -104,12 +108,19 @@ pre:has(:not(.hljs)) {
     border: none;
     // color: #c9d1d9; optional.
   }
+
+  // inline code.
+  code:not(.hljs):not(pre code) {
+    border: var(--dark-mode-code-block-border);
+    border-radius: var(--code-block-border-radius);
+  }
 }
 
+// inline code.
 code:not(.hljs):not(pre code) {
   background-color: var(--light-mode-code-block-background);
   border: 1px solid var(--light-mode-code-block-border);
-  border-radius: 6px;
+  border-radius: var(--code-block-border-radius);
   padding: 3px 5px;
 }
 
