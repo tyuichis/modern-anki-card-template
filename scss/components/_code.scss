@@ -91,7 +91,7 @@ code.hljs {
 .nightMode {
   pre:has(:not(.hljs)) {
     background-color: var(--dark-mode-code-block-background);
-    border: 1px solid var(--dark-mode-code-block-background);
+    border: var(--dark-mode-code-block-border);
   }
 }
 
@@ -119,7 +119,7 @@ pre:has(:not(.hljs)) {
 // inline code.
 code:not(.hljs):not(pre code) {
   background-color: var(--light-mode-code-block-background);
-  border: 1px solid var(--light-mode-code-block-border);
+  border: var(--light-mode-code-block-border);
   border-radius: var(--code-block-border-radius);
   padding: 3px 5px;
 }
