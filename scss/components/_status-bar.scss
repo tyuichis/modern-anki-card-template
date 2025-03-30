@@ -9,6 +9,41 @@
    Status Bar Component
 =========================== */
 
+:root {
+  --light-mode-dropdown-item-bg: #fafafa;
+  --light-mode-dropdown-item-bg-hover: #eaeaea;
+  --dark-mode-dropdown-item-bg: #1a1a1a;
+  --dark-mode-dropdown-item-bg-hover: #1f1f1f;
+  --dropdown-item-text-color: #555;
+  --dropdown-menu-border-radius: 9px;
+  --light-mode-dropdown-menu-border: 1px solid rgba(0, 0, 0, 0.08);
+  --dark-mode-dropdown-menu-border: 1px solid rgba(255, 255, 255, 0.1);
+
+  --light-mode-active-button-circle-color: #ff8800;
+  --dark-mode-active-button-circle-color: #ff9f45;
+
+  // Flagged States
+  // colors synced with "fontColor" in _labelColors.json,
+  // to do: completely decouple flag states from subject, making it optional
+
+  --dark-mode-flag-red: #ff6161;
+  --light-mode-flag-red: #d9534f;
+  --dark-mode-flag-blue: #57c1ff;
+  --light-mode-flag-blue: #2a6bbf;
+  --dark-mode-flag-green: #59d499;
+  --light-mode-flag-green: #2f9e5b;
+  --dark-mode-flag-orange: #ff9f0b;
+  --light-mode-flag-orange: #d9781e;
+  --dark-mode-flag-pink: #ff86b5;
+  --light-mode-flag-pink: #d94e7f;
+  --dark-mode-flag-turquoise: #40e0d0;
+  --light-mode-flag-turquoise: #259c96;
+  --dark-mode-flag-purple: #b19cd9;
+  --light-mode-flag-purple: #7a5edc;
+  --dark-mode-flag-default: #cccccc;
+  --light-mode-flag-default: #666666;
+}
+
 .nightMode {
   #status-bar {
     color: var(--dark-mode-status-bar-color);
@@ -38,6 +73,25 @@
   // padding: 0.25em 0.4em 0.25em 0.4em;
   box-sizing: border-box;
   gap: 0.5625em;
+}
+
+/* Note, Undo doesn't use this button style, as it creates misalignment, and they serve two different actions.*/
+
+/* Modern style buttons */
+#flag-button-container {
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.15s ease;
+}
+
+.nightMode {
+  #flag-button-container:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+#flag-button-container:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 #flag-button {
@@ -85,31 +139,6 @@
 
 #flag-button:not(.flagged) #flag-icon path {
   fill: var(--light-mode-status-bar-color);
-}
-
-/* Flagged States */
-
-/* colors synced with "fontColor" in _labelColors.json,  */
-
-/* to do: completely decouple flag states from subject, making it optional */
-
-:root {
-  --dark-mode-flag-red: #ff6161;
-  --light-mode-flag-red: #d9534f;
-  --dark-mode-flag-blue: #57c1ff;
-  --light-mode-flag-blue: #2a6bbf;
-  --dark-mode-flag-green: #59d499;
-  --light-mode-flag-green: #2f9e5b;
-  --dark-mode-flag-orange: #ff9f0b;
-  --light-mode-flag-orange: #d9781e;
-  --dark-mode-flag-pink: #ff86b5;
-  --light-mode-flag-pink: #d94e7f;
-  --dark-mode-flag-turquoise: #40e0d0;
-  --light-mode-flag-turquoise: #259c96;
-  --dark-mode-flag-purple: #b19cd9;
-  --light-mode-flag-purple: #7a5edc;
-  --dark-mode-flag-default: #cccccc;
-  --light-mode-flag-default: #666666;
 }
 
 .nightMode {
@@ -260,20 +289,10 @@
   align-self: end;
 }
 
-/* Dropdown Menu utility variables */
-:root {
-  --light-mode-dropdown-item-bg: #fafafa;
-  --light-mode-dropdown-item-bg-hover: #eaeaea;
-  --dark-mode-dropdown-item-bg: #1a1a1a;
-  --dark-mode-dropdown-item-bg-hover: #1f1f1f;
-  --dropdown-item-text-color: #555;
-  --dropdown-menu-border-radius: 9px;
-  --light-mode-dropdown-menu-border: 1px solid rgba(0, 0, 0, 0.08);
-  --dark-mode-dropdown-menu-border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
 #dropdown-menu {
-  display: none; /* Hidden by default */
+  display: flex;
+  flex-flow: column;
+  visibility: hidden;
   position: relative;
   // box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   border: var(--light-mode-dropdown-menu-border);
@@ -282,6 +301,31 @@
   z-index: 1;
   padding: 0;
   list-style-type: none;
+
+  // animation
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+#dropdown-menu.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Add "active" circle when Flag drop down menu appears. */
+#flag-button:has(.show) #flag-button-container::after {
+  content: '';
+  position: relative;
+  width: 6px;
+  height: 6px;
+  background-color: var(--light-mode-active-button-circle-color);
+  border-radius: 50%;
 }
 
 #dropdown-menu .dropdown-item {
@@ -300,10 +344,10 @@
 }
 
 /* Show the dropdown menu when hovering over the parent */
-#flag-button:hover #dropdown-menu {
-  display: flex;
-  flex-flow: column;
-}
+// #flag-button:hover #dropdown-menu {
+//   display: flex;
+//   flex-flow: column;
+// }
 
 #dropdown-menu .dropdown-button {
   cursor: pointer;
@@ -341,30 +385,53 @@
   align-items: center;
 }
 
-.nightMode #dropdown-menu {
-  border: var(--dark-mode-dropdown-menu-border);
+// TO DO: light mode
+// #flag-button:has(.show) {
+//   color: white;
+// }
 
-  .dropdown-item {
-    background: var(--dark-mode-dropdown-item-bg);
+// #flag-button:not(.flagged):has(.show) #flag-icon path {
+//   fill: white;
+// }
+
+.nightMode {
+  #flag-button:has(.show) {
+    color: white;
   }
 
-  .dropdown-button {
-    background: var(--dark-mode-dropdown-item-bg);
-    border: none;
+  #flag-button:not(.flagged):has(.show) #flag-icon path {
+    fill: white;
   }
 
-  .dropdown-button:hover {
-    background: var(--dark-mode-dropdown-item-bg-hover);
-    border-radius: var(--dropdown-menu-border-radius);
+  #flag-button:has(.show) #flag-button-container::after {
+    background-color: var(--dark-mode-active-button-circle-color);
   }
 
-  .dropdown-text {
-    color: var(--dark-mode-main-text-color);
-  }
+  #dropdown-menu {
+    border: var(--dark-mode-dropdown-menu-border);
 
-  .dropdown-control {
-    color: #d9d9d9;
-    border: none;
+    .dropdown-item {
+      background: var(--dark-mode-dropdown-item-bg);
+    }
+
+    .dropdown-button {
+      background: var(--dark-mode-dropdown-item-bg);
+      border: none;
+    }
+
+    .dropdown-button:hover {
+      background: var(--dark-mode-dropdown-item-bg-hover);
+      border-radius: var(--dropdown-menu-border-radius);
+    }
+
+    .dropdown-text {
+      color: var(--dark-mode-main-text-color);
+    }
+
+    .dropdown-control {
+      color: #d9d9d9;
+      border: none;
+    }
   }
 }
 
