@@ -28,6 +28,17 @@
   }
 }
 
+/* tweak title alignment for better visual flow */
+.iphone {
+  #flashcard-title {
+    margin-bottom: 0.8rem;
+  }
+
+  #flashcard-labels {
+    margin-bottom: 1.5rem;
+  }
+}
+
 /* deck metadata is not supported for ios */
 .iphone #flashcard-deck-info,
 .ipad #flashcard-deck-info {
