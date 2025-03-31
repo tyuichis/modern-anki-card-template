@@ -27,6 +27,7 @@ See the LICENSE file in the project root for details. -->
   }
 
   // DOM Cache (initialize as null, will be assigned after the DOM is loaded)
+  var mainElement = null;
   var subjectElement = null;
   var subjectCategory = null;
   var matchedCategoryColor;
@@ -350,7 +351,32 @@ See the LICENSE file in the project root for details. -->
 
 <!-- Front Side -->
 
-<section id="main">
+<!--
+The `main` section uses an `accent-{color}` class to define the card's accent colors.
+
+You have two options for setting the accent color:
+
+1.  Static Accent Color: Use a specific color name (e.g., `accent-blue`, `accent-red`) to apply a fixed color scheme.  
+
+Available colors:
+    *   Red
+    *   Orange
+    *   Green
+    *   Blue
+    *   Pink
+    *   Turquoise
+    *   Purple
+    *   Yellow
+
+    Example: `<section id="main" class="accent-blue">`
+
+2.  "Smart" Accent Color (Subject-Based): Use `accent-smart` to have the card automatically color-coded based on the `Subject` field. The card will load a `_subject.json` file (from collection.media/) to apply a color label according to the content in that file. Use the AI prompt to generate color labels for your study deck, which can be found in the `docs/` directory.
+
+    Example: `<section id="main" class="accent-smart">`
+
+-->
+
+<section id="main" class="accent-blue">
   <div id="status-bar">
     <ul id="status-bar-buttons">
       <!-- Undo Button -->
@@ -577,10 +603,12 @@ See the LICENSE file in the project root for details. -->
     </div>
     <div id="flashcard-labels">
       <div id="deck-name-container">
-        <span id="subdeck-icon" class="deck-icon dynamic-icon">
-          <!-- use outline / filled icon depending on device, with CSS ::before and svg encoding -->
-        </span>
-        <span id="deck-name">{{Subdeck}}</span>
+        <div id="subdeck-name-container">
+          <span id="subdeck-icon" class="deck-icon dynamic-icon">
+            <!-- use outline / filled icon depending on device, with CSS ::before and svg encoding -->
+          </span>
+          <span id="deck-name">{{Subdeck}}</span>
+        </div>
         <div id="flashcard-subject">
           <span id="subject" class="subject-label"
             >{{^Subject}}No subject selected{{/Subject}}{{Subject}}</span
@@ -742,74 +770,84 @@ See the LICENSE file in the project root for details. -->
 </script>
 
 <script>
-  // keep track of failed loads for debugging
-  if (!globalThis.loadedSubjects) {
-    globalThis.loadedSubjects = {};
-  }
+  mainElement = document.querySelector('#main');
 
-  var subjectJSON;
+  // Apply smart color labeling.
 
-  if (!subjectJSON) {
-    subjectJSON = [
-      'computer-science',
-      'languages',
-      'chemistry',
-      'biology',
-      'math',
-      'medicine',
-      'physics',
-      'custom',
-    ];
-  }
-
-  function getSubjectFromDOM() {
-    subjectElement = document.getElementById('subject');
-    return subjectElement
-      ? subjectElement.textContent.trim().toLowerCase()
-      : null;
-  }
-
-  function applySubjectStyling() {
-    subjectCategory = getSubjectFromDOM();
-    if (!subjectCategory) return;
-
-    matchedCategoryColor = globalThis.subjects[subjectCategory] || 'default';
-    updateLabelColors(matchedCategoryColor);
-    flagId = getFlagId(matchedCategoryColor);
-  }
-
-  async function loadAllSubjectJSON() {
-    if (globalThis.subjects) return;
-    globalThis.subjects = {};
-    await Promise.all(
-      subjectJSON.map(async (subjectName) => {
-        try {
-          const response = await fetch(`/_color-preset-${subjectName}.json`);
-          if (!response.ok) {
-            globalThis.loadedSubjects[subjectName] = false;
-            return;
-          }
-
-          const data = await response.json();
-          Object.assign(globalThis.subjects, data);
-          globalThis.loadedSubjects[subjectName] = true;
-        } catch (error) {
-          console.error(
-            `Error loading /_color-preset-${subjectName}.json:`,
-            error,
-          );
-          globalThis.loadedSubjects[subjectName] = false;
-        }
-      }),
+  if (mainElement.classList.contains('accent-smart')) {
+    console.log(
+      'Smart color labels is on. Loading subjects from {subjects}.json.',
     );
-  }
 
-  (async () => {
-    if (!globalThis.subjects) {
-      await loadAllSubjectJSON();
+    // keep track of failed loads for debugging
+    if (!globalThis.loadedSubjects) {
+      globalThis.loadedSubjects = {};
     }
-    applySubjectStyling();
-  })();
+
+    var subjectJSON;
+
+    if (!subjectJSON) {
+      subjectJSON = [
+        'computer-science',
+        'languages',
+        'chemistry',
+        'biology',
+        'math',
+        'medicine',
+        'physics',
+        'custom',
+      ];
+    }
+
+    function getSubjectFromDOM() {
+      subjectElement = document.getElementById('subject');
+      return subjectElement
+        ? subjectElement.textContent.trim().toLowerCase()
+        : null;
+    }
+
+    function applySubjectStyling() {
+      subjectCategory = getSubjectFromDOM();
+      if (!subjectCategory) return;
+
+      matchedCategoryColor = globalThis.subjects[subjectCategory] || 'default';
+      updateLabelColors(matchedCategoryColor);
+      flagId = getFlagId(matchedCategoryColor);
+    }
+
+    async function loadAllSubjectJSON() {
+      if (globalThis.subjects) return;
+      globalThis.subjects = {};
+      await Promise.all(
+        subjectJSON.map(async (subjectName) => {
+          try {
+            const response = await fetch(`/_color-preset-${subjectName}.json`);
+            if (!response.ok) {
+              globalThis.loadedSubjects[subjectName] = false;
+              return;
+            }
+
+            const data = await response.json();
+            Object.assign(globalThis.subjects, data);
+            globalThis.loadedSubjects[subjectName] = true;
+          } catch (error) {
+            console.error(
+              `Error loading /_color-preset-${subjectName}.json:`,
+              error,
+            );
+            globalThis.loadedSubjects[subjectName] = false;
+          }
+        }),
+      );
+    }
+
+    (async () => {
+      if (!globalThis.subjects) {
+        await loadAllSubjectJSON();
+      }
+      applySubjectStyling();
+    })();
+  }
 </script>
 
 <script>
