@@ -12,11 +12,12 @@
   // --desktop-light-mode-box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
   --desktop-light-mode-box-shadow: none; // use plain design
   --desktop-light-mode-border: 1px solid rgba(0, 0, 0, 0.08);
-
+  --desktop-flashcard-padding: 2.35rem 2rem; // original, 2.5rem 2rem
   --desktop-dark-mode-surface-bg: linear-gradient(to bottom, #242424, #1e1e1e);
-  --desktop-dark-mode-box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+  --desktop-dark-mode-box-shadow:
+    inset 0px 1px 3px rgba(0, 0, 0, 0.03), 0px 2px 12px rgba(0, 0, 0, 0.08);
   --desktop-dark-mode-border: 1px solid rgba(255, 255, 255, 0.08);
-  --desktop-flashcard-border-radius: 9px; //original 12px
+  --desktop-flashcard-border-radius: 12px;
 }
 
 .mac,
@@ -33,6 +34,10 @@
     box-shadow: var(--desktop-light-mode-box-shadow);
     border: var(--desktop-light-mode-border);
     background: var(--desktop-light-mode-surface-bg);
+  }
+
+  #flashcard-textbox {
+    padding: var(--desktop-flashcard-padding);
   }
 
   .nightMode {
