@@ -106,6 +106,7 @@ pre:has(:not(.hljs)) {
   code:not(.hljs) {
     background: var(--dark-mode-code-block-background);
     border: none;
+    border-radius: var(--code-block-border-radius);
     // color: #c9d1d9; optional.
   }
 
