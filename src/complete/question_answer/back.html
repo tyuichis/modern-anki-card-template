@@ -33,6 +33,7 @@ See the LICENSE file in the project root for details. -->
   var detailsText = null;
   var detailsBlock = null;
   var matchedCategoryColor;
+  var totalRemainingProgressElement = null;
 
   /* cache JS api items */
   var remainingCards = null;
@@ -676,9 +677,14 @@ Available colors:
         <span id="remaining-cards-icon" class="deck-icon dynamic-icon">
           <!-- use outline / filled icon depending on device, with CSS ::before and svg encoding -->
         </span>
-        <span id="deck-count"
-          >Cards remaining: <span id="remainingCards">0</span></span
-        >
+        <div id="deck-progress-container">
+          <label for="deck-progress-bar"
+            ><span id="deck-count"
+              >Cards remaining: <span id="remainingCards">0</span></span
+            ></label
+          >
+          <progress id="deck-progress-bar" value="0"></progress>
+        </div>
       </div>
     </div>
   </div>
@@ -909,8 +915,28 @@ Available colors:
   if (!isMobile) {
     // Fetch and update card counts from API
     fetchCardCount().then((cardCounts) => {
-      var totalRemaining =
-        cardCounts.new + cardCounts.learn + cardCounts.review;
+      if (!totalRemainingProgressElement) {
+        totalRemainingProgressElement =
+          document.getElementById('deck-progress-bar');
+      }
+
+      // get the remaining cards from our backend, via JS api.
+      // fetchCardCount returns a cardCounts object that includes int: new/learn/review
+      totalRemaining = cardCounts.new + cardCounts.learn + cardCounts.review;
+
+      // set the total at the beginning of the session if it wasn't initialised yet.
+      if (!globalThis.initialTotalRemaining) {
+        globalThis.initialTotalRemaining = totalRemaining;
+      }
+
+      // DOM is refreshed after card load, set max again.
+      totalRemainingProgressElement.max = globalThis.initialTotalRemaining;
+
+      // update value
+      totalRemainingProgressElement.value =
+        globalThis.initialTotalRemaining - totalRemaining;
+
+      // continue to update our remaining cards.
       updateRemainingCards(totalRemaining);
     });
 
