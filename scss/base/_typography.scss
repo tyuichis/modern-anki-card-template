@@ -9,14 +9,31 @@
    Typography (Font Settings)
 =========================== */
 
+// test: fix overbolded mac font rendering in dark mode
+// for some reason, iphone does have this on by default? at least, the rendering does not look like mac at all.
+// overbolding seems to hurt legibility
+// see: https://www.joshwcomeau.com/css/custom-css-reset/ @ 5. Improve text rendering
+// note, linux and windows shouldn't be affected, but should test to triple make sure (to-do)
+.mac .card {
+  -webkit-font-smoothing: antialiased;
+}
+
 /* Define fonts globally, if needed later */
 .card {
   font-family: var(--system-font-family);
   line-height: var(--ios-line-height-body); /* Default */
+
+  b,
+  .cloze {
+    font-weight: 600; // experiment with 500/600 depending on legibility of colors and font
+  }
+
+  .cloze code {
+    font-weight: 400;
+  }
 }
 
-#title,
-#subject {
+#title {
   font-family: var(--title-font-family);
 }
 
@@ -30,6 +47,10 @@
   margin-bottom: 0rem;
   font-size: var(--ios-font-size-title2); /* Default */
   line-height: var(--ios-line-height-title2); /* Default */
+}
+
+.nightMode #title {
+  color: #e0e0e0; // Lc -85.5 on #222, large text. Do not pass 90.
 }
 
 .flashcard-content {
@@ -46,14 +67,10 @@
 
 #flashcard-question:not(.seen) b,
 #flashcard-answer b,
-.cloze:not(:has(code)),
-#details b {
+// .cloze:not(:has(code)),
+#details b,
+.cloze {
   color: var(--label-font-color);
-}
-
-b,
-.cloze:not(:has(code)) {
-  font-weight: 600; /* semi bold */
 }
 
 .nightMode {
@@ -100,6 +117,12 @@ b,
   }
 }
 
+.mobile {
+  a {
+    text-decoration: none; // remove underline, use external link icon to signify link.
+  }
+}
+
 #flashcard-extra-info p {
   margin: 0;
 }
@@ -140,6 +163,7 @@ code {
 .win #subject {
   font-size: var(--mac-font-size-footnote);
   line-height: var(--mac-line-height-footnote);
+  font-weight: 600;
 }
 
 .mac #title,
@@ -221,7 +245,12 @@ code {
 }
 
 .iphone #subject,
-.ipad #subject,
+.ipad #subject {
+  font-size: var(--ios-font-size-footnote); // experiment: footnote or callout
+  line-height: var(--ios-line-height-footnote);
+  font-weight: 600;
+}
+
 .iphone #deck-name-container,
 .ipad #deck-name-container {
   font-size: var(--ios-font-size-footnote);
