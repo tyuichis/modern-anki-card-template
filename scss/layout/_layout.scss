@@ -95,7 +95,7 @@ header,
 
 #flashcard-answer {
   display: flex;
-  gap: 0.75em;
+  gap: var(--flashcard-content-icon-text-gap);
   align-items: flex-start; // align icon to the beginning.
   // flex-flow: row wrap; nowrap for answer text, but may wrap if there are imgs or code blocks (test)
 }
