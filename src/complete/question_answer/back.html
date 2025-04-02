@@ -50,7 +50,123 @@ See the LICENSE file in the project root for details. -->
   /* ui caching */
   var labelColors;
 
+  function isHighContrastMode() {
+    // Check for prefers-contrast: more (modern browsers)
+    if (window.matchMedia('(prefers-contrast: more)').matches) {
+      return true;
+    }
+
+    // Check for forced-colors: active (Windows High Contrast Mode)
+    if (window.matchMedia('(forced-colors: active)').matches) {
+      return true;
+    }
+
+    // Check for legacy msHighContrast (older Edge/IE)
+    if (window.matchMedia('(ms-high-contrast: active)').matches) {
+      return true;
+    }
+
+    return false;
+  }
+
   if (!globalThis.labelColors) {
+    if (isHighContrastMode()) {
+      // use accessibility colors
+      globalThis.labelColors = {
+        yellow: {
+          dark: {
+            fontColor: '#ffe78a',
+            backgroundColor: '#301d00',
+          },
+          light: {
+            fontColor: '#5c4800',
+            backgroundColor: '#FFF8E1',
+          },
+        },
+        red: {
+          dark: {
+            fontColor: '#ffe3e3',
+            backgroundColor: '#4f0000',
+          },
+          light: {
+            fontColor: '#8c1111',
+            backgroundColor: '#FFEBEE',
+          },
+        },
+        blue: {
+          dark: {
+            fontColor: '#d7ebf7',
+            backgroundColor: '#03214f',
+          },
+          light: {
+            fontColor: '#184272',
+            backgroundColor: '#E3F2FD',
+          },
+        },
+        green: {
+          dark: {
+            fontColor: '#bcf5d8',
+            backgroundColor: '#17291c',
+          },
+          light: {
+            fontColor: '#235415',
+            backgroundColor: '#E8F5E9',
+          },
+        },
+        orange: {
+          dark: {
+            fontColor: '#ffe4b3',
+            backgroundColor: '#381000',
+          },
+          light: {
+            fontColor: '#913800',
+            backgroundColor: '#FFF3E0',
+          },
+        },
+        pink: {
+          dark: {
+            fontColor: '#ffdef5',
+            backgroundColor: '#3b1220',
+          },
+          light: {
+            fontColor: '#871a48',
+            backgroundColor: '#fceaf1',
+          },
+        },
+        turquoise: {
+          dark: {
+            fontColor: '#b0f5e7',
+            backgroundColor: '#0a243b',
+          },
+          light: {
+            fontColor: '#004C4C',
+            backgroundColor: '#E0F7FA',
+          },
+        },
+        purple: {
+          dark: {
+            fontColor: '#ede3ff',
+            backgroundColor: '#24194a',
+          },
+          light: {
+            fontColor: '#5d00ba',
+            backgroundColor: '#F6EEF9',
+          },
+        },
+        default: {
+          dark: {
+            fontColor: '#E6E6E6',
+            backgroundColor: '#333333',
+          },
+          light: {
+            fontColor: '#222222',
+            backgroundColor: '#dedede',
+          },
+        },
+      };
+    }
+
+    // use normal colors
     globalThis.labelColors = {
       yellow: {
         dark: {
