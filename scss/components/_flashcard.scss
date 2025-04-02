@@ -87,7 +87,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start; // align icon and text as container grows taller
-  gap: 0.75em; // gap between icon & text.
+  gap: var(--flashcard-content-icon-text-gap); // gap between icon & text.
 }
 
 #flashcard-textbox > *:last-child {
