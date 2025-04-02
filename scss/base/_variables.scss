@@ -19,14 +19,14 @@
   --dark-mode-main-bg-color: #272626;
   --light-mode-main-text-color: #333333;
   --dark-mode-main-text-color: #d4d4d4; /* original: #ececec */
-  --light-mode-footnote-text-color: #666666;
-  --dark-mode-footnote-text-color: darkgrey;
+  --light-mode-footnote-text-color: #363636;
+  --dark-mode-footnote-text-color: #ebebeb;
 
   --light-mode-empty-text-color: rgba(0, 0, 0, 0.25);
   --dark-mode-empty-text-color: rgba(255, 255, 255, 0.25);
 
   --light-mode-details-text-color: #666;
-  --dark-mode-details-text-color: darkgrey;
+  --dark-mode-details-text-color: #cacaca;
   --light-mode-status-bar-color: rgba(0, 0, 0, 0.8);
 
   --dark-mode-code-block-background: #0d1116;
@@ -35,9 +35,9 @@
   --dark-mode-code-block-border: 1px solid rgba(255, 255, 255, 0.2);
 
   --light-mode-link-text-color: #666666;
-  --dark-mode-link-text-color: darkgrey;
-  --light-mode-link-hover-color: #1a73e8; // original: #d91e50
-  --dark-mode-link-hover-color: #8ab4f8;
+  --dark-mode-link-text-color: #c8c8c8;
+  --light-mode-link-hover-color: #10468f;
+  --dark-mode-link-hover-color: #a8c8ff;
   --light-mode-link-focus-color: rgba(26, 115, 232, 0.3);
   --dark-mode-link-focus-color: rgba(138, 180, 248, 0.3);
 
@@ -89,7 +89,7 @@
   --flashcard-content-ideal-max-height: 417px;
   --mac-flashcard-content-ideal-max-height: 478.467px;
   --android-ideal-max-height: min(550px, 60vh);
-  --iphone-ideal-max-height: min(450px, 50vh);
+  --iphone-ideal-max-height: min(450px, 55vh);
 
   /* pill button */
 
@@ -143,7 +143,7 @@
 
   /* Body Sizes */
   --ios-font-size-body: 0.9375rem; /* Standard body text */
-  --ios-line-height-body: 1.25rem;
+  --ios-line-height-body: 1.4rem; // original 1.25rem, using >1.25rem for accesibility.
 
   /* Callout */
   --ios-font-size-callout: 0.875rem; /* Secondary information */
@@ -355,4 +355,6 @@
   /* take into account button padding, left and right sides */
   --status-bar-width: calc(478.47px + (0.25em * 2));
   --status-bar-mobile-width: calc(90vw + (0.25em * 2));
+
+  --flashcard-content-icon-text-gap: 0.85em;
 }
