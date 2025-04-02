@@ -1,0 +1,120 @@
+@use 'sass:map';
+
+/* ===========================
+   Accent Colors for High Contrast
+=========================== */
+
+$accentColorsContrast: (
+  yellow: (
+    light: (
+      fg: #5c4800,
+      bg: #fff8e1,
+    ),
+    dark: (
+      fg: #ffe78a,
+      bg: #301d00,
+    ),
+  ),
+  red: (
+    light: (
+      fg: #8c1111,
+      bg: #ffebee,
+    ),
+    dark: (
+      fg: #ffe3e3,
+      bg: #4f0000,
+    ),
+  ),
+  blue: (
+    light: (
+      fg: #184272,
+      bg: #e3f2fd,
+    ),
+    dark: (
+      fg: #d7ebf7,
+      bg: #03214f,
+    ),
+  ),
+  green: (
+    light: (
+      fg: #235415,
+      bg: #e8f5e9,
+    ),
+    dark: (
+      fg: #bcf5d8,
+      bg: #17291c,
+    ),
+  ),
+  orange: (
+    light: (
+      fg: #913800,
+      bg: #fff3e0,
+    ),
+    dark: (
+      fg: #ffe4b3,
+      bg: #381000,
+    ),
+  ),
+  pink: (
+    light: (
+      fg: #871a48,
+      bg: #fceaf1,
+    ),
+    dark: (
+      fg: #ffdef5,
+      bg: #3b1220,
+    ),
+  ),
+  turquoise: (
+    light: (
+      fg: #004c4c,
+      bg: #e0f7fa,
+    ),
+    dark: (
+      fg: #b0f5e7,
+      bg: #0a243b,
+    ),
+  ),
+  purple: (
+    light: (
+      fg: #5d00ba,
+      bg: #f6eef9,
+    ),
+    dark: (
+      fg: #ede3ff,
+      bg: #24194a,
+    ),
+  ),
+  default: (
+    light: (
+      fg: #222222,
+      bg: #dedede,
+    ),
+    dark: (
+      fg: #e6e6e6,
+      bg: #333333,
+    ),
+  ),
+);
+
+@mixin setAccentColorsContrast($color) {
+  $lightValues: map.get($accentColorsContrast, $color, light);
+  $darkValues: map.get($accentColorsContrast, $color, dark);
+
+  .accent-#{'#{$color}'} {
+    --label-font-color: #{map.get($lightValues, fg)};
+    --label-background-color: #{map.get($lightValues, bg)};
+  }
+
+  .nightMode .accent-#{'#{$color}'} {
+    --label-font-color: #{map.get($darkValues, fg)};
+    --label-background-color: #{map.get($darkValues, bg)};
+  }
+}
+
+// Generate styles for all colors in high contrast mode
+@media (prefers-contrast: more), (forced-colors: active) {
+  @each $color, $themes in $accentColorsContrast {
+    @include setAccentColorsContrast($color);
+  }
+}
