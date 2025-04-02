@@ -116,3 +116,49 @@
   flex-flow: row wrap;
   gap: 0.75em;
 }
+
+// hide label text.
+#deck-count {
+  display: none;
+}
+
+#deck-progress-container {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: column;
+  flex-grow: 1;
+  gap: 0.25rem;
+}
+
+#deck-progress-bar {
+  width: 98%;
+  height: 0.5em;
+}
+
+progress::-webkit-progress-bar,
+progress,
+progress::-webkit-progress-value {
+  border-radius: 12px;
+}
+
+progress::-webkit-progress-bar {
+  background: #dfe3e8;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(to right, #3b82f6, #60a5fa);
+  box-shadow: none;
+}
+
+.nightMode progress {
+  &::-webkit-progress-bar {
+    background: #313131;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-progress-value {
+    background: #5c9bc2;
+    box-shadow: none;
+  }
+}
