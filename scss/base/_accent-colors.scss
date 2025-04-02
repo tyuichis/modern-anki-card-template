@@ -1,98 +1,98 @@
 @use 'sass:map';
 
 /* ===========================
-   Accent Colors
+   Normal Accent Colors
 =========================== */
 
 $accentColors: (
   yellow: (
     light: (
-      fg: #5c4800,
-      bg: #fff8e1,
+      fg: #996200,
+      bg: rgba(255, 221, 112, 0.3),
     ),
     dark: (
-      fg: #ffe78a,
-      bg: #301d00,
+      fg: #ffc533,
+      bg: rgba(255, 197, 51, 0.15),
     ),
   ),
   red: (
     light: (
-      fg: #8c1111,
-      bg: #ffebee,
+      fg: #c01f2f,
+      bg: rgba(255, 153, 153, 0.3),
     ),
     dark: (
-      fg: #ffe3e3,
-      bg: #4f0000,
+      fg: #ff6161,
+      bg: rgba(255, 97, 97, 0.15),
     ),
   ),
   blue: (
     light: (
-      fg: #184272,
-      bg: #e3f2fd,
+      fg: #0055cc,
+      bg: rgba(173, 216, 230, 0.3),
     ),
     dark: (
-      fg: #d7ebf7,
-      bg: #03214f,
+      fg: #7eb8de,
+      bg: rgba(87, 193, 255, 0.15),
     ),
   ),
   green: (
     light: (
-      fg: #235415,
-      bg: #e8f5e9,
+      fg: #2c651c,
+      bg: rgba(172, 224, 172, 0.3),
     ),
     dark: (
-      fg: #bcf5d8,
-      bg: #17291c,
+      fg: #59d499,
+      bg: rgba(89, 212, 153, 0.15),
     ),
   ),
   orange: (
     light: (
-      fg: #913800,
-      bg: #fff3e0,
+      fg: #c24e00,
+      bg: rgba(255, 200, 130, 0.3),
     ),
     dark: (
-      fg: #ffe4b3,
-      bg: #381000,
+      fg: #ff9f0b,
+      bg: rgba(255, 159, 11, 0.15),
     ),
   ),
   pink: (
     light: (
-      fg: #871a48,
-      bg: #fceaf1,
+      fg: #bd255a,
+      bg: rgba(255, 182, 193, 0.3),
     ),
     dark: (
-      fg: #ffdef5,
-      bg: #3b1220,
+      fg: #ff86b5,
+      bg: rgba(255, 134, 181, 0.15),
     ),
   ),
   turquoise: (
     light: (
-      fg: #004c4c,
-      bg: #e0f7fa,
+      fg: #007575,
+      bg: rgba(176, 224, 230, 0.3),
     ),
     dark: (
-      fg: #b0f5e7,
-      bg: #0a243b,
+      fg: #40e0d0,
+      bg: rgba(64, 224, 208, 0.15),
     ),
   ),
   purple: (
     light: (
-      fg: #5d00ba,
-      bg: #f6eef9,
+      fg: #6633cc,
+      bg: rgba(216, 191, 216, 0.3),
     ),
     dark: (
-      fg: #ede3ff,
-      bg: #24194a,
+      fg: #b19cd9,
+      bg: rgba(177, 156, 217, 0.15),
     ),
   ),
   default: (
     light: (
       fg: #222222,
-      bg: #dedede,
+      bg: rgba(220, 220, 220, 0.5),
     ),
     dark: (
-      fg: #e6e6e6,
-      bg: #333333,
+      fg: #cccccc,
+      bg: rgba(60, 60, 60, 0.5),
     ),
   ),
 );
