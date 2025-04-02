@@ -9,13 +9,14 @@
    Base Styles (Global Settings)
 =========================== */
 
-html,
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  font-smooth: always;
-}
+// Disabled for now, use default OS font smoothing algorithm
+// html,
+// * {
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   text-rendering: optimizeLegibility;
+//   font-smooth: always;
+// }
 
 /* Apply background color to body before content */
 .nightMode {
