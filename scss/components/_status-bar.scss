@@ -19,8 +19,35 @@
   --light-mode-dropdown-menu-border: 1px solid rgba(0, 0, 0, 0.08);
   --dark-mode-dropdown-menu-border: 1px solid rgba(255, 255, 255, 0.1);
 
-  --light-mode-active-button-circle-color: #ff8800;
-  --dark-mode-active-button-circle-color: #ff9f45;
+  /* Orange */
+  --light-mode-active-button-circle-color-orange: #ff8800;
+  --dark-mode-active-button-circle-color-orange: #ff9f45;
+
+  /* Blue */
+  --light-mode-active-button-circle-color-blue: #2080ff;
+  --dark-mode-active-button-circle-color-blue: #45a0ff;
+  --light-mode-active-button-circle-color-dreamcast-blue: #0088ee;
+  --dark-mode-active-button-circle-color-dreamcast-blue: #22aaff;
+
+  /* Red */
+  --light-mode-active-button-circle-color-red: #ff3030;
+  --dark-mode-active-button-circle-color-red: #ff5252;
+
+  /* Green */
+  --light-mode-active-button-circle-color-green: #00c853;
+  --dark-mode-active-button-circle-color-green: #4cdf7a;
+
+  /* Pink */
+  --light-mode-active-button-circle-color-pink: #ff4081;
+  --dark-mode-active-button-circle-color-pink: #ff80ab;
+
+  /* Turquoise */
+  --light-mode-active-button-circle-color-turquoise: #00bcd4;
+  --dark-mode-active-button-circle-color-turquoise: #4dd0e1;
+
+  /* Purple */
+  --light-mode-active-button-circle-color-purple: #7c4dff;
+  --dark-mode-active-button-circle-color-purple: #b388ff;
 
   --dark-mode-dropdown-text-color: #f5f5f5; // Lc 100 on background #1a1a1a
 
@@ -341,13 +368,96 @@
 }
 
 /* Add "active" circle when Flag drop down menu appears. */
-#flag-button:has(.show) #flag-button-container::after {
+
+#flag-button.flagged:has(.show) #flag-button-container::after,
+#flag-button.flag-red.flagged .dropdown-button[value='1'] .dropdown-text::after,
+#flag-button.flag-orange.flagged
+  .dropdown-button[value='2']
+  .dropdown-text::after,
+#flag-button.flag-green.flagged
+  .dropdown-button[value='3']
+  .dropdown-text::after,
+#flag-button.flag-blue.flagged
+  .dropdown-button[value='4']
+  .dropdown-text::after,
+#flag-button.flag-pink.flagged
+  .dropdown-button[value='5']
+  .dropdown-text::after,
+#flag-button.flag-turquoise.flagged
+  .dropdown-button[value='6']
+  .dropdown-text::after,
+#flag-button.flag-purple.flagged
+  .dropdown-button[value='7']
+  .dropdown-text::after {
   content: '';
+  display: inline-block;
   position: relative;
   width: 6px;
   height: 6px;
-  background-color: var(--light-mode-active-button-circle-color);
   border-radius: 50%;
+}
+
+/* Red */
+#flag-button.flag-red.flagged:has(.show) #flag-button-container::after,
+#flag-button.flag-red.flagged
+  .dropdown-button[value='1']
+  .dropdown-text::after {
+  background-color: var(--light-mode-active-button-circle-color-red);
+}
+
+/* Orange */
+#flag-button.flag-orange.flagged:has(.show) #flag-button-container::after,
+#flag-button.flag-orange.flagged
+  .dropdown-button[value='2']
+  .dropdown-text::after {
+  background-color: var(--light-mode-active-button-circle-color-orange);
+}
+
+/* Green */
+#flag-button.flag-green.flagged:has(.show) #flag-button-container::after,
+#flag-button.flag-green.flagged
+  .dropdown-button[value='3']
+  .dropdown-text::after {
+  background-color: var(--light-mode-active-button-circle-color-green);
+}
+
+/* Blue */
+#flag-button.flag-blue.flagged:has(.show) #flag-button-container::after,
+#flag-button.flag-blue.flagged
+  .dropdown-button[value='4']
+  .dropdown-text::after {
+  background-color: var(--light-mode-active-button-circle-color-dreamcast-blue);
+}
+
+/* Pink */
+#flag-button.flag-pink.flagged:has(.show) #flag-button-container::after,
+#flag-button.flag-pink.flagged
+  .dropdown-button[value='5']
+  .dropdown-text::after {
+  background-color: var(--light-mode-active-button-circle-color-pink);
+}
+
+/* Turquoise */
+#flag-button.flag-turquoise.flagged:has(.show) #flag-button-container::after,
+#flag-button.flag-turquoise.flagged
+  .dropdown-button[value='6']
+  .dropdown-text::after {
+  background-color: var(--light-mode-active-button-circle-color-turquoise);
+}
+
+/* Purple */
+#flag-button.flag-purple.flagged:has(.show) #flag-button-container::after,
+#flag-button.flag-purple.flagged
+  .dropdown-button[value='7']
+  .dropdown-text::after {
+  background-color: var(--light-mode-active-button-circle-color-purple);
+}
+
+/* aligns the active circle symbol */
+.dropdown-text {
+  display: flex;
+  gap: 0.5625em;
+  align-items: center;
 }
 
 #dropdown-menu .dropdown-item {
@@ -445,8 +555,62 @@
     fill: white;
   }
 
-  #flag-button:has(.show) #flag-button-container::after {
-    background-color: var(--dark-mode-active-button-circle-color);
+  /* Red */
+  #flag-button.flag-red.flagged:has(.show) #flag-button-container::after,
+  #flag-button.flag-red.flagged
+    .dropdown-button[value='1']
+    .dropdown-text::after {
+    background-color: var(--dark-mode-active-button-circle-color-red);
+  }
+
+  /* Orange */
+  #flag-button.flag-orange.flagged:has(.show) #flag-button-container::after,
+  #flag-button.flag-orange.flagged
+    .dropdown-button[value='2']
+    .dropdown-text::after {
+    background-color: var(--dark-mode-active-button-circle-color-orange);
+  }
+
+  /* Green */
+  #flag-button.flag-green.flagged:has(.show) #flag-button-container::after,
+  #flag-button.flag-green.flagged
+    .dropdown-button[value='3']
+    .dropdown-text::after {
+    background-color: var(--dark-mode-active-button-circle-color-green);
+  }
+
+  /* Blue */
+  #flag-button.flag-blue.flagged:has(.show) #flag-button-container::after,
+  #flag-button.flag-blue.flagged
+    .dropdown-button[value='4']
+    .dropdown-text::after {
+    background-color: var(
+      --dark-mode-active-button-circle-color-dreamcast-blue
+    );
+  }
+
+  /* Pink */
+  #flag-button.flag-pink.flagged:has(.show) #flag-button-container::after,
+  #flag-button.flag-pink.flagged
+    .dropdown-button[value='5']
+    .dropdown-text::after {
+    background-color: var(--dark-mode-active-button-circle-color-pink);
+  }
+
+  /* Turquoise */
+  #flag-button.flag-turquoise.flagged:has(.show) #flag-button-container::after,
+  #flag-button.flag-turquoise.flagged
+    .dropdown-button[value='6']
+    .dropdown-text::after {
+    background-color: var(--dark-mode-active-button-circle-color-turquoise);
+  }
+
+  /* Purple */
+  #flag-button.flag-purple.flagged:has(.show) #flag-button-container::after,
+  #flag-button.flag-purple.flagged
+    .dropdown-button[value='7']
+    .dropdown-text::after {
+    background-color: var(--dark-mode-active-button-circle-color-purple);
   }
 
   #dropdown-menu {
