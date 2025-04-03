@@ -2,3 +2,6 @@
 *.txt
 # Plugins
 assets/highlight_js/*
+
+# Don't format HTML. This breaks the {{}} mustache syntax.
+src/
