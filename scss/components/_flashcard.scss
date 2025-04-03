@@ -120,6 +120,14 @@
   text-align: center; /* This will center the text */
 }
 
+#question-text:has(img ~ .cloze),
+#question-text:has(.cloze ~ img) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* focus on answer on question-answer cards */
 // .nightMode {
 //   #flashcard-question:not(:only-child):not(:has(.cloze-answer)) {
