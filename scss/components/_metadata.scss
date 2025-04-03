@@ -117,10 +117,12 @@
   gap: 0.75em;
 }
 
-// hide label text.
-#deck-count {
-  display: none;
-}
+
+// Currently, this will show. The remaining cards label is actually helpful.
+// hides label text.
+// #deck-count {
+//   display: none;
+// }
 
 #deck-progress-container {
   display: flex;
