@@ -517,15 +517,6 @@
   align-items: center;
 }
 
-// TO DO: light mode
-// #flag-button:has(.show) {
-//   color: white;
-// }
-
-// #flag-button:not(.flagged):has(.show) #flag-icon path {
-//   fill: white;
-// }
-
 .nightMode {
   // buttons
   #flag-button-container,
@@ -555,7 +546,6 @@
     fill: white;
   }
 
-  /* Red */
   #flag-button.flag-red.flagged:has(.show) #flag-button-container::after,
   #flag-button.flag-red.flagged
     .dropdown-button[value='1']
@@ -563,7 +553,6 @@
     background-color: var(--dark-mode-active-button-circle-color-red);
   }
 
-  /* Orange */
   #flag-button.flag-orange.flagged:has(.show) #flag-button-container::after,
   #flag-button.flag-orange.flagged
     .dropdown-button[value='2']
@@ -571,7 +560,6 @@
     background-color: var(--dark-mode-active-button-circle-color-orange);
   }
 
-  /* Green */
   #flag-button.flag-green.flagged:has(.show) #flag-button-container::after,
   #flag-button.flag-green.flagged
     .dropdown-button[value='3']
@@ -579,7 +567,6 @@
     background-color: var(--dark-mode-active-button-circle-color-green);
   }
 
-  /* Blue */
   #flag-button.flag-blue.flagged:has(.show) #flag-button-container::after,
   #flag-button.flag-blue.flagged
     .dropdown-button[value='4']
@@ -589,7 +576,6 @@
     );
   }
 
-  /* Pink */
   #flag-button.flag-pink.flagged:has(.show) #flag-button-container::after,
   #flag-button.flag-pink.flagged
     .dropdown-button[value='5']
@@ -597,7 +583,6 @@
     background-color: var(--dark-mode-active-button-circle-color-pink);
   }
 
-  /* Turquoise */
   #flag-button.flag-turquoise.flagged:has(.show) #flag-button-container::after,
   #flag-button.flag-turquoise.flagged
     .dropdown-button[value='6']
@@ -605,7 +590,6 @@
     background-color: var(--dark-mode-active-button-circle-color-turquoise);
   }
 
-  /* Purple */
   #flag-button.flag-purple.flagged:has(.show) #flag-button-container::after,
   #flag-button.flag-purple.flagged
     .dropdown-button[value='7']
