@@ -1,153 +1,135 @@
-![modern_card_preview](./metadata/img/desktop_theme_preview.webp)
-## modern-anki-card-template
-![AGPLv3 License](https://img.shields.io/badge/License-AGPLv3-blue.svg)
-![GitHub last commit](https://img.shields.io/github/last-commit/tyuichis/modern-anki-card-template)
-![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)
-[![Ko-Fi](https://img.shields.io/badge/Ko--fi-Buy%20Me%20a%20Coffee-ff5f5f?logo=kofi)](https://ko-fi.com/tyuichis)
+![modern_card_preview](./metadata/img/v2_template_preview.png)
 
-### Mobile Preview
+<h1 align="center">
+  modern-anki-card-template
+</h1>
+<p align="center">
+  A feature-rich, multi-platform Anki card template.
+  <br />
+  <br />
+  Includes both Q&A (front/back) and Cloze templates.
+  <br />
+  <br />
+  <a href="#about">About</a>
+  ·
+  <a href="#installation">Installation</a>
+  ·
+  <a href="#features">Features</a>
+  ·
+  <a href="#usage">Usage</a>
+</p>
 
-<details>
-  <summary>Mobile preview (Click to expand)</summary>
-  
-  ![Ankidroid preview](./metadata/img/ankidroid_theme_preview.png)
+<p align="center">
+  <img src="https://img.shields.io/badge/License-AGPLv3-blue.svg" alt="AGPLv3 License">
+  <img src="https://img.shields.io/github/last-commit/tyuichis/modern-anki-card-template" alt="GitHub last commit">
+  <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat" alt="Prettier">
+</p>
 
-</details>
+## About  
+A modern, streamlined Anki template that enhances the default cards (**Front/Back, Cloze**) with better usability and design.  
 
-This Anki card template is built to be easy to use, beautifully consistent and feature-complete. It comes with a Q&A (typical front and back style cards) and Cloze template. While there are many templates out there, not many, if any, tried to engineer in a UI/UX experience that feels natively built-in.
+It introduces new fields—**Topic, Subtopic, Source,** and **Details**—to help organize your cards more effectively.  
 
-## An Enhanced Vanilla Anki Framework
+Common actions like **Undo** and **Flag** are now built into the card interface, along with a **progress bar** for better tracking.  
 
-Anki’s default card types—**Basic Note** and **Cloze Note**—are simple and effective.  
-However, they lack structure, making it harder to organize information efficiently.  
+While many templates exist, few focus on a **native, built-in UI/UX experience**. This template bridges that gap.  
 
-### **The Problem**  
-- What should we write in each field?
-- How _much_ information should we have? 
-- How do we categorize cards for better review?  
-- In a mixed deck with many subdecks, how do we know where each card belongs?  
-- How do we remember where we got the information?  
+## Features
 
-To solve these issues, we introduced a **structured framework** with additional fields.
+- 🌙🌞 **Dark and Light Mode**  
+- 🔤 **Native Typography**  
+  - 🖋️ System fonts  
+  - 📱🖥️ Platform-specific typographic scale (iOS, Android, Desktop)  
+- 🇯🇵 **Furigana and Japanese Text Support**  
+  - 🔍 Correct typographic scaling  
+- 🃏 **Flashcard Metadata**  
+  - 📂 At a glance, see the deck your card belongs to
+  - 🔗 Sources readily available without leaving card review
+- 🖥️ **Better Desktop Interface**
+  - 🔢 See the number of remaining cards
+  - 📊 Progress bar built-in
+  - 🚩 Check active flags at a glance
+  - 🖱️ **Desktop UI Buttons**  
+    - ⛳ Flag button  
+    - ⏪ Undo button  
+- 🎨 **Accent Colors**  
+- 🎞️ **Subtle Animations**  
+  - ✨ Smooth transitions for answer reveals  
+- 🖥️📜 **Optional Code Syntax Highlighting**[^1]  
 
----
-
-### **The Improved Note Types**
-
-#### **Basic Note → Modern Q&A**
-| Default Field | Improved Field Name |
-|---------------|---------------------|
-|               | **Card Category**   |
-|               | **Subject**         |
-| Front         | **Question**        |
-| Back          | **Answer**          |
-|               | **Source**          |
-|               | **Details**         |
-
-
-#### **Cloze Note → Modern Cloze**
-| Default Field | Improved Field Name |
-|---------------|---------------------|
-|               | **Card Category**   |
-|               | **Subject**         |
-| Text          | **Cloze Text**      |
-|               | **Source**          |
-| Back Extra    | **Details**         |
-
-
-🔹 **New fields added:**  
-- **Card Category** (subtopic)  
-- **Subject** (main topic)  
-- **Source** (where the information came from)  
-- **Details** (extra explanations, if needed)  
-
----
-
-### **Example: Computer Science Flashcard**
-
-| Field                | Basic Note Type                         | Modern Q&A Note Type                                            |
-|----------------------|-----------------------------------------|-----------------------------------------------------------------|
-| **Card Category**📌  |                                         | Data Representation                                             |
-| **Subject**📌        |                                         | Data                                                            |
-| **Front → Question** | What defines a tight compression ratio? | What defines a tight compression ratio?                         |
-| **Back → Answer**    | A value close to zero                   | A value close to zero                                           |
-| **Source**📌         |                                         | *Computer Science Illuminated, Chapter 3.1, Data and Computers* |
-| **Details**          |                                         | e.g. 0.25, 0.32...                                              |
-
-<details>
-  <summary>Card preview (Click to expand)</summary>
-  
-  ![Card creation preview](./metadata/img/card_creation_annotated.png)
-
-</details>
-
-With these improvements, each card is now **self-contained and informative**.  
-
-This structure makes it easy to create high-quality flashcards with inherent links to one another.
-
-> [!TIP]
-> By using Anki's built-in **pinned fields**📌 feature, you can efficiently create multiple flashcards for a topic while keeping track of sources and context.
-> 
-> This is extremely useful if you were reading a chapter and needed to make flashcards for the same chapter.
-
-This approach to flashcards creating cards **more intuitive**, helps with **memory recall**, and ensures you can revisit and refine problematic cards easily.
-
-## Key Features
-- Dark and Light Mode support
-- System fonts for a native feel
-- Furigana and Japanese text support (with correct typographic scale)
-- Flashcard Metadata: Easily view the Deck your card belongs to, the number of remaining cards, and any active flags at a glance.
-- Desktop UI buttons: Flag and Undo buttons-- flag icon is colored when active.
-- Variable accent color based on subject names
-- Optional code syntax highlighting[^1]
-- Accent color matches native Anki flag colors
-- Subtle animations for answer reveals
-- Near 'native' styling where possible, e.g., Material 3 color palette for Android
 
 This card template was designed to be:
 - Fast to make high-quality cards
 - Fast to recall cards
 - Fast to fix cards
 
-It also avoids the bloat of excessive add-ons, but encourages select add-ons which makes card creation a lot more efficient, such as Editor Live Preview and Field AutoComplete.
+## Installation
 
-> [!NOTE]
-> This card template was mainly produced and used on Mac and Android (Pixel). For any design or functionality tweaks on other platforms, such as Windows or Unix, please let me know.
+### Step 1: Install the Card Types 🃏  
+1️⃣ **Download** the `.apkg` file from the Releases page.  
+2️⃣ **Open & Import** the two card types:  
+   - **Q&A**  
+   - **Cloze**  
 
-## Quick Start
-Download the `.apkg` file from the Releases page, and click to open & import the two card types (Q&A, Cloze types)
+---
 
-✅ This is all you need to start. 
-
-> [!IMPORTANT]
-> Not all features will be enabled:
-> 
-> - ✅ **Essential styling and appearance** will work.
-> - ❌ **Undo and Flag status buttons** won't work until the UI Status Buttons add-on is downloaded.
-> - ❌ **Remaining cards text** won't update properly until the Anki JavaScript API add-on is downloaded.
-> - ⚪ **Optional**: Code highlighting is pre-configured, but requires `_highlight.min.js` and `_github-dark.min.css`. See below for instructions.
-  
-To get all of the core features working, you'll need to get UI Status Buttons (`1230570706`) and Anki JavaScript API (`1490471827`)
+### Step 2: Install Required Add-ons 🔧  
+To unlock all essential features, **install these add-ons via Anki's add-on menu**:  
 
 ```
 1230570706 1490471827
 ```
 
-To download all the add-ons at once (including the recommended add-ons below), copy and paste this into your Anki Add-on menu:
+> [!IMPORTANT]  
+> 🚨 **These add-ons are required for full functionality on Desktop:**  
+>  
+> - 🔄 **Undo & Flag Status Buttons** → Requires **UI Status Buttons** `1230570706` add-on.  
+> - 📊 **Remaining Cards & Progress Bar** → Requires **Anki JavaScript API** `1490471827` add-on.  
 
-```
-1230570706 1490471827 511710206 1844938046 1960039667
-```
+---
 
+### Step 3 (Optional): Enable Code Syntax Highlighting 💻  
 > [!NOTE]
-> To enable Syntax Highlighting, please add `_highlight.min.js`, `_github-dark.min.css` and all files inside `languages/` in your Anki's `collection.media` folder,
-then change `syntaxHighlighting = false` to `syntaxHighlighting = true` in all of the Front and Back sides of the templates you want to use it on. 
->
-> By default, it's not turned on to maximise performance.
-> 
-> For more details on the folder path, see [Anki Docs](https://docs.ankiweb.net/files.html#file-locations).
+> If you do not need to use code, skip this step.
 
-## Recommended add-ons
+By default, syntax highlighting is **disabled** to maximize performance.
+To enable it:  
+
+1️⃣ **Add these files** to your Anki `collection.media` folder:  
+   - `_highlight.min.js`  
+   - `_github-dark.min.css`  
+   - **All files inside** `languages/`  
+
+2️⃣ **Modify your card templates:**  
+   - Find `syntaxHighlighting = false`  
+   - Change it to `syntaxHighlighting = true`  
+   - Apply this to the Front & Back sides of the templates you want to use  
+
+📖 **For help finding the correct folder path, see** [Anki Docs](https://docs.ankiweb.net/files.html#file-locations).  
+
+---
+
+### ✅ That's it! You're all set! 🎉  
+Now you can start using the deck with full functionality.  
+
+### Useful extras
+
+We've also curated 3 extra add-ons that make it extremely convenient to make cards.
+
+- Editor Live Preview `511710206`
+- Field AutoComplete `1844938046`
+- Markdown support for code blocks and inline code `1960039667`
+
+If you _had_ to get an extra add-on, get **Editor Live Preview**. This visualises the cards you're making before committing.
+
+To get all the extras, copy and paste this into your Anki Add-on menu:
+
+```
+511710206 1844938046 1960039667
+```
+
+
+## Add-on dependencies
 
 ### 1. UI Status Buttons
 addon: `1230570706`
@@ -184,17 +166,60 @@ Note: You'll need to write your code blocks within the [HTML editor of Anki](htt
 
 As of March 4 2025, `<>` tags are not supported while writing code blocks using this extension. 
 
-## FAQ
-<details>
-<summary> <b>My subject label is grayed out. What gives?</b></summary>
-  
-If your subject wasn't included in the defaults, you can manually add them. [See the wiki page for more information](https://github.com/tyuichis/modern-anki-card-template/wiki/Adding-new-subjects)
-</details>
+## Usage
 
+There are new fields to use:
+
+| Fields                   |
+|--------------------------|
+| ✨ **Topic** 📌              |
+| ✨ **Subtopic**  📌         |
+| Question                 |
+| Answer                   |
+| ✨ **Source (optional)** 📌 |
+| ✨ **Details (optional)** |
+
+**Topic** represents the general thing you're studying, i.e. Vocabulary, Biology...
+
+**Subtopic** represents a specific part of your topic, i.e. Colors, Plants...
+
+**Source (optional)** allows you to cite a source,  usually your textbook or a URL
+
+**Details (optional)** are any extra information that can help remember the card.
+
+> [!TIP]
+> By using Anki's built-in **pinned fields**📌 feature, you can efficiently create multiple flashcards for a topic and subtopic while keeping track of sources and context.
+> 
+> This is extremely useful if you were reading a chapter and needed to make flashcards for the same chapter.
+
+Topic and Subtopic are flexible. The scope of **topics and subtopics** can expand or contract depending on how broadly or narrowly you define them.
+
+Here’s a general hierarchy to illustrate:
+
+1. **Genetics** (Broad Topic)  
+   - **DNA** (Subtopic under Genetics)  
+     - **mRNA** (Subtopic under DNA)  
+       - **Transcription** (More specific subtopic under mRNA)
+
+In Anki, this could be:  
+
+| **Topic**    | **Genetics**  |
+|----------|------|
+| **Subtopic** | **DNA** |
+
+or
+
+| **Topic**    | **DNA**  |
+|----------|------|
+| **Subtopic** | **mRNA** |
+
+The depth of the hierarchy depends on **how detailed you want to go** and what level of learning you're aiming for (e.g., high school, college, research).  
+
+## FAQ
 <details>
 <summary> <b>Code highlighting doesn't seem to work</b></summary>
   
-Be sure to add _highlight.min.js _github-dark.min.css and all the languages/ files to your Anki's collection.media folder, then set syntaxHighlighting = true in your card templates.
+Be sure to add `_highlight.min.js`, `_github-dark.min.css` and all the files in `languages/` to your Anki's collection.media folder, then set syntaxHighlighting = true in your card templates.
 
 For a visual guide on enabling syntax highlighting, check out the [Wiki page](https://github.com/tyuichis/modern-anki-card-template/wiki/Enabling-Syntax-Highlighting).
   
@@ -209,17 +234,25 @@ For a visual guide on enabling syntax highlighting, check out the [Wiki page](ht
 
   The template fields map 1:1 with the original Anki cards, i.e. Front = Question, Back = Answer, and Cloze text = Cloze text.
 
-> [!WARNING]
+> 
 > If you have more than "Front" and "Back" fields, be careful. You will lose data if you don't select all the fields.
 > Make a copy of your card first, then change the Note Type to test.
   
 </details>
 
+<details>
+<summary> <b>[v1] My subject label is grayed out. What gives?</b></summary>
+  
+If your subject wasn't included in the defaults, you can manually add them. [See the wiki page for more information](https://github.com/tyuichis/modern-anki-card-template/wiki/Adding-new-subjects)
+</details>
+
 ## Support
 
-If you find this project helpful, consider supporting me on Ko-Fi! Your support helps keep development active.  
+If you find this card template helpful, consider supporting me! Your support helps keep development active.  
 
 [![Ko-Fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/tyuichis)
+
+<a href="https://www.buymeacoffee.com/tyuichis" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 
 ## License
