@@ -9,6 +9,35 @@
    Metadata Component
 =========================== */
 
+:root {
+  --dark-mode-yellow-progress-background: #e6ac1f;
+  --light-mode-yellow-progress-background: #ffb224;
+
+  --dark-mode-red-progress-background: #e05252;
+  --light-mode-red-progress-background: #e84c55;
+
+  --dark-mode-blue-progress-background: #5a9fd0;
+  --light-mode-blue-progress-background: #4286f5;
+
+  --dark-mode-green-progress-background: #3dbb7d;
+  --light-mode-green-progress-background: #46aa3f;
+
+  --dark-mode-orange-progress-background: #e58a0a;
+  --light-mode-orange-progress-background: #f07427;
+
+  --dark-mode-pink-progress-background: #e26c9b;
+  --light-mode-pink-progress-background: #e73c7e;
+
+  --dark-mode-turquoise-progress-background: #2fc9ba;
+  --light-mode-turquoise-progress-background: #20b8b0;
+
+  --dark-mode-purple-progress-background: #9a82c8;
+  --light-mode-purple-progress-background: #8859dd;
+
+  --dark-mode-default-progress-background: #a0a0a0;
+  --light-mode-default-progress-background: #555555;
+}
+
 /* Flashcard metadata container */
 .flashcard-metadata {
   display: flex;
@@ -117,7 +146,6 @@
   gap: 0.75em;
 }
 
-
 // Currently, this will show. The remaining cards label is actually helpful.
 // hides label text.
 // #deck-count {
@@ -162,5 +190,17 @@ progress::-webkit-progress-value {
   &::-webkit-progress-value {
     background: #5c9bc2;
     box-shadow: none;
+  }
+}
+
+@each $name in 'yellow', 'red', 'blue', 'green', 'orange', 'pink', 'turquoise',
+  'purple', 'default'
+{
+  .accent-#{$name} progress::-webkit-progress-value {
+    background: var(--light-mode-#{$name}-progress-background);
+  }
+
+  .nightMode .accent-#{$name} progress::-webkit-progress-value {
+    background: var(--dark-mode-#{$name}-progress-background);
   }
 }
