@@ -1037,6 +1037,27 @@ a::after {
 /* ===========================
    Metadata Component
 =========================== */
+:root {
+  --dark-mode-yellow-progress-background: #e6ac1f;
+  --light-mode-yellow-progress-background: #ffb224;
+  --dark-mode-red-progress-background: #e05252;
+  --light-mode-red-progress-background: #e84c55;
+  --dark-mode-blue-progress-background: #5a9fd0;
+  --light-mode-blue-progress-background: #4286f5;
+  --dark-mode-green-progress-background: #3dbb7d;
+  --light-mode-green-progress-background: #46aa3f;
+  --dark-mode-orange-progress-background: #e58a0a;
+  --light-mode-orange-progress-background: #f07427;
+  --dark-mode-pink-progress-background: #e26c9b;
+  --light-mode-pink-progress-background: #e73c7e;
+  --dark-mode-turquoise-progress-background: #2fc9ba;
+  --light-mode-turquoise-progress-background: #20b8b0;
+  --dark-mode-purple-progress-background: #9a82c8;
+  --light-mode-purple-progress-background: #8859dd;
+  --dark-mode-default-progress-background: #a0a0a0;
+  --light-mode-default-progress-background: #555555;
+}
+
 /* Flashcard metadata container */
 .flashcard-metadata {
   display: flex;
@@ -1163,6 +1184,78 @@ progress::-webkit-progress-value {
 .nightMode progress::-webkit-progress-value {
   background: #5c9bc2;
   box-shadow: none;
+}
+
+.accent-yellow progress::-webkit-progress-value {
+  background: var(--light-mode-yellow-progress-background);
+}
+
+.nightMode .accent-yellow progress::-webkit-progress-value {
+  background: var(--dark-mode-yellow-progress-background);
+}
+
+.accent-red progress::-webkit-progress-value {
+  background: var(--light-mode-red-progress-background);
+}
+
+.nightMode .accent-red progress::-webkit-progress-value {
+  background: var(--dark-mode-red-progress-background);
+}
+
+.accent-blue progress::-webkit-progress-value {
+  background: var(--light-mode-blue-progress-background);
+}
+
+.nightMode .accent-blue progress::-webkit-progress-value {
+  background: var(--dark-mode-blue-progress-background);
+}
+
+.accent-green progress::-webkit-progress-value {
+  background: var(--light-mode-green-progress-background);
+}
+
+.nightMode .accent-green progress::-webkit-progress-value {
+  background: var(--dark-mode-green-progress-background);
+}
+
+.accent-orange progress::-webkit-progress-value {
+  background: var(--light-mode-orange-progress-background);
+}
+
+.nightMode .accent-orange progress::-webkit-progress-value {
+  background: var(--dark-mode-orange-progress-background);
+}
+
+.accent-pink progress::-webkit-progress-value {
+  background: var(--light-mode-pink-progress-background);
+}
+
+.nightMode .accent-pink progress::-webkit-progress-value {
+  background: var(--dark-mode-pink-progress-background);
+}
+
+.accent-turquoise progress::-webkit-progress-value {
+  background: var(--light-mode-turquoise-progress-background);
+}
+
+.nightMode .accent-turquoise progress::-webkit-progress-value {
+  background: var(--dark-mode-turquoise-progress-background);
+}
+
+.accent-purple progress::-webkit-progress-value {
+  background: var(--light-mode-purple-progress-background);
+}
+
+.nightMode .accent-purple progress::-webkit-progress-value {
+  background: var(--dark-mode-purple-progress-background);
+}
+
+.accent-default progress::-webkit-progress-value {
+  background: var(--light-mode-default-progress-background);
+}
+
+.nightMode .accent-default progress::-webkit-progress-value {
+  background: var(--dark-mode-default-progress-background);
 }
 
 /* ===========================
