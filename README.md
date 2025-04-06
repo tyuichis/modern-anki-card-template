@@ -116,9 +116,9 @@ Now you can start using the deck with full functionality.
 
 We've also curated 3 extra add-ons that make it extremely convenient to make cards.
 
-- Editor Live Preview `511710206`
-- Field AutoComplete `1844938046`
-- Markdown support for code blocks and inline code `1960039667`
+- Editor Live Preview `1960039667`
+- Field AutoComplete `511710206` 
+- Markdown support for code blocks and inline code `1844938046`
 
 If you _had_ to get an extra add-on, get **Editor Live Preview**. This visualises the cards you're making before committing.
 
