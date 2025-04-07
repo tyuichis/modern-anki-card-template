@@ -4,7 +4,7 @@
   modern-anki-card-template
 </h1>
 <p align="center">
-  A feature-rich, multi-platform Anki card template.
+  A feature-rich, multi-platform Anki card template with major UI improvements.
   <br />
   <br />
   Includes both Q&A (front/back) and Cloze templates.
@@ -30,7 +30,7 @@ A modern, streamlined Anki template that enhances the default cards (**Front/Bac
 
 It introduces new fields—**Topic, Subtopic, Source,** and **Details**—to help organize your cards more effectively.  
 
-Common actions like **Undo** and **Flag** are now built into the card interface, along with a **progress bar** for better tracking.  
+Common actions like **Undo** and **Flag** are also now built into the card interface, along with a **progress bar** for better tracking on Desktop.  
 
 While many templates exist, few focus on a **native, built-in UI/UX experience**. This template bridges that gap.  
 
@@ -67,7 +67,7 @@ This card template was designed to be:
 
 ### Step 1: Install the Card Types 🃏  
 1️⃣ **Download** the `.apkg` file from the Releases page.  
-2️⃣ **Open & Import** the two card types:  
+2️⃣ **Open the `.apkg` file & Import** the two card types using "Import Note Type":  
    - **Q&A**  
    - **Cloze**  
 
