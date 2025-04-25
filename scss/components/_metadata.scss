@@ -157,7 +157,7 @@
   align-items: flex-start;
   flex-flow: column;
   flex-grow: 1;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 
 #deck-progress-bar {
@@ -172,23 +172,25 @@ progress::-webkit-progress-value {
 }
 
 progress::-webkit-progress-bar {
-  background: #dfe3e8;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  background: #e0e0e0;
+  // background: #dfe3e8;
+  // box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 progress::-webkit-progress-value {
-  background: linear-gradient(to right, #3b82f6, #60a5fa);
+  background: #b0b0b0;
   box-shadow: none;
 }
 
 .nightMode progress {
   &::-webkit-progress-bar {
-    background: #313131;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+    // background: #313131;
+    // box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+    background: #3a3a3a;
   }
 
   &::-webkit-progress-value {
-    background: #5c9bc2;
+    background: #aaaaaa;
     box-shadow: none;
   }
 }
