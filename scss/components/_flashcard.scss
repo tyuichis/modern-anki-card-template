@@ -9,6 +9,10 @@
    Flashcard Component
 =========================== */
 
+:root {
+  --title-margin-bottom: 0.75rem; // original: 1.1875rem
+}
+
 // default
 #flashcard-content {
   // background: #323131;
@@ -65,7 +69,7 @@
   overflow-x: auto;
   white-space: nowrap;
   flex-shrink: 0;
-  margin-bottom: 1.1875rem;
+  margin-bottom: var(--title-margin-bottom);
 }
 
 #flashcard-content {
