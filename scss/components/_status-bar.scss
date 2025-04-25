@@ -167,54 +167,63 @@
 }
 
 .nightMode {
+  // Yellow
   #flag-button #dropdown-menu .flag-yellow path,
   #flag-button.flag-yellow #flag-icon path,
   #flag-button.flag-yellow:hover #flag-icon path {
     fill: var(--dark-mode-flag-yellow);
   }
 
+  // Red
   #flag-button #dropdown-menu .flag-red path,
   #flag-button.flag-red #flag-icon path,
   #flag-button.flag-red:hover #flag-icon path {
     fill: var(--dark-mode-flag-red);
   }
 
+  // Blue
   #flag-button #dropdown-menu .flag-blue path,
   #flag-button.flag-blue #flag-icon path,
   #flag-button.flag-blue:hover #flag-icon path {
     fill: var(--dark-mode-flag-blue);
   }
 
+  // Green
   #flag-button #dropdown-menu .flag-green path,
   #flag-button.flag-green #flag-icon path,
   #flag-button.flag-green:hover #flag-icon path {
     fill: var(--dark-mode-flag-green);
   }
 
+  // Orange
   #flag-button #dropdown-menu .flag-orange path,
   #flag-button.flag-orange #flag-icon path,
   #flag-button.flag-orange:hover #flag-icon path {
     fill: var(--dark-mode-flag-orange);
   }
 
+  // Pink
   #flag-button #dropdown-menu .flag-pink path,
   #flag-button.flag-pink #flag-icon path,
   #flag-button.flag-pink:hover #flag-icon path {
     fill: var(--dark-mode-flag-pink);
   }
 
+  // Turquoise
   #flag-button #dropdown-menu .flag-turquoise path,
   #flag-button.flag-turquoise #flag-icon path,
   #flag-button.flag-turquoise:hover #flag-icon path {
     fill: var(--dark-mode-flag-turquoise);
   }
 
+  // Purple
   #flag-button #dropdown-menu .flag-purple path,
   #flag-button.flag-purple #flag-icon path,
   #flag-button.flag-purple:hover #flag-icon path {
     fill: var(--dark-mode-flag-purple);
   }
 
+  // Default
   #flag-button #dropdown-menu .flag-default path,
   #flag-button.flag-default #flag-icon path,
   #flag-button.flag-default:hover #flag-icon path {
@@ -223,46 +232,84 @@
 }
 
 /* light mode flags */
+
+// Yellow
 #flag-button #dropdown-menu .flag-yellow path,
 #flag-button.flag-yellow #flag-icon path {
   fill: var(--light-mode-flag-yellow);
 }
 
+// Red
 #flag-button #dropdown-menu .flag-red path,
 #flag-button.flag-red #flag-icon path {
   fill: var(--light-mode-flag-red);
 }
 
+.flag-red #flag-button-container {
+  border: 1px solid var(--light-mode-flag-red);
+}
+
+// Blue
 #flag-button #dropdown-menu .flag-blue path,
 #flag-button.flag-blue #flag-icon path {
   fill: var(--light-mode-flag-blue);
 }
 
+.flag-blue #flag-button-container {
+  border: 1px solid var(--light-mode-flag-blue);
+}
+
+// Green
 #flag-button #dropdown-menu .flag-green path,
 #flag-button.flag-green #flag-icon path {
   fill: var(--light-mode-flag-green);
 }
 
+.flag-green #flag-button-container {
+  border: 1px solid var(--light-mode-flag-green);
+}
+
+// Orange
 #flag-button #dropdown-menu .flag-orange path,
 #flag-button.flag-orange #flag-icon path {
   fill: var(--light-mode-flag-orange);
 }
 
+.flag-orange #flag-button-container {
+  border: 1px solid var(--light-mode-flag-orange);
+}
+
+// Pink
 #flag-button #dropdown-menu .flag-pink path,
 #flag-button.flag-pink #flag-icon path {
   fill: var(--light-mode-flag-pink);
 }
 
+.flag-pink #flag-button-container {
+  border: 1px solid var(--light-mode-flag-pink);
+}
+
+// Turquoise
 #flag-button #dropdown-menu .flag-turquoise path,
 #flag-button.flag-turquoise #flag-icon path {
   fill: var(--light-mode-flag-turquoise);
 }
 
+.flag-turquoise #flag-button-container {
+  border: 1px solid var(--light-mode-flag-turquoise);
+}
+
+// Purple
 #flag-button #dropdown-menu .flag-purple path,
 #flag-button.flag-purple #flag-icon path {
   fill: var(--light-mode-flag-purple);
 }
 
+.flag-purple #flag-button-container {
+  border: 1px solid var(--light-mode-flag-purple);
+}
+
+// Default
 #flag-button #dropdown-menu .flag-default path,
 #flag-button.flag-default #flag-icon path {
   fill: var(--light-mode-flag-default);
