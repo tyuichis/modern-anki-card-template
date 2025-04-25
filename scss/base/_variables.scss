@@ -73,13 +73,10 @@
 
   --android-font-family: 'Noto Sans JP', 'Noto', 'Roboto', sans-serif;
 
-  --label-font-color: #8e8e93; /* replace with JS depending on subject category */
-  --label-background-color: rgba(
-    44,
-    44,
-    46,
-    0.9
-  ); /* replace with JS depending on subject category */
+
+  /* replace with JS depending on subject category */
+  --label-font-color: #222222;
+  --label-background-color: rgba(220, 220, 220, 0.5);
 
   --flag-color: rgba(255, 255, 255, 0.8);
   --subject-flag-color: rgba(255, 255, 255, 0.8); /* set with JS */
