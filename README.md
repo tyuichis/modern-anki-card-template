@@ -246,6 +246,60 @@ For a visual guide on enabling syntax highlighting, check out the [Wiki page](ht
 If your subject wasn't included in the defaults, you can manually add them. [See the wiki page for more information](https://github.com/tyuichis/modern-anki-card-template/wiki/Adding-new-subjects)
 </details>
 
+## Contributing / Building from Source
+
+If you want to modify the templates, styles, or contribute to the project, you'll need to build the assets from the source files.
+
+**Prerequisites:**
+
+*   **Git:** To clone the repository.
+*   **Node.js:** (Which includes npm) To manage dependencies and run build scripts. Download from [nodejs.org](https://nodejs.org/).
+
+**Steps:**
+
+1.  **Clone the Repository:**
+    ```bash
+    git clone https://github.com/tyuichis/modern-anki-card-template.git
+    cd modern-anki-card-template
+    ```
+
+2.  **Install Dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Build Assets:**
+    *   **Build only the EJS templates (HTML output):**
+        ```bash
+        npm run build:templates
+        ```
+        *(Output goes to the `build/` directory)*
+
+    *   **Build only the CSS from SCSS:**
+        ```bash
+        npm run build:css:all
+        ```
+        *(Output goes to the `css/` directory)*
+
+    *   **Build both CSS and Templates:**
+        ```bash
+        npm run build
+        ```
+
+4.  **Find the Output:**
+    *   Generated HTML template files will be located in the `build/` directory, organized by language (e.g., `build/en/base/qna_front.html`).
+    *   Generated CSS files will be located in the `css/` directory.
+
+**Source Files:**
+
+*   Edit EJS templates in the `templates/` directory.
+*   Edit JavaScript modules in the `js/` directory.
+*   Edit Sass/SCSS files in the `scss/` directory.
+*   Edit translation strings in the `locales/` directory.
+*   Add/modify SVG icons in the `icons/` directory.
+
+After making changes to the source files, run the appropriate build command(s) again to see your changes reflected in the output directories.
+
 ## Support
 
 If you find this card template helpful, consider supporting me! Your support helps keep development active.  
