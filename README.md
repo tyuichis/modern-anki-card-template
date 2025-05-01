@@ -203,15 +203,15 @@ Here’s a general hierarchy to illustrate:
 
 In Anki, this could be:  
 
-| **Topic**    | **Genetics**  |
+| ✨ **Topic**    | **Genetics**  |
 |----------|------|
-| **Subtopic** | **DNA** |
+| ✨ **Subtopic** | **DNA** |
 
 or
 
-| **Topic**    | **DNA**  |
+| ✨ **Topic**    | **DNA**  |
 |----------|------|
-| **Subtopic** | **mRNA** |
+| ✨ **Subtopic** | **mRNA** |
 
 The depth of the hierarchy depends on **how detailed you want to go** and what level of learning you're aiming for (e.g., high school, college, research).  
 
