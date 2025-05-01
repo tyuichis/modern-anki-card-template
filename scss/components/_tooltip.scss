@@ -1,0 +1,46 @@
+:root {
+  --light-mode-tooltip-bg: #fafafa;
+  --light-mode-tooltip-border: 1px solid rgba(0, 0, 0, 0.08);
+  --dark-mode-tooltip-bg: #1a1a1a;
+  --dark-mode-tooltip-border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%) translateY(-8px);
+  background-color: var(--light-mode-tooltip-bg);
+  border: var(--light-mode-tooltip-border);
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  z-index: 10;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  transition-delay: 0s;
+  pointer-events: none;
+  font-size: var(--mac-font-size-footnote);
+  line-height: var(--mac-line-height-footnote);
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(-12px);
+  transition-delay: 0.5s;
+}
+
+/* Dark mode overrides */
+.nightMode .tooltip-text {
+  background-color: var(--dark-mode-tooltip-bg);
+  border: var(--dark-mode-tooltip-border);
+}
