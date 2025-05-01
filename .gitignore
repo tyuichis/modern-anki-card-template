@@ -49,3 +49,6 @@ __pycache__/
 
 # Misc
 license-header.txt
+
+# Builds
+css/
