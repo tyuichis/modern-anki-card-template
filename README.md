@@ -247,9 +247,16 @@ For a visual guide on enabling syntax highlighting, check out the [Wiki page](ht
 If your subject wasn't included in the defaults, you can manually add them. [See the wiki page for more information](https://github.com/tyuichis/modern-anki-card-template/wiki/Adding-new-subjects)
 </details>
 
-## Contributing / Building from Source
+## Contributing
 
-If you want to modify the templates, styles, or contribute to the project, you'll need to build the assets from the source files.
+Contributions are welcome, especially **translations** to make the template UI accessible in more languages! Bug reports and feature suggestions are also appreciated.
+
+*   **For detailed translation instructions:** Please see the **[Contributing Translations Guide](https://github.com/tyuichis/modern-anki-card-template/wiki/Contributing-Translations)** on our Wiki.
+*   **For bug reports and feature ideas:** Please use **[GitHub Issues](https://github.com/tyuichis/modern-anki-card-template/issues)**.
+
+## Building from Source
+
+If you want to modify the templates or styles locally, follow these steps to build the assets from the source files.
 
 **Prerequisites:**
 
