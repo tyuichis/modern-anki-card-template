@@ -1,5 +1,7 @@
 *.md
 *.txt
+.github/
+
 # Plugins
 assets/highlight_js/*
 
