@@ -1,0 +1,192 @@
+<!-- modern-anki-card-template
+Copyright (C) 2025 Tommy Yuichi Siek
+
+This file is part of modern-anki-card-template.
+Licensed under the AGPL-3.0 License.
+See the LICENSE file in the project root for details. -->
+
+<link rel="stylesheet" href="_github-dark.min.css" />
+
+<%# ============================================= %>
+<%# HEAD SCRIPTS (Definitions, Config, etc.)      %>
+<%# ============================================= %>
+<% headScriptNames.forEach(scriptName => { %>
+    <% if (scripts && scripts[scriptName]) { %><script>
+      <%- scripts[scriptName] %></script><% } %>
+<% }); %>
+
+
+<%# ============================================= %>
+<%# START OF VISIBLE CARD HTML STRUCTURE         %>
+<%# ============================================= %>
+
+<!--
+The `main` section uses an `accent-{color}` class to define the card's accent colors.
+
+You have two options for setting the accent color:
+
+1.  Static Accent Color: Use a specific color name (e.g., `accent-blue`, `accent-red`) to apply a fixed color scheme.  
+
+Available colors:
+    *   Red
+    *   Orange
+    *   Green
+    *   Blue
+    *   Pink
+    *   Turquoise
+    *   Purple
+    *   Yellow
+
+    Example: `<section id="main" class="accent-blue">`
+
+2.  "Smart" Accent Color (Subject-Based): Use `accent-smart` to have the card automatically color-coded based on the `Subject` field. The card will load a `_subject.json` file (from collection.media/) to apply a color label according to the content in that file. Use the AI prompt to generate color labels for your study deck, which can be found in the `docs/` directory.
+
+    Example: `<section id="main" class="accent-smart">`
+
+-->
+
+<section id="main" class="accent-blue">
+  <div id="status-bar">
+    <ul id="status-bar-buttons">
+      <!-- Undo Button -->
+      <li>
+        <div class="tooltip-container">
+          <div id="undo-button" class="button">
+            <span id="undo-icon">
+              <%- svgs ? svgs.undo : '<!-- SVG placeholder -->' %>
+            </span>
+            <span id="undo"><%= i18n('undoButtonLabel') %></span>
+          </div>
+          <span class="tooltip-text"><%= i18n('undoTooltip') %><br>
+            (<%= i18n('shortcutLabel') %>: <kbd>⌘</kbd> + <kbd>Z</kbd>)</span>
+        </div>
+      </li>
+      <!-- Flag Button -->
+      <li>
+        <div id="flag-button" class="button">
+          <div class="tooltip-container">
+            <div id="flag-button-container">
+              <span id="flag-icon">
+                <%- svgs ? svgs.flag_1 : '<!-- SVG placeholder -->' %>
+              </span>
+              <span id="flag"><%= i18n('flagButtonLabel') %></span>
+            </div>
+            <span class="tooltip-text"><%= i18n('flagTooltipBase') %><br>
+                (<%= i18n('shortcutLabel') %>: <kbd>⌘</kbd> + <kbd>0</kbd>–<kbd>7</kbd>)</span> 
+          </div>
+          <ul id="dropdown-menu" class="dropdown-content">
+            <% const flags = [ 
+                 { value: 1, key: 'flagRed',   colorClass: 'red' }, 
+                 { value: 2, key: 'flagOrange',colorClass: 'orange' }, 
+                 { value: 3, key: 'flagGreen', colorClass: 'green' },
+                 { value: 4, key: 'flagBlue',  colorClass: 'blue' },
+                 { value: 5, key: 'flagPink',  colorClass: 'pink' },
+                 { value: 6, key: 'flagTurquoise', colorClass: 'turquoise' },
+                 { value: 7, key: 'flagPurple', colorClass: 'purple' },
+                 { value: 0, key: 'flagNone',  colorClass: 'default' } 
+               ]; %>
+            <% flags.forEach(flag => { %>
+            <li class="dropdown-item">
+              <button class="dropdown-button" value="<%= flag.value %>">
+                <div id="flag-text-container">
+                  <span class="flag-dropdown-icon flag-<%= flag.colorClass %>">
+                    <%- svgs ? (flag.value !== 0 ? svgs.flag_2 : svgs.flag_none) : '<!-- SVG placeholder -->' %> 
+                  </span>
+                  <span class="dropdown-text"><%= i18n(flag.key) %></span>
+                </div>
+              </button>
+            </li>
+            <% }); %>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div id="flashcard-container">
+    <div id="flashcard-title">
+      <h1 id="title">{{^Word Category}}<%= i18n('untitledPlaceholder') %>{{/Word Category}}{{Word Category}}</h1>
+    </div>
+
+    <div id="flashcard-labels">
+      <div id="deck-name-container">
+        <div id="subdeck-name-container">
+          <span id="subdeck-icon" class="deck-icon dynamic-icon">
+          <!-- dynamic icons are loaded with CSS, via background-image -->
+          </span>
+          <span id="deck-name">{{Subdeck}}</span> 
+        </div>
+        <div id="flashcard-subject">
+          <span id="subject" class="subject-label">
+            語彙
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div id="flashcard-content">
+      <div id="flashcard-textbox">
+        <div id="flashcard-question">
+          <p id="question-text" class="cloze-answer">{{cloze:Cloze Text}}</p>
+        </div>
+        <div id="details" class="hidden">
+            <span class="details-icon">
+                <%- svgs ? svgs.details : '<!-- SVG placeholder -->' %>
+            </span>
+            <span id="details-text">{{Details}}</span>
+        </div>
+        <div id="sentence" class="hidden">
+          <span id="sentence-icon">
+            <%- svgs ? svgs.sentence : '<!-- SVG placeholder -->' %>
+          </span>
+          <span id="sentence-text">{{Sentence}}</span>
+        </div>
+
+        <div id="pitch">
+          <span id="audio"> {{Audio}} </span>
+
+          <span id="pitch-accent" class="hidden">{{Pitch Accent}}</span>
+          <span id="pitch-accent-graph" class="hidden"
+            >{{Pitch Accent Graph}}</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div id="flashcard-info">
+      <div id="flashcard-source-info" class="flashcard-metadata">
+        <span id="source-icon" class="dynamic-icon">
+          <!-- dynamic icons are loaded with CSS, via background-image -->
+        </span>
+        <span id="source-text">{{^Source}}{{/Source}}{{Source}}</span> 
+      </div>
+
+      <div id="deck-remaining-cards-container" class="flashcard-metadata">
+        <span id="remaining-cards-icon" class="deck-icon dynamic-icon">
+           <%- svgs ? svgs.cards_remaining_outline : '<!-- SVG placeholder -->' %>
+        </span>
+        <div id="deck-progress-container">
+          <label for="deck-progress-bar">
+            <span id="deck-count">
+              <%= i18n('cardsRemainingLabel') %> <span id="remainingCards">0</span>
+            </span>
+          </label>
+          <progress id="deck-progress-bar" value="0"></progress>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# ============================================= %>
+<%# END OF VISIBLE CARD HTML STRUCTURE           %>
+<%# ============================================= %>
+
+
+<%# ============================================= %>
+<%# FOOTER SCRIPTS (Initializers, UI Logic etc.) %>
+<%# ============================================= %>
+<% footerScriptNames.forEach(scriptName => { %>
+    <% if (scripts && scripts[scriptName]) { %><script>
+      <%- scripts[scriptName] %></script><% } %>
+<% }); %>
