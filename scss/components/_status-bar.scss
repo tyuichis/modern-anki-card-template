@@ -132,6 +132,7 @@
 #undo-icon {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .nightMode {
@@ -335,8 +336,8 @@
 
 #flag-icon svg,
 #undo-icon svg {
-  width: 0.75em;
-  height: 0.75em;
+  width: 1em;
+  height: 1em;
 }
 
 // #undo-button:hover {
