@@ -294,3 +294,32 @@ code {
   font-size: var(--android-font-size-furigana);
   line-height: var(--android-line-height-furigana);
 }
+
+/* controls */
+
+/* --- Base KBD Styling --- */
+kbd {
+	display: inline-block;
+	font-size: 0.875em;
+	font-weight: 600;
+	line-height: 1;
+	padding: 0.15em 0.4em;
+	border-radius: 4px;
+	white-space: nowrap;
+	vertical-align: baseline;
+
+  // Light mode styling
+	background-color: #f1f3f5;
+	border: 1px solid #d0d7de;
+	border-bottom-color: #adb5bd;
+	color: #343a40;
+	box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.7);
+}
+
+.nightMode kbd {
+	background-color: #373a3f;
+	border: 1px solid #2d3035;
+	border-bottom-color: #1f2124;
+	color: #cdd1d7;
+	box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
