@@ -1,0 +1,164 @@
+/* ===========================
+   Japanese Mining Component
+=========================== */
+
+:root {
+  --details-metadata-gap: 1rem;
+}
+
+/* Override flashcard details metadata direction */
+#flashcard-details-info {
+  flex-flow: column;
+  align-items: start;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.cloze:has(img:only-child) ~ .cloze-inactive,
+.cloze-inactive:has(img:only-child) ~ .cloze {
+  font-size: var(--mac-font-size-headline);
+  line-height: var(--mac-line-height-headline);
+}
+
+.cloze:first-child img:only-child,
+.cloze-inactive:first-child img:only-child {
+  margin-top: 0 !important;
+}
+
+/* Pitch Section */
+/* Icon (clickable audio), Pitch Accent, Pitch Accent Graph */
+
+#pitch {
+  display: flex;
+  align-items: center;
+  gap: var(--flashcard-content-icon-text-gap);
+}
+
+#pitch,
+#sentence {
+  color: var(--light-mode-details-text-color);
+}
+
+#pitch-accent-graph ol,
+#pitch-accent ol {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+/* Sentence Section */
+
+#sentence {
+  display: flex;
+  gap: var(--flashcard-content-icon-text-gap);
+}
+
+// fix iPhone / Mobile alignment issues.
+#sentence-text {
+  display: inline;
+  text-align: left;
+}
+
+/* Icons */
+
+#sentence-icon {
+  display: flex;
+  align-items: center;
+}
+
+/* Integrated Audio Button */
+
+.playImage {
+  display: none;
+}
+
+.replay-button {
+  cursor: pointer;
+  display: inline-block;
+  // match width/height of other icons.
+  width: 1.25em;
+  height: 1.25em;
+  margin: 0; // reset default margins.
+  background-color: var(--light-mode-icon-color);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='currentColor' d='M28 51.906c13.055 0 23.906-10.828 23.906-23.906c0-13.055-10.875-23.906-23.93-23.906C14.899 4.094 4.095 14.945 4.095 28c0 13.078 10.828 23.906 23.906 23.906m-4.29-14.86c-1.077.657-2.296.142-2.296-.983V19.937c0-1.078 1.289-1.546 2.297-.96l13.172 7.804c.96.563.984 1.899 0 2.485Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='currentColor' d='M28 51.906c13.055 0 23.906-10.828 23.906-23.906c0-13.055-10.875-23.906-23.93-23.906C14.899 4.094 4.095 14.945 4.095 28c0 13.078 10.828 23.906 23.906 23.906m-4.29-14.86c-1.077.657-2.296.142-2.296-.983V19.937c0-1.078 1.289-1.546 2.297-.96l13.172 7.804c.96.563.984 1.899 0 2.485Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  transition:
+    transform 0.25s ease-out,
+    background-color 0.25s ease-out;
+  transform-origin: center;
+}
+
+.replay-button:hover {
+  transform: scale(1.15);
+  background-color: var(--label-font-color);
+}
+
+// hide external link icon, as .replay is an <a> tag.
+.replay-button::after {
+  display: none;
+}
+
+/* Image - Word cloze */
+/* Straighten and space out single image + word clozes */
+#question-text:has(.cloze-inactive img:only-child),
+#question-text:has(.cloze img:only-child) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  gap: 0; /* remove gap so our <br> makes sense to use in our card editor */
+}
+
+/* Audio + Image/Word Cloze */
+
+#question-text:has(.soundLink) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap !important; // In case multiple audio sources!.
+  // Currently at !important because question-text has a higher specificity above.
+}
+
+#question-text:has(.soundLink) .cloze {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  gap: 1rem;
+}
+
+/* JP animation */
+
+#sentence,
+#pitch {
+  opacity: 0;
+  transform: translateY(4px) scale(0.98);
+  animation: popIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.25s forwards;
+}
+
+/* Dark mode overrides */
+
+.nightMode {
+  .replay-button {
+    background-color: var(--dark-mode-icon-color);
+  }
+
+  #sentence,
+  #pitch {
+    color: var(--dark-mode-details-text-color);
+  }
+}
+
+/* Language component typography */
+
+#pitch b,
+#sentence b {
+  color: var(--label-font-color);
+}

@@ -1,0 +1,93 @@
+/* modern-anki-card-template
+Copyright (C) 2025 Tommy Yuichi Siek
+
+This file is part of modern-anki-card-template.
+Licensed under the AGPL-3.0 License.
+See the LICENSE file in the project root for details. */
+
+// Variables
+@use 'base/variables';
+
+// Base styles
+@use 'base/base';
+@use 'base/typography';
+@use 'base/accent-colors';
+@use 'base/accent-colors_accessible';
+
+// Components
+// @use 'components/controls'; unused, deprecated
+@use 'components/flashcard';
+@use 'components/icons';
+@use 'components/metadata';
+@use 'components/status-bar';
+@use 'components/language-mining';
+// @use 'components/code'; not needed for japanese.
+@use 'components/tooltip';
+
+// Layout
+@use 'layout/layout';
+
+// Platform-specific styles
+@use 'platform/android';
+@use 'platform/desktop';
+@use 'platform/ios';
+
+:root {
+  --jp-desktop-flashcard-padding: 1.75rem 2rem; // reduce top padding to fit more of the image
+  --jp-desktop-flashcard-gap: 1.5rem; // give more space between question part and pitch / sentence details
+  --jp-mobile-flashcard-gap: 1.5rem;
+}
+
+.mac,
+.win,
+.linux:not(.android) {
+  #flashcard-textbox {
+    padding: var(--jp-desktop-flashcard-padding);
+    gap: var(--jp-desktop-flashcard-gap);
+  }
+}
+
+.iphone,
+.android {
+  #flashcard-textbox {
+    gap: var(--jp-mobile-flashcard-gap);
+  }
+}
+
+.card {
+  // Use one typographic scale for JP text (for now)
+  // Generally JP text requires more generous
+  // line heights than Latin text
+
+  font-family: var(--jp-font-family) !important;
+
+  .mac body,
+  .linux:not(.android) body,
+  .win body {
+    font-size: var(--jp-font-size-body);
+    line-height: var(--jp-line-height-body);
+  }
+
+  #title {
+    font-size: var(--jp-font-size-title);
+    line-height: var(--jp-line-height-title);
+  }
+
+  #subject {
+    font-size: var(--jp-font-size-footnote);
+    line-height: var(--jp-line-height-footnote);
+  }
+
+  .flashcard-metadata {
+    font-size: var(--jp-font-size-footnote);
+    line-height: var(--jp-line-height-footnote);
+  }
+}
+
+// Add extra delay to allow the audio to finish
+// before showing the extra details
+#details,
+#sentence,
+#pitch {
+  animation-delay: 0.625s;
+}
