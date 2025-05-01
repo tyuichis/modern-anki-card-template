@@ -6,9 +6,8 @@
     "lint": "eslint . --ext .ts --fix",
     "format": "prettier --write .",
     "build:css": "npx sass --no-source-map scss/main.scss css/main.css",
-    "build:css:minimal": "npx sass --no-source-map scss/minimal.scss css/minimal.css",
     "build:css:jp": "npx sass --no-source-map scss/japanese.scss css/japanese.css",
-    "build:css:all": "npm run build:css && npm run build:css:minimal && npm run build:css:jp",
+    "build:css:all": "npm run build:css && npm run build:css:jp",
     "build:templates": "node build.js",
     "build": "npm run build:css:all && npm run build:templates"
   },
