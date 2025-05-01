@@ -28,7 +28,6 @@ def set_card_flag(card_ids: Union[int, List[int]], flag_value: int = 0) -> None:
 
     try:
         mw.col.set_user_flag_for_cards(flag_value, card_ids)
-        mw.reset()  # Refresh the interface to reflect changes
         logging.info(f"Set flag {flag_value} on cards: {card_ids}")
     except Exception as e:
         logging.error(f"Error setting flag: {e}", exc_info=True)
@@ -69,6 +68,8 @@ def on_js_message(handled: Tuple[bool, Any], js_message: str, context: Any) -> T
         (bool, Any): Tuple, indicating if the message is handled and the result.
     """
 
+    print(f"Current context: {context}")
+    
     if not isinstance(context, Reviewer):
         return handled
 
@@ -89,7 +90,7 @@ def on_js_message(handled: Tuple[bool, Any], js_message: str, context: Any) -> T
         return False, "No card in reviewer"
     logging.debug(f"Card from reviewer: {card.id}")
 
-    user_flag = card.user_flag() # since 2.1.50 userFlag -> user_flag
+    user_flag = get_card_flag(card.id)
     logging.debug(f"user_flag: {user_flag} for card {card.id}")
 
     if js_message == "go_home":
