@@ -1,19 +1,23 @@
 {
   "name": "anki_card_template",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ext .ts --fix",
     "format": "prettier --write .",
     "build:css": "npx sass --no-source-map scss/main.scss css/main.css",
     "build:css:minimal": "npx sass --no-source-map scss/minimal.scss css/minimal.css",
-    "build:all": "npm run build:css && npm run build:css:minimal"
+    "build:css:jp": "npx sass --no-source-map scss/japanese.scss css/japanese.css",
+    "build:css:all": "npm run build:css && npm run build:css:minimal && npm run build:css:jp",
+    "build:templates": "node build.js",
+    "build": "npm run build:css:all && npm run build:templates"
   },
   "keywords": [],
   "author": "Tommy Yuichi Siek tommyyuichisiek@gmail.com",
   "license": "AGPL-3.0",
   "description": "",
   "devDependencies": {
+    "ejs": "^3.1.10",
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-prettier": "^5.2.3",
