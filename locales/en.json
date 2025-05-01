@@ -1,0 +1,19 @@
+{
+  "undoButtonLabel": "Undo",
+  "undoTooltip": "Revert the last reviewed card",
+  "shortcutLabel": "Shortcut",
+  "flagButtonLabel": "Flag",
+  "flagTooltipBase": "Set card flag",
+  "flagRed": "Red",
+  "flagOrange": "Orange",
+  "flagGreen": "Green",
+  "flagBlue": "Blue",
+  "flagPink": "Pink",
+  "flagTurquoise": "Turquoise",
+  "flagPurple": "Purple",
+  "flagNone": "No Flag",
+  "untitledPlaceholder": "Untitled",
+  "noSubjectPlaceholder": "No subject",
+  "cardsRemainingLabel": "Cards remaining:",
+  "jpVocabularyLabel" : "Vocabulary"
+}
