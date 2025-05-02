@@ -9,6 +9,10 @@
    Layout (Positioning and Spacing)
 =========================== */
 
+:root {
+  --flashcard-container-max-height: 45.0625rem; // original: 43.0625rem;
+}
+
 #_flag {
   display: none;
 }
@@ -59,7 +63,7 @@ header,
   */
   width: 478.47px;
   max-width: var(--app-width);
-  max-height: 43.0625rem;
+  max-height: var(--flashcard-container-max-height);
   flex-grow: 1;
   padding: 0; /* Remove padding */
   margin: 0;
