@@ -55,11 +55,11 @@ Available colors:
             <span id="undo-icon">
               <%- svgs ? svgs.undo : '<!-- SVG placeholder -->' %>
             </span>
-            <span id="undo" data-i18n-key="undoButtonLabel"><%= i18n('undoButtonLabel') %></span>
+            <span id="undo" data-i18n-key="ui.undoButtonLabel"><%= i18n('ui.undoButtonLabel') %></span>
           </div>
           <span class="tooltip-text">
-            <span data-i18n-key="undoTooltip"><%= i18n('undoTooltip') %></span><br>
-            (<span data-i18n-key="shortcutLabel"><%= i18n('shortcutLabel') %></span>: <kbd>⌘</kbd> + <kbd>Z</kbd>)
+            <span data-i18n-key="ui.undoTooltip"><%= i18n('ui.undoTooltip') %></span><br>
+            (<span data-i18n-key="ui.shortcutLabel"><%= i18n('ui.shortcutLabel') %></span>: <kbd>⌘</kbd> + <kbd>Z</kbd>)
           </span>
         </div>
       </li>
@@ -71,11 +71,11 @@ Available colors:
               <span id="flag-icon">
                 <%- svgs ? svgs.flag_1 : '<!-- SVG placeholder -->' %>
               </span>
-              <span id="flag" data-i18n-key="flagButtonLabel"><%= i18n('flagButtonLabel') %></span>
+              <span id="flag" data-i18n-key="ui.flagButtonLabel"><%= i18n('ui.flagButtonLabel') %></span>
             </div>
             <span class="tooltip-text">
-              <span data-i18n-key="flagTooltipBase"><%= i18n('flagTooltipBase') %></span><br>
-              (<span data-i18n-key="shortcutLabel"><%= i18n('shortcutLabel') %></span>: <kbd>⌘</kbd> + <kbd>0</kbd>–<kbd>7</kbd>)
+              <span data-i18n-key="ui.flagTooltipBase"><%= i18n('ui.flagTooltipBase') %></span><br>
+              (<span data-i18n-key="ui.shortcutLabel"><%= i18n('ui.shortcutLabel') %></span>: <kbd>⌘</kbd> + <kbd>0</kbd>–<kbd>7</kbd>)
             </span>
           </div>
           <ul id="dropdown-menu" class="dropdown-content">
@@ -96,7 +96,7 @@ Available colors:
                   <span class="flag-dropdown-icon flag-<%= flag.colorClass %>">
                     <%- svgs ? (flag.value !== 0 ? svgs.flag_2 : svgs.flag_none) : '<!-- SVG placeholder -->' %>
                   </span>
-                  <span class="dropdown-text" data-i18n-key="<%= flag.key %>"><%= i18n(flag.key) %></span>
+                  <span class="dropdown-text" data-i18n-key="ui.<%= flag.key %>"><%= i18n('ui.' + flag.key) %></span>
                 </div>
               </button>
             </li>
@@ -109,20 +109,23 @@ Available colors:
 
   <div id="flashcard-container">
     <div id="flashcard-title">
-      <h1 id="title">{{^Subtopic}}<span data-i18n-key="untitledPlaceholder"><%= i18n('untitledPlaceholder') %></span>{{/Subtopic}}{{Subtopic}}</h1>
+      <h1 id="title">
+        {{^Subtopic}}<span data-i18n-key="ui.untitledPlaceholder"><%= i18n('ui.untitledPlaceholder') %></span>{{/Subtopic}}
+        <span data-field-name="Subtopic">{{Subtopic}}</span>
+      </h1>
     </div>
 
     <div id="flashcard-labels">
       <div id="deck-name-container">
         <div id="subdeck-name-container">
-          <span id="subdeck-icon" class="deck-icon dynamic-icon">
-          <!-- dynamic icons are loaded with CSS, via background-image -->
-          </span>
+          <span id="subdeck-icon" class="deck-icon dynamic-icon"></span>
+                    <!-- dynamic icons are loaded with CSS, via background-image -->
+
           <span id="deck-name">{{Subdeck}}</span>
         </div>
         <div id="flashcard-subject">
-          <span id="subject" class="subject-label">
-            {{^Topic}}<span data-i18n-key="noSubjectPlaceholder"><%= i18n('noSubjectPlaceholder') %></span>{{/Topic}}{{Topic}}
+          <span id="subject" class="subject-label" data-field-name="Topic">
+            {{^Topic}}<span data-i18n-key="ui.noSubjectPlaceholder"><%= i18n('ui.noSubjectPlaceholder') %></span>{{/Topic}}{{Topic}}
           </span>
         </div>
       </div>
@@ -131,17 +134,17 @@ Available colors:
     <div id="flashcard-content">
       <div id="flashcard-textbox">
         <div id="flashcard-question">
-          <p id="question-text" class="cloze-answer">{{cloze:Cloze Text}}</p>
+          <p id="question-text" class="cloze-answer" data-field-name="Cloze Text">{{cloze:Cloze Text}}</p>
         </div>
       </div>
     </div>
 
     <div id="flashcard-info">
       <div id="flashcard-source-info" class="flashcard-metadata">
-        <span id="source-icon" class="dynamic-icon">
+        <span id="source-icon" class="dynamic-icon"></span>
           <!-- dynamic icons are loaded with CSS, via background-image -->
-        </span>
-        <span id="source-text">{{^Source (optional)}}{{/Source (optional)}}{{Source (optional)}}</span>
+
+        <span id="source-text" data-field-name="Source (optional)">{{^Source (optional)}}{{/Source (optional)}}{{Source (optional)}}</span>
       </div>
 
       <div id="deck-remaining-cards-container" class="flashcard-metadata">
@@ -151,7 +154,7 @@ Available colors:
         <div id="deck-progress-container">
           <label for="deck-progress-bar">
             <span id="deck-count">
-              <span data-i18n-key="cardsRemainingLabel"><%= i18n('cardsRemainingLabel') %></span> <span id="remainingCards">0</span>
+              <span data-i18n-key="ui.cardsRemainingLabel"><%= i18n('ui.cardsRemainingLabel') %></span> <span id="remainingCards">0</span>
             </span>
           </label>
           <progress id="deck-progress-bar" value="0"></progress>
