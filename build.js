@@ -211,46 +211,51 @@ async function findEjsFiles(dir, baseDir) {
   return ejsFiles;
 }
 
+// --- Extracted i18n Helper Function (for Testing) ---
+// Takes the key, the full translation object for the current language,
+// the language code, and the template path (for context in warnings).
+function getTranslation(key, translations, lang, templatePathForWarning) {
+  try {
+    const keys = key.split('.');
+    let result = translations; // Start with the language-specific object
+    for (const k of keys) {
+      // Check if result is an object before trying to access property
+      if (typeof result !== 'object' || result === null) {
+        result = undefined; // Path is invalid if intermediate step isn't an object
+        break;
+      }
+      result = result[k];
+      if (result === undefined) {
+        break;
+      }
+    }
+
+    if (typeof result === 'undefined') {
+      // Use the global 'warn' function defined earlier
+      warn(
+        `  - Missing translation key "${key}" for lang "${lang}" in "${templatePathForWarning}"`,
+      );
+      return `[${key}]`;
+    }
+    return String(result);
+  } catch (e) {
+    warn(
+      `  - Error accessing translation key "${key}" for lang "${lang}" in "${templatePathForWarning}". Error: ${e.message}`,
+    );
+    return `[${key}]`;
+  }
+}
+
 // --- Build a Single Template Function ---
 async function buildTemplateForLang(lang, relativeTemplatePath, data) {
   const { templatesBaseDir, outputBaseDir } = config;
   const templatePath = path.join(templatesBaseDir, relativeTemplatePath);
   try {
-    // --- Improved i18n function ---
+    // Create a closure that captures the specific language's translations and context
     const i18n = (key) => {
-      try {
-        // Split the key by dots (e.g., "ui.undoButtonLabel" -> ["ui", "undoButtonLabel"])
-        const keys = key.split('.');
-        // Start with the full translations object for the current language
-        let result = data.translations;
-        // Traverse the object using the keys
-        for (const k of keys) {
-          // Move deeper into the object
-          result = result[k];
-          // If at any point we find undefined, the key path doesn't exist
-          if (result === undefined) {
-            break;
-          }
-        }
-
-        // If after traversing, the result is still undefined, the key is missing
-        if (typeof result === 'undefined') {
-          warn(
-            `  - Missing translation key "${key}" for lang "${lang}" in "${relativeTemplatePath}"`,
-          );
-          return `[${key}]`;
-        }
-        // Return the found translated string
-        return String(result); // Ensure it's a string
-      } catch (e) {
-        // Catch potential errors during traversal (e.g., trying to access property of non-object)
-        warn(
-          `  - Error accessing translation key "${key}" for lang "${lang}" in "${relativeTemplatePath}". Error: ${e.message}`,
-        );
-        return `[${key}]`;
-      }
+      // Calls the globally accessible getTranslation function
+      return getTranslation(key, data.translations, lang, relativeTemplatePath);
     };
-    // --- End of improved i18n function ---
 
     const templateContent = await fs.readFile(templatePath, 'utf8');
     const isBackTemplate = path
@@ -260,8 +265,10 @@ async function buildTemplateForLang(lang, relativeTemplatePath, data) {
     const footerScriptsToUse = isBackTemplate
       ? config.footerScriptNamesBack
       : config.footerScriptNamesBase;
+
+    // Pass the correctly scoped i18n function to EJS
     const ejsData = {
-      i18n,
+      i18n, // This specific i18n function now calls getTranslation
       svgs: data.svgs,
       scripts: data.scripts,
       headScriptNames: config.headScriptNames,
@@ -275,9 +282,9 @@ async function buildTemplateForLang(lang, relativeTemplatePath, data) {
     const outputDirPath = path.dirname(outputPath);
     await fs.mkdir(outputDirPath, { recursive: true });
     await fs.writeFile(outputPath, renderedHtml);
-    process.stdout.write(`Done.\n`); // Writes status WITH newline now handled correctly by sequential loop
+    process.stdout.write(`Done.\n`);
   } catch (err) {
-    process.stdout.write(`Failed.\n`); // Writes status WITH newline
+    process.stdout.write(`Failed.\n`);
     error(`\n--- Error building template ---`);
     error(`  File:     ${relativeTemplatePath}`);
     error(`  Language: ${lang}`);
@@ -327,7 +334,6 @@ async function runBuild() {
           scripts: scriptsContentCache,
         };
 
-        // --- Use sequential loop instead of Promise.all ---
         for (const relativeTemplatePath of templateFiles) {
           process.stdout.write(`  - Building ${relativeTemplatePath}... `); // Write start message (NO newline)
           await buildTemplateForLang(lang, relativeTemplatePath, langBuildData);
@@ -348,4 +354,15 @@ async function runBuild() {
 }
 
 // --- Execute the Build ---
-runBuild();
+// Check if the script is being run directly or required by another module (like Jest)
+if (require.main === module) {
+  runBuild();
+}
+
+// --- Add Exports for Testing ---
+module.exports = {
+    getTranslation,
+    // You could potentially export other functions if needed for more detailed testing
+    // config, // Export config if tests need it
+    // buildTemplateForLang // Could export this if you mock fs and ejs.render
+};
