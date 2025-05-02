@@ -1,6 +1,6 @@
 // build.test.js
 const ejs = require('ejs');
-const { getTranslation } = require('./build');
+const { getTranslation } = require('./build'); // Import the function to test
 
 // Mock data mimicking your locale structure
 const mockTranslations = {
@@ -36,6 +36,7 @@ describe('getTranslation function', () => {
   const lang = 'en';
   const templatePath = 'dummy/path.ejs'; // Context for warnings
 
+  // --- Tests that SHOULD NOT warn ---
   it('should return the correct translation for a valid nested UI key', () => {
     const result = getTranslation('ui.undoButtonLabel', mockTranslations[lang], lang, templatePath);
     expect(result).toBe('Undo');
@@ -51,49 +52,47 @@ describe('getTranslation function', () => {
     expect(result).toBe('Source (optional)');
   });
 
-  it('should return the key in brackets for a missing key', () => {
-    // Suppress console.warn for this specific test if needed
-    const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation();
-    const result = getTranslation('ui.missingKey', mockTranslations[lang], lang, templatePath);
-    expect(result).toBe('[ui.missingKey]');
-    consoleWarnSpy.mockRestore(); // Restore original console.warn
-  });
-
-   it('should return the key in brackets for an invalid path', () => {
-    const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation();
-    const result = getTranslation('ui.undoButtonLabel.invalid', mockTranslations[lang], lang, templatePath);
-    expect(result).toBe('[ui.undoButtonLabel.invalid]');
-    consoleWarnSpy.mockRestore();
-  });
-
   it('should return an empty string if the translation value is an empty string', () => {
     const result = getTranslation('ui.emptyValueKey', mockTranslations[lang], lang, templatePath);
     expect(result).toBe('');
   });
 
-  it('should return the key in brackets if the translation value is explicitly undefined', () => {
-    const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation();
-    const result = getTranslation('ui.nonExistentKey', mockTranslations[lang], lang, templatePath);
-     // Note: typeof undefined === 'undefined', so our function treats it as missing
-    expect(result).toBe('[ui.nonExistentKey]');
-    consoleWarnSpy.mockRestore();
-  });
-
-   it('should handle different languages correctly (Japanese example)', () => {
+  it('should handle different languages correctly (Japanese example)', () => {
     const langJa = 'ja';
     const result = getTranslation('ankiFields.Question', mockTranslations[langJa], langJa, templatePath);
     expect(result).toBe('質問');
   });
 
+  // --- Tests that ARE EXPECTED to warn (Wrap them) ---
+  it('should return the key in brackets for a missing key', () => {
+    const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {}); // Suppress
+    const result = getTranslation('ui.missingKey', mockTranslations[lang], lang, templatePath);
+    expect(result).toBe('[ui.missingKey]');
+    consoleWarnSpy.mockRestore(); // Restore
+  });
+
+   it('should return the key in brackets for an invalid path', () => {
+    const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {}); // Suppress
+    const result = getTranslation('ui.undoButtonLabel.invalid', mockTranslations[lang], lang, templatePath);
+    expect(result).toBe('[ui.undoButtonLabel.invalid]');
+    consoleWarnSpy.mockRestore(); // Restore
+  });
+
+  it('should return the key in brackets if the translation value is explicitly undefined', () => {
+    const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {}); // Suppress
+    const result = getTranslation('ui.nonExistentKey', mockTranslations[lang], lang, templatePath);
+    expect(result).toBe('[ui.nonExistentKey]');
+    consoleWarnSpy.mockRestore(); // Restore
+  });
+
    it('should return key in brackets if language itself is missing', () => {
      const langMissing = 'fr';
-     const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation();
+     const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {}); // Suppress
      // Pass an empty object or undefined if the language doesn't exist in mockTranslations
      const result = getTranslation('ui.undoButtonLabel', mockTranslations[langMissing] || {}, langMissing, templatePath);
      expect(result).toBe('[ui.undoButtonLabel]');
-     consoleWarnSpy.mockRestore();
+     consoleWarnSpy.mockRestore(); // Restore
    });
-
 });
 
 
@@ -104,7 +103,7 @@ describe('EJS Template Rendering', () => {
     <span id="undo" data-i18n-key="ui.undoButtonLabel"><%= i18n('ui.undoButtonLabel') %></span>
     <span id="question-label" data-field-name="Question"><%= "{{" %>^<%= i18n('ankiFields.Question') %><%="}}" + "{{"%>/<%= i18n('ankiFields.Question') %><%="}}" + "{{" + i18n('ankiFields.Question') + "}}" _%></span>
     <div class="missing-key"><%= i18n('ui.missing') %></div>
-  `;
+  `; // Includes a missing key 'ui.missing'
 
   // Mock other data needed by EJS
   const mockSvgs = { undo: '<svg>undo</svg>' };
@@ -112,9 +111,20 @@ describe('EJS Template Rendering', () => {
   const mockHeadScriptNames = ['config'];
   const mockFooterScriptNames = ['init_desktop'];
 
+  // Use beforeEach/afterEach to suppress warnings for ALL tests in this block
+  let consoleWarnSpy;
+  beforeEach(() => {
+    // Suppress console.warn before each test in this describe block
+    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  });
+  afterEach(() => {
+    // Restore console.warn after each test
+    consoleWarnSpy.mockRestore();
+  });
 
   it('should render EN template correctly', () => {
     const lang = 'en';
+    // Note: i18n function now uses the mocked console.warn via the closure
     const i18n = (key) => getTranslation(key, mockTranslations[lang], lang, 'snapshot-test.ejs');
     const ejsData = {
       i18n,
@@ -124,7 +134,7 @@ describe('EJS Template Rendering', () => {
       footerScriptNames: mockFooterScriptNames,
     };
     const renderedHtml = ejs.render(templateString, ejsData);
-    expect(renderedHtml).toMatchSnapshot();
+    expect(renderedHtml).toMatchSnapshot(); // Expects '[ui.missing]' in the output
   });
 
   it('should render JA template correctly', () => {
@@ -138,7 +148,7 @@ describe('EJS Template Rendering', () => {
       footerScriptNames: mockFooterScriptNames,
     };
     const renderedHtml = ejs.render(templateString, ejsData);
-    expect(renderedHtml).toMatchSnapshot();
+    expect(renderedHtml).toMatchSnapshot(); // Expects '[ui.missing]' in the output
   });
 
 });
