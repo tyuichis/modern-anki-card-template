@@ -167,11 +167,7 @@ Available colors:
       <div id="flashcard-source-info" class="flashcard-metadata">
         <span id="source-icon" class="dynamic-icon"></span>
           <!-- dynamic icons are loaded with CSS, via background-image -->
-          <!-- Note: Was trying to use i18n on data-field-name before, corrected to use literal key -->
-          <span id="source-text" data-field-name="Source">
-            <%= "{{" %>^<%= i18n('ankiFields.Source') %><%="}}" %> <%="{{"%>/<%= i18n('ankiFields.Source') %><%="}}" %>
-            <%= "{{" + i18n('ankiFields.Source') + "}}" %>
-          </span>
+          <span id="source-text" data-field-name="Source"><%= "{{" %>^<%= i18n('ankiFields.Source') %><%="}}" + "{{"%>/<%= i18n('ankiFields.Source') %><%="}}" + "{{" + i18n('ankiFields.Source') + "}}" _%></span>
       </div>
 
       <div id="deck-remaining-cards-container" class="flashcard-metadata">

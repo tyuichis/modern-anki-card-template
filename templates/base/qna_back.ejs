@@ -155,10 +155,7 @@ Available colors:
       <div id="flashcard-source-info" class="flashcard-metadata">
         <span id="source-icon" class="dynamic-icon"></span>
         <!-- dynamic icons are loaded with CSS, via background-image -->
-        <span id="source-text" data-field-name="Source (optional)">
-          <%= "{{" %>^<%= i18n('ankiFields.Source (optional)') %><%="}}" %> <%="{{"%>/<%= i18n('ankiFields.Source (optional)') %><%="}}" %>
-          <%= "{{" + i18n('ankiFields.Source (optional)') + "}}" %>
-        </span>
+        <span id="source-text" data-field-name="Source (optional)"><%= "{{" %>^<%= i18n('ankiFields.Source (optional)') %><%="}}" + "{{"%>/<%= i18n('ankiFields.Source (optional)') %><%="}}" + "{{" + i18n('ankiFields.Source (optional)') + "}}" _%></span>
       </div>
 
       <div id="deck-remaining-cards-container" class="flashcard-metadata">
