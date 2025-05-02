@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EJS Template Rendering should render EN template correctly 1`] = `
+"
+    <span id="undo" data-i18n-key="ui.undoButtonLabel">Undo</span>
+    <span id="question-label" data-field-name="Question">{{^Question}}{{/Question}}{{Question}}</span>
+    <div class="missing-key">[ui.missing]</div>
+  "
+`;
+
+exports[`EJS Template Rendering should render JA template correctly 1`] = `
+"
+    <span id="undo" data-i18n-key="ui.undoButtonLabel">戻す</span>
+    <span id="question-label" data-field-name="Question">{{^質問}}{{/質問}}{{質問}}</span>
+    <div class="missing-key">[ui.missing]</div>
+  "
+`;
