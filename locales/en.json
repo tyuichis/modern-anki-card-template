@@ -1,4 +1,5 @@
 {
+  "ui": {
   "undoButtonLabel": "Undo",
   "undoTooltip": "Revert the last reviewed card",
   "shortcutLabel": "Shortcut",
@@ -16,4 +17,22 @@
   "noSubjectPlaceholder": "No subject",
   "cardsRemainingLabel": "Cards remaining:",
   "jpVocabularyLabel" : "Vocabulary"
+  },
+  "ankiFields": {
+    "Topic": "Topic",
+    "Subtopic": "Subtopic",
+    "Question": "Question",
+    "Answer": "Answer",
+    "Cloze Text" : "Cloze Text",
+    "Source (optional)": "Source (optional)",
+    "Details (optional)": "Details (optional)",
+    "Source": "Source",
+    "Details": "Details",
+
+    "Word Category": "Word Category",
+    "Audio": "Audio",
+    "Pitch Accent": "Pitch Accent",
+    "Pitch Accent Graph" : "Pitch Accent Graph",
+    "Sentence": "Sentence"
+  }
 }
