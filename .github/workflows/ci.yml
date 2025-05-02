@@ -1,0 +1,50 @@
+# .github/workflows/ci.yml
+
+name: Node.js CI & Format Check
+
+on:
+  push:
+    branches: [ main ] # Runs on pushes to the main branch
+  pull_request:
+    branches: [ main ] # Runs on pull requests targeting the main branch
+
+jobs:
+  build_test_format:
+    name: Build, Test & Check Formatting
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x] # Specify Node.js version(s)
+
+    steps:
+      # 1. Checks-out your repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Sets up Node.js environment
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm' # Enable caching for npm dependencies
+
+      # 3. Installs dependencies
+      - name: Install dependencies
+        run: npm ci # Clean install using package-lock.json
+
+      # 4. Check formatting (Fail if files need formatting)
+      - name: Check formatting with Prettier
+        run: npm run format -- --check # Run prettier in check mode
+
+      # 5. Run linters (to-do, ESlint not configured)
+      # - name: Lint code with ESLint
+      #   run: npm run lint
+
+      # 6. Run tests
+      - name: Run tests with Jest
+        run: npm test
+
+      # 7. Verify build completes
+      - name: Verify build completes
+        run: npm run build
