@@ -109,7 +109,10 @@ Available colors:
 
   <div id="flashcard-container">
     <div id="flashcard-title">
-      <h1 id="title" data-field-name="Word Category">{{^Word Category}}<span data-i18n-key="ui.untitledPlaceholder"><%= i18n('ui.untitledPlaceholder') %></span>{{/Word Category}}{{Word Category}}</h1>
+      <h1 id="title" data-field-name="Word Category">
+        <%= "{{" %>^<%= i18n('ankiFields.Word Category') %><%="}}" %> <span data-i18n-key="ui.untitledPlaceholder"><%= i18n('ui.untitledPlaceholder') %></span> <%="{{"%>/<%= i18n('ankiFields.Word Category') %><%="}}" %>
+        <%= "{{" + i18n('ankiFields.Word Category') + "}}" %>
+      </h1>
     </div>
 
     <div id="flashcard-labels">
@@ -117,7 +120,7 @@ Available colors:
         <div id="subdeck-name-container">
           <span id="subdeck-icon" class="deck-icon dynamic-icon"></span>
           <!-- dynamic icons are loaded with CSS, via background-image -->
-          <span id="deck-name">{{Subdeck}}</span>
+          <span id="deck-name">{{Subdeck}}</span> <!-- Assuming Subdeck is constant -->
         </div>
         <div id="flashcard-subject">
           <span id="subject" class="subject-label" data-i18n-key="ui.jpVocabularyLabel">
@@ -130,7 +133,7 @@ Available colors:
     <div id="flashcard-content">
       <div id="flashcard-textbox">
         <div id="flashcard-question">
-          <p id="question-text" class="cloze-answer" data-field-name="Cloze Text">{{cloze:Cloze Text}}</p>
+          <p id="question-text" class="cloze-answer" data-field-name="Cloze Text"><%= "{{" %>cloze:<%= i18n('ankiFields.Cloze Text') %><%="}}" %></p>
         </div>
       </div>
     </div>
@@ -139,7 +142,10 @@ Available colors:
       <div id="flashcard-source-info" class="flashcard-metadata">
         <span id="source-icon" class="dynamic-icon"></span>
         <!-- dynamic icons are loaded with CSS, via background-image -->
-        <span id="source-text" data-field-name="Source">{{^Source}}{{/Source}}{{Source}}</span>
+        <span id="source-text" data-field-name="Source">
+          <%= "{{" %>^<%= i18n('ankiFields.Source') %><%="}}" %> <%="{{"%>/<%= i18n('ankiFields.Source') %><%="}}" %>
+          <%= "{{" + i18n('ankiFields.Source') + "}}" %>
+        </span>
       </div>
 
       <div id="deck-remaining-cards-container" class="flashcard-metadata">

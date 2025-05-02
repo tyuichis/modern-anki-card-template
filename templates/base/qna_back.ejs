@@ -110,8 +110,8 @@ Available colors:
   <div id="flashcard-container">
     <div id="flashcard-title">
       <h1 id="title">
-        {{^Subtopic}}<span data-i18n-key="ui.untitledPlaceholder"><%= i18n('ui.untitledPlaceholder') %></span>{{/Subtopic}}
-        <span data-field-name="Subtopic">{{Subtopic}}</span>
+        <%= "{{" %>^<%= i18n('ankiFields.Subtopic') %><%="}}" %> <span data-i18n-key="ui.untitledPlaceholder"><%= i18n('ui.untitledPlaceholder') %></span> <%="{{"%>/<%= i18n('ankiFields.Subtopic') %><%="}}" %>
+        <span data-field-name="Subtopic"><%= "{{" + i18n('ankiFields.Subtopic') + "}}" %></span>
       </h1>
     </div>
 
@@ -120,11 +120,12 @@ Available colors:
         <div id="subdeck-name-container">
           <span id="subdeck-icon" class="deck-icon dynamic-icon"></span>
           <!-- dynamic icons are loaded with CSS, via background-image -->
-          <span id="deck-name">{{Subdeck}}</span>
+          <span id="deck-name">{{Subdeck}}</span> <!-- Assuming Subdeck is constant -->
         </div>
         <div id="flashcard-subject">
           <span id="subject" class="subject-label" data-field-name="Topic">
-            {{^Topic}}<span data-i18n-key="ui.noSubjectPlaceholder"><%= i18n('ui.noSubjectPlaceholder') %></span>{{/Topic}}{{Topic}}
+             <%= "{{" %>^<%= i18n('ankiFields.Topic') %><%="}}" %> <span data-i18n-key="ui.noSubjectPlaceholder"><%= i18n('ui.noSubjectPlaceholder') %></span> <%="{{"%>/<%= i18n('ankiFields.Topic') %><%="}}" %>
+             <%= "{{" + i18n('ankiFields.Topic') + "}}" %>
           </span>
         </div>
       </div>
@@ -133,19 +134,19 @@ Available colors:
     <div id="flashcard-content">
       <div id="flashcard-textbox">
         <div id="flashcard-question" class="seen">
-          <p id="question-text" data-field-name="Question">{{Question}}</p>
+          <p id="question-text" data-field-name="Question"><%= "{{" + i18n('ankiFields.Question') + "}}" %></p>
         </div>
         <div id="flashcard-answer" data-field-name="Answer">
             <span id="answer-icon">
                 <%- svgs ? svgs.answer : '<!-- SVG placeholder -->' %>
             </span>
-            <p id="answer-text">{{Answer}}</p>
+            <p id="answer-text"><%= "{{" + i18n('ankiFields.Answer') + "}}" %></p>
           </div>
         <div id="details" class="hidden" data-field-name="Details (optional)">
             <span class="details-icon">
                 <%- svgs ? svgs.details : '<!-- SVG placeholder -->' %>
             </span>
-            <span id="details-text">{{Details (optional)}}</span>
+            <span id="details-text"><%= "{{" + i18n('ankiFields.Details (optional)') + "}}" %></span>
         </div>
       </div>
     </div>
@@ -154,7 +155,10 @@ Available colors:
       <div id="flashcard-source-info" class="flashcard-metadata">
         <span id="source-icon" class="dynamic-icon"></span>
         <!-- dynamic icons are loaded with CSS, via background-image -->
-        <span id="source-text" data-field-name="Source (optional)">{{^Source (optional)}}{{/Source (optional)}}{{Source (optional)}}</span>
+        <span id="source-text" data-field-name="Source (optional)">
+          <%= "{{" %>^<%= i18n('ankiFields.Source (optional)') %><%="}}" %> <%="{{"%>/<%= i18n('ankiFields.Source (optional)') %><%="}}" %>
+          <%= "{{" + i18n('ankiFields.Source (optional)') + "}}" %>
+        </span>
       </div>
 
       <div id="deck-remaining-cards-container" class="flashcard-metadata">
