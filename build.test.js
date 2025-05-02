@@ -28,7 +28,8 @@ const mockTranslations = {
       "Source (optional)": "出典 (任意)",
     }
   },
-  // Add more languages or edge cases if needed
+  // Add mock data for future languages here
+  // fr: { ... }
 };
 
 // --- Unit Tests for getTranslation ---
@@ -63,7 +64,7 @@ describe('getTranslation function', () => {
     expect(result).toBe('質問');
   });
 
-  // --- Tests that ARE EXPECTED to warn (Wrap them) ---
+  // --- Tests that ARE EXPECTED to warn (Wrap them to suppress console output) ---
   it('should return the key in brackets for a missing key', () => {
     const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {}); // Suppress
     const result = getTranslation('ui.missingKey', mockTranslations[lang], lang, templatePath);
@@ -96,22 +97,22 @@ describe('getTranslation function', () => {
 });
 
 
-// --- Snapshot Tests for EJS Rendering (Example) ---
+// --- Snapshot Tests for EJS Rendering (Refactored for Scalability) ---
 describe('EJS Template Rendering', () => {
   // Define a minimal template string for testing specific features
   const templateString = `
     <span id="undo" data-i18n-key="ui.undoButtonLabel"><%= i18n('ui.undoButtonLabel') %></span>
     <span id="question-label" data-field-name="Question"><%= "{{" %>^<%= i18n('ankiFields.Question') %><%="}}" + "{{"%>/<%= i18n('ankiFields.Question') %><%="}}" + "{{" + i18n('ankiFields.Question') + "}}" _%></span>
     <div class="missing-key"><%= i18n('ui.missing') %></div>
-  `; // Includes a missing key 'ui.missing'
+  `; // Includes a missing key 'ui.missing' which will trigger a warning internally
 
-  // Mock other data needed by EJS
+  // Mock other static data needed by EJS
   const mockSvgs = { undo: '<svg>undo</svg>' };
   const mockScripts = {}; // Assuming scripts aren't vital for this test
   const mockHeadScriptNames = ['config'];
   const mockFooterScriptNames = ['init_desktop'];
 
-  // Use beforeEach/afterEach to suppress warnings for ALL tests in this block
+  // Use beforeEach/afterEach to suppress expected warnings for ALL snapshot tests
   let consoleWarnSpy;
   beforeEach(() => {
     // Suppress console.warn before each test in this describe block
@@ -122,10 +123,20 @@ describe('EJS Template Rendering', () => {
     consoleWarnSpy.mockRestore();
   });
 
-  it('should render EN template correctly', () => {
-    const lang = 'en';
-    // Note: i18n function now uses the mocked console.warn via the closure
-    const i18n = (key) => getTranslation(key, mockTranslations[lang], lang, 'snapshot-test.ejs');
+  // Define the data for each language case
+  const languageCases = [
+    { lang: 'en', translations: mockTranslations.en, description: 'English' },
+    { lang: 'ja', translations: mockTranslations.ja, description: 'Japanese' },
+    // Add new languages here by adding their mock data above and an object here:
+    // { lang: 'fr', translations: mockTranslations.fr, description: 'French' },
+  ];
+
+  // Use it.each to run the same test logic for each language case
+  it.each(languageCases)('should render template correctly for $description ($lang)', ({ lang, translations }) => {
+    // The i18n function is created specifically for this test case's language
+    const i18n = (key) => getTranslation(key, translations, lang, 'snapshot-test.ejs');
+
+    // Assemble the EJS data for this specific language case
     const ejsData = {
       i18n,
       svgs: mockSvgs,
@@ -133,22 +144,10 @@ describe('EJS Template Rendering', () => {
       headScriptNames: mockHeadScriptNames,
       footerScriptNames: mockFooterScriptNames,
     };
-    const renderedHtml = ejs.render(templateString, ejsData);
-    expect(renderedHtml).toMatchSnapshot(); // Expects '[ui.missing]' in the output
-  });
 
-  it('should render JA template correctly', () => {
-    const lang = 'ja';
-    const i18n = (key) => getTranslation(key, mockTranslations[lang], lang, 'snapshot-test.ejs');
-     const ejsData = {
-      i18n,
-      svgs: mockSvgs,
-      scripts: mockScripts,
-      headScriptNames: mockHeadScriptNames,
-      footerScriptNames: mockFooterScriptNames,
-    };
+    // Render and assert against snapshot
     const renderedHtml = ejs.render(templateString, ejsData);
-    expect(renderedHtml).toMatchSnapshot(); // Expects '[ui.missing]' in the output
+    // Jest automatically manages separate snapshots based on the test name/parameters
+    expect(renderedHtml).toMatchSnapshot();
   });
-
 });
