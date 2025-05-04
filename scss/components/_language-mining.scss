@@ -140,6 +140,18 @@
   gap: 1rem;
 }
 
+/* Video + Word/Sentence Cloze */
+#question-text:has(video) .cloze,
+#question-text:has(video) .cloze-inactive {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  gap: 1rem;
+}
+
+
 /* JP animation */
 
 #sentence,

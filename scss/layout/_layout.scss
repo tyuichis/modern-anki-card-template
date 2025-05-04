@@ -149,6 +149,12 @@ header,
   position: relative;
 }
 
+/* Support Flashcard embedded videos, using <video> tag -- use helper Anki-add-on */
+
+video {
+  max-width: 100%;
+}
+
 /* mobile layout / fixes */
 
 /* not supported for mobile */
