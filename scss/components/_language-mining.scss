@@ -25,6 +25,12 @@
   margin-top: 0 !important;
 }
 
+/* add spacing due to furigana */
+
+.front #question-text:has(ruby) .cloze {
+  margin-bottom: 1rem;
+}
+
 /* Pitch Section */
 /* Icon (clickable audio), Pitch Accent, Pitch Accent Graph */
 
