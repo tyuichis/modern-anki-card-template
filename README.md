@@ -39,7 +39,8 @@ While many templates exist, few focus on a **native, built-in UI/UX experience**
 ## Features
 
 - 🌙🌞 **Dark and Light Mode**
-- 🌍 Multi-language UI localisation (English, 日本語...)  
+- 🌍 **Multi-language UI** localisation (English, 日本語...)
+- 🍡 **Yomitan compatible** cloze templates for **Japanese Vocabulary**
 - 🔤 **Native Typography**  
   - 🖋️ System fonts  
   - 📱🖥️ Platform-specific typographic scale (iOS, Android, Desktop)  
