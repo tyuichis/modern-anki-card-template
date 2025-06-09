@@ -198,7 +198,7 @@
 
 /* CLOZE TEXT */
 .cloze-answer .cloze {
-  display: inline-block;
+  display: inline;
   opacity: 0;
   filter: brightness(0.85);
   transform: translateY(2px); /* Tiny lift */
