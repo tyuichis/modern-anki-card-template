@@ -185,6 +185,20 @@
   }
 }
 
+@keyframes fadeInSmoothCloze {
+  from {
+    opacity: 0;
+    filter: brightness(0.85);
+    top: 2px; 
+  }
+  to {
+    opacity: 1;
+    filter: brightness(1);
+    top: 0;
+  }
+}
+
+
 @keyframes popIn {
   from {
     opacity: 0;
@@ -199,10 +213,10 @@
 /* CLOZE TEXT */
 .cloze-answer .cloze {
   display: inline;
+  position: relative;
   opacity: 0;
   filter: brightness(0.85);
-  transform: translateY(2px); /* Tiny lift */
-  animation: fadeInSmooth 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: fadeInSmoothCloze 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* DETAIL BLOCK */
