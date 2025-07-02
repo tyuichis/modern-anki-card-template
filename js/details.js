@@ -1,35 +1,42 @@
 // --- Reveal Flashcard Details ---
 
+// Helper function to check if an element has meaningful content
+function hasContent(element) {
+  if (!element) return false;
+  
+  // Check for text content
+  if (element.textContent.trim() !== '') return true;
+  
+  // Check for content elements like images, audio, video, etc.
+  const contentSelectors = 'img, audio, video, canvas, svg, iframe, object, embed';
+  return !!element.querySelector(contentSelectors);
+}
+
 function showDetails() {
   detailsText = document.querySelector('#details-text');
   detailsContainer = document.querySelector('#details');
 
-  if (detailsText.textContent.trim()) {
+  if (hasContent(detailsText)) {
     detailsContainer.classList.remove('hidden');
   }
 
-  // Check if #sentence-text has text content
+  // Check if #sentence-text has content
   sentenceText = document.querySelector('#sentence-text');
-  if (sentenceText && sentenceText.textContent.trim() !== '') {
+  if (hasContent(sentenceText)) {
     document.querySelector('#sentence')?.classList.remove('hidden');
   }
 
-  // Check if #pitch-accent has text content or children
+  // Check if #pitch-accent has content
   pitchAccent = document.querySelector('#pitch-accent');
-  const hasPitchAccent =
-    pitchAccent &&
-    (pitchAccent.textContent.trim() !== '' || pitchAccent.children.length > 0);
+  const hasPitchAccent = hasContent(pitchAccent);
 
   if (hasPitchAccent) {
     pitchAccent.classList.remove('hidden');
   }
 
-  // Check if #pitch-accent-graph has text content or children
+  // Check if #pitch-accent-graph has content
   pitchAccentGraph = document.querySelector('#pitch-accent-graph');
-  const hasPitchAccentGraph =
-    pitchAccentGraph &&
-    (pitchAccentGraph.textContent.trim() !== '' ||
-      pitchAccentGraph.children.length > 0);
+  const hasPitchAccentGraph = hasContent(pitchAccentGraph);
 
   if (hasPitchAccentGraph) {
     pitchAccentGraph.classList.remove('hidden');
