@@ -127,6 +127,34 @@ html,
   flex-flow: row wrap;
 }
 
+/* typographic layout fixes */
+
+/* for some reason, ul/ol lists are created next to the parent element where they were inserted
+  for example, <p>{{Answer}}</p> isn't:
+
+  <p> <ol> </ol> </p>
+
+  instead, we get:
+
+  <p></p>
+  <ol></ol>
+
+  even though we created the list inside of the answer field in anki.
+  
+  this might be intentional, else i might have to fix this again if anki makes a change.
+*/
+
+#flashcard-answer {
+   #answer-text:empty + ul,
+   #answer-text:empty + ol {
+    margin-top: 0;
+   }
+
+   ul, ol {
+    padding-left: 1em;
+   }
+}
+
 /* flashcard pictures */
 
 #flashcard-textbox img {
