@@ -85,6 +85,11 @@
   }
 }
 
+/* Bold out the number part to increase scanability */
+#remainingCards {
+  font-weight: 700;
+}
+
 // #flashcard-source-info:has(#source-text:empty) path {
 //   fill: var(--light-mode-empty-text-color);
 // }

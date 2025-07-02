@@ -71,6 +71,8 @@
   --light-mode-flag-purple: #7a5edc;
   --dark-mode-flag-default: #cccccc;
   --light-mode-flag-default: #666666;
+
+  --status-button-icon-gap: 0.5625em;
 }
 
 .nightMode {
@@ -93,14 +95,15 @@
 
 /* align the icon and text */
 #undo-button,
-#flag-button {
+#flag-button,
+button#toggle {
   justify-content: center;
   display: flex;
   height: fit-content;
   flex-flow: nowrap;
   // padding: 0.25em 0.4em 0.25em 0.4em;
   box-sizing: border-box;
-  gap: 0.5625em;
+  gap: var(--status-button-icon-gap);
 }
 
 /* Note, Undo doesn't use this button style, as it creates misalignment, and they serve two different actions.*/
@@ -324,7 +327,8 @@
 }
 
 #flag-button-container,
-#undo-button {
+#undo-button,
+button#toggle {
   padding: 3px 9px;
   background: white;
   border: 1px solid #e0e0e0;
@@ -413,6 +417,11 @@
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: auto;
+}
+
+/* hide tooltip when dropdown menu is present */
+#flag-button:has(.show) .tooltip-text {
+    display: none;
 }
 
 /* Add "active" circle when Flag drop down menu appears. */
