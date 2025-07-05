@@ -10,32 +10,38 @@
 =========================== */
 
 :root {
-  --dark-mode-yellow-progress-background: #e6ac1f;
-  --light-mode-yellow-progress-background: #ffb224;
+  --dark-mode-progress-background: #3a3a3a;
+  --light-mode-progress-background: #e0e0e0;
 
-  --dark-mode-red-progress-background: #e05252;
-  --light-mode-red-progress-background: #e84c55;
+  --dark-mode-default-progress-value-background: #a0a0a0; // or #b0b0b0
+  --light-mode-default-progress-value-background: #555555; // or #aaaaaa
 
-  --dark-mode-blue-progress-background: #5a9fd0;
-  --light-mode-blue-progress-background: #4286f5;
+  --dark-mode-yellow-progress-value-background: #e6ac1f;
+  --light-mode-yellow-progress-value-background: #ffb224;
 
-  --dark-mode-green-progress-background: #3dbb7d;
-  --light-mode-green-progress-background: #46aa3f;
+  --dark-mode-red-progress-value-background: #e05252;
+  --light-mode-red-progress-value-background: #e84c55;
 
-  --dark-mode-orange-progress-background: #e58a0a;
-  --light-mode-orange-progress-background: #f07427;
+  --dark-mode-blue-progress-value-background: #5a9fd0;
+  --light-mode-blue-progress-value-background: #4286f5;
 
-  --dark-mode-pink-progress-background: #e26c9b;
-  --light-mode-pink-progress-background: #e73c7e;
+  --dark-mode-green-progress-value-background: #3dbb7d;
+  --light-mode-green-progress-value-background: #46aa3f;
 
-  --dark-mode-turquoise-progress-background: #2fc9ba;
-  --light-mode-turquoise-progress-background: #20b8b0;
+  --dark-mode-orange-progress-value-background: #e58a0a;
+  --light-mode-orange-progress-value-background: #f07427;
 
-  --dark-mode-purple-progress-background: #9a82c8;
-  --light-mode-purple-progress-background: #8859dd;
+  --dark-mode-pink-progress-value-background: #e26c9b;
+  --light-mode-pink-progress-value-background: #e73c7e;
 
-  --dark-mode-default-progress-background: #a0a0a0;
-  --light-mode-default-progress-background: #555555;
+  --dark-mode-turquoise-progress-value-background: #2fc9ba;
+  --light-mode-turquoise-progress-value-background: #20b8b0;
+
+  --dark-mode-purple-progress-value-background: #9a82c8;
+  --light-mode-purple-progress-value-background: #8859dd;
+
+  --dark-mode-custom-progress-value-background: #8DE303;
+  --light-mode-custom-progress-value-background: #6BB002;
 }
 
 /* Flashcard metadata container */
@@ -181,13 +187,13 @@ progress::-webkit-progress-value {
 }
 
 progress::-webkit-progress-bar {
-  background: #e0e0e0;
+  background: var(--light-mode-progress-background);
   // background: #dfe3e8;
   // box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 progress::-webkit-progress-value {
-  background: #b0b0b0;
+  background: var(--light-mode-default-progress-value-background);
   box-shadow: none;
 }
 
@@ -195,11 +201,11 @@ progress::-webkit-progress-value {
   &::-webkit-progress-bar {
     // background: #313131;
     // box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-    background: #3a3a3a;
+    background: var(--dark-mode-progress-background);
   }
 
   &::-webkit-progress-value {
-    background: #aaaaaa;
+    background: var(--dark-mode-default-progress-value-background);
     box-shadow: none;
   }
 }
@@ -208,10 +214,22 @@ progress::-webkit-progress-value {
   'purple', 'default'
 {
   .accent-#{$name} progress::-webkit-progress-value {
-    background: var(--light-mode-#{$name}-progress-background);
+    background: var(--light-mode-#{$name}-progress-value-background);
   }
 
   .nightMode .accent-#{$name} progress::-webkit-progress-value {
-    background: var(--dark-mode-#{$name}-progress-background);
+    background: var(--dark-mode-#{$name}-progress-value-background);
+  }
+}
+
+// use a custom color for the progress bar if smart coloring is turned on.
+
+.accent-smart progress::-webkit-progress-value {
+  background: var(--light-mode-custom-progress-value-background);
+}
+
+.nightMode .accent-smart progress {
+  &::-webkit-progress-value {
+    background: var(--dark-mode-custom-progress-value-background);
   }
 }
