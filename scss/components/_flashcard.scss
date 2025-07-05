@@ -115,22 +115,12 @@
   align-items: center;
 }
 
-/* center text if user is using only img cloze + text */
-.cloze:has(img:only-child) ~ .cloze-inactive,
-.cloze-inactive:has(img:only-child) ~ .cloze {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center; /* This will center the text */
-}
 
-#question-text:has(img ~ .cloze),
-#question-text:has(.cloze ~ img) {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+// make text centered
+// #question-text {
+//     text-align: center;
+//     display: block;
+// }
 
 /* focus on answer on question-answer cards */
 // .nightMode {
@@ -211,7 +201,7 @@
 }
 
 /* CLOZE TEXT */
-.cloze-answer .cloze {
+.card .cloze {
   display: inline;
   position: relative;
   opacity: 0;
