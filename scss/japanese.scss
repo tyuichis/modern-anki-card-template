@@ -23,6 +23,7 @@ See the LICENSE file in the project root for details. */
 @use 'components/language-mining';
 // @use 'components/code'; not needed for japanese.
 @use 'components/tooltip';
+@use 'components/tables';
 
 // Layout
 @use 'layout/layout';

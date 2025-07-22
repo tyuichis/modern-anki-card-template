@@ -1,0 +1,106 @@
+/* table typography */
+
+.android {
+  th, td {
+    font-family: var(--md-ref-typeface-plain);
+    font-size: var(--md-typescale-body-medium-size);
+    line-height: var(--md-typescale-body-medium-line-height);
+    font-weight: var(--md-typescale-body-medium-weight);
+    letter-spacing: var(--md-typescale-body-medium-tracking);
+  }
+  
+  th {
+    font-size: var(--md-typescale-title-small-size);
+    line-height: var(--md-typescale-title-small-line-height);
+    font-weight: var(--md-typescale-title-small-weight);
+    letter-spacing: var(--md-typescale-title-small-tracking);
+  }
+}
+
+.iphone {
+  th, td {
+    font-family: var(--ios-font-family);
+    font-size: var(--ios-font-size-body);
+    line-height: var(--ios-line-height-body);
+  }
+  
+  th {
+    font-size: var(--ios-font-size-callout);
+    line-height: var(--ios-line-height-callout);
+    font-weight: 600;
+  }
+}
+
+.mac, .win, .linux:not(.android) {
+  th, td {
+    font-family: var(--system-font-family);
+    font-size: var(--mac-font-size-body);
+    line-height: var(--mac-line-height-body);
+  }
+  
+  th {
+    font-size: var(--mac-font-size-callout);
+    line-height: var(--mac-line-height-callout);
+    font-weight: 600;
+  }
+}
+
+/* table layout */
+
+:root {
+  --light-mode-table-cell-border-color: #D9D9D9;
+  --dark-mode-table-cell-border-color: #424242;
+}
+
+table {
+  border-collapse: collapse;
+  font-variant-numeric: lining-nums tabular-nums;
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+tr:has(th) {
+    border-bottom: 1px solid var(--light-mode-table-cell-border-color);
+}
+
+
+tr:not(:first-child) {
+    border-bottom: 0.3px solid var(--light-mode-table-cell-border-color);
+}
+
+tr:last-child {
+  border-bottom: none;
+}
+
+.nightMode {
+  tr:has(th) {
+      border-bottom: 1px solid var(--dark-mode-table-cell-border-color);
+  }
+
+
+  tr:not(:first-child) {
+      border-bottom: 0.3px solid var(--dark-mode-table-cell-border-color);
+  }
+
+  tr:last-child {
+  border-bottom: none;
+  }
+}
+
+th {
+  text-align: left;
+  padding-bottom: 1em;
+}
+
+th, td {
+    padding-right: 1em;
+    // base padding: .125rem .25rem;
+}
+
+td {
+    padding-top: 0.45em;
+}
+
+th:last-child {
+    padding-right: 0;
+}
