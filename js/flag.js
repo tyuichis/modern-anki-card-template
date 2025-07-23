@@ -120,6 +120,11 @@ async function setFlagLabels() {
     await getFlagLabels();
   }
 
+  // getFlagLabels can return an empty object, so in that case, only run when we successfully fetched.
+  if (!globalThis.flagLabels || Object.keys(globalThis.flagLabels).length === 0) {
+    return;
+  }
+
   // 2. Select flag elements in the DOM. Happens on every flip, since DOM references are stale. At least it's fast.
     for (let id = 1; id < 8; id++ ) {
       const element = document.querySelector(
