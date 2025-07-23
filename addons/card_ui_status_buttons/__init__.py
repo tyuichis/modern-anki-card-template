@@ -8,9 +8,9 @@
 from aqt import mw, gui_hooks
 from aqt.reviewer import Reviewer
 import logging
-from typing import List, Union, Optional, Tuple, Any
+from typing import List, Union, Optional, Tuple, Any, Dict
 
-logging.basicConfig(level=logging.DEBUG)  # Set basic logging, adjust level as needed
+logging.basicConfig(level=logging.DEBUG)
 
 def set_card_flag(card_ids: Union[int, List[int]], flag_value: int = 0) -> None:
     """Sets a flag on one or more cards.
@@ -55,6 +55,28 @@ def get_card_flag(card_id: Optional[int] = None) -> Optional[int]:
     except Exception as e:
       logging.error(f"Error getting card flag: {e}", exc_info=True)
       return None
+    
+def get_all_flag_labels_as_dict() -> Dict[str, str]:
+    """
+    Gets all flag labels and returns them as a dictionary.
+
+    Returns:
+        A dictionary mapping the flag ID (as a string "1"-"7") to its label.
+        e.g., {"1": "Red", "2": "Orange", ...}
+    """
+    try:
+        # get flags
+        all_flags = mw.flags.all()
+        
+        # parse flags and create a dictionary, i.e.:
+        # { <id> : <flag.label>, ... }
+
+        labels_dict = {str(flag.index): flag.label for flag in all_flags}
+
+        return labels_dict
+    except Exception as e:
+        logging.error(f"Error retrieving all flag labels: {e}", exc_info=True)
+        return {}
 
 def on_js_message(handled: Tuple[bool, Any], js_message: str, context: Any) -> Tuple[bool, Any]:
     """Handles messages from the webview.
@@ -73,6 +95,10 @@ def on_js_message(handled: Tuple[bool, Any], js_message: str, context: Any) -> T
     if not isinstance(context, Reviewer):
         return handled
 
+    if js_message == "get_all_flag_labels":
+        labels = get_all_flag_labels_as_dict()
+        return True, labels
+
     COMMANDS = {
         "go_home",
         "undo_card",
@@ -83,6 +109,8 @@ def on_js_message(handled: Tuple[bool, Any], js_message: str, context: Any) -> T
 
     if js_message not in COMMANDS and not js_message.startswith("set_flag_"):
         return handled
+
+    # Check if we're on a card
 
     card = mw.reviewer.card
     if not card:
@@ -118,7 +146,7 @@ def on_js_message(handled: Tuple[bool, Any], js_message: str, context: Any) -> T
         else:
             logging.warning("No card to answer.")
             return False, "No card to answer"
-
+        
     if js_message == "fail_card":
         if mw.reviewer.state == "answer":
             try:
@@ -160,7 +188,7 @@ def on_js_message(handled: Tuple[bool, Any], js_message: str, context: Any) -> T
         except Exception as e:
             logging.error(f"Error setting flag: {e}", exc_info=True)
             return False, f"Error: {str(e)}"
-
+    
     return handled  # Return handled if not processed
 
 gui_hooks.webview_did_receive_js_message.append(on_js_message)

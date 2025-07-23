@@ -90,3 +90,47 @@ async function updateFlag() {
     setFlagDisplay(0); // Default to unflagged on error
   }
 }
+
+
+async function getFlagLabels() {
+  try {
+    console.log("Fetching custom flag labels from the backend...");
+
+    const labels = await new Promise((resolve) => 
+      pycmd("get_all_flag_labels", resolve)
+    );
+
+    if (!labels || typeof labels !== 'object') {
+      console.warn("No valid flag labels returned from backend. Using default labels.");
+      globalThis.flagLabels = {};
+      return;
+    }
+    
+    globalThis.flagLabels = labels;
+
+  } catch (error) {
+    console.error("Failed to fetch flag dropdown labels:", error);
+    globalThis.flagLabels = {};
+  }
+}
+
+async function setFlagLabels() {
+  // 1. Get labels from backend
+  if (!globalThis.flagLabels) {
+    await getFlagLabels();
+  }
+
+  // 2. Select flag elements in the DOM. Happens on every flip, since DOM references are stale. At least it's fast.
+    for (let id = 1; id < 8; id++ ) {
+      const element = document.querySelector(
+        `.dropdown-button[value="${id}"] .dropdown-text`
+      );
+
+      // 3. Set flag labels to our custom label (set via Anki Deck Browser screen)
+
+      // if globalThis.flagLabels[id] exists, then change it. Otherwise, it'll default to the template string
+      if (element && globalThis.flagLabels[id]) {
+        element.textContent = globalThis.flagLabels[id];
+      }
+  }
+}
