@@ -39,6 +39,8 @@ if (!isMobile) {
 
   updateFlag(); // update on page reload. updates the visual state of the flag.
 
+  setFlagLabels(); // update on page reload. updates the flag label to the user's custom label set via Anki's Browser screen
+
   if (!flagButton) flagButton = document.getElementById('flag-button');
 
   dropdownMenu = document.getElementById('dropdown-menu');
